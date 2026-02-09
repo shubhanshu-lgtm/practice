@@ -1,0 +1,286 @@
+All steps
+Step 1 → Lead (Client Registration)
+Step 2 → Services (Requirement & Ownership)
+Step 3 → Proposal (Commercials)
+Step 4 → Closure (Acceptance, Billing & Handover)
+
+
+STEP1- Lead (Client Registration)
+
+
+Create single source of truth for:
+Enquiry
+
+
+Customer
+
+
+Contacts
+
+
+Addresses
+✅ What to KEEP (Good as-is)
+✔ Enquiry ID (auto)
+ ✔ Customer de-duplication
+ ✔ Multiple addresses & contacts
+ ✔ Audit fields
+
+🔧 Improvements I Recommend
+1️⃣ Split Step 1 Internally (UI only)
+Use sub-tabs inside Step 1:
+[ Enquiry Info ] → [ Company ] → [ Addresses ] → [ Contacts ]
+
+This avoids a long scrolling form and improves UX.
+
+2️⃣ Add “Lead Confidence” (Optional but Powerful)
+Add a simple field:
+Lead Quality
+Cold
+
+
+Warm
+
+
+Hot
+
+
+👉 This helps sales prioritization and dashboards.
+
+3️⃣ Save as Draft (VERY IMPORTANT)
+Allow saving Step 1 without completing everything.
+Status:
+Draft → New Lead
+
+
+🧠 Backend Tip
+Create these tables:
+enquiry
+
+
+customer
+
+
+customer_address
+
+
+customer_contact
+STEP2 - Services (Requirement & Ownership)
+
+
+Purpose
+Capture:
+What the client wants
+
+
+Who owns the lead
+
+
+Follow-up history
+✅ What to KEEP
+✔ Multi-service selection
+ ✔ Lead owner
+ ✔ Lead status lifecycle
+ ✔ Follow-ups timeline
+🔧 Improvements I Recommend
+1️⃣ Freeze Step 1 After Step 2
+Once services are added:
+Lock Customer Name & ID
+
+
+Allow only address/contact additions
+
+
+This prevents data inconsistency.
+
+2️⃣ Auto-Create “Opportunity”
+Behind the scenes:
+Enquiry + Services = Opportunity
+
+
+You don’t need a separate screen—just a concept.
+
+3️⃣ Simplify Lead Status (Recommended)
+Instead of many statuses, use phase-based status:
+Phase
+Status
+Lead
+New, Contacted
+Services
+Requirement Confirmed
+Proposal
+Proposal Submitted
+Closure
+Awarded / Lost
+
+Cleaner reporting.
+
+🧠 Backend Tip
+Tables:
+enquiry_service
+
+
+follow_up
+
+
+users (lead owner)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STEP3 -Proposal (Commercials)
+
+
+🎯 Purpose
+All money-related data stays here:
+Pricing
+
+
+Payment terms
+
+
+Tax
+
+
+Documents
+✅ What to KEEP
+✔ Service-wise pricing
+ ✔ Payment milestones
+ ✔ GST logic
+ ✔ Proposal versioning
+ ✔ Auto status update
+🔧 Improvements I Recommend
+1️⃣ Proposal = Versioned Entity (MANDATORY)
+Structure like:
+Proposal
+ ├── Proposal Header
+ ├── Proposal Version (V1, V2, V3)
+ └── Proposal Line Items
+
+Never overwrite a proposal.
+
+2️⃣ Lock Proposal on Submit
+Once submitted:
+Pricing becomes read-only
+
+
+New version required for changes
+
+
+This avoids disputes.
+
+3️⃣ Show “Proposal Summary Card”
+At top of Step 3:
+Customer | Currency | Total Amount | Valid Till | Version
+
+This improves clarity for users.
+
+🧠 Backend Tip
+Tables:
+proposal
+
+
+proposal_version
+
+
+proposal_service
+
+
+proposal_payment_term
+
+
+proposal_document
+
+
+
+
+
+
+
+
+
+
+
+
+STEP4 - Closure (Acceptance, Billing & Handover)
+🎯 Purpose
+Finalize:
+Legal acceptance
+
+
+Billing details
+
+
+Delivery handover
+
+
+This is a point of no return.
+
+✅ What to KEEP
+✔ PO upload
+ ✔ Billing address logic
+ ✔ Service → Accounts mapping
+ ✔ Auto AWARDED status
+🔧 Improvements I Recommend
+1️⃣ Partial Award Support (Strongly Recommended)
+Allow:
+Award Service A
+
+
+Keep Service B pending
+
+
+Real clients do this often.
+
+2️⃣ Invoice Readiness Flag
+Add:
+ Ready for Invoicing ✅ / ❌
+The accounts team only sees ready items.
+
+3️⃣ Auto Create Project Record
+On Award:
+Project ID
+
+
+Assigned department
+
+
+Start date
+
+
+No manual steps.
+
+🧠 Backend Tip
+Tables:
+award
+
+
+billing_detail
+
+
+invoice_queue
+
+
+project
+
+
+
+FINAL SIMPLIFIED FLOW
+
+Create Lead (Draft)
+   ↓
+Confirm Services
+   ↓
+Submit Proposal (Versioned)
+   ↓
+Accept Proposal → Award → Project → Invoice
+

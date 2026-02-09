@@ -1,0 +1,203 @@
+3. Proposal Acceptance – Detailed Form Specification
+1️⃣ Purpose of This Section
+This section confirms that:
+The client has accepted the proposal
+Commercial & billing details are finalized
+Services are handed over to delivery + accounts
+Lead is converted to AWARDED
+Data becomes the source of truth for invoicing & project setup
+This section should be strictly controlled and auditable.
+
+2️⃣ Form Access Rules (IMPORTANT)
+Visible only when Lead Status = PROPOSAL SUBMITTED
+Editable only by:
+Sales
+Sales Manager
+Finance (billing fields)
+Read-only after invoice creation
+
+3️⃣ Form Structure (Recommended UI)
+Use 4 accordion sections:
+Award Details
+Billing Details
+Invoicing & Department Assignment
+Documents & Notes
+
+A. Award Details
+1. Enquiry ID / Proposal Reference
+Field Type: Read-only (Auto)
+Source: Proposal module
+Purpose: Traceability
+Editable: ❌ No
+
+2. Date of Award
+Field Type: Date Picker
+Mandatory: ✅ Yes
+Validation:
+Cannot be earlier than Proposal Date
+Cannot be future date (configurable)
+
+3. PO Number
+Field Type: Text
+Mandatory: ❌ Optional (Mandatory if client issues PO)
+Max Length: 50
+Validation: Unique per customer (recommended)
+Conditional Rule:
+If PO Required = Yes → Mandatory
+
+4. Upload Accepted Proposal / PO
+Field Type: File Upload
+Mandatory: ✅ Yes
+Accepted Files: PDF, DOCX
+Purpose: Legal & audit evidence
+Max Size: Configurable (e.g. 10MB)
+
+B. Billing Details
+5. Billing Name Same as Customer?
+Field Type: Radio Button (Yes / No)
+Mandatory: ✅ Yes
+Default: Yes
+
+6. Bill-To Details (Conditional – If NO)
+Bill-To Company Name
+Type: Text
+Mandatory: ✅ Yes
+Bill-To Address
+Type: Address Group
+Fields:
+Address Line 1 (Mandatory)
+Address Line 2
+City (Mandatory)
+State
+Country (Mandatory)
+Postal Code
+
+GST Details (India Only)
+Visible If:
+Billing Country = India
+Fields:
+GSTIN (15 chars, validated)
+GST Type (CGST/SGST/IGST)
+Mandatory: ✅ Yes for India billing
+
+7. Billing Submission Email IDs
+Field Type: Multi-email input
+Mandatory: ✅ Yes
+Validation: Email format
+Example:
+accounts@client.com, finance@client.com
+
+
+
+8. Billing Contact Person
+Fields:
+Name (Mandatory)
+Email (Mandatory)
+Phone (Optional)
+Purpose: Invoice follow-up
+
+C. Invoicing & Department Assignment
+9. Bill to be Raised From
+Field Type: Dropdown
+Mandatory: ✅ Yes
+Source: Location / Legal Entity Master
+Options:
+INTERCERT INC
+INTERCERT NOIDA
+INTERCERT BLR
+INTERCERT SOUTH AFRICA
+Logic:
+Must match proposal currency & tax rules
+
+10. Invoice To Be Raised For (Service Selection)
+Field Type: Multi-select (Checkbox list)
+Mandatory: ✅ Yes
+Source: Proposal service lines
+Purpose: Send selected services to Accounts
+Validation: At least one service must be selected
+
+11. Assign Project Department
+Field Type: Dropdown
+Mandatory: ✅ Yes
+Options:
+GRC
+VAPT
+Training
+PCI
+MSC Noida
+MSC BLR
+Automation:
+Default based on service
+Manual override allowed
+
+D. Notes & Internal Remarks
+12. Notes
+Field Type: Textarea
+Mandatory: ❌ Optional
+Max Length: 500
+Visibility: Internal only
+
+4️⃣ Mandatory System Automation (CRITICAL)
+Lead Status Update
+On successful save + document upload:
+Lead Status → AWARDED
+
+User cannot override
+Timestamp + user stored
+
+5️⃣ Downstream Auto-Actions (Recommended)
+Action
+Trigger
+Create Project Record
+On Award
+Notify Accounts Team
+Service selection
+Lock Proposal
+On Award
+Create Invoice Draft
+Optional
+Start SLA Clock
+Award Date
+
+
+6️⃣ Validation Rules Summary
+❌ Cannot submit without accepted proposal/PO
+❌ Billing details mandatory
+❌ GST mandatory for India billing
+❌ At least one service selected for invoicing
+❌ Award date mandatory
+❌ Lead status auto-change enforced
+
+7️⃣ Sample API Payload
+{
+  "enquiryId": "IS/26/01/15/01",
+  "proposalRef": "PROP/IS/26/01/15/01/01",
+  "awardDate": "2026-01-20",
+  "poNumber": "PO-45877",
+  "billing": {
+    "sameAsCustomer": false,
+    "companyName": "ABC Finance Pvt Ltd",
+    "address": {
+      "city": "Mumbai",
+      "country": "India"
+    },
+    "gstin": "27ABCDE1234F1Z5",
+    "emails": ["accounts@abc.com"]
+  },
+  "billFrom": "INTERCERT_NOIDA",
+  "invoiceServices": ["VAPT", "ISO27001"],
+  "department": "GRC",
+  "status": "AWARDED"
+}
+
+
+8️⃣ Suggested Improvements (Strongly Recommended)
+✔ Partial Award Support
+Award selected services only
+Others stay in proposal
+✔ Advance Payment Tracking
+Capture % / amount received
+✔ Multi-PO Support
+One PO per service
+✔ Finance Approval
+Before invoice creation

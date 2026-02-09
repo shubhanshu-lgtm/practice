@@ -1,0 +1,482 @@
+Sidebar Concept (Single Source of Truth)
+Sidebar:
+Lead
+Service
+Proposal
+Closure
+
+Each tab has:
+A Listing Page
+An Add / Create action
+But 🔑 everything is linked by Enquiry ID.
+
+2️⃣ LEAD TAB – How It Works
+2.1 Clicking Lead → Lead Listing Page
+UI Layout
+Top bar:
+[ + Add Lead ]   [ Search ]   [ Filters ]
+
+Table (Lead Master)
+Enquiry ID
+Company Name
+Source
+Owner
+Status
+Created On
+Action
+IS/26/01/15/01
+ABC Tech
+Website
+Shivam
+New
+15-Jan-26
+View
+
+✔ This table shows ALL leads
+✔ Status shows where the lead is in lifecycle
+
+2.2 Clicking Add Lead → Popup (Modal)
+You already defined this well.
+Popup Contains:
+Enquiry Info
+Customer Info
+Address
+Contacts
+Business Info
+Footer Buttons
+[ Clear ]   [ Save ]
+
+On Save:
+✔ Lead is created
+✔ Enquiry ID auto-generated
+✔ Lead Status = NEW
+✔ Popup closes
+✔ Lead appears immediately in Lead list
+👉 That’s it. No redirection needed.
+
+3️⃣ SERVICE TAB – How It Works
+Now comes the important part.
+
+3.1 Clicking Service → Service Listing Page
+Purpose
+Show:
+Which companies have services added
+Service ownership
+Current phase
+UI Layout
+Top bar:
+[ + Add Service ]   [ Search by Enquiry ID / Company ]
+
+
+Table: Service Overview (NOT Lead Master)
+Enquiry ID
+Company Name
+Services
+Department
+Lead Owner
+Status
+Action
+IS/26/01/15/01
+ABC Tech
+VAPT, ISO27001
+GRC,
+VAPT
+Shivam
+Requirement Confirmed
+View
+
+✔ This table shows only leads that reached Service stage
+✔ Not all leads appear here — only those with services
+
+3.2 Clicking Add Service → Add Service Screen / Modal
+
+
+✅ Recommended Way: Enquiry-Driven Service Creation
+Step 1: Select Enquiry ID
+Field:
+Enquiry ID (Searchable Dropdown)
+
+Behavior:
+Search by Enquiry ID / Company Name
+Shows only:
+Leads with Status = NEW or SERVICES
+On selection:
+Auto-fill:
+Company Name (read-only)
+Customer ID
+Primary Contact
+
+Step 2: Service Selection
+Service Requirement (Multi-select)
+Department
+
+Example:
+VAPT
+ISO 27001
+SOC 2
+✔ Multiple services allowed
+✔ No duplicates
+
+Step 3: Deliverables per Service (IMPORTANT)
+For each selected service, show a card:
+Service Card: VAPT
+Deliverables:
+☑ Vulnerability Report
+☑ Executive Summary
+☑ Retest Report
+
+Timeline:
+Start Date
+End Date
+
+This is critical because:
+Proposal depends on deliverables
+Delivery team depends on timeline
+
+Step 4: Ownership & Status
+Lead Owner (Dropdown)
+Service Status
+
+Recommended Service Status:
+Requirement Confirmed
+In Progress
+On Hold
+
+Step 5: Follow-Up Timeline (Optional but powerful)
+Follow-up Date
+Follow-up Type (Call / Email)
+Remarks
+Next Follow-up Date
+
+✔ Multiple follow-ups
+✔ Sorted latest first
+
+Submit Button
+[ Save as Draft ]   [ Submit Services ]
+
+
+3.3 On Submit Service
+System actions:
+✔ Services saved
+✔ Lead Status auto-updates to SERVICES
+✔ Entry appears in Service List table
+✔ Lead basic info gets locked
+Locked fields:
+Customer Name
+Customer ID
+Source
+
+4️⃣ How Lead & Service Tabs Are CONNECTED
+This is the key architectural rule:
+Module
+What it controls
+Lead
+Who the client is
+Service
+What the client wants
+Proposal
+How much & terms
+Closure
+Billing & delivery
+
+Data Flow
+Lead (Enquiry ID)
+   ↓
+Service (Services + Deliverables + Timeline)
+   ↓
+Proposal (Amount per service)
+   ↓
+Closure (Invoice & Award)
+
+👉 Everything hangs from Enquiry ID
+
+5️⃣ Improvements I Strongly Recommend
+1️⃣ Don’t show ALL companies in Service tab
+Only show:
+Leads where at least one service is added
+This keeps the Service list clean.
+
+2️⃣ Allow Service Drafts
+Use draft when:
+Services discussed but not confirmed
+Deliverables unclear
+Draft rules:
+Visible only to creator
+Not counted as active service
+
+3️⃣ Prevent Service Without Lead
+No direct “Add Service” without selecting Enquiry ID.
+
+4️⃣ Timeline per Service = Huge Win
+You’re thinking correctly here.
+This enables:
+Project planning
+SLA tracking
+Delivery handover
+
+6️⃣ Final Mental Model (Simple)
+For users:
+“First I register the client,
+then I select what they want,
+then I quote,
+then I close.”
+For system:
+One Enquiry ID → many services → one proposal → one closure.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+✅ STEP 3 – Proposal
+✅ STEP 4 – Closure
+Exactly aligned with:
+Your sidebar flow
+Your list + add modal pattern
+Role-based behavior
+Draft support
+Service → Proposal → Closure linkage
+No over-engineering, no theory — this is real CRM/ERP design.
+
+🔹 STEP 3 – PROPOSAL
+Purpose (Business Meaning)
+Answer only ONE question:
+How much will we charge, for which services, under what terms?
+Proposal must be:
+Linked to Services
+Versioned
+Auditable
+Auto-controlled (status updates)
+
+3.1 Clicking Proposal → Proposal Listing Page
+UI Layout
+Top bar:
+[ + Add Proposal ]   [ Search Enquiry / Company ]   [ Filters ]
+
+
+Proposal Listing Table
+Proposal Ref
+Enquiry ID
+Company
+Services
+Amount
+Status
+Version
+Action
+PROP/…/01
+IS/26/01/15/01
+ABC Tech
+VAPT, ISO
+₹2,95,000
+Submitted
+V1
+View
+
+✔ One enquiry can have multiple proposals (versions)
+✔ Only latest version is “Active”
+
+3.2 Clicking Add Proposal → Proposal Creation Screen
+Step 1: Select Enquiry ID
+Enquiry ID (Searchable Dropdown)
+
+Rules:
+Shows only:
+Leads with Service Status = Requirement Confirmed
+On selection → auto-load:
+Company Name
+Services
+Deliverables
+Timelines
+🚫 Cannot create proposal without services
+
+Step 2: Proposal Header
+Proposal Reference (Auto)
+Proposal Date
+Proposal Version (Auto: V1, V2…)
+Proposal Submitted By (Entity)
+Validity Date
+
+✔ Proposal Reference example:
+PROP/IS/26/01/15/01/V1
+
+
+Step 3: Service Pricing Table (CORE)
+This table is auto-generated from Service step.
+Service
+Deliverables
+Timeline
+Amount
+Currency
+Discount
+Net
+
+✔ Service name locked
+✔ Deliverables visible (read-only)
+✔ Timeline visible
+
+Step 4: Payment Terms (Per Service)
+For each service:
+Milestone | % | Trigger
+
+Validation:
+Total % = 100
+Cannot submit otherwise
+
+Step 5: Tax & Summary
+Auto logic:
+INR + India Entity → GST
+Other currency → No GST
+Display:
+Subtotal
+Tax
+Grand Total
+
+
+Step 6: Upload Proposal Docs
+Mandatory:
+Proposal document (PDF/DOC)
+Optional:
+Annexure
+NDA
+SOW
+
+Need to generate proposal doc
+
+Step 7: Save / Submit
+Buttons:
+[clear ]   [ Submit Proposal ]
+
+On Submit (System Enforced)
+✔ Proposal Status → SUBMITTED
+✔ Lead Status → PROPOSAL
+✔ Proposal Version locked
+✔ Older versions archived
+
+🔒 Draft Rules (Proposal)
+Use draft when:
+Pricing discussion ongoing
+Waiting for approvals
+Draft behavior:
+Editable
+Invisible to Closure
+No status change
+
+
+
+🔹 STEP 4 – CLOSURE
+Purpose (Business Meaning)
+Answer ONE question:
+Has the client accepted, and can we invoice & deliver?
+This is high-risk → needs strict rules.
+
+4.1 Clicking Closure → Closure Listing Page
+Closure Listing Table
+Enquiry ID
+Proposal Ref
+Company
+Award Date
+Bill From
+Status
+Action
+IS/26/01/15/01
+PROP/…/V1
+ABC Tech
+20-Jan-26
+Intercert Noida
+Awarded
+View
+
+✔ Only proposals with status = SUBMITTED appear here.
+
+4.2 Clicking Add Closure / View Proposal → Closure Form
+Access Rules (IMPORTANT)
+Visible only if:
+Proposal Status = SUBMITTED
+
+Editable by:
+Sales
+Finance (billing section)
+
+Step 1: Award Details
+Proposal Reference (Read-only)
+Award Date
+PO Number (Optional)
+Upload Accepted Proposal / PO
+
+Validation:
+Award date ≥ proposal date
+Document mandatory
+
+Step 2: Billing Details
+Billing Same as Customer? (Yes / No)
+
+If NO → show:
+Billing Name
+Address
+GSTIN (India)
+
+Step 3: Invoice Preparation
+Bill From (Entity)
+Invoice For (Select Services)
+Assign Project Department
+
+✔ Partial award allowed
+✔ Services not selected remain “Open”
+
+Step 4: Notes & Confirmation
+Internal notes only.
+
+Submit Closure
+Buttons:
+[ Save as Draft ]   [ Confirm Award ]
+
+
+On Confirm Award (System Action)
+✔ Lead Status → AWARDED
+✔ Proposal locked
+✔ Invoice draft created (optional)
+✔ Project record created
+✔ SLA timer starts
+
+🔒 Draft Rules (Closure)
+Draft used when:
+PO received but billing unclear
+Waiting for finance confirmation
+Draft behavior:
+No invoice created
+No status change
+
+🔄 End-to-End Lifecycle (Simple)
+Lead (Client Created)
+   ↓
+Service (Requirements Confirmed)
+   ↓
+Proposal (Commercials Submitted)
+   ↓
+Closure (Awarded / Lost)
+
+
+🎯 Key Improvements I Recommend (Final)
+✔ Status Simplification (You chose correctly)
+No cluttered statuses.
+✔ Draft Everywhere
+Draft saves your team in real life.
+✔ Everything Driven by Enquiry ID
+No confusion. No duplication.

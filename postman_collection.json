@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "e2f8c6a0-1b2c-4d3e-8f4a-5b6c7d8e9f0a",
+		"name": "Intercert Master Management API",
+		"description": "Collection for testing Master Management API, including Auth and User Management.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login (Admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.status === 'success') {",
+									"    pm.environment.set(\"accessToken\", jsonData.data.token);",
+									"    pm.environment.set(\"refreshToken\", jsonData.data.refreshToken);",
+									"    pm.test(\"Login Successful\", function () {",
+									"        pm.response.to.have.status(201);",
+									"    });",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "devicetype",
+								"value": "WEB",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identity\": \"shubhanshu@intercert.com\",\n    \"password\": \"Pass@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login with default admin credentials to get access token."
+					},
+					"response": []
+				},
+				{
+					"name": "Google Login (Start)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/google",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"google"
+							]
+						},
+						"description": "Initiates Google OAuth flow. This should be opened in a browser."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@gmail.com\",\n    \"mobileNumber\": \"1234567890\",\n    \"roleName\": \"User\",\n    \"user_group\": \"User\",\n    \"password\": \"User@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/user/add-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"add-user"
+							]
+						},
+						"description": "Create a new user. The email should be a valid Google email if you want to test Google Sign-In for this user."
+					},
+					"response": []
+				},
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/user/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8090",
+			"type": "string"
+		}
+	]
+}
