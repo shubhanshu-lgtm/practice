@@ -83,7 +83,7 @@ async function bootstrap() {
     }),
   );
 
-  const port = parseInt(process.env.SALES_PORT || '8091', 10);
+  const port = parseInt(process.env.SALES_MANAGEMENT_PORT || '8091', 10);
   await app.listen(port);
 
   // Log application status
