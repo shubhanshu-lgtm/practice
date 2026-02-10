@@ -83,7 +83,7 @@ async function bootstrap() {
     }),
   );
 
-  const port = parseInt(process.env.MASTER_MANAGEMENT_PORT || '8090', 10);
+  const port = parseInt(process.env.MASTER_MANAGEMENT_PORT || '8094', 10);
   await app.listen(port);
 
   // Log application status
