@@ -1,4 +1,4 @@
-import { USER_DEPARTMENTS, USER_GROUP } from "../../constants/autenticationConstants/userContants";
+import { USER_GROUP } from "../../constants/autenticationConstants/userContants";
 import { ERROR_CODES, ErrorMessages, TOKEN_TYPE } from "../../constants/commonConstants";
 
 export interface JWTPayload
@@ -10,7 +10,7 @@ export interface JWTPayload
     permissionId: number,
     sessionId: number,
     user_group: USER_GROUP,
-    department?: USER_DEPARTMENTS,
+    department?: string,
     modules?: (number | string)[],
     tokenType: TOKEN_TYPE
 }

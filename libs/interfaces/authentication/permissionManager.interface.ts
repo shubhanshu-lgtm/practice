@@ -1,5 +1,5 @@
 import { MODULES, PERMISSIONS } from "../../constants/autenticationConstants/permissionManagerConstants";
-import { USER_ACCOUNT_STATUS, DEFAULT_USER_ROLES, USER_GROUP } from "../../constants/autenticationConstants/userContants";
+import { USER_ACCOUNT_STATUS, USER_GROUP } from "../../constants/autenticationConstants/userContants";
 import { User } from "../../database/src/entities/user.entity";
 import { IPagination } from "../commonTypes/custom.interface";
 

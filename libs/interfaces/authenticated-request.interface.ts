@@ -1,12 +1,11 @@
 import { Request } from 'express';
 import { User } from '../../libs/database/src';
 import { USER_GROUP } from '../constants/autenticationConstants/userContants';
-import { USER_DEPARTMENTS } from '../../libs/constants/autenticationConstants/userContants';
 
 export interface AuthenticatedRequest extends Request {
     user: User;
     user_group: USER_GROUP;
-    department: USER_DEPARTMENTS;
+    department: string;
     permissionId: number;
     permission: any;
 }

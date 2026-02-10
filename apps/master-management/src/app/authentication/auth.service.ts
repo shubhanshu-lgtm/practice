@@ -102,21 +102,39 @@ export class AuthService {
     }
 
     async validateGoogleUser(googleUser: GoogleUser) {
-        const { email, picture } = googleUser;
+        const { email, picture, name } = googleUser;
         
-        const user = await this.userRepository.findOne({ 
-            where: { email },
+        let user = await this.userRepository.findOne({ 
+            where: { email: email.toLowerCase() },
             relations: ['permission', 'modules', 'departments']
         });
 
         if (!user) {
-            throw new UnauthorizedException('User not found in our records. Please contact admin for pre-registration.');
-        }
-
-        // Update user profile from Google if needed
-        if (!user.avatar && picture) {
-            user.avatar = picture;
-            await this.userRepository.save(user);
+            if (email.endsWith('@intercert.com')) {
+                console.log('User not found in database, auto-creating for intercert.com domain:', email);
+                const defaultPassword = "Intercert@GoogleAuth"; 
+                const hashedPassword = await bcrypt.hash(defaultPassword, 10);
+                
+                user = await this.userRepository.save({
+                   name: name || email.split('@')[0],
+                   email: email.toLowerCase(),
+                   password: hashedPassword,
+                   roleName: USER_GROUP.SUPER_ADMIN,
+                   user_group: USER_GROUP.SUPER_ADMIN,
+                   status: USER_ACCOUNT_STATUS.ACTIVE,
+                   verifyStatus: USER_VERIFY_STATUS.VERIFIED,
+                   loginSource: USER_LOGIN_SOURCE.GOOGLE,
+                   avatar: picture
+                });
+            } else {
+                throw new UnauthorizedException('User not found in our records. Please contact admin for pre-registration.');
+            }
+        } else {
+             // Update user profile from Google if needed
+            if (picture && user.avatar !== picture) {
+                user.avatar = picture;
+                await this.userRepository.save(user);
+            }
         }
 
         return this.generateAuthResponse(user, DEVICE_TYPE.WEB);

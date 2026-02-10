@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { USER_ACCOUNT_STATUS, DEFAULT_USER_ROLES, USER_VERIFY_STATUS, USER_GROUP, USER_LOGIN_SOURCE } from '../../../../../../libs/constants/autenticationConstants/userContants';
+import { USER_ACCOUNT_STATUS, USER_VERIFY_STATUS, USER_GROUP, USER_LOGIN_SOURCE } from '../../../../../../libs/constants/autenticationConstants/userContants';
 import { UserRepository } from '../../../../../../libs/database/src/repositories/user.repository';
 import { PermissionManagerRepository } from '../../../../../../libs/database/src/repositories/permissionManager.repository';
 import { UserI } from '../../../../../../libs/interfaces/authentication/user.interface';
@@ -8,7 +8,7 @@ import { generatePasswordHash } from '../../../../../../libs/utils/bcryptUtil';
 const defaultUser = {
   email: 'shubhanshu@intercert.com',
   password: 'Pass@123',
-  userRole: DEFAULT_USER_ROLES.SUPER_ADMIN,
+  userRole: 'SUPER_ADMIN',
   name: 'Shubhanshu Kumar',
 };
 

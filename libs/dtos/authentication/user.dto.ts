@@ -1,5 +1,5 @@
 import { IsString, IsEmail, IsNumber, Min, Max, Matches, IsOptional, IsNotEmpty, MinLength, IsEnum, isEmail, IsInt, IsBoolean, ValidateIf, Length } from 'class-validator';
-import { DEFAULT_USER_ROLES, LOGIN_BY, USER_ACCOUNT_STATUS, USER_CASTE_CATEGORY, USER_GROUP } from '../../constants/autenticationConstants/userContants';
+import { LOGIN_BY, USER_ACCOUNT_STATUS, USER_GROUP } from '../../constants/autenticationConstants/userContants';
 import { DEVICE_TYPE } from '../../constants/commonConstants';
 import { Type } from 'class-transformer';
 
@@ -89,8 +89,8 @@ export class LoginOrRegisterDto {
 }
 
 export class AddUpdateRolesAndPermissions {
-  @IsEnum(DEFAULT_USER_ROLES)
-  roleName: DEFAULT_USER_ROLES;
+  @IsString()
+  roleName: string;
 
   @IsEnum(USER_GROUP)
   user_group: USER_GROUP

@@ -1,4 +1,4 @@
-import { DEFAULT_USER_ROLES, USER_ACCOUNT_STATUS, USER_GROUP, USER_LOGIN_SOURCE, USER_VERIFY_STATUS } from "../../constants/autenticationConstants/userContants";
+import { USER_ACCOUNT_STATUS, USER_GROUP, USER_LOGIN_SOURCE, USER_VERIFY_STATUS } from "../../constants/autenticationConstants/userContants";
 import { IPagination } from "../commonTypes/custom.interface";
 
 export declare namespace UserI {
@@ -163,7 +163,7 @@ export declare namespace UserI {
     {
         name: string,
         email: string,
-        userRole: DEFAULT_USER_ROLES,
+        userRole: string,
         roleId: string,
     }
 

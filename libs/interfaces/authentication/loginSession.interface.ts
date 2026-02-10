@@ -1,5 +1,5 @@
 import { DEVICE_TYPE } from "../../constants/commonConstants";
-import { LOGIN_BY, SESSION_STATUS, USER_DEPARTMENTS, USER_GROUP } from "../../constants/autenticationConstants/userContants"
+import { LOGIN_BY, SESSION_STATUS, USER_GROUP } from "../../constants/autenticationConstants/userContants"
 
 export declare namespace LoginSessionI
 {
@@ -37,7 +37,7 @@ export declare namespace LoginSessionI
         roleName?: string;
         permissionId?: number;
         user_group?: USER_GROUP;
-        department?: USER_DEPARTMENTS;
+        department?: string;
         modules?: number[];
         fcmToken?:string;
         deviceType?:DEVICE_TYPE;

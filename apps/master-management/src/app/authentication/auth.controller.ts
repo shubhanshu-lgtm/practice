@@ -57,18 +57,12 @@ export class AuthController {
       const googleUser = req.user;
       console.log('Google user info: >>>>>>>>>>>>kkkk', googleUser);
       const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
-      if (!googleUser.email || !googleUser.email.endsWith('@intercert.com')) {
-        return res.redirect(`${frontendUrl}/login?error=unauthorized_email`);
-      }
 
       const result = await this.authService.validateGoogleUser(googleUser);
       return res.redirect(`${frontendUrl}/auth-callback?token=${result.data.token}`);
 
-      // Set httpOnly cookie
-      // res.cookie('jwt', jwtToken, {
-      //   httpOnly: false,
-      //   secure: true,
     } catch (err) {
+      console.error('Google login error:', err);
       const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
       return res.redirect(`${frontendUrl}/login?error=login_failed`);
     }
