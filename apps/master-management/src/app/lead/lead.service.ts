@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like, Repository, In } from 'typeorm';
+import { Like, Repository, In, Between } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -30,9 +30,28 @@ export class LeadService {
     private readonly leadServiceEntityRepository: Repository<LeadServiceEntity>,
   ) {}
 
+  private async generateEnquiryId(): Promise<string> {
+    const today = new Date();
+    const yy = today.getFullYear().toString().slice(-2);
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const todayEnd = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+
+    const count = await this.leadRepository.count({
+      where: {
+        createdAt: Between(todayStart, todayEnd),
+      },
+    });
+
+    const sequence = String(count + 1).padStart(2, '0');
+    return `IS/${yy}/${mm}/${dd}/${sequence}`;
+  }
+
   async createLead(payload: CreateLeadDto): Promise<Lead> {
     try {
-      const enquiryId = `ENQ-${Date.now()}`;
+      const enquiryId = await this.generateEnquiryId();
       
       let customer: Customer = null;
       if (payload.customerId) {

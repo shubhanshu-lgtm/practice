@@ -1,6 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import "reflect-metadata";
 import { Customer } from "./customer.entity";
+import { ADDRESS_TYPE } from "libs/constants/autenticationConstants/userContants";
 
 @Entity('customeraddress')
 export class CustomerAddress {
@@ -28,8 +29,11 @@ export class CustomerAddress {
   @Column({ nullable: true })
   postalCode: string
 
-  @Column({ nullable: true })
-  addressType: string
+  @Column({ type: 'enum', enum: ADDRESS_TYPE, nullable: true })
+  addressType: ADDRESS_TYPE
+
+  @Column({ default: false })
+  isPrimary: boolean
 
   @ManyToOne(() => Customer, (customer) => customer.addresses)
   @JoinColumn({ name: 'customerId' })

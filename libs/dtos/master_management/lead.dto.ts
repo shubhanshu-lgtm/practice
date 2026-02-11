@@ -1,6 +1,7 @@
 import { Type } from 'class-transformer';
 import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber } from 'class-validator';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../constants/salesConstants';
+import { ADDRESS_TYPE } from '../../../libs/constants/autenticationConstants/userContants';
 
 export class CreateCustomerDto {
   @IsString()
@@ -42,8 +43,12 @@ export class CreateCustomerAddressDto {
   postalCode?: string;
 
   @IsOptional()
-  @IsString()
-  addressType?: string;
+  @IsEnum(ADDRESS_TYPE)
+  addressType?: ADDRESS_TYPE;
+
+  @IsOptional()
+  @IsBoolean()
+  isPrimary?: boolean;
 }
 
 export class CreateCustomerContactDto {
