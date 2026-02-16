@@ -122,7 +122,7 @@ export class DBModule {
                 Project,
                 ServiceMaster
             ],
-            synchronize: true,
+            synchronize: false,
             //dropSchema: true,
             logging: false,
             migrationsRun: false
