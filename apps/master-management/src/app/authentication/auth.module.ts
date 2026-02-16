@@ -1,7 +1,7 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PassportModule } from '@nestjs/passport';
-import { User, LoginSession, PermissionManager, Department, SystemModule } from '../../../../../libs/database/src';
+import { User, LoginSession, PermissionManager, Department, SystemModule, DBModule, LoginSessionRepository } from '../../../../../libs/database/src';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { GoogleStrategy } from './strategies/google.strategy';
@@ -14,6 +14,7 @@ import { PermissionManagerRepository } from '../../../../../libs/database/src/re
 
 @Module({
   imports: [
+    DBModule.forRoot(),
     TypeOrmModule.forFeature([User, LoginSession, PermissionManager, Department, SystemModule]),
     PassportModule.register({ defaultStrategy: 'google' }),
     ResponseHandlerModule,
@@ -27,8 +28,9 @@ import { PermissionManagerRepository } from '../../../../../libs/database/src/re
     DefaultUserService,
     UserRepository,
     PermissionManagerRepository,
+    LoginSessionRepository,
   ],
-  exports: [AuthService, JwtAuthGuard],
+  exports: [AuthService, JwtAuthGuard, DefaultUserService, UserRepository, PermissionManagerRepository, LoginSessionRepository],
 })
 export class AuthModule implements OnModuleInit {
   constructor(private readonly defaultUserService: DefaultUserService) {}

@@ -1,10 +1,9 @@
 import { IsString, IsEmail, IsIn, IsNumber, IsOptional, IsNotEmpty } from 'class-validator';
-import { DEFAULT_USER_ROLES, USER_GROUP } from '../../constants/autenticationConstants/userContants';
+import { USER_GROUP } from '../../constants/autenticationConstants/userContants';
 
 export class GetUserListDto {
   @IsOptional()
   @IsString()
-  @IsIn(Object.values(DEFAULT_USER_ROLES))
   userRole: string;
 
   @IsOptional()

@@ -91,12 +91,14 @@ export class LeadRepository {
 
     // Create addresses
     if (dto.addresses && dto.addresses.length > 0) {
-      const addresses = dto.addresses.map((address) =>
-        this.leadAddressRepo.create({
-          ...address,
+      const addresses = dto.addresses.map((address) => {
+        const { addressType, ...rest } = address;
+        return this.leadAddressRepo.create({
+          ...rest,
+          addressType: addressType as any,
           leadId: Number(savedLead.id),
-        }),
-      );
+        });
+      });
       await this.leadAddressRepo.save(addresses);
     }
 
@@ -156,33 +158,36 @@ export class LeadRepository {
    * Update lead enquiry
    */
   async updateLead(id: string, dto: UpdateLeadEnquiryDto, updatedById: number): Promise<LeadEnquiry> {  
+    const { contacts, addresses, ...updateData } = dto;
     await this.leadEnquiryRepo.update(id, {
-      ...dto,
+      ...updateData,
       updatedById,
     });
 
     // Update contacts if provided
-    if (dto.contacts && dto.contacts.length > 0) {
+    if (contacts && contacts.length > 0) {
       await this.leadContactRepo.delete({ leadId: Number(id) });
-      const contacts = dto.contacts.map((contact) =>
+      const contactEntities = contacts.map((contact) =>
         this.leadContactRepo.create({
           ...contact,
           leadId: Number(id),
         }),
       );
-      await this.leadContactRepo.save(contacts);
+      await this.leadContactRepo.save(contactEntities);
     }
 
     // Update addresses if provided
-    if (dto.addresses && dto.addresses.length > 0) {
+    if (addresses && addresses.length > 0) {
       await this.leadAddressRepo.delete({ leadId: Number(id) });
-      const addresses = dto.addresses.map((address) =>
-        this.leadAddressRepo.create({
-          ...address,
+      const addressEntities = addresses.map((address) => {
+        const { addressType, ...rest } = address;
+        return this.leadAddressRepo.create({
+          ...rest,
+          addressType: addressType as any,
           leadId: Number(id),
-        }),
-      );
-      await this.leadAddressRepo.save(addresses);
+        });
+      });
+      await this.leadAddressRepo.save(addressEntities);
     }
 
     return this.getLeadById(id);

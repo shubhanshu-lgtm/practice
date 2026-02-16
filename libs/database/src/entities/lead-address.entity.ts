@@ -1,15 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import 'reflect-metadata';
-import { LeadEnquiry } from './lead-enquiry.entity';
+import { Lead } from './lead.entity';
+import { ADDRESS_TYPE } from '../../../constants/autenticationConstants/userContants';
 
 @Entity('lead_address')
 export class LeadAddress {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => LeadEnquiry, (lead) => lead.addresses, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Lead, (lead) => lead.addresses, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'leadId' })
-  lead: LeadEnquiry;
+  lead: Lead;
 
   @Column()
   leadId: number;
@@ -32,8 +33,11 @@ export class LeadAddress {
   @Column({ type: 'varchar', length: 20, nullable: true })
   postalCode: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
-  addressType: string; // Head Office, Branch, Billing, Shipping
+  @Column({ type: 'enum', enum: ADDRESS_TYPE, nullable: true })
+  addressType: ADDRESS_TYPE;
+
+  @Column({ default: false })
+  isPrimary: boolean;
 
   @CreateDateColumn()
   createdAt: Date;

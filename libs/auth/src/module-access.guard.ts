@@ -15,7 +15,7 @@ export class ModuleAccessGuard implements CanActivate {
     if (!requiredModule) return true;
 
     const req = context.switchToHttp().getRequest();
-    if (req.user_group === USER_GROUP.SUPER_ADMIN) return true;
+    if ([USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(req.user_group)) return true;
 
     const modules = req.modules || [];
     if (!modules || modules.length === 0) {

@@ -1,21 +1,21 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import 'reflect-metadata';
-import { LeadEnquiry } from './lead-enquiry.entity';
+import { Lead } from './lead.entity';
 
 @Entity('lead_contact')
 export class LeadContact {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => LeadEnquiry, (lead) => lead.contacts, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Lead, (lead) => lead.contacts, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'leadId' })
-  lead: LeadEnquiry;
+  lead: Lead;
 
   @Column()
   leadId: number;
 
   @Column({ type: 'varchar', length: 100 })
-  contactName: string;
+  name: string;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
   designation: string;
@@ -24,7 +24,10 @@ export class LeadContact {
   email: string;
 
   @Column({ type: 'varchar', length: 20 })
-  phone: string; // Includes country code
+  phoneNo: string;
+
+  @Column({ type: 'varchar', length: 10 })
+  countryCode: string;
 
   @Column({ default: false })
   isPrimary: boolean;

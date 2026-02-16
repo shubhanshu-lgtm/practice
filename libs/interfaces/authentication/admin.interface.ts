@@ -1,10 +1,10 @@
-import { DEFAULT_USER_ROLES, USER_ACCOUNT_STATUS, USER_GROUP } from "../../constants/autenticationConstants/userContants"
+import { USER_ACCOUNT_STATUS, USER_GROUP } from "../../constants/autenticationConstants/userContants"
 import { IPagination } from "../commonTypes/custom.interface"
 
 export declare namespace AdminI {
     interface GetUsers extends IPagination 
     {
-        userRole?: DEFAULT_USER_ROLES,
+        userRole?: string,
         user_group?: USER_GROUP,
         sortBy?: {
             "Registered On": "ASC" | "DESC",

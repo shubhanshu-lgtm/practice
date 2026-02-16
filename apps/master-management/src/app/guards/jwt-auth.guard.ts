@@ -7,7 +7,7 @@ import {
 import * as jwt from 'jsonwebtoken';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User, LoginSession } from '../../../../../libs/database/src';
+import { User, LoginSession, PermissionManager } from '../../../../../libs/database/src';
 import { JWTPayload } from '../../../../../libs/interfaces/authentication/jwtPayload.interface';
 
 @Injectable()
@@ -17,6 +17,8 @@ export class JwtAuthGuard implements CanActivate {
     private readonly userRepository: Repository<User>,
     @InjectRepository(LoginSession)
     private readonly loginSessionRepository: Repository<LoginSession>,
+    @InjectRepository(PermissionManager)
+    private readonly permissionRepository: Repository<PermissionManager>,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -77,6 +79,18 @@ export class JwtAuthGuard implements CanActivate {
         request.session = loginSession;
       } else {
         console.warn('Login session not found in DB, but JWT is valid. Proceeding for Postman/Dev compatibility.');
+      }
+
+      // Fallback for missing permissions: If user has no permission assigned, try to find a group-level permission
+      if (!user.permission) {
+        console.log(`User ${user.email} has no permission assigned. Looking for group-level permission for: ${decoded.user_group}`);
+        const groupPermission = await this.permissionRepository.findOne({
+          where: { user_group: decoded.user_group as any }
+        });
+        if (groupPermission) {
+          console.log(`Found group-level permission (ID: ${groupPermission.id}) for user group: ${decoded.user_group}`);
+          user.permission = groupPermission;
+        }
       }
 
       // Attach user, user_group, department, and permission to request object

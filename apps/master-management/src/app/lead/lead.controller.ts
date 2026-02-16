@@ -1,13 +1,14 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UsePipes, ValidationPipe, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UsePipes, ValidationPipe, UseGuards, Req } from '@nestjs/common';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { JwtAuthGuard, ModuleAccessGuard, ModuleAccess } from '../../../../../libs/auth/src';
 import { PermissionAccessGuard } from '../../../../../libs/auth/src/permission-access.guard';
 import { PermissionAccess } from '../../../../../libs/auth/src/permission-access.decorator';
 import { SYSTEM_MODULE_CODES } from '../../../../../libs/constants/moduleConstants';
 import { PERMISSIONS } from '../../../../../libs/constants/autenticationConstants/permissionManagerConstants';
+import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 
 @Controller('leads')
 @UseGuards(JwtAuthGuard, ModuleAccessGuard, PermissionAccessGuard)
@@ -43,9 +44,10 @@ export class LeadController {
 
   @Post()
   @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.ADD)
-  async createLead(@Res() res: Response, @Body() payload: CreateLeadDto) {
+  async createLead(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreateLeadDto) {
     try {
-      const lead = await this.leadService.createLead(payload);
+      const userId = req.user?.id;
+      const lead = await this.leadService.createLead(payload, userId);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead created successfully', data: lead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
@@ -106,6 +108,44 @@ export class LeadController {
     try {
       const lead = await this.leadService.updateLead(id, payload);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead updated successfully', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post(':id/services')
+  @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.UPDATE)
+  async assignServicesToLead(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: { serviceIds: number[] },
+  ) {
+    try {
+      const lead = await this.leadService.assignServices(id, payload.serviceIds);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Services assigned to lead successfully', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post('permissions')
+  @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.ADD)
+  async createPermission(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreatePermissionDto) {
+    try {
+      const actor = req.user;
+      const permission = await this.leadService.createPermission(payload, actor.id);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Permission created successfully', data: permission });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('permissions/list')
+  @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.READ)
+  async getPermissions(@Res() res: Response, @Query() query: GetPermissionDto) {
+    try {
+      const permissions = await this.leadService.getPermissions(query);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Permissions fetched successfully', data: permissions });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }

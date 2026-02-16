@@ -338,3 +338,13 @@ export class SimpleEmployeeDto {
     name?: string;
 }
 
+export class DeleteIntercertUserDto {
+    @IsEmail()
+    @IsNotEmpty()
+    email: string;
+
+    @IsOptional()
+    @IsBoolean()
+    hard?: boolean;
+}
+

@@ -1,7 +1,56 @@
 import { Type } from 'class-transformer';
-import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber } from 'class-validator';
+import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber, IsObject } from 'class-validator';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../constants/salesConstants';
-import { ADDRESS_TYPE } from '../../../libs/constants/autenticationConstants/userContants';
+import { ADDRESS_TYPE, USER_GROUP } from '../../../libs/constants/autenticationConstants/userContants';
+import { PERMISSIONS } from '../../constants/autenticationConstants/permissionManagerConstants';
+
+export class PermissionActionDto {
+  @IsBoolean()
+  [PERMISSIONS.ADD]: boolean;
+
+  @IsBoolean()
+  [PERMISSIONS.READ]: boolean;
+
+  @IsBoolean()
+  [PERMISSIONS.UPDATE]: boolean;
+
+  @IsBoolean()
+  [PERMISSIONS.DELETE]: boolean;
+}
+
+export class PermissionModuleDto {
+  @IsNumber()
+  module: number;
+
+  @IsObject()
+  @ValidateNested()
+  @Type(() => PermissionActionDto)
+  action: PermissionActionDto;
+}
+
+export class CreatePermissionDto {
+  @IsString()
+  @IsNotEmpty()
+  roleName: string;
+
+  @IsEnum(USER_GROUP)
+  user_group: USER_GROUP;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => PermissionModuleDto)
+  permissions: PermissionModuleDto[];
+}
+
+export class GetPermissionDto {
+  @IsOptional()
+  @IsString()
+  roleName?: string;
+
+  @IsOptional()
+  @IsEnum(USER_GROUP)
+  user_group?: USER_GROUP;
+}
 
 export class CreateCustomerDto {
   @IsString()

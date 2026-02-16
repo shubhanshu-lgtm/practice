@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User, Department, Team, LoginSession, DBModule } from '../../../../../libs/database/src';
+import { User, Department, Team, LoginSession, DBModule, PermissionManager } from '../../../../../libs/database/src';
 import { SystemModule } from '../../../../../libs/database/src/entities/systemModule.entity';
 import { UserManagementController } from './user-management.controller';
 import { UserManagementService } from './user-management.service';
@@ -14,7 +14,7 @@ import { ResponseHandlerModule } from '../../../../../libs/response-handler/resp
     DBModule.forRoot(),
           ConfigModule, 
           S3Module,
-          ResponseHandlerModule,TypeOrmModule.forFeature([User, SystemModule, Department, Team, LoginSession])],
+          ResponseHandlerModule,TypeOrmModule.forFeature([User, SystemModule, Department, Team, LoginSession, PermissionManager])],
   controllers: [UserManagementController],
   providers: [UserManagementService, UserRepository],
 })

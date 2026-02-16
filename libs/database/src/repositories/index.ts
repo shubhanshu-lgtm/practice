@@ -1,4 +1,4 @@
-export * from './session.repository';
+// export * from './session.repository'; // DEPRECATED - Use LoginSessionRepository instead
 export * from './department.repository';
 // export * from './role.repository'; // Removed as Role entity does not exist
 export * from './team.repository';

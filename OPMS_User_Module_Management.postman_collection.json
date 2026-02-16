@@ -1,0 +1,868 @@
+{
+	"info": {
+		"_postman_id": "opms-user-module-management",
+		"name": "OPMS User & Module Management - Complete Test Suite",
+		"description": "Comprehensive test collection for user creation, module assignment, and permission management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8094/api",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "YOUR_ADMIN_TOKEN_HERE",
+			"type": "string"
+		},
+		{
+			"key": "created_user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "created_module_id",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "1. Authentication",
+			"item": [
+				{
+					"name": "Login as Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    const jsonData = pm.response.json();",
+									"    if (jsonData.data && jsonData.data.accessToken) {",
+									"        pm.collectionVariables.set('auth_token', jsonData.data.accessToken);",
+									"        pm.environment.set('auth_token', jsonData.data.accessToken);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@intercert.com\",\n  \"password\": \"Admin@123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "login"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Module Management",
+			"item": [
+				{
+					"name": "Create SALES_MANAGEMENT Module",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200 || pm.response.code === 201) {",
+									"    const jsonData = pm.response.json();",
+									"    if (jsonData.data && jsonData.data.id) {",
+									"        pm.collectionVariables.set('created_module_id', jsonData.data.id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sales Management\",\n  \"code\": \"SALES_MANAGEMENT\",\n  \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/modules/create",
+							"host": ["{{base_url}}"],
+							"path": ["modules", "create"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create INVENTORY_MANAGEMENT Module",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Inventory Management\",\n  \"code\": \"INVENTORY_MANAGEMENT\",\n  \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/modules/create",
+							"host": ["{{base_url}}"],
+							"path": ["modules", "create"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Modules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/modules/list",
+							"host": ["{{base_url}}"],
+							"path": ["modules", "list"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Module by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/modules/1",
+							"host": ["{{base_url}}"],
+							"path": ["modules", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. User Creation (With Modules)",
+			"item": [
+				{
+					"name": "Create User - Jaypal (SALES_TEAM with Module)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200 || pm.response.code === 201) {",
+									"    const jsonData = pm.response.json();",
+									"    if (jsonData.id) {",
+									"        pm.collectionVariables.set('created_user_id', jsonData.id);",
+									"    } else if (jsonData.data && jsonData.data.id) {",
+									"        pm.collectionVariables.set('created_user_id', jsonData.data.id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jaypal\",\n  \"email\": \"jaypal@intercert.com\",\n  \"password\": \"Intercert@OPMS123\",\n  \"role\": \"SALES_EXECUTIVE\",\n  \"user_group\": \"SALES_TEAM\",\n  \"departments\": [1],\n  \"teams\": [1],\n  \"modules\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Ashutosh (MANAGER with Multiple Modules)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ashutosh\",\n  \"email\": \"ashutosh@intercert.com\",\n  \"password\": \"Intercert@OPMS123\",\n  \"role\": \"MANAGER\",\n  \"user_group\": \"MANAGER\",\n  \"departments\": [1],\n  \"teams\": [1],\n  \"modules\": [1, 2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Rajesh (IT_SUPPORT No Modules)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rajesh\",\n  \"email\": \"rajesh@intercert.com\",\n  \"password\": \"Intercert@OPMS123\",\n  \"role\": \"IT_SUPPORT_SPECIALIST\",\n  \"user_group\": \"IT_SUPPORT\",\n  \"departments\": [2],\n  \"teams\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. User Retrieval",
+			"item": [
+				{
+					"name": "List All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID (Hardcoded - User 5)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users/5",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Module Assignment (Existing Users)",
+			"item": [
+				{
+					"name": "Assign Single Module to User 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Multiple Modules to User 7",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1, 2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/7/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "7", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Modules (Update) - User 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1, 2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove All Modules (Empty Array)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/10/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "10", "modules"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6. Permission Assignment",
+			"item": [
+				{
+					"name": "Assign Permission Profile to User 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"permissionId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5/permission",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5", "permission"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Permission Profile to User 7",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"permissionId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/7/permission",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "7", "permission"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7. User Updates",
+			"item": [
+				{
+					"name": "Update User Info (Name, Role, User_Group)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jaypal Kumar\",\n  \"role\": \"SENIOR_SALES_EXECUTIVE\",\n  \"user_group\": \"SALES_TEAM\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User with New Modules",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1, 2, 3],\n  \"departments\": [1, 2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8. Edge Cases & Validation",
+			"item": [
+				{
+					"name": "Create User - Missing Required Field (Email)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test User\",\n  \"password\": \"Test@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Invalid Email Format",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"invalid-email\",\n  \"password\": \"Test@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Weak Password (Less than 8 chars)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Non-Existent Module",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [999]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/5/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "5", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Module to Non-Existent User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/99999/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "99999", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Duplicate Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Duplicate User\",\n  \"email\": \"jaypal@intercert.com\",\n  \"password\": \"Intercert@OPMS123\",\n  \"user_group\": \"USER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User - Non-Existent ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users/99999",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "99999"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9. Bulk Operations Workflow",
+			"item": [
+				{
+					"name": "Scenario: New Module Created - Assign to Multiple Users",
+					"item": [
+						{
+							"name": "Step 1 - Create New Module (HR_MANAGEMENT)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"HR Management\",\n  \"code\": \"HR_MANAGEMENT\",\n  \"status\": \"ACTIVE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/modules/create",
+									"host": ["{{base_url}}"],
+									"path": ["modules", "create"]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Step 2 - Assign to User 3 (ADMIN)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modules\": [1, 2, 3]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/users/3/modules",
+									"host": ["{{base_url}}"],
+									"path": ["user", "users", "3", "modules"]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Step 3 - Assign to User 4 (MANAGER)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modules\": [1, 3]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/users/4/modules",
+									"host": ["{{base_url}}"],
+									"path": ["user", "users", "4", "modules"]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Step 4 - Assign to User 5 (SALES_TEAM)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modules\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/users/5/modules",
+									"host": ["{{base_url}}"],
+									"path": ["user", "users", "5", "modules"]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "10. Complete User Lifecycle",
+			"item": [
+				{
+					"name": "1. Create User with Basic Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Priya Sharma\",\n  \"email\": \"priya@intercert.com\",\n  \"password\": \"Intercert@OPMS123\",\n  \"role\": \"TEAM_LEAD\",\n  \"user_group\": \"TEAM_LEAD\",\n  \"departments\": [1],\n  \"modules\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/add-user",
+							"host": ["{{base_url}}"],
+							"path": ["user", "add-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. View Created User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Add More Modules",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modules\": [1, 2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}/modules",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}", "modules"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Assign Permission Profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"permissionId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}/permission",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}", "permission"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Update User Role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"role\": \"SENIOR_TEAM_LEAD\",\n  \"user_group\": \"MANAGER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Verify Final User State",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/users/{{created_user_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["user", "users", "{{created_user_id}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

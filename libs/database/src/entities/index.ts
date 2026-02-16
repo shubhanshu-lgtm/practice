@@ -1,7 +1,7 @@
 export * from './user.entity';
 export * from './permissionManager.entity';
 export * from './loginSession.entity';
-export * from './session.entity';
+// export * from './session.entity'; // DEPRECATED - Use LoginSession instead
 export * from './department.entity';
 export * from './team.entity';
 export * from './designation.entity';
@@ -20,8 +20,8 @@ export * from './lead.entity';
 export * from './lead-enquiry.entity';
 export * from './lead-contact.entity';
 export * from './lead-address.entity';
-export * from './loginSession.entity';
-export * from './session.entity';
+// Duplicate removed - loginSession.entity already exported above
+// export * from './session.entity'; // DEPRECATED - Use LoginSession instead
 export * from './Countries';
 export * from './States';
 export * from './Cities';

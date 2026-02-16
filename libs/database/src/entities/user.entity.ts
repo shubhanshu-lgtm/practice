@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index, OneToMany, Jo
 import "reflect-metadata";
 import { USER_ACCOUNT_STATUS, USER_GROUP, USER_LOGIN_SOURCE, USER_VERIFY_STATUS } from "../../../constants/autenticationConstants/userContants";
 import { IsDefined } from "class-validator";
+import { Exclude } from "class-transformer";
 import { PLATFORM } from "../../../constants/commonConstants";
 import { PermissionManager } from "./permissionManager.entity";
 import { Department } from "./department.entity";
@@ -32,8 +33,9 @@ export class User {
   @IsDefined()
   avatar: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, select: false })
   @IsDefined()
+  @Exclude()
   password: string
 
   @Column({

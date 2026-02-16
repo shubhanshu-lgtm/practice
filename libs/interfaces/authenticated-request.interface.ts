@@ -6,6 +6,8 @@ export interface AuthenticatedRequest extends Request {
     user: User;
     user_group: USER_GROUP;
     department: string;
+    team: string;
+    modules: any[]; // This can be typed more specifically based on your module structure
     permissionId: number;
     permission: any;
 }

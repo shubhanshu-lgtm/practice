@@ -1,4 +1,4 @@
-import { DEFAULT_USER_ROLES, INVITE_MEMBER, INVITE_STATUS } from "../../constants/autenticationConstants/userContants"
+import { INVITE_MEMBER, INVITE_STATUS } from "../../constants/autenticationConstants/userContants"
 
 export declare namespace MemberI 
 {
@@ -55,7 +55,7 @@ export declare namespace MemberI
         email: string,
         birthDate: Date,
         // phoneNo: string,
-        userRole: DEFAULT_USER_ROLES,
+        userRole: string,
         roleId: string
     }
     
