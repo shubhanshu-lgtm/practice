@@ -41,4 +41,7 @@ export class Customer {
     inverseJoinColumn: { name: 'serviceId', referencedColumnName: 'id' }
   })
   services: ServiceMaster[]
+
+  @Column({ type: 'text', nullable: true })
+  designation: string
 }

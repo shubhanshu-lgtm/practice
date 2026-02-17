@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UsePipes, ValidationPipe, UseGuards, Req } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UsePipes, ValidationPipe, UseGuards, Req, Delete } from '@nestjs/common';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto } from '../../../../../libs/dtos/master_management/lead.dto';
@@ -37,6 +37,18 @@ export class LeadController {
     try {
       const service = await this.leadService.updateService(id, payload);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Service updated successfully', data: service });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete('services/:id')
+  @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.DELETE)
+  async deleteService(@Res() res: Response, @Param('id', ParseIntPipe) id: number, @Body('hard') hard?: boolean) {
+    try {
+      await this.leadService.deleteService(id, hard);
+      const action = hard ? 'permanently deleted' : 'deactivated';
+      return this.responseHandler.sendSuccessResponse(res, { message: `Service ${action} successfully` });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -108,6 +120,18 @@ export class LeadController {
     try {
       const lead = await this.leadService.updateLead(id, payload);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead updated successfully', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete(':id')
+  @PermissionAccess(SYSTEM_MODULE_CODES.SALES_MANAGEMENT, PERMISSIONS.DELETE)
+  async deleteLead(@Res() res: Response, @Param('id', ParseIntPipe) id: number, @Body('hard') hard?: boolean) {
+    try {
+      await this.leadService.deleteLead(id, hard);
+      const action = hard ? 'permanently deleted' : 'deactivated';
+      return this.responseHandler.sendSuccessResponse(res, { message: `Lead ${action} successfully` });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }

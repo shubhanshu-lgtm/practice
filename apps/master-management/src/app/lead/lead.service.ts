@@ -178,7 +178,7 @@ export class LeadService {
       
       return this.leadRepository.findOne({
         where: { id: savedLead.id },
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'contacts', 'addresses', 'leadServices', 'leadServices.service']
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -205,11 +205,34 @@ export class LeadService {
 
   async getLeadById(id: number): Promise<Lead> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id }, relations: ['customer', 'leadServices', 'leadServices.service'] });
+      const lead = await this.leadRepository.findOne({ 
+        where: { id }, 
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
+      });
       if (!lead) {
         throw new NotFoundException('Lead not found');
       }
       return lead;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async deleteLead(id: number, hard = false): Promise<void> {
+    try {
+      const lead = await this.leadRepository.findOne({ where: { id } });
+      if (!lead) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (hard) {
+        // Manually delete lead services as they don't have cascade delete
+        await this.leadServiceEntityRepository.delete({ lead: { id } });
+        await this.leadRepository.remove(lead);
+      } else {
+        lead.isActive = false;
+        await this.leadRepository.save(lead);
+      }
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -308,6 +331,24 @@ export class LeadService {
       }
       Object.assign(service, payload);
       return await this.serviceRepository.save(service);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async deleteService(id: number, hard = false): Promise<void> {
+    try {
+      const service = await this.serviceRepository.findOne({ where: { id } });
+      if (!service) {
+        throw new NotFoundException('Service not found');
+      }
+
+      if (hard) {
+        await this.serviceRepository.remove(service);
+      } else {
+        service.isActive = false;
+        await this.serviceRepository.save(service);
+      }
     } catch (error) {
       throw new BadRequestException(error.message);
     }

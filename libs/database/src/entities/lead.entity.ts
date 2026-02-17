@@ -52,6 +52,9 @@ export class Lead {
   @Column({ default: false })
   isDraft: boolean
 
+  @Column({ default: true })
+  isActive: boolean
+
   @ManyToOne(() => Customer, (customer) => customer.leads)
   @JoinColumn({ name: 'customerId' })
   customer: Customer
