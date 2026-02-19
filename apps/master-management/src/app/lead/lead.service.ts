@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like, Repository, In, Between } from 'typeorm';
+import { Like, Repository, In, Between, IsNull, FindOptionsWhere, Not } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -10,9 +10,12 @@ import { LeadAddress } from '../../../../../libs/database/src/entities/lead-addr
 import { LeadService as LeadServiceEntity } from '../../../../../libs/database/src/entities/lead-service.entity';
 import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { ServiceMaster } from '../../../../../libs/database/src/entities/service-master.entity';
+import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
+import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
+import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../../../../libs/constants/serviceConstants';
 
 @Injectable()
 export class LeadService {
@@ -37,7 +40,27 @@ export class LeadService {
     private readonly leadServiceEntityRepository: Repository<LeadServiceEntity>,
     @InjectRepository(PermissionManager)
     private readonly permissionRepository: Repository<PermissionManager>,
+    @InjectRepository(ServiceDeliverable)
+    private readonly deliverableRepository: Repository<ServiceDeliverable>,
   ) {}
+
+  private buildServiceTree(services: ServiceMaster[]) {
+    type ServiceTreeNode = ServiceMaster & { children: ServiceTreeNode[] };
+    const nodes = new Map<number, ServiceTreeNode>();
+    for (const s of services) {
+      nodes.set(s.id, { ...s, children: [] });
+    }
+    const roots: ServiceTreeNode[] = [];
+    for (const node of nodes.values()) {
+      const parentId = node.parentId;
+      if (parentId && nodes.has(parentId)) {
+        nodes.get(parentId).children.push(node);
+      } else {
+        roots.push(node);
+      }
+    }
+    return roots;
+  }
 
   private async generateEnquiryId(): Promise<string> {
     const today = new Date();
@@ -64,6 +87,31 @@ export class LeadService {
     return `IS/${comp}/${cnt}`;
   }
 
+  private async generateUniqueCustomerId(companyName: string, country: string, excludeCustomerId?: number): Promise<string> {
+    const base = this.generateCustomerId(companyName, country);
+    const existing = await this.customerRepository.find({
+      where: excludeCustomerId
+        ? { customerId: Like(`${base}%`), id: Not(excludeCustomerId) }
+        : { customerId: Like(`${base}%`) }
+    });
+    if (existing.length === 0) return base;
+
+    let maxSuffix = 0;
+    for (const c of existing) {
+      if (c.customerId === base) {
+        maxSuffix = Math.max(maxSuffix, 1);
+        continue;
+      }
+      if (c.customerId.startsWith(`${base}/`)) {
+        const suffix = Number(c.customerId.split('/').pop());
+        if (!Number.isNaN(suffix)) {
+          maxSuffix = Math.max(maxSuffix, suffix);
+        }
+      }
+    }
+    return `${base}/${maxSuffix + 1}`;
+  }
+
   async createLead(payload: CreateLeadDto, userId?: number): Promise<Lead> {
     try {
       const enquiryId = await this.generateEnquiryId();
@@ -84,7 +132,7 @@ export class LeadService {
         } else {
           const primaryAddress = payload.addresses?.find(addr => addr.isPrimary) || payload.addresses?.[0];
           const country = primaryAddress?.country || 'IND';
-          const customerId = this.generateCustomerId(payload.customer.name, country);
+          const customerId = await this.generateUniqueCustomerId(payload.customer.name, country);
           
           const newCustomer = this.customerRepository.create({
             ...payload.customer,
@@ -185,9 +233,15 @@ export class LeadService {
     }
   }
 
-  async getLeads(): Promise<Lead[]> {
+  async getLeads(actor?: User): Promise<Lead[]> {
     try {
+      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
+      const where: FindOptionsWhere<Lead> = { isActive: true };
+      if (!isAdmin && actor?.id) {
+        where.createdBy = { id: actor.id };
+      }
       return await this.leadRepository.find({ 
+        where,
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
     } catch (error) {
@@ -195,22 +249,100 @@ export class LeadService {
     }
   }
 
-  async getServices(): Promise<ServiceMaster[]> {
+  async getServices(filter?: GetServicesFilterDto): Promise<ServiceMaster[]> {
     try {
-      return await this.serviceRepository.find({ where: { isActive: true }, order: { name: 'ASC' } });
+      const where: FindOptionsWhere<ServiceMaster> = { isActive: true };
+      if (filter?.parentId !== undefined && filter.parentId !== null) {
+        where.parentId = filter.parentId;
+      } else if (filter?.rootOnly) {
+        where.parentId = IsNull();
+      }
+      if (filter?.category) {
+        where.category = filter.category;
+      }
+      const relations = filter?.includeChildren
+        ? ['parent', 'children', 'department', 'deliverables']
+        : ['parent', 'department', 'deliverables'];
+      let services = await this.serviceRepository.find({
+        where,
+        relations,
+        order: { sortOrder: 'ASC', name: 'ASC' }
+      });
+      if (filter?.userGroup) {
+        const group = filter.userGroup;
+        services = services.filter(s => s.accessLevel === SERVICE_ACCESS_LEVEL.PUBLIC || (s.allowedUserGroups || []).includes(group));
+      }
+      return services;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
   }
 
-  async getLeadById(id: number): Promise<Lead> {
+  async getServicesTree(filter?: GetServicesFilterDto) {
+    try {
+      const where: FindOptionsWhere<ServiceMaster> = { isActive: true };
+      if (filter?.category) {
+        where.category = filter.category;
+      }
+      const services = await this.serviceRepository.find({
+        where,
+        relations: ['parent'],
+        order: { sortOrder: 'ASC', name: 'ASC' }
+      });
+      const filtered = filter?.userGroup
+        ? services.filter(s => s.accessLevel === SERVICE_ACCESS_LEVEL.PUBLIC || (s.allowedUserGroups || []).includes(filter.userGroup))
+        : services;
+      return this.buildServiceTree(filtered);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getServiceChildren(parentId: number) {
+    try {
+      const services = await this.serviceRepository.find({
+        where: { parentId, isActive: true },
+        relations: ['parent', 'department', 'deliverables'],
+        order: { sortOrder: 'ASC', name: 'ASC' }
+      });
+      return services;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async addServiceCategory(payload: CreateServiceDto, file?: { originalname?: string }) {
+    try {
+      const categoryValue = payload.service_category || payload.category;
+      if (!categoryValue) {
+        throw new BadRequestException('service_category is required');
+      }
+      const servicePayload: CreateServiceDto = {
+        ...payload,
+        parentId: null,
+        category: categoryValue,
+        logo: file?.originalname || payload.logo
+      };
+      const created = await this.createService(servicePayload);
+      return { message: 'Service category created successfully', data: created };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getLeadById(id: number, actor?: User): Promise<Lead> {
     try {
       const lead = await this.leadRepository.findOne({ 
         where: { id }, 
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
       });
-      if (!lead) {
+      if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
+      }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
       }
       return lead;
     } catch (error) {
@@ -218,11 +350,16 @@ export class LeadService {
     }
   }
 
-  async deleteLead(id: number, hard = false): Promise<void> {
+  async deleteLead(id: number, hard = false, actor?: User): Promise<void> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id } });
-      if (!lead) {
+      const lead = await this.leadRepository.findOne({ where: { id }, relations: ['createdBy'] });
+      if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
+      }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
       }
 
       if (hard) {
@@ -238,14 +375,91 @@ export class LeadService {
     }
   }
 
-  async updateLead(id: number, payload: UpdateLeadDto): Promise<Lead> {
+  async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id }, relations: ['leadServices'] });
-      if (!lead) {
+      const lead = await this.leadRepository.findOne({
+        where: { id },
+        relations: ['leadServices', 'customer', 'customer.contacts', 'customer.addresses', 'createdBy']
+      });
+      if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
 
-      const { serviceIds, ...updateData } = payload;
+      if (!lead.createdBy && actor) {
+        const createdByRef = new User();
+        createdByRef.id = actor.id;
+        lead.createdBy = createdByRef;
+      }
+
+      const { serviceIds, contacts, addresses, customer, ...updateData } = payload;
+
+      if (customer && lead.customer) {
+        const primaryAddress = addresses?.find(a => a.isPrimary) || addresses?.[0];
+        const currentCountry = lead.customer.addresses?.[0]?.country || 'IND';
+        const country = primaryAddress?.country || currentCountry;
+        const name = customer.name || lead.customer.name;
+        const currentBase = this.generateCustomerId(lead.customer.name, currentCountry);
+        const nextBase = this.generateCustomerId(name, country);
+        const nextCustomerId = nextBase === currentBase
+          ? lead.customer.customerId
+          : await this.generateUniqueCustomerId(name, country, lead.customer.id);
+        Object.assign(lead.customer, {
+          ...customer,
+          customerId: nextCustomerId
+        });
+        await this.customerRepository.save(lead.customer);
+      }
+
+      if (contacts) {
+        await this.contactRepository.delete({ customer: { id: lead.customer?.id } });
+        await this.leadContactRepository.delete({ lead: { id: lead.id } });
+        if (contacts.length > 0) {
+          const customerContacts = contacts.map(contact =>
+            this.contactRepository.create({
+              ...contact,
+              customer: lead.customer
+            })
+          );
+          await this.contactRepository.save(customerContacts);
+          const leadContacts = contacts.map(contact =>
+            this.leadContactRepository.create({
+              ...contact,
+              lead: lead,
+              leadId: lead.id
+            })
+          );
+          await this.leadContactRepository.save(leadContacts);
+        }
+      }
+
+      if (addresses) {
+        await this.addressRepository.delete({ customer: { id: lead.customer?.id } });
+        await this.leadAddressRepository.delete({ lead: { id: lead.id } });
+        if (addresses.length > 0) {
+          const customerAddresses = addresses.map(addr =>
+            this.addressRepository.create({
+              ...addr,
+              customer: lead.customer
+            })
+          );
+          await this.addressRepository.save(customerAddresses);
+          const leadAddresses = addresses.map(addr => {
+            const { addressType, ...rest } = addr;
+            return this.leadAddressRepository.create({
+              ...rest,
+              addressType,
+              lead: lead,
+              leadId: lead.id
+            });
+          });
+          await this.leadAddressRepository.save(leadAddresses);
+        }
+      }
 
       if (serviceIds) {
         // Remove existing lead services - strategy: delete all and recreate
@@ -263,7 +477,11 @@ export class LeadService {
 
       Object.assign(lead, updateData);
 
-      return await this.leadRepository.save(lead);
+      await this.leadRepository.save(lead);
+      return await this.leadRepository.findOne({
+        where: { id: lead.id },
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+      });
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -280,11 +498,16 @@ export class LeadService {
     }
   }
 
-  async assignServices(leadId: number, serviceIds: number[]): Promise<Lead> {
+  async assignServices(leadId: number, serviceIds: number[], actor?: User): Promise<Lead> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id: leadId }, relations: ['leadServices'] });
-      if (!lead) {
+      const lead = await this.leadRepository.findOne({ where: { id: leadId }, relations: ['leadServices', 'createdBy'] });
+      if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
+      }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
       }
 
       await this.leadServiceEntityRepository.delete({ lead: { id: leadId } });
@@ -316,8 +539,61 @@ export class LeadService {
 
   async createService(payload: CreateServiceDto): Promise<ServiceMaster> {
     try {
-      const service = this.serviceRepository.create(payload);
-      return await this.serviceRepository.save(service);
+      let level = 0;
+      let parent: ServiceMaster = null;
+      let category: string = null;
+      let type: SERVICE_TYPE = null;
+      let accessLevel: SERVICE_ACCESS_LEVEL = SERVICE_ACCESS_LEVEL.PUBLIC;
+
+      if (payload.parentId) {
+        parent = await this.serviceRepository.findOne({ 
+          where: { id: payload.parentId },
+          relations: ['parent']
+        });
+        if (!parent) {
+          throw new BadRequestException(`Parent service with ID ${payload.parentId} not found`);
+        }
+        level = parent.level + 1;
+      }
+
+      
+
+      const categoryValue = payload.category || payload.service_category;
+      if (categoryValue) {
+        category = categoryValue;
+      }
+
+      if (payload.type) {
+        const castType = payload.type as SERVICE_TYPE;
+        if (!Object.values(SERVICE_TYPE).includes(castType)) {
+          throw new BadRequestException(`Invalid service type: ${payload.type}`);
+        }
+        type = castType;
+      }
+
+      if (payload.accessLevel) {
+        const castAccess = payload.accessLevel as SERVICE_ACCESS_LEVEL;
+        if (!Object.values(SERVICE_ACCESS_LEVEL).includes(castAccess)) {
+          throw new BadRequestException(`Invalid access level: ${payload.accessLevel}`);
+        }
+        accessLevel = castAccess;
+      }
+
+      const service = this.serviceRepository.create({
+        ...payload,
+        level,
+        parent,
+        category,
+        type,
+        accessLevel,
+      });
+
+      const savedService = await this.serviceRepository.save(service);
+
+      return await this.serviceRepository.findOne({
+        where: { id: savedService.id },
+        relations: ['parent', 'department', 'deliverables']
+      });
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -328,6 +604,9 @@ export class LeadService {
       const service = await this.serviceRepository.findOne({ where: { id } });
       if (!service) {
         throw new NotFoundException('Service not found');
+      }
+      if (payload.service_category && !payload.category) {
+        payload.category = payload.service_category;
       }
       Object.assign(service, payload);
       return await this.serviceRepository.save(service);
@@ -399,6 +678,95 @@ export class LeadService {
       return permissions;
     } catch (error) {
       console.error(`[GetPermissions] Error:`, error);
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async createDeliverable(payload: CreateDeliverableDto): Promise<ServiceDeliverable> {
+    try {
+      const service = await this.serviceRepository.findOne({ where: { id: payload.serviceId } });
+      if (!service) {
+        throw new NotFoundException(`Service with ID ${payload.serviceId} not found`);
+      }
+
+      const deliverable = this.deliverableRepository.create({
+        ...payload,
+        service,
+        dueDate: payload.dueDate ? new Date(payload.dueDate) : null,
+      });
+
+      return await this.deliverableRepository.save(deliverable);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getDeliverables(serviceId?: number): Promise<ServiceDeliverable[]> {
+    try {
+      const queryBuilder = this.deliverableRepository.createQueryBuilder('deliverable')
+        .leftJoinAndSelect('deliverable.service', 'service')
+        .where('deliverable.isActive = :isActive', { isActive: true });
+
+      if (serviceId) {
+        queryBuilder.andWhere('deliverable.serviceId = :serviceId', { serviceId });
+      }
+
+      return await queryBuilder
+        .orderBy('deliverable.sortOrder', 'ASC')
+        .addOrderBy('deliverable.createdAt', 'DESC')
+        .getMany();
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getDeliverableById(id: number): Promise<ServiceDeliverable> {
+    try {
+      const deliverable = await this.deliverableRepository.findOne({
+        where: { id },
+        relations: ['service']
+      });
+      if (!deliverable) {
+        throw new NotFoundException('Deliverable not found');
+      }
+      return deliverable;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async updateDeliverable(id: number, payload: UpdateDeliverableDto): Promise<ServiceDeliverable> {
+    try {
+      const deliverable = await this.deliverableRepository.findOne({ where: { id } });
+      if (!deliverable) {
+        throw new NotFoundException('Deliverable not found');
+      }
+
+      Object.assign(deliverable, {
+        ...payload,
+        dueDate: payload.dueDate ? new Date(payload.dueDate) : deliverable.dueDate,
+      });
+
+      return await this.deliverableRepository.save(deliverable);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async deleteDeliverable(id: number, hard = false): Promise<void> {
+    try {
+      const deliverable = await this.deliverableRepository.findOne({ where: { id } });
+      if (!deliverable) {
+        throw new NotFoundException('Deliverable not found');
+      }
+
+      if (hard) {
+        await this.deliverableRepository.remove(deliverable);
+      } else {
+        deliverable.isActive = false;
+        await this.deliverableRepository.save(deliverable);
+      }
+    } catch (error) {
       throw new BadRequestException(error.message);
     }
   }

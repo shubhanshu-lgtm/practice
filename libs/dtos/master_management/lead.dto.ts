@@ -1,6 +1,7 @@
 import { Type } from 'class-transformer';
 import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber, IsObject } from 'class-validator';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../constants/salesConstants';
+import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../constants/serviceConstants';
 import { ADDRESS_TYPE, USER_GROUP } from '../../../libs/constants/autenticationConstants/userContants';
 import { PERMISSIONS } from '../../constants/autenticationConstants/permissionManagerConstants';
 
@@ -207,6 +208,23 @@ export class UpdateLeadDto {
   @IsOptional()
   @IsArray()
   serviceIds?: number[];
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => CreateCustomerDto)
+  customer?: CreateCustomerDto;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateCustomerAddressDto)
+  addresses?: CreateCustomerAddressDto[];
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateCustomerContactDto)
+  contacts?: CreateCustomerContactDto[];
 }
 
 export class CreateServiceDto {
@@ -225,6 +243,46 @@ export class CreateServiceDto {
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
+
+  @IsOptional()
+  @IsNumber()
+  parentId?: number;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @IsString()
+  service_category?: string;
+
+  @IsOptional()
+  @IsEnum(SERVICE_TYPE)
+  type?: SERVICE_TYPE;
+
+  @IsOptional()
+  @IsEnum(SERVICE_ACCESS_LEVEL)
+  accessLevel?: SERVICE_ACCESS_LEVEL;
+
+  @IsOptional()
+  @IsArray()
+  allowedUserGroups?: string[];
+
+  @IsOptional()
+  @IsArray()
+  allowedDepartments?: number[];
+
+  @IsOptional()
+  @IsNumber()
+  departmentId?: number;
+
+  @IsOptional()
+  @IsNumber()
+  sortOrder?: number;
+
+  @IsOptional()
+  @IsString()
+  logo?: string;
 }
 
 export class UpdateServiceDto {
@@ -243,4 +301,118 @@ export class UpdateServiceDto {
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
+
+  @IsOptional()
+  @IsNumber()
+  parentId?: number;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @IsString()
+  service_category?: string;
+
+  @IsOptional()
+  @IsEnum(SERVICE_TYPE)
+  type?: SERVICE_TYPE;
+
+  @IsOptional()
+  @IsEnum(SERVICE_ACCESS_LEVEL)
+  accessLevel?: SERVICE_ACCESS_LEVEL;
+
+  @IsOptional()
+  @IsArray()
+  allowedUserGroups?: string[];
+
+  @IsOptional()
+  @IsArray()
+  allowedDepartments?: number[];
+
+  @IsOptional()
+  @IsNumber()
+  departmentId?: number;
+
+  @IsOptional()
+  @IsNumber()
+  sortOrder?: number;
+
+  @IsOptional()
+  @IsString()
+  logo?: string;
+}
+
+export class GetServicesFilterDto {
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @IsNumber()
+  parentId?: number;
+
+  @IsOptional()
+  @IsBoolean()
+  includeChildren?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  rootOnly?: boolean;
+
+  @IsOptional()
+  @IsString()
+  userGroup?: string;
+}
+
+export class CreateDeliverableDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsString()
+  dueDate?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isCompleted?: boolean;
+
+  @IsNumber()
+  @IsNotEmpty()
+  serviceId: number;
+
+  @IsOptional()
+  @IsNumber()
+  sortOrder?: number;
+}
+
+export class UpdateDeliverableDto {
+  @IsOptional()
+  @IsString()
+  name?: string;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsString()
+  dueDate?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isCompleted?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  isActive?: boolean;
+
+  @IsOptional()
+  @IsNumber()
+  sortOrder?: number;
 }

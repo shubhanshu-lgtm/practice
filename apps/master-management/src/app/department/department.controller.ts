@@ -3,15 +3,9 @@ import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { CreateDepartmentDto, UpdateDepartmentDto, UpdateDepartmentStatusDto } from '../../../../../libs/dtos/master_management/department.dto';
 import { DepartmentService } from './department.service';
-import { JwtAuthGuard, ModuleAccessGuard, ModuleAccess } from '../../../../../libs/auth/src';
-import { PermissionAccessGuard } from '../../../../../libs/auth/src/permission-access.guard';
-import { PermissionAccess } from '../../../../../libs/auth/src/permission-access.decorator';
-import { SYSTEM_MODULE_CODES } from '../../../../../libs/constants/moduleConstants';
-import { PERMISSIONS } from '../../../../../libs/constants/autenticationConstants/permissionManagerConstants';
+import { CheckIfAdminGuard, TokenValidationGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 @Controller('departments')
-@UseGuards(JwtAuthGuard, ModuleAccessGuard, PermissionAccessGuard)
-@ModuleAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION)
 @UsePipes(new ValidationPipe({ transform: true }))
 export class DepartmentController {
   constructor(
@@ -20,7 +14,7 @@ export class DepartmentController {
   ) {}
 
   @Post('create_department')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.ADD)
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async createDepartment(@Res() res: Response, @Body() payload: CreateDepartmentDto) {
     try {
       const department = await this.departmentService.createDepartment(payload);
@@ -31,7 +25,7 @@ export class DepartmentController {
   }
 
   @Get("/list")
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
+  @UseGuards(TokenValidationGuard)
   async getDepartments(@Res() res: Response) {
     try {
       const departments = await this.departmentService.getDepartments();
@@ -42,7 +36,7 @@ export class DepartmentController {
   }
 
   @Get(':id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
+  @UseGuards(TokenValidationGuard)
   async getDepartmentById(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const department = await this.departmentService.getDepartmentById(id);
@@ -53,7 +47,7 @@ export class DepartmentController {
   }
 
   @Patch(':id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async updateDepartment(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -68,7 +62,7 @@ export class DepartmentController {
   }
 
   @Patch(':id/status')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async updateDepartmentStatus(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,

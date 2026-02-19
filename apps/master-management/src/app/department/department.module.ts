@@ -5,6 +5,9 @@ import { Department, User, LoginSession } from '../../../../../libs/database/src
 import { ResponseHandlerModule } from '../../../../../libs/response-handler/response-handler.module';
 import { DepartmentController } from './department.controller';
 import { DepartmentService } from './department.service';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
+import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 
 @Module({
   imports: [
@@ -13,6 +16,6 @@ import { DepartmentService } from './department.service';
     TypeOrmModule.forFeature([Department, User, LoginSession]),
   ],
   controllers: [DepartmentController],
-  providers: [DepartmentService],
+  providers: [DepartmentService, JwtService, TokenValidationMiddleware, checkIfAdmin, TokenValidationGuard, CheckIfAdminGuard],
 })
 export class DepartmentModule {}

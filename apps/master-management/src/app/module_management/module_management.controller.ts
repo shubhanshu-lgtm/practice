@@ -1,18 +1,11 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Res, UsePipes, ValidationPipe, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Res, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { CreateMenuDto, CreateSystemModuleDto, UpdateMenuDto, UpdateMenuStatusDto, UpdateSystemModuleDto } from '../../../../../libs/dtos/master_management/module_management.dto';
 import { ModuleManagementService } from './module_management.service';
-import { JwtAuthGuard, ModuleAccessGuard, ModuleAccess } from '../../../../../libs/auth/src';
-import { PermissionAccessGuard } from '../../../../../libs/auth/src/permission-access.guard';
-import { PermissionAccess } from '../../../../../libs/auth/src/permission-access.decorator';
-import { SYSTEM_MODULE_CODES } from '../../../../../libs/constants/moduleConstants';
-import { PERMISSIONS } from '../../../../../libs/constants/autenticationConstants/permissionManagerConstants';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 @Controller('modules')
-@UseGuards(JwtAuthGuard, ModuleAccessGuard, PermissionAccessGuard)
-@ModuleAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION)
-@UsePipes(new ValidationPipe({ transform: true }))
 export class ModuleManagementController {
   constructor(
     private readonly moduleManagementService: ModuleManagementService,
@@ -20,7 +13,7 @@ export class ModuleManagementController {
   ) {}
 
   @Post('/create')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.ADD)
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async createSystemModule(@Res() res: Response, @Body() payload: CreateSystemModuleDto) {
     try {
       const module = await this.moduleManagementService.createSystemModule(payload);
@@ -31,7 +24,7 @@ export class ModuleManagementController {
   }
 
   @Get('/list')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
+  @UseGuards(TokenValidationGuard)
   async getSystemModules(@Res() res: Response) {
     try {
       const modules = await this.moduleManagementService.getSystemModules();
@@ -42,7 +35,7 @@ export class ModuleManagementController {
   }
 
   @Get('/:id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
+  @UseGuards(TokenValidationGuard)
   async getSystemModuleById(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const module = await this.moduleManagementService.getSystemModuleById(id);
@@ -53,7 +46,7 @@ export class ModuleManagementController {
   }
 
   @Patch('/:id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
+  @UseGuards(TokenValidationGuard)
   async updateSystemModule(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -68,7 +61,6 @@ export class ModuleManagementController {
   }
 
   @Post('/menus')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.ADD)
   async createMenu(@Res() res: Response, @Body() payload: CreateMenuDto) {
     try {
       const menu = await this.moduleManagementService.createMenu(payload);
@@ -79,7 +71,6 @@ export class ModuleManagementController {
   }
 
   @Get('/menus')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
   async getMenus(@Res() res: Response) {
     try {
       const menus = await this.moduleManagementService.getMenus();
@@ -90,7 +81,6 @@ export class ModuleManagementController {
   }
 
   @Get('menus/:id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
   async getMenuById(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const menu = await this.moduleManagementService.getMenuById(id);
@@ -101,7 +91,6 @@ export class ModuleManagementController {
   }
 
   @Patch('menus/:id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
   async updateMenu(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -116,7 +105,6 @@ export class ModuleManagementController {
   }
 
   @Patch('menus/:id/status')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
   async updateMenuStatus(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,

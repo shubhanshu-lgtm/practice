@@ -19,6 +19,13 @@ export enum USER_GROUP {
     MANAGER = "MANAGER",
     IT_SUPPORT = "IT_SUPPORT",
     TEAM_LEAD = "TEAM_LEAD",
+
+    //SERVICEs
+    VAPT_TEAM = "VAPT_TEAM",
+    GRC_TEAM = "GRC_TEAM",
+    AUDIT_TEAM = "AUDIT_TEAM",
+    ISO_TEAM = "ISO_TEAM",
+
     
 }
 
