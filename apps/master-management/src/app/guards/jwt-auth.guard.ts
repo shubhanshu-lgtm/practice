@@ -85,7 +85,7 @@ export class JwtAuthGuard implements CanActivate {
       if (!user.permission) {
         console.log(`User ${user.email} has no permission assigned. Looking for group-level permission for: ${decoded.user_group}`);
         const groupPermission = await this.permissionRepository.findOne({
-          where: { user_group: decoded.user_group as any }
+          where: { user_group: decoded.user_group }
         });
         if (groupPermission) {
           console.log(`Found group-level permission (ID: ${groupPermission.id}) for user group: ${decoded.user_group}`);

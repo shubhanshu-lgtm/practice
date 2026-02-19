@@ -5,6 +5,9 @@ import { Menu, SystemModule, User, LoginSession } from '../../../../../libs/data
 import { ResponseHandlerModule } from '../../../../../libs/response-handler/response-handler.module';
 import { ModuleManagementController } from './module_management.controller';
 import { ModuleManagementService } from './module_management.service';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
+import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 
 @Module({
   imports: [
@@ -13,6 +16,6 @@ import { ModuleManagementService } from './module_management.service';
     TypeOrmModule.forFeature([SystemModule, Menu, User, LoginSession]),
   ],
   controllers: [ModuleManagementController],
-  providers: [ModuleManagementService],
+  providers: [ModuleManagementService, JwtService, TokenValidationMiddleware, checkIfAdmin, TokenValidationGuard, CheckIfAdminGuard],
 })
 export class ModuleManagementModule {}

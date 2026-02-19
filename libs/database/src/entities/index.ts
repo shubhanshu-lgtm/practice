@@ -12,6 +12,7 @@ export * from './activity-type-master.entity';
 export * from './document-type-master.entity';
 export * from './systemModule.entity';
 export * from './service-master.entity';
+export * from './service-deliverable.entity';
 export * from './menu.entity';
 export * from './customer.entity';
 export * from './customerAddress.entity';

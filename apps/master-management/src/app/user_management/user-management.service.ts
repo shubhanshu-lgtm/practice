@@ -5,6 +5,7 @@ import { User, SystemModule, Department, Team, PermissionManager } from '../../.
 import { UserRepository } from '../../../../../libs/database/src/repositories/user.repository';
 import { CreateUserDto, UpdateUserDto } from '../../../../../libs/dtos/master_management/user_management.dto';
 import { USER_ACCOUNT_STATUS, USER_GROUP, USER_LOGIN_SOURCE, USER_VERIFY_STATUS } from '../../../../../libs/constants/autenticationConstants/userContants';
+import { PERMISSIONS } from '../../../../../libs/constants/autenticationConstants/permissionManagerConstants';
 import { UserI } from '../../../../../libs/interfaces/authentication/user.interface';
 import { generatePasswordHash } from '../../../../../libs/utils/bcryptUtil';
 
@@ -30,7 +31,8 @@ export class UserManagementService {
   }
 
   async createUser(payload: CreateUserDto, addedBy: number) {
-    const { modules, departments, teams, role, password, permissionId, ...rest } = payload;
+    const { modules, departments, teams, role, password, ...rest } = payload;
+    // const { modules, departments, teams, role, password, permissionId, ...rest } = payload;
     
     const email = payload.email.toLowerCase().trim();
     
@@ -53,31 +55,6 @@ export class UserManagementService {
 
     const userGroup = rest.user_group || USER_GROUP.USER;
     
-    let effectivePermissionId = permissionId;
-    if (!effectivePermissionId) {
-      // Try to find an existing permission matching both user_group and roleName
-      const roleName = role || 'User';
-      const existingPermission = await this.permissionRepo.findOne({ 
-        where: { 
-          user_group: userGroup,
-          roleName: roleName
-        } 
-      });
-      if (existingPermission) {
-        console.log(`Auto-assigning permission ID ${existingPermission.id} to user based on role: ${roleName}, group: ${userGroup}`);
-        effectivePermissionId = existingPermission.id;
-      } else {
-        // Fallback: try just user_group
-        const groupPermission = await this.permissionRepo.findOne({ 
-          where: { user_group: userGroup } 
-        });
-        if (groupPermission) {
-          console.log(`Auto-assigning permission ID ${groupPermission.id} to user based on group: ${userGroup}`);
-          effectivePermissionId = groupPermission.id;
-        }
-      }
-    }
-
     const id = await this.userService.addOrUpdateUser({
       ...rest,
       email,
@@ -87,7 +64,6 @@ export class UserManagementService {
       status: USER_ACCOUNT_STATUS.ACTIVE,
       verifyStatus: USER_VERIFY_STATUS.VERIFIED,
       loginSource: USER_LOGIN_SOURCE.LOCAL,
-      permission: effectivePermissionId,
       addedBy,
     });
     if (!id) throw new Error('Unable to create user');
@@ -100,7 +76,7 @@ export class UserManagementService {
   }
 
   async updateUser(id: number, payload: UpdateUserDto, updatedBy: number) {
-    const { modules, departments, teams, role, email, permissionId, ...rest } = payload;
+    const { modules, departments, teams, role, email, ...rest } = payload;
     
     if (email) {
       const normalizedEmail = email.toLowerCase().trim();
@@ -119,8 +95,6 @@ export class UserManagementService {
     const updateData: UserI.AddOrUpdateUser = { ...rest, id, addedBy: updatedBy } as any;
     if (role) updateData.roleName = role;
     if (email) updateData.email = email.toLowerCase().trim();
-    if (permissionId) updateData.permission = permissionId;
-
     await this.userService.addOrUpdateUser(updateData);
     
     if (modules) await this.assignModules(id, modules);
@@ -211,6 +185,157 @@ export class UserManagementService {
     await this.userRepo.remove(user);
     
     return { success: true, message: `User ${user.email} deleted successfully` };
+  }
+
+  private async ensureSalesFullPermissionRole(userGroup: USER_GROUP): Promise<PermissionManager> {
+    const roleName = 'SALES_MANAGEMENT_FULL';
+    const existing = await this.permissionRepo.findOne({ where: { roleName, user_group: userGroup } });
+    if (existing) return existing;
+
+    const permission = this.permissionRepo.create({
+      roleName,
+      user_group: userGroup,
+      permissions: [
+        {
+          module: 1,
+          action: {
+            [PERMISSIONS.ADD]: true,
+            [PERMISSIONS.READ]: true,
+            [PERMISSIONS.UPDATE]: true,
+            [PERMISSIONS.DELETE]: true,
+          }
+        }
+      ]
+    } as unknown as PermissionManager);
+    return this.permissionRepo.save(permission);
+  }
+
+  async assignSalesFullPermissionsToUsers(emails: string[]) {
+    if (!emails || emails.length === 0) throw new BadRequestException('emails required');
+    const users = await this.userRepo.find({ where: { email: In(emails) }, relations: ['modules'] });
+    const foundEmails = new Set(users.map(u => u.email));
+    const missing = emails.filter(e => !foundEmails.has(e));
+    if (missing.length > 0) {
+      throw new NotFoundException(`Users not found: ${missing.join(', ')}`);
+    }
+
+    const salesModule = await this.moduleRepo.findOne({ where: { id: 1 } });
+    if (!salesModule) {
+      throw new NotFoundException('Sales module not found');
+    }
+
+    const permissionsByGroup = new Map<USER_GROUP, PermissionManager>();
+    for (const u of users) {
+      const group = u.user_group || USER_GROUP.USER;
+      let permission = permissionsByGroup.get(group);
+      if (!permission) {
+        permission = await this.ensureSalesFullPermissionRole(group);
+        permissionsByGroup.set(group, permission);
+      }
+      u.permission = permission;
+      const modules = u.modules || [];
+      if (!modules.some(m => m.id === salesModule.id)) {
+        modules.push(salesModule);
+      }
+      u.modules = modules;
+    }
+    await this.userRepo.save(users);
+    return { success: true, assignedCount: users.length };
+  }
+
+  private async getOrCreateUserPermission(user: User): Promise<PermissionManager> {
+    const roleName = `USER_${user.id}_CUSTOM`;
+    if (user.permission && user.permission.roleName === roleName) {
+      return this.permissionRepo.findOne({ where: { id: user.permission.id } });
+    }
+    const permission = this.permissionRepo.create({
+      roleName,
+      user_group: user.user_group || USER_GROUP.USER,
+      permissions: []
+    } as unknown as PermissionManager);
+    const saved = await this.permissionRepo.save(permission);
+    user.permission = saved;
+    await this.userRepo.save(user);
+    return saved;
+  }
+
+  async grantFullModuleAccess(userId: number, moduleIds: number[]) {
+    if (!moduleIds || moduleIds.length === 0) {
+      throw new BadRequestException('moduleIds required');
+    }
+    const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['modules', 'permission'] });
+    if (!user) throw new NotFoundException('User not found');
+
+    const modules = await this.moduleRepo.find({ where: { id: In(moduleIds) } });
+    if (modules.length !== moduleIds.length) {
+      throw new NotFoundException('One or more modules not found');
+    }
+
+    const permission = await this.getOrCreateUserPermission(user);
+    const permissionRecords = permission.permissions || [];
+    const permissionMap = new Map<number, PermissionManager['permissions'][number]>(
+      permissionRecords.map(p => [Number(p.module), p])
+    );
+    for (const moduleId of moduleIds) {
+      permissionMap.set(moduleId, {
+        module: moduleId,
+        action: {
+          [PERMISSIONS.ADD]: true,
+          [PERMISSIONS.READ]: true,
+          [PERMISSIONS.UPDATE]: true,
+          [PERMISSIONS.DELETE]: true,
+        }
+      });
+    }
+    permission.permissions = Array.from(permissionMap.values());
+    await this.permissionRepo.save(permission);
+
+    const currentModules = user.modules || [];
+    const existingIds = new Set(currentModules.map(m => m.id));
+    for (const m of modules) {
+      if (!existingIds.has(m.id)) {
+        currentModules.push(m);
+      }
+    }
+    user.modules = currentModules;
+    await this.userRepo.save(user);
+    return this.getUser(userId);
+  }
+
+  async revokeModuleAccess(userId: number, moduleIds: number[]) {
+    if (!moduleIds || moduleIds.length === 0) {
+      throw new BadRequestException('moduleIds required');
+    }
+    const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['modules', 'permission'] });
+    if (!user) throw new NotFoundException('User not found');
+
+    if (user.permission) {
+      const permission = await this.permissionRepo.findOne({ where: { id: user.permission.id } });
+      if (permission) {
+        permission.permissions = (permission.permissions || []).filter(p => !moduleIds.includes(Number(p.module)));
+        await this.permissionRepo.save(permission);
+      }
+    }
+
+    user.modules = (user.modules || []).filter(m => !moduleIds.includes(m.id));
+    await this.userRepo.save(user);
+    return this.getUser(userId);
+  }
+
+  async revokeAllModuleAccess(userId: number) {
+    const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['modules', 'permission'] });
+    if (!user) throw new NotFoundException('User not found');
+
+    if (user.permission) {
+      const permission = await this.permissionRepo.findOne({ where: { id: user.permission.id } });
+      if (permission && permission.roleName === `USER_${user.id}_CUSTOM`) {
+        permission.permissions = [];
+        await this.permissionRepo.save(permission);
+      }
+    }
+    user.modules = [];
+    await this.userRepo.save(user);
+    return this.getUser(userId);
   }
 
 }

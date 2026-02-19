@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import { ApiResponse } from '../interfaces/commonTypes/apiResponse.interface';
 import { ERROR_CODES, ErrorMessages, TOKEN_TYPE } from '../constants/commonConstants';
 import { JwtService } from '../jwt-service/jwt.service';
-import { LoginSessionService } from '../database/src';
+import { LoginSessionRepository } from '../database/src';
 import { ResponseHandlerService } from '../response-handler/response-handler.service';
 import { JWTPayload } from '../interfaces/authentication/jwtPayload.interface';
 import { SESSION_STATUS, USER_GROUP } from '../constants/autenticationConstants/userContants';
@@ -18,7 +18,7 @@ import { COMMON_MSG } from '../constants/autenticationConstants/messageConstants
 @Injectable()
 export class TokenValidationMiddleware implements NestMiddleware
 {
-    constructor(private jwtService: JwtService, private LoginSessionModel:LoginSessionService, private readonly ResponseHandler: ResponseHandlerService){}
+    constructor(private jwtService: JwtService, private LoginSessionModel: LoginSessionRepository, private readonly ResponseHandler: ResponseHandlerService){}
 
   async use(req: Request, res: Response, next: NextFunction) {
     const errorResponse: ApiResponse.ApiErrorType = {
@@ -42,6 +42,14 @@ export class TokenValidationMiddleware implements NestMiddleware
           if (loginSession && loginSession.loginStatus == SESSION_STATUS.LOGGED_IN) 
           {
               req['userPayload'] = payload;
+              (req as any).user = {
+                id: payload.referenceId,
+                user_group: payload.user_group
+              };
+              (req as any).user_group = payload.user_group;
+              (req as any).modules = payload.modules || [];
+              (req as any).department = payload.department || [];
+              (req as any).permissionId = payload.permissionId;
               next();
           } else if (loginSession && loginSession.loginStatus == SESSION_STATUS.BLOCKED) 
           {
@@ -74,7 +82,7 @@ export class TokenValidationMiddleware implements NestMiddleware
 @Injectable()
 export class TokenValidationAndGuestMiddleware implements NestMiddleware {
 
-    constructor(private jwtService: JwtService, private LoginSessionModel:LoginSessionService, private readonly ResponseHandler: ResponseHandlerService){}
+    constructor(private jwtService: JwtService, private LoginSessionModel: LoginSessionRepository, private readonly ResponseHandler: ResponseHandlerService){}
 
   async use(req: Request, res: Response, next: NextFunction) {
     const errorResponse: ApiResponse.ApiErrorType = {
@@ -104,6 +112,13 @@ export class TokenValidationAndGuestMiddleware implements NestMiddleware {
               if (loginSession && loginSession.loginStatus == SESSION_STATUS.LOGGED_IN) 
               {
                   req['userPayload'] = payload;
+                  (req as any).user = {
+                    id: payload.referenceId,
+                    user_group: payload.user_group
+                  };
+                  (req as any).user_group = payload.user_group;
+                  (req as any).modules = payload.modules || [];
+                  (req as any).permissionId = payload.permissionId;
                   next();
               } 
               else if (loginSession && loginSession.loginStatus == SESSION_STATUS.BLOCKED) 
@@ -144,7 +159,7 @@ export class TokenValidationAndGuestMiddleware implements NestMiddleware {
 @Injectable()
 export class OptionalTokenValidationAndGuestMiddleware implements NestMiddleware {
 
-    constructor(private jwtService: JwtService, private LoginSessionModel:LoginSessionService, private readonly ResponseHandler: ResponseHandlerService){}
+    constructor(private jwtService: JwtService, private LoginSessionModel: LoginSessionRepository, private readonly ResponseHandler: ResponseHandlerService){}
 
   async use(req: Request, res: Response, next: NextFunction) {
     const errorResponse: ApiResponse.ApiErrorType = {
@@ -204,7 +219,7 @@ export class checkIfAdmin implements NestMiddleware {
           };
         
           const payload: JWTPayload = req['userPayload'];
-          if (payload.user_group != USER_GROUP.ADMIN) {
+             if (payload.user_group != USER_GROUP.SUPER_ADMIN) {
             this.ResponseHandler.sendErrorResponse(res, errorResponse)
           }
           else

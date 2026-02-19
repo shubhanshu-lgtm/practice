@@ -12,17 +12,23 @@ import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
 import { LeadServiceRepository, LoginSession } from '../../../../../libs/database/src';
 import { ServiceMaster } from '../../../../../libs/database/src/entities/service-master.entity';
+import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { ResponseHandlerModule } from '../../../../../libs/response-handler/response-handler.module';
+import { ConfigModule } from '../../../../../libs/config/config.module';
 import { LeadController } from './lead.controller';
 import { LeadService } from './lead.service';
+import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
+import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 @Module({
   imports: [
     DBModule.forRoot(),
     ResponseHandlerModule,
-    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, LeadServiceEntity, PermissionManager]),
+    ConfigModule,
+    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager]),
   ],
   controllers: [LeadController],
-  providers: [LeadService, LeadServiceEntity,LeadServiceRepository],
+  providers: [LeadService, LeadServiceEntity, LeadServiceRepository, JwtService, TokenValidationMiddleware, checkIfAdmin, TokenValidationGuard, CheckIfAdminGuard],
 })
 export class LeadModule {}

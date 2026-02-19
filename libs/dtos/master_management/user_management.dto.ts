@@ -85,10 +85,6 @@ export class CreateUserDto {
   @IsOptional()
   @IsArray()
   teams?: number[];
-
-  @IsOptional()
-  @IsNumber()
-  permissionId?: number;
 }
 
 export class UpdateUserDto {
@@ -124,10 +120,6 @@ export class UpdateUserDto {
   @IsOptional()
   @IsArray()
   teams?: number[];
-
-  @IsOptional()
-  @IsNumber()
-  permissionId?: number;
 }
 
 export class LoginUserDto {

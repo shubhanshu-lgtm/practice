@@ -46,7 +46,8 @@ import {
     ProposalPaymentTerm,
     ProposalAcceptance,
     Project,
-    ServiceMaster
+    ServiceMaster,
+    ServiceDeliverable
 } from './entities';
 
 import {
@@ -120,7 +121,8 @@ export class DBModule {
                 ProposalPaymentTerm,
                 ProposalAcceptance,
                 Project,
-                ServiceMaster
+                ServiceMaster,
+                ServiceDeliverable,
             ],
             synchronize: false,
             //dropSchema: true,
@@ -200,6 +202,7 @@ export class DBModule {
                    ProposalAcceptance,
                    Project,
                    ServiceMaster,
+                   ServiceDeliverable,
                 ]),
             ],
             controllers: [],

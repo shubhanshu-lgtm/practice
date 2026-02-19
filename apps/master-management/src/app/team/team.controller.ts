@@ -3,15 +3,10 @@ import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { CreateTeamDto, UpdateTeamDto } from '../../../../../libs/dtos/master_management/team.dto';
 import { TeamService } from './team.service';
-import { JwtAuthGuard, ModuleAccessGuard, ModuleAccess } from '../../../../../libs/auth/src';
-import { PermissionAccessGuard } from '../../../../../libs/auth/src/permission-access.guard';
-import { PermissionAccess } from '../../../../../libs/auth/src/permission-access.decorator';
-import { SYSTEM_MODULE_CODES } from '../../../../../libs/constants/moduleConstants';
-import { PERMISSIONS } from '../../../../../libs/constants/autenticationConstants/permissionManagerConstants';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 @Controller('teams')
-@UseGuards(JwtAuthGuard, ModuleAccessGuard, PermissionAccessGuard)
-@ModuleAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION)
+@UseGuards(TokenValidationGuard, CheckIfAdminGuard)
 @UsePipes(new ValidationPipe({ transform: true }))
 export class TeamController {
   constructor(
@@ -20,7 +15,6 @@ export class TeamController {
   ) {}
 
   @Post('/create')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.ADD)
   async createTeam(@Res() res: Response, @Body() payload: CreateTeamDto) {
     try {
       const team = await this.teamService.createTeam(payload);
@@ -31,7 +25,6 @@ export class TeamController {
   }
 
   @Get('/list')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
   async getTeams(@Res() res: Response) {
     try {
       const teams = await this.teamService.getTeams();
@@ -42,7 +35,6 @@ export class TeamController {
   }
 
   @Get(':id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.READ)
   async getTeamById(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const team = await this.teamService.getTeamById(id);
@@ -53,7 +45,6 @@ export class TeamController {
   }
 
   @Patch(':id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.UPDATE)
   async updateTeam(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -68,7 +59,6 @@ export class TeamController {
   }
 
   @Delete(':id')
-  @PermissionAccess(SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, PERMISSIONS.DELETE)
   async deleteTeam(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const result = await this.teamService.deleteTeam(id);
