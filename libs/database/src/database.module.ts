@@ -124,7 +124,7 @@ export class DBModule {
                 ServiceMaster,
                 ServiceDeliverable,
             ],
-            synchronize: false,
+            synchronize: true,
             //dropSchema: true,
             logging: false,
             migrationsRun: false
