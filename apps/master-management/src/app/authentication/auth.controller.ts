@@ -229,16 +229,31 @@ export class AuthController {
 
 
   private extractTokenFromRequest(req: Request): string | null {
-    const authHeader = req.headers['authorization'];
-    
-    if (authHeader && authHeader.startsWith('Bearer ')) {
-      return authHeader.substring(7);
+    const headerValue =
+      req.headers['authorization'] ??
+      req.headers['authorisation'] ??
+      req.headers['accesstoken'];
+
+    let authHeader: string | undefined;
+
+    if (Array.isArray(headerValue)) {
+      authHeader = headerValue[0];
+    } else if (typeof headerValue === 'string') {
+      authHeader = headerValue;
     }
-    
-    if (req.query.token && typeof req.query.token === 'string') {
+
+    if (authHeader && authHeader.toLowerCase().startsWith('bearer ')) {
+      return authHeader.substring(7).trim();
+    }
+
+    if (authHeader) {
+      return authHeader;
+    }
+
+    if (typeof req.query.token === 'string') {
       return req.query.token;
     }
-    
+
     return null;
   }
 

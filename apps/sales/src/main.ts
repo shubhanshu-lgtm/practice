@@ -56,6 +56,7 @@ async function bootstrap() {
       'authorization',
       'authorisation',
       'Accept',
+      'accesstoken',
       'ngrok-skip-browser-warning',
     ],
     credentials: true,

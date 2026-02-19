@@ -89,7 +89,7 @@ export class LeadController {
     }
   }
 
-  @Get('leads')
+  @Get('list')
   @UseGuards(TokenValidationGuard)
   async getLeads(@Req() req: AuthenticatedRequest, @Res() res: Response) {
     try {
