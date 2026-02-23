@@ -203,6 +203,54 @@ export class LeadController {
     }
   }
 
+  @Get(':id/services')
+  @UseGuards(TokenValidationGuard)
+  async getLeadAssignedServices(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    try {
+      const leadServices = await this.leadService.getLeadAssignedServices(id, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services fetched successfully', data: leadServices });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Put(':id/services/:serviceId')
+  @UseGuards(TokenValidationGuard)
+  async updateLeadService(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Param('serviceId', ParseIntPipe) serviceId: number,
+    @Body() payload: AssignServicesToLeadDto,
+  ) {
+    try {
+      const updatedLead = await this.leadService.updateLeadService(id, serviceId, payload.services[0], req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead service updated successfully', data: updatedLead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete(':id/services/:serviceId')
+  @UseGuards(TokenValidationGuard)
+  async removeLeadService(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Param('serviceId', ParseIntPipe) serviceId: number,
+  ) {
+    try {
+      await this.leadService.removeLeadService(id, serviceId, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead service removed successfully' });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Post('permissions')
   @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async createPermission(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreatePermissionDto) {

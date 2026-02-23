@@ -588,6 +588,112 @@ export class LeadService {
     }
   }
 
+  async getLeadAssignedServices(leadId: number, actor?: User) {
+    try {
+      const lead = await this.leadRepository.findOne({ 
+        where: { id: leadId }, 
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
+      });
+      
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      return lead;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async updateLeadService(leadId: number, serviceId: number, assignment: ServiceAssignment, actor?: User): Promise<Lead> {
+    try {
+      const lead = await this.leadRepository.findOne({ 
+        where: { id: leadId }, 
+        relations: ['leadServices', 'createdBy'] 
+      });
+      
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      const service = await this.serviceRepository.findOne({ where: { id: serviceId } });
+      if (!service) {
+        throw new BadRequestException(`Service with ID ${serviceId} not found`);
+      }
+
+      const leadService = await this.leadServiceEntityRepository.findOne({
+        where: { lead: { id: leadId }, service: { id: serviceId } }
+      });
+
+      if (!leadService) {
+        throw new NotFoundException('Service not assigned to this lead');
+      }
+
+      if (assignment.description) {
+        service.description = assignment.description;
+        await this.serviceRepository.save(service);
+      }
+
+      if (assignment.deliverables) {
+        const uniqueDeliverables = [...new Set(
+          assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d)
+        )];
+        leadService.deliverables = uniqueDeliverables.length > 0 ? uniqueDeliverables : null;
+      }
+
+      await this.leadServiceEntityRepository.save(leadService);
+
+      return await this.leadRepository.findOne({ 
+        where: { id: leadId }, 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service'] 
+      });
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async removeLeadService(leadId: number, serviceId: number, actor?: User): Promise<void> {
+    try {
+      const lead = await this.leadRepository.findOne({ 
+        where: { id: leadId }, 
+        relations: ['createdBy'] 
+      });
+      
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      const result = await this.leadServiceEntityRepository.delete({
+        lead: { id: leadId },
+        service: { id: serviceId }
+      });
+
+      if (result.affected === 0) {
+        throw new NotFoundException('Service not assigned to this lead');
+      }
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
   async createService(payload: CreateServiceDto): Promise<ServiceMaster> {
     try {
       let level = 0;

@@ -94,9 +94,9 @@
           }
         },
         {
-          "name": "Update Lead (PATCH)",
+          "name": "Update Lead (PUT)",
           "request": {
-            "method": "PATCH",
+            "method": "PUT",
             "header": [
               { "key": "Content-Type", "value": "application/json" },
               { "key": "Authorization", "value": "Bearer {{jwt}}" }
@@ -104,10 +104,11 @@
             "url": "{{baseUrl}}/leads/:id",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"status\": \"Contacted\",\n  \"notes\": \"Updated via Postman PATCH\",\n  \"serviceIds\": [1,2]\n}"
+              "raw": "{\n  \"status\": \"Contacted\",\n  \"notes\": \"Updated via Postman via PUT\",\n  \"serviceIds\": [1,2]\n}"
             }
           }
         },
+
         {
           "name": "Assign Services To Lead",
           "request": {
