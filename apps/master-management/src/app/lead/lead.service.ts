@@ -17,6 +17,12 @@ import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesCon
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../../../../libs/constants/serviceConstants';
 
+interface ServiceAssignment {
+  serviceId: number;
+  description?: string;
+  deliverables?: string[];
+}
+
 @Injectable()
 export class LeadService {
   constructor(
@@ -251,14 +257,21 @@ export class LeadService {
 
   async getServices(filter?: GetServicesFilterDto): Promise<ServiceMaster[]> {
     try {
-      const where: FindOptionsWhere<ServiceMaster> = { isActive: true };
+      const baseWhere: FindOptionsWhere<ServiceMaster> = { isActive: true };
       if (filter?.parentId !== undefined && filter.parentId !== null) {
-        where.parentId = filter.parentId;
+        baseWhere.parentId = filter.parentId;
       } else if (filter?.rootOnly) {
-        where.parentId = IsNull();
+        baseWhere.parentId = IsNull();
       }
+      let where: FindOptionsWhere<ServiceMaster> | FindOptionsWhere<ServiceMaster>[];
       if (filter?.category) {
-        where.category = filter.category;
+        where = [
+          { ...baseWhere, category: filter.category },
+          { ...baseWhere, name: filter.category },
+          { ...baseWhere, code: filter.category },
+        ];
+      } else {
+        where = baseWhere;
       }
       const relations = filter?.includeChildren
         ? ['parent', 'children', 'department', 'deliverables']
@@ -280,9 +293,16 @@ export class LeadService {
 
   async getServicesTree(filter?: GetServicesFilterDto) {
     try {
-      const where: FindOptionsWhere<ServiceMaster> = { isActive: true };
+      const baseWhere: FindOptionsWhere<ServiceMaster> = { isActive: true };
+      let where: FindOptionsWhere<ServiceMaster> | FindOptionsWhere<ServiceMaster>[];
       if (filter?.category) {
-        where.category = filter.category;
+        where = [
+          { ...baseWhere, category: filter.category },
+          { ...baseWhere, name: filter.category },
+          { ...baseWhere, code: filter.category },
+        ];
+      } else {
+        where = baseWhere;
       }
       const services = await this.serviceRepository.find({
         where,
@@ -498,7 +518,7 @@ export class LeadService {
     }
   }
 
-  async assignServices(leadId: number, serviceIds: number[], actor?: User): Promise<Lead> {
+  async assignServices(leadId: number, serviceAssignments: ServiceAssignment[], actor?: User): Promise<Lead> {
     try {
       const lead = await this.leadRepository.findOne({ where: { id: leadId }, relations: ['leadServices', 'createdBy'] });
       if (!lead || !lead.isActive) {
@@ -512,17 +532,48 @@ export class LeadService {
 
       await this.leadServiceEntityRepository.delete({ lead: { id: leadId } });
 
-      if (serviceIds && serviceIds.length > 0) {
-        const services = await this.serviceRepository.find({ where: { id: In(serviceIds) } });
+      if (serviceAssignments && serviceAssignments.length > 0) {
+        const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
+        const services = await this.serviceRepository.find({ where: { id: In(uniqueServiceIds) } });
         
-        if (services.length !== serviceIds.length) {
+        if (services.length !== uniqueServiceIds.length) {
           throw new BadRequestException('One or more service IDs are invalid');
         }
 
-        const leadServices = services.map(service => 
-          this.leadServiceEntityRepository.create({
+        const servicesToUpdate = new Map<number, ServiceMaster>();
+        const leadServicesData = [];
+
+        for (const assignment of serviceAssignments) {
+          const service = services.find(s => s.id === assignment.serviceId);
+          if (!service) {
+            throw new BadRequestException(`Service with ID ${assignment.serviceId} not found`);
+          }
+
+          if (assignment.description) {
+            service.description = assignment.description;
+            servicesToUpdate.set(service.id, service);
+          }
+
+          const uniqueDeliverables = assignment.deliverables 
+            ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d))]
+            : [];
+
+          leadServicesData.push({
             lead: lead,
-            service: service
+            service: service,
+            deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null
+          });
+        }
+
+        if (servicesToUpdate.size > 0) {
+          await this.serviceRepository.save(Array.from(servicesToUpdate.values()));
+        }
+
+        const leadServices = leadServicesData.map(data =>
+          this.leadServiceEntityRepository.create({
+            lead: data.lead,
+            service: data.service,
+            deliverables: data.deliverables
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -530,7 +581,7 @@ export class LeadService {
 
       return await this.leadRepository.findOne({ 
         where: { id: leadId }, 
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service'] 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.deliverables'] 
       });
     } catch (error) {
       throw new BadRequestException(error.message);

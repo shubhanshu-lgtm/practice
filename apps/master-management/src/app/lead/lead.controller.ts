@@ -3,7 +3,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -193,10 +193,10 @@ export class LeadController {
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
-    @Body() payload: { serviceIds: number[] },
+    @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
-      const lead = await this.leadService.assignServices(id, payload.serviceIds, req.user);
+      const lead = await this.leadService.assignServices(id, payload.services, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Services assigned to lead successfully', data: lead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

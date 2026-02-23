@@ -11,7 +11,7 @@ export class ServiceDeliverable {
   name: string;
 
   @Column({ type: 'text', nullable: true })
-  description: string;
+  deliverables: string;
 
   @Column({ type: 'date', nullable: true })
   dueDate: Date;

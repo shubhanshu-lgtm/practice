@@ -366,13 +366,14 @@ export class GetServicesFilterDto {
 }
 
 export class CreateDeliverableDto {
+
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
   name: string;
 
   @IsOptional()
   @IsString()
-  description?: string;
+  deliverables?: string;
 
   @IsOptional()
   @IsString()
@@ -398,7 +399,7 @@ export class UpdateDeliverableDto {
 
   @IsOptional()
   @IsString()
-  description?: string;
+  deliverables?: string;
 
   @IsOptional()
   @IsString()
@@ -415,4 +416,26 @@ export class UpdateDeliverableDto {
   @IsOptional()
   @IsNumber()
   sortOrder?: number;
+}
+
+export class ServiceAssignmentDto {
+  @IsNumber()
+  @IsNotEmpty()
+  serviceId: number;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  deliverables?: string[];
+}
+
+export class AssignServicesToLeadDto {
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ServiceAssignmentDto)
+  services: ServiceAssignmentDto[];
 }
