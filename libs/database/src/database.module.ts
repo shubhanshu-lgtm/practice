@@ -47,7 +47,8 @@ import {
     ProposalAcceptance,
     Project,
     ServiceMaster,
-    ServiceDeliverable
+    ServiceDeliverable,
+    LeadFollowUp
 } from './entities';
 
 import {
@@ -116,6 +117,7 @@ export class DBModule {
                 AuditLog,
                 DocumentClassification,
                 LeadService,
+                LeadFollowUp,
                 Proposal,
                 ProposalItem,
                 ProposalPaymentTerm,
@@ -176,6 +178,7 @@ export class DBModule {
                    LeadEnquiry,
                    LeadContact,
                    LeadAddress,
+                   LeadFollowUp,
                    LoginSession,
                    Menu,
                    Company,

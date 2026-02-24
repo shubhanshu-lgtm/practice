@@ -123,6 +123,52 @@
               "raw": "{\n  \"serviceIds\": [1,2]\n}"
             }
           }
+        },
+        {
+          "name": "Create Follow-up",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt}}" }
+            ],
+            "url": "{{baseUrl}}/leads/:id/followups",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"Call\",\n  \"description\": \"Initial outreach call\",\n  \"followUpDate\": \"2026-03-01T10:00:00Z\",\n  \"priority\": \"High\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Lead Follow-ups",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+            "url": "{{baseUrl}}/leads/:id/followups"
+          }
+        },
+        {
+          "name": "Update Follow-up",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt}}" }
+            ],
+            "url": "{{baseUrl}}/leads/followups/:id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isCompleted\": true,\n  \"outcome\": \"Spoke with client, interested\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Follow-up",
+          "request": {
+            "method": "DELETE",
+            "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+            "url": "{{baseUrl}}/leads/followups/:id"
+          }
         }
       ]
     }

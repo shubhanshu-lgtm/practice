@@ -3,7 +3,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, CreateSubServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -18,7 +18,7 @@ export class LeadController {
     private readonly responseHandler: ResponseHandlerService,
   ) {}
 
-  @Post('services')
+  @Post('createService')
   @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   @UseInterceptors(FileInterceptor('service_logo', { fileFilter: imageFileFilter }))
   async createService(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreateServiceDto, @UploadedFile() file?: { originalname?: string }) {
@@ -77,6 +77,81 @@ export class LeadController {
     }
   }
 
+  // --- sub-service routes --------------------------------------------------
+  @Post('createSub_Service')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  @UseInterceptors(FileInterceptor('service_logo', { fileFilter: imageFileFilter }))
+  async createSubService(
+    @Res() res: Response,
+    @Body() payload: CreateSubServiceDto,
+    //@UploadedFile() file?: { originalname?: string },
+  ) {
+    try {
+      // if (file?.originalname) {
+      //   (payload as any).logo = file.originalname;
+      // }
+      const service = await this.leadService.createService(payload);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Sub-service created successfully', data: service });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('subservices')
+  @UseGuards(TokenValidationGuard)
+  async getSubServices(@Res() res: Response, @Query() query: GetServicesFilterDto) {
+    try {
+      const result = await this.leadService.getServices(query);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Sub-services fetched successfully',
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: query.draw,
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('subservices/:id')
+  @UseGuards(TokenValidationGuard)
+  async getSubServiceById(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+    try {
+      const service = await this.leadService.getServiceById(id);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Sub-service fetched successfully', data: service });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Patch('subservices/:id')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  async updateSubService(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateServiceDto,
+  ) {
+    try {
+      const service = await this.leadService.updateService(id, payload);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Sub-service updated successfully', data: service });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete('subservices/:id')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  async deleteSubService(@Res() res: Response, @Param('id', ParseIntPipe) id: number, @Body('hard') hard?: boolean) {
+    try {
+      await this.leadService.deleteService(id, hard);
+      const action = hard ? 'permanently deleted' : 'deactivated';
+      return this.responseHandler.sendSuccessResponse(res, { message: `Sub-service ${action} successfully` });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Post()
   @UseGuards(TokenValidationGuard)
   async createLead(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreateLeadDto) {
@@ -91,10 +166,16 @@ export class LeadController {
 
   @Get('list')
   @UseGuards(TokenValidationGuard)
-  async getLeads(@Req() req: AuthenticatedRequest, @Res() res: Response) {
+  async getLeads(@Req() req: AuthenticatedRequest, @Res() res: Response, @Query() pagination: PaginationDto) {
     try {
-      const leads = await this.leadService.getLeads(req.user);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Leads fetched successfully', data: leads });
+      const result = await this.leadService.getLeads(req.user, pagination);
+      return this.responseHandler.sendSuccessResponse(res, { 
+        message: 'Leads fetched successfully', 
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: pagination.draw
+      });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -104,8 +185,14 @@ export class LeadController {
   @UseGuards(TokenValidationGuard)
   async getServices(@Res() res: Response, @Query() query: GetServicesFilterDto) {
     try {
-      const services = await this.leadService.getServices(query);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Services fetched successfully', data: services });
+      const result = await this.leadService.getServices(query);
+      return this.responseHandler.sendSuccessResponse(res, { 
+        message: 'Services fetched successfully', 
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: query.draw
+      });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -170,6 +257,93 @@ export class LeadController {
     }
   }
 
+  // --- follow-up routes ----------------------------------------------------
+  @Post(':id/followups')
+  @UseGuards(TokenValidationGuard)
+  async createLeadFollowUp(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: CreateLeadFollowUpDto,
+  ) {
+    try {
+      const followUp = await this.leadService.createLeadFollowUp(id, payload, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Follow-up created successfully', data: followUp });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get(':id/followups')
+  @UseGuards(TokenValidationGuard)
+  async getLeadFollowUps(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Query() filter: GetLeadFollowUpsDto,
+    @Query() pagination: PaginationDto,
+  ) {
+    try {
+      const result = await this.leadService.getLeadFollowUps(id, filter, pagination);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Follow-ups fetched successfully',
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: pagination.draw,
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('followups/:id')
+  @UseGuards(TokenValidationGuard)
+  async getLeadFollowUpById(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    try {
+      const followUp = await this.leadService.getLeadFollowUpById(id);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Follow-up fetched successfully', data: followUp });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Put('followups/:id')
+  @UseGuards(TokenValidationGuard)
+  async updateLeadFollowUp(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateLeadFollowUpDto,
+  ) {
+    try {
+      const updated = await this.leadService.updateLeadFollowUp(id, payload, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Follow-up updated successfully', data: updated });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete('followups/:id')
+  @UseGuards(TokenValidationGuard)
+  async deleteLeadFollowUp(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body('hard') hard?: boolean,
+  ) {
+    try {
+      await this.leadService.deleteLeadFollowUp(id, hard, req.user);
+      const action = hard ? 'permanently deleted' : 'deactivated';
+      return this.responseHandler.sendSuccessResponse(res, { message: `Follow-up ${action} successfully` });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Delete(':id')
   @UseGuards(TokenValidationGuard)
   async deleteLead(
@@ -198,6 +372,27 @@ export class LeadController {
     try {
       const lead = await this.leadService.assignServices(id, payload.services, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Services assigned to lead successfully', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('services/all/list')
+  @UseGuards(TokenValidationGuard)
+  async getAllLeadsAssignedServices(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Query() pagination: PaginationDto,
+  ) {
+    try {
+      const result = await this.leadService.getAllLeadsAssignedServices(req.user, pagination);
+      return this.responseHandler.sendSuccessResponse(res, { 
+        message: 'All lead services fetched successfully', 
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: pagination.draw
+      });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }

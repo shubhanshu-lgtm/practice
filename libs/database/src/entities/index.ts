@@ -21,6 +21,7 @@ export * from './lead.entity';
 export * from './lead-enquiry.entity';
 export * from './lead-contact.entity';
 export * from './lead-address.entity';
+export * from './lead-followup.entity';
 // Duplicate removed - loginSession.entity already exported above
 // export * from './session.entity'; // DEPRECATED - Use LoginSession instead
 export * from './Countries';

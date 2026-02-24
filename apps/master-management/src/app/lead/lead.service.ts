@@ -8,14 +8,18 @@ import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { LeadContact } from '../../../../../libs/database/src/entities/lead-contact.entity';
 import { LeadAddress } from '../../../../../libs/database/src/entities/lead-address.entity';
 import { LeadService as LeadServiceEntity } from '../../../../../libs/database/src/entities/lead-service.entity';
+import { LeadFollowUp } from '../../../../../libs/database/src/entities/lead-followup.entity';
+import { AuditLog } from '../../../../../libs/database/src/entities/audit-log.entity';
 import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { ServiceMaster } from '../../../../../libs/database/src/entities/service-master.entity';
 import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../../../../libs/constants/serviceConstants';
+import { IPagination, IPaginationObject } from '../../../../../libs/interfaces/commonTypes/custom.interface';
+import { paginate } from '../../../../../libs/utils/basicUtils';
 
 interface ServiceAssignment {
   serviceId: number;
@@ -44,6 +48,10 @@ export class LeadService {
     private readonly serviceRepository: Repository<ServiceMaster>,
     @InjectRepository(LeadServiceEntity)
     private readonly leadServiceEntityRepository: Repository<LeadServiceEntity>,
+    @InjectRepository(LeadFollowUp)
+    private readonly followUpRepository: Repository<LeadFollowUp>,
+    @InjectRepository(AuditLog)
+    private readonly auditLogRepository: Repository<AuditLog>,
     @InjectRepository(PermissionManager)
     private readonly permissionRepository: Repository<PermissionManager>,
     @InjectRepository(ServiceDeliverable)
@@ -66,6 +74,21 @@ export class LeadService {
       }
     }
     return roots;
+  }
+
+  private deduplicateDeliverables(service: ServiceMaster): ServiceMaster {
+    if (service?.deliverables?.length) {
+      const seen = new Set<string>();
+      service.deliverables = service.deliverables
+        .sort((a, b) => a.id - b.id)
+        .filter(d => {
+          const key = `${d.serviceId}::${d.name}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+    }
+    return service;
   }
 
   private async generateEnquiryId(): Promise<string> {
@@ -239,24 +262,44 @@ export class LeadService {
     }
   }
 
-  async getLeads(actor?: User): Promise<Lead[]> {
+  async getLeads(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
     try {
+      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+
       const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
       const where: FindOptionsWhere<Lead> = { isActive: true };
       if (!isAdmin && actor?.id) {
         where.createdBy = { id: actor.id };
       }
-      return await this.leadRepository.find({ 
+
+      const [leads, total] = await this.leadRepository.findAndCount({ 
         where,
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'],
+        skip: offset,
+        take: limit,
+        order: { createdAt: 'DESC' }
       });
+
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        docs: leads,
+        page: currentPage,
+        limit: limit,
+        totalDocs: total,
+        totalPages: totalPages,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1
+      };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
   }
 
-  async getServices(filter?: GetServicesFilterDto): Promise<ServiceMaster[]> {
+  async getServices(filter?: GetServicesFilterDto): Promise<IPaginationObject> {
     try {
+      const { currentPage, limit, offset } = paginate(filter?.page, filter?.pageSize);
+
       const baseWhere: FindOptionsWhere<ServiceMaster> = { isActive: true };
       if (filter?.parentId !== undefined && filter.parentId !== null) {
         baseWhere.parentId = filter.parentId;
@@ -276,16 +319,32 @@ export class LeadService {
       const relations = filter?.includeChildren
         ? ['parent', 'children', 'department', 'deliverables']
         : ['parent', 'department', 'deliverables'];
-      let services = await this.serviceRepository.find({
+      
+      let [services, total] = await this.serviceRepository.findAndCount({
         where,
         relations,
-        order: { sortOrder: 'ASC', name: 'ASC' }
+        order: { sortOrder: 'ASC', name: 'ASC' },
+        skip: offset,
+        take: limit
       });
+
       if (filter?.userGroup) {
         const group = filter.userGroup;
         services = services.filter(s => s.accessLevel === SERVICE_ACCESS_LEVEL.PUBLIC || (s.allowedUserGroups || []).includes(group));
+        total = services.length;
       }
-      return services;
+
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        docs: services.map(s => this.deduplicateDeliverables(s)),
+        page: currentPage,
+        limit: limit,
+        totalDocs: total,
+        totalPages: totalPages,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1
+      };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -325,7 +384,7 @@ export class LeadService {
         relations: ['parent', 'department', 'deliverables'],
         order: { sortOrder: 'ASC', name: 'ASC' }
       });
-      return services;
+      return services.map(s => this.deduplicateDeliverables(s));
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -588,6 +647,47 @@ export class LeadService {
     }
   }
 
+  async getAllLeadsAssignedServices(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
+    try {
+      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+
+      let where: FindOptionsWhere<Lead> = { isActive: true };
+      
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        where = { isActive: true, createdBy: { id: actor.id } };
+      }
+
+      const [leads, total] = await this.leadRepository.findAndCount({
+        where,
+        relations: [
+          'customer',
+          'customer.contacts',
+          'customer.addresses',
+          'createdBy',
+          'leadServices',
+          'leadServices.service'
+        ],
+        order: { createdAt: 'DESC' },
+        skip: offset,
+        take: limit
+      });
+
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        docs: leads,
+        page: currentPage,
+        limit: limit,
+        totalDocs: total,
+        totalPages: totalPages,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1
+      };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
   async getLeadAssignedServices(leadId: number, actor?: User) {
     try {
       const lead = await this.leadRepository.findOne({ 
@@ -747,10 +847,26 @@ export class LeadService {
 
       const savedService = await this.serviceRepository.save(service);
 
-      return await this.serviceRepository.findOne({
+      const result = await this.serviceRepository.findOne({
         where: { id: savedService.id },
         relations: ['parent', 'department', 'deliverables']
       });
+      return this.deduplicateDeliverables(result);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getServiceById(id: number): Promise<ServiceMaster> {
+    try {
+      const service = await this.serviceRepository.findOne({
+        where: { id },
+        relations: ['parent', 'children', 'department', 'deliverables']
+      });
+      if (!service) {
+        throw new NotFoundException('Service not found');
+      }
+      return this.deduplicateDeliverables(service);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -846,6 +962,13 @@ export class LeadService {
         throw new NotFoundException(`Service with ID ${payload.serviceId} not found`);
       }
 
+      const existing = await this.deliverableRepository.findOne({
+        where: { serviceId: payload.serviceId, name: payload.name },
+      });
+      if (existing) {
+        return existing;
+      }
+
       const deliverable = this.deliverableRepository.create({
         ...payload,
         service,
@@ -923,6 +1046,174 @@ export class LeadService {
         deliverable.isActive = false;
         await this.deliverableRepository.save(deliverable);
       }
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  // --- lead follow-up methods ------------------------------------------------
+  async createLeadFollowUp(leadId: number, payload: CreateLeadFollowUpDto, actor?: User): Promise<LeadFollowUp> {
+    try {
+      const lead = await this.leadRepository.findOne({ where: { id: leadId } });
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+      const followUp = this.followUpRepository.create({
+        ...payload,
+        lead,
+        leadId,
+        followUpDate: payload.followUpDate ? new Date(payload.followUpDate) : null,
+        completedAt: payload.completedAt ? new Date(payload.completedAt) : null,
+        createdBy: actor || null,
+      });
+      const saved = await this.followUpRepository.save(followUp);
+      
+      await this.auditLogRepository.save({
+        action: 'CREATE',
+        module: 'LeadFollowUp',
+        entityId: String(saved.id),
+        details: JSON.stringify(saved),
+        performedBy: actor ? { id: actor.id } as User : null,
+      });
+
+      const result = await this.followUpRepository.findOne({
+        where: { id: saved.id },
+        relations: ['lead', 'createdBy', 'updatedBy']
+      });
+      return result;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getLeadFollowUps(
+    leadId: number,
+    filter?: GetLeadFollowUpsDto,
+    pagination?: IPagination,
+  ): Promise<IPaginationObject> {
+    try {
+      const query = this.followUpRepository.createQueryBuilder('f')
+        .leftJoinAndSelect('f.createdBy', 'createdBy')
+        .leftJoinAndSelect('f.updatedBy', 'updatedBy')
+        .where('f.leadId = :leadId', { leadId })
+        .andWhere('f.isActive = :isActive', { isActive: true });
+
+      if (filter) {
+        if (filter.type) {
+          query.andWhere('f.type = :type', { type: filter.type });
+        }
+        if (filter.priority) {
+          query.andWhere('f.priority = :priority', { priority: filter.priority });
+        }
+        if (filter.isCompleted !== undefined) {
+          query.andWhere('f.isCompleted = :isCompleted', { isCompleted: filter.isCompleted });
+        }
+        if (filter.fromDate) {
+          query.andWhere('f.followUpDate >= :fromDate', { fromDate: new Date(filter.fromDate) });
+        }
+        if (filter.toDate) {
+          query.andWhere('f.followUpDate <= :toDate', { toDate: new Date(filter.toDate) });
+        }
+      }
+
+      // pagination
+      let page = 1;
+      let pageSize = 20;
+      if (pagination) {
+        page = pagination.page;
+        pageSize = pagination.pageSize;
+        query.skip((page - 1) * pageSize).take(pageSize);
+      }
+
+      const [docs, total] = await query
+        .orderBy('f.followUpDate', 'DESC')
+        .addOrderBy('f.createdAt', 'DESC')
+        .getManyAndCount();
+
+      return {
+        docs,
+        totalDocs: total,
+        limit: pageSize,
+        page,
+      };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getLeadFollowUpById(id: number): Promise<LeadFollowUp> {
+    try {
+      const followUp = await this.followUpRepository.findOne({
+        where: { id },
+        relations: ['lead', 'createdBy', 'updatedBy']
+      });
+      if (!followUp) {
+        throw new NotFoundException('Follow-up not found');
+      }
+      return followUp;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async updateLeadFollowUp(
+    id: number,
+    payload: UpdateLeadFollowUpDto,
+    actor?: User,
+  ): Promise<LeadFollowUp> {
+    try {
+      const followUp = await this.followUpRepository.findOne({ where: { id } });
+      if (!followUp) {
+        throw new NotFoundException('Follow-up not found');
+      }
+
+      Object.assign(followUp, {
+        ...payload,
+        followUpDate: payload.followUpDate ? new Date(payload.followUpDate) : followUp.followUpDate,
+        completedAt: payload.completedAt ? new Date(payload.completedAt) : followUp.completedAt,
+        updatedBy: actor || null,
+        updatedAt: new Date(),
+      });
+
+      await this.followUpRepository.save(followUp);
+      
+      await this.auditLogRepository.save({
+        action: 'UPDATE',
+        module: 'LeadFollowUp',
+        entityId: String(followUp.id),
+        details: JSON.stringify(payload),
+        performedBy: actor ? { id: actor.id } as User : null,
+      });
+
+      const updated = await this.followUpRepository.findOne({
+        where: { id },
+        relations: ['lead', 'createdBy', 'updatedBy']
+      });
+      return updated;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async deleteLeadFollowUp(id: number, hard = false, actor?: User): Promise<void> {
+    try {
+      const followUp = await this.followUpRepository.findOne({ where: { id } });
+      if (!followUp) {
+        throw new NotFoundException('Follow-up not found');
+      }
+      if (hard) {
+        await this.followUpRepository.remove(followUp);
+      } else {
+        followUp.isActive = false;
+        await this.followUpRepository.save(followUp);
+      }
+      await this.auditLogRepository.save({
+        action: 'DELETE',
+        module: 'LeadFollowUp',
+        entityId: String(followUp.id),
+        details: JSON.stringify({hard}),
+        performedBy: actor ? { id: actor.id } as User : null,
+      });
     } catch (error) {
       throw new BadRequestException(error.message);
     }

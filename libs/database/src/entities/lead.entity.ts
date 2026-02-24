@@ -6,6 +6,7 @@ import { LeadService } from "./lead-service.entity";
 import { Proposal } from "./proposal.entity";
 import { LeadContact } from "./lead-contact.entity";
 import { LeadAddress } from "./lead-address.entity";
+import { LeadFollowUp } from "./lead-followup.entity";
 import { LEAD_SOURCE, LEAD_STATUS, LEAD_QUALITY } from "../../../constants/salesConstants";
 
 @Entity('lead')
@@ -74,4 +75,7 @@ export class Lead {
 
   @OneToMany(() => LeadAddress, (address) => address.lead, { cascade: true })
   addresses: LeadAddress[]
+
+  @OneToMany(() => LeadFollowUp, (followUp) => followUp.lead)
+  followUps: LeadFollowUp[]
 }

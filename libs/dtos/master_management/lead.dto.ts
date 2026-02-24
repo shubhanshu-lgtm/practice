@@ -1,9 +1,10 @@
 import { Type } from 'class-transformer';
-import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber, IsObject } from 'class-validator';
+import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber, IsObject, Min, Max, IsDateString } from 'class-validator';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../constants/salesConstants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../constants/serviceConstants';
 import { ADDRESS_TYPE, USER_GROUP } from '../../../libs/constants/autenticationConstants/userContants';
 import { PERMISSIONS } from '../../constants/autenticationConstants/permissionManagerConstants';
+import { FOLLOWUP_TYPE, FOLLOWUP_PRIORITY } from '../../database/src/entities/lead-followup.entity';
 
 export class PermissionActionDto {
   @IsBoolean()
@@ -285,6 +286,60 @@ export class CreateServiceDto {
   logo?: string;
 }
 
+export class CreateSubServiceDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  code: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  parentId: number;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isActive?: boolean;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @IsEnum(SERVICE_TYPE)
+  type?: SERVICE_TYPE;
+
+  @IsOptional()
+  @IsEnum(SERVICE_ACCESS_LEVEL)
+  accessLevel?: SERVICE_ACCESS_LEVEL;
+
+  @IsOptional()
+  @IsArray()
+  allowedUserGroups?: string[];
+
+  @IsOptional()
+  @IsArray()
+  allowedDepartments?: number[];
+
+  @IsOptional()
+  @IsNumber()
+  departmentId?: number;
+
+  @IsOptional()
+  @IsNumber()
+  sortOrder?: number;
+
+  @IsOptional()
+  @IsString()
+  logo?: string;
+}
+
 export class UpdateServiceDto {
   @IsOptional()
   @IsString()
@@ -363,6 +418,21 @@ export class GetServicesFilterDto {
   @IsOptional()
   @IsString()
   userGroup?: string;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  page?: number = 1;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  pageSize?: number = 20;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  draw?: number;
 }
 
 export class CreateDeliverableDto {
@@ -438,4 +508,131 @@ export class AssignServicesToLeadDto {
   @ValidateNested({ each: true })
   @Type(() => ServiceAssignmentDto)
   services: ServiceAssignmentDto[];
+}
+
+export class PaginationDto {
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  page: number = 1;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  pageSize: number = 20;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  draw?: number;
+}
+
+// follow-up related DTOs
+export class CreateLeadFollowUpDto {
+  @IsOptional()
+  @IsEnum(FOLLOWUP_TYPE)
+  type?: FOLLOWUP_TYPE;
+
+  @IsString()
+  @IsNotEmpty()
+  description: string;
+
+  @IsOptional()
+  @IsDateString()
+  followUpDate?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isCompleted?: boolean;
+
+  @IsOptional()
+  @IsDateString()
+  completedAt?: string;
+
+  @IsOptional()
+  @IsEnum(FOLLOWUP_PRIORITY)
+  priority?: FOLLOWUP_PRIORITY;
+
+  @IsOptional()
+  @IsString()
+  outcome?: string;
+
+  @IsOptional()
+  @IsString()
+  nextAction?: string;
+}
+
+export class UpdateLeadFollowUpDto {
+  @IsOptional()
+  @IsEnum(FOLLOWUP_TYPE)
+  type?: FOLLOWUP_TYPE;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsDateString()
+  followUpDate?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isCompleted?: boolean;
+
+  @IsOptional()
+  @IsDateString()
+  completedAt?: string;
+
+  @IsOptional()
+  @IsEnum(FOLLOWUP_PRIORITY)
+  priority?: FOLLOWUP_PRIORITY;
+
+  @IsOptional()
+  @IsString()
+  outcome?: string;
+
+  @IsOptional()
+  @IsString()
+  nextAction?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isActive?: boolean;
+}
+
+export class GetLeadFollowUpsDto {
+  @IsOptional()
+  @IsEnum(FOLLOWUP_TYPE)
+  type?: FOLLOWUP_TYPE;
+
+  @IsOptional()
+  @IsEnum(FOLLOWUP_PRIORITY)
+  priority?: FOLLOWUP_PRIORITY;
+
+  @IsOptional()
+  @IsBoolean()
+  isCompleted?: boolean;
+
+  @IsOptional()
+  @IsDateString()
+  fromDate?: string;
+
+  @IsOptional()
+  @IsDateString()
+  toDate?: string;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  page?: number = 1;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  pageSize?: number = 20;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  draw?: number;
 }
