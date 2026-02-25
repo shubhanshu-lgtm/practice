@@ -6,6 +6,7 @@ import { ADDRESS_TYPE, USER_GROUP } from '../../../libs/constants/autenticationC
 import { PERMISSIONS } from '../../constants/autenticationConstants/permissionManagerConstants';
 import { FOLLOWUP_TYPE, FOLLOWUP_PRIORITY } from '../../database/src/entities/lead-followup.entity';
 
+
 export class PermissionActionDto {
   @IsBoolean()
   [PERMISSIONS.ADD]: boolean;
@@ -256,60 +257,6 @@ export class CreateServiceDto {
   @IsOptional()
   @IsString()
   service_category?: string;
-
-  @IsOptional()
-  @IsEnum(SERVICE_TYPE)
-  type?: SERVICE_TYPE;
-
-  @IsOptional()
-  @IsEnum(SERVICE_ACCESS_LEVEL)
-  accessLevel?: SERVICE_ACCESS_LEVEL;
-
-  @IsOptional()
-  @IsArray()
-  allowedUserGroups?: string[];
-
-  @IsOptional()
-  @IsArray()
-  allowedDepartments?: number[];
-
-  @IsOptional()
-  @IsNumber()
-  departmentId?: number;
-
-  @IsOptional()
-  @IsNumber()
-  sortOrder?: number;
-
-  @IsOptional()
-  @IsString()
-  logo?: string;
-}
-
-export class CreateSubServiceDto {
-  @IsString()
-  @IsNotEmpty()
-  name: string;
-
-  @IsString()
-  @IsNotEmpty()
-  code: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  parentId: number;
-
-  @IsOptional()
-  @IsString()
-  description?: string;
-
-  @IsOptional()
-  @IsBoolean()
-  isActive?: boolean;
-
-  @IsOptional()
-  @IsString()
-  category?: string;
 
   @IsOptional()
   @IsEnum(SERVICE_TYPE)
@@ -600,6 +547,41 @@ export class UpdateLeadFollowUpDto {
   isActive?: boolean;
 }
 
+export class GetAssignedServicesFilterDto {
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  serviceId?: number;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  leadId?: number;
+
+  @IsOptional()
+  @IsString()
+  status?: string;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  page?: number = 1;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  pageSize?: number = 20;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  draw?: number;
+}
+
 export class GetLeadFollowUpsDto {
   @IsOptional()
   @IsEnum(FOLLOWUP_TYPE)
@@ -636,3 +618,5 @@ export class GetLeadFollowUpsDto {
   @IsNumber()
   draw?: number;
 }
+
+

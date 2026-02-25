@@ -19,6 +19,7 @@ import { LeadController } from './lead.controller';
 import { LeadService } from './lead.service';
 import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
+import { S3Module } from '../../../../../libs/S3-Service/s3.module';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 @Module({
@@ -26,6 +27,7 @@ import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/mid
     DBModule.forRoot(),
     ResponseHandlerModule,
     ConfigModule,
+    S3Module,
     TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager]),
   ],
   controllers: [LeadController],

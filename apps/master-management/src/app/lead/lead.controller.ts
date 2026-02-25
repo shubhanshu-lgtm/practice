@@ -3,11 +3,12 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, CreateSubServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { CATEGORY_TYPE } from '../../../../../libs/constants/serviceConstants';
 
 @Controller('leads')
 @UseGuards(TokenValidationGuard)
@@ -18,38 +19,37 @@ export class LeadController {
     private readonly responseHandler: ResponseHandlerService,
   ) {}
 
-  @Post('createService')
-  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
-  @UseInterceptors(FileInterceptor('service_logo', { fileFilter: imageFileFilter }))
-  async createService(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreateServiceDto, @UploadedFile() file?: { originalname?: string }) {
-    try {
-      const isRootService = !payload.parentId;
-      const isSuperAdmin = req.user_group === USER_GROUP.SUPER_ADMIN;
-      if (isRootService && !isSuperAdmin) {
-        throw new ForbiddenException('Only SUPER_ADMIN can create root services');
-      }
-      if (file?.originalname) {
-        payload.logo = file.originalname;
-      }
-      const service = await this.leadService.createService(payload);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Service created successfully', data: service });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
   @Post('services/category')
   @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
-  //@UseInterceptors(FileInterceptor('category_logo', { fileFilter: imageFileFilter }))
-  async addServiceCategory(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreateServiceDto, @UploadedFile() file?: { originalname?: string }) {
+  @UseInterceptors(FileInterceptor('category_logo', { fileFilter: imageFileFilter }))
+  async addServiceCategory(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Body() payload: CreateServiceDto,
+    @Query('type') type: CATEGORY_TYPE,
+    @UploadedFile() file?: { originalname?: string },
+  ) {
     try {
       const isSuperAdmin = req.user_group === USER_GROUP.SUPER_ADMIN;
       if (!isSuperAdmin) {
         throw new ForbiddenException('Only SUPER_ADMIN can create service categories');
       }
-      const result = await this.leadService.addServiceCategory(payload, file);
+      // payload.parentId may specify a parent category id for sub-category creation
+      const result = await this.leadService.addServiceCategory(payload, type, file);
       return this.responseHandler.sendSuccessResponse(res, result);
     } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+
+  @Get('services/categorywithsubcat')
+  async getCategoryAllList(@Res() res: Response, @Query('name') name?: string) {
+    try {
+      const result = await this.leadService.getCategoryAllList(name);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Categories with sub-categories fetched successfully', data: result });
+    } catch (error) {
+      console.log('Internal Server Error', error);
       return this.responseHandler.sendErrorResponse(res, error);
     }
   }
@@ -78,25 +78,6 @@ export class LeadController {
   }
 
   // --- sub-service routes --------------------------------------------------
-  @Post('createSub_Service')
-  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
-  @UseInterceptors(FileInterceptor('service_logo', { fileFilter: imageFileFilter }))
-  async createSubService(
-    @Res() res: Response,
-    @Body() payload: CreateSubServiceDto,
-    //@UploadedFile() file?: { originalname?: string },
-  ) {
-    try {
-      // if (file?.originalname) {
-      //   (payload as any).logo = file.originalname;
-      // }
-      const service = await this.leadService.createService(payload);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Sub-service created successfully', data: service });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
   @Get('subservices')
   @UseGuards(TokenValidationGuard)
   async getSubServices(@Res() res: Response, @Query() query: GetServicesFilterDto) {
@@ -392,6 +373,34 @@ export class LeadController {
         recordsTotal: result.totalDocs,
         recordsFiltered: result.totalDocs,
         draw: pagination.draw
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('assigned-services/list')
+  @UseGuards(TokenValidationGuard)
+  async getAssignedServicesList(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Query() filter: GetAssignedServicesFilterDto,
+  ) {
+    try {
+      const result = await this.leadService.getAssignedServicesList(filter, req.user);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Assigned services fetched successfully',
+        data: {
+          docs: result.docs,
+          limit: result.limit,
+          totalDocs: result.totalDocs,
+          totalPages: result.totalPages,
+          hasNextPage: result.hasNextPage,
+          hasPrevPage: result.hasPrevPage,
+        },
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: filter.draw,
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

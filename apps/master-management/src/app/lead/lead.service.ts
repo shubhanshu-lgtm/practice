@@ -14,10 +14,11 @@ import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { ServiceMaster } from '../../../../../libs/database/src/entities/service-master.entity';
 import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
-import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../../../../libs/constants/serviceConstants';
+import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE } from '../../../../../libs/constants/serviceConstants';
 import { IPagination, IPaginationObject } from '../../../../../libs/interfaces/commonTypes/custom.interface';
 import { paginate } from '../../../../../libs/utils/basicUtils';
 
@@ -56,6 +57,7 @@ export class LeadService {
     private readonly permissionRepository: Repository<PermissionManager>,
     @InjectRepository(ServiceDeliverable)
     private readonly deliverableRepository: Repository<ServiceDeliverable>,
+    private readonly s3Service: S3FileService,
   ) {}
 
   private buildServiceTree(services: ServiceMaster[]) {
@@ -390,20 +392,96 @@ export class LeadService {
     }
   }
 
-  async addServiceCategory(payload: CreateServiceDto, file?: { originalname?: string }) {
+  async addServiceCategory(payload: CreateServiceDto, type: CATEGORY_TYPE, file?: { originalname?: string; buffer?: Buffer }) {
     try {
       const categoryValue = payload.service_category || payload.category;
       if (!categoryValue) {
         throw new BadRequestException('service_category is required');
       }
+
+      if (type === CATEGORY_TYPE.SUB_CATEGORY && !payload.parentId) {
+        // try to find parent by category name if parentId not provided
+        const parentCategory = await this.serviceRepository.findOne({
+          where: [
+            { category: categoryValue, parentId: IsNull() },
+            { name: categoryValue, parentId: IsNull() },
+            { code: categoryValue, parentId: IsNull() }
+          ]
+        });
+        if (parentCategory) {
+          payload.parentId = parentCategory.id;
+        } else {
+          throw new BadRequestException(`Parent category '${categoryValue}' not found. Please provide valid parentId or category name.`);
+        }
+      }
+
+      if (type === CATEGORY_TYPE.CATEGORY) {
+        payload.parentId = null;
+      }
+
+      // ensure not duplicate (same category and parent pair)
+      const existing = await this.serviceRepository.findOne({
+        where: {
+          category: categoryValue,
+          parentId: payload.parentId || IsNull(),
+        },
+      });
+      if (existing) {
+        throw new BadRequestException('Category already exists');
+      }
+
+      // allow creating sub-categories if parentId provided
+      let logoUrl: string = payload.logo;
+      if (file && file.buffer && file.originalname) {
+        // upload to s3 and use returned view URL
+        try {
+          const uploadResult = await this.s3Service.uploadImage(file.buffer, file.originalname);
+          // uploadImage returns an object with viewUrl/downloadUrl etc
+          logoUrl = uploadResult.viewUrl || logoUrl;
+        } catch (err) {
+          // fail silently, we'll just fall back to original name
+          console.warn('S3 upload failed for category logo', err.message || err);
+        }
+      }
+
       const servicePayload: CreateServiceDto = {
         ...payload,
-        parentId: null,
+        // keep any incoming parentId (may be undefined) so subcategory logic works
+        parentId: payload.parentId || null,
         category: categoryValue,
-        logo: file?.originalname || payload.logo
+        logo: logoUrl,
       };
       const created = await this.createService(servicePayload);
-      return { message: 'Service category created successfully', data: created };
+      const message = payload.parentId ? 'Service sub-category created successfully' : 'Service category created successfully';
+      return { message, data: created };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  /**
+   * Return list of root-level service categories along with their children.
+   * Optional name filter will search against category/name/code on the root entries.
+   */
+  async getCategoryAllList(name?: string) {
+    try {
+      const qb = this.serviceRepository.createQueryBuilder('service')
+        .where('service.parentId IS NULL');
+
+      if (name) {
+        // filter by category string, name or code
+        qb.andWhere(
+          '(service.category = :name OR service.name = :name OR service.code = :name)',
+          { name },
+        );
+      }
+
+      qb.leftJoinAndSelect('service.children', 'children')
+        .orderBy('service.sortOrder', 'ASC')
+        .addOrderBy('service.name', 'ASC');
+
+      const categories = await qb.getMany();
+      return categories;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -682,6 +760,62 @@ export class LeadService {
         totalPages: totalPages,
         hasNextPage: currentPage < totalPages,
         hasPrevPage: currentPage > 1
+      };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async getAssignedServicesList(filter: GetAssignedServicesFilterDto, actor?: User): Promise<IPaginationObject> {
+    try {
+      const page = filter?.page || 1;
+      const pageSize = filter?.pageSize || 20;
+      const { currentPage, limit, offset } = paginate(page, pageSize);
+
+      const query = this.leadServiceEntityRepository.createQueryBuilder('ls')
+        .leftJoinAndSelect('ls.lead', 'lead')
+        .leftJoinAndSelect('lead.customer', 'customer')
+        .leftJoinAndSelect('customer.contacts', 'contacts')
+        .leftJoinAndSelect('customer.addresses', 'addresses')
+        .leftJoinAndSelect('lead.createdBy', 'createdBy')
+        .leftJoinAndSelect('ls.service', 'service')
+        .leftJoinAndSelect('ls.owner', 'owner')
+        .leftJoinAndSelect('ls.department', 'department')
+        .where('lead.isActive = :isActive', { isActive: true });
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        query.andWhere('createdBy.id = :actorId', { actorId: actor.id });
+      }
+
+      if (filter?.leadId) {
+        query.andWhere('lead.id = :leadId', { leadId: filter.leadId });
+      }
+
+      if (filter?.serviceId) {
+        query.andWhere('service.id = :serviceId', { serviceId: filter.serviceId });
+      }
+
+      if (filter?.status) {
+        query.andWhere('ls.status = :status', { status: filter.status });
+      }
+
+      if (filter?.category) {
+        query.andWhere('service.category = :category', { category: filter.category });
+      }
+
+      query.orderBy('lead.createdAt', 'DESC').skip(offset).take(limit);
+
+      const [assignments, total] = await query.getManyAndCount();
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        docs: assignments,
+        page: currentPage,
+        limit,
+        totalDocs: total,
+        totalPages,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1,
       };
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -1218,4 +1352,5 @@ export class LeadService {
       throw new BadRequestException(error.message);
     }
   }
+
 }

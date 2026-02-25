@@ -10,6 +10,11 @@ export enum SERVICE_CATEGORY {
   
 }
 
+export enum CATEGORY_TYPE {
+    "SUB_CATEGORY" ="Sub-Category",
+    "CATEGORY" = "Category"
+}
+
 export enum SERVICE_TYPE {
   // VAPT Types
   WEB_VAPT = 'WEB_VAPT',

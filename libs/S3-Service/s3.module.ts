@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { DynamicModule, Module } from "@nestjs/common";
 import { ConfigModule } from "../config/config.module";
 import { ConfigService } from "../config/config.service";
 import { config } from 'aws-sdk';
@@ -6,8 +6,10 @@ import { S3FileService } from "./s3File.service";
 import { ConfigS3Bucket } from "../config/config.interface";
 
 @Module({
-    // imports: [ConfigModule],
- })
+    imports: [ConfigModule],
+    providers: [S3FileService],
+    exports: [S3FileService],
+})
 export class S3Module {
 
     public static s3Configure(configData: ConfigS3Bucket)
@@ -21,23 +23,25 @@ export class S3Module {
           });
     }
 
-    public static forRoot() {
+    public static forRoot(): DynamicModule {
         return {
             module: S3Module,
             imports: [ConfigModule],
             providers: [
                 {
-                    // imports: [ConfigModule],
                     provide: S3FileService,
-                    useFactory: (configService1: ConfigS3Bucket) => {
-                        const config= new ConfigService()
-                        config.loadFromEnv()
-                        return S3Module.s3Configure(config.get().S3_bucket)
+                    useFactory: (configService: ConfigService) => {
+                        // Optionally configure global aws-sdk here
+                        const s3Config = configService.get().S3_bucket;
+                        if (s3Config) {
+                            S3Module.s3Configure(s3Config);
+                        }
+                        // Return an instance; DI will treat it as a provider
+                        return new S3FileService(configService);
                     },
-                    Inject: [],
+                    inject: [ConfigService],
                 },
             ],
-            controllers: [],
             exports: [S3FileService],
         };
     }

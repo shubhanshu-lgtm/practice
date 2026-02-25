@@ -14,17 +14,55 @@
       "name": "Services",
       "item": [
         {
-          "name": "Create Service",
+          "name": "Add Service Category",
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
               { "key": "Authorization", "value": "Bearer {{jwt}}" }
             ],
-            "url": "{{baseUrl}}/leads/services",
+            "url": {
+              "raw": "{{baseUrl}}/leads/services/category?type=Category",
+              "host": ["{{baseUrl}}"],
+              "path": ["leads", "services", "category"],
+              "query": [
+                { "key": "type", "value": "Category" }
+              ]
+            },
             "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Consulting\",\n  \"code\": \"CONSULT\",\n  \"description\": \"Consulting services\",\n  \"isActive\": true\n}"
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "ISO Certification", "type": "text" },
+                { "key": "code", "value": "ISO", "type": "text" },
+                { "key": "service_category", "value": "ISO", "type": "text" },
+                { "key": "category_logo", "type": "file", "src": [] }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Service Sub-Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/leads/services/category?type=Sub-Category",
+              "host": ["{{baseUrl}}"],
+              "path": ["leads", "services", "category"],
+              "query": [
+                { "key": "type", "value": "Sub-Category" }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "ISO 14001:2015 - Environmental Management Systems", "type": "text" },
+                { "key": "code", "value": "ISO_14001:2015", "type": "text" },
+                { "key": "description", "value": "3-4 weeks", "type": "text" },
+                { "key": "service_category", "value": "AUDIT", "type": "text" },
+                { "key": "category_logo", "type": "file", "src": [] }
+              ]
             }
           }
         },
