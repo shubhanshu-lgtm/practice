@@ -1,6 +1,8 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UsePipes, ValidationPipe, UseGuards, Req, Delete, UseInterceptors, ForbiddenException, UploadedFile, Put } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
+// import { existsSync, createReadStream } from 'fs';
+// import { join, normalize } from 'path';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
@@ -358,6 +360,22 @@ export class LeadController {
     }
   }
 
+  @Put(':id/services')
+  @UseGuards(TokenValidationGuard)
+  async updateLeadServices(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: AssignServicesToLeadDto,
+  ) {
+    try {
+      const lead = await this.leadService.assignServices(id, payload.services, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services updated successfully', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Get('services/all/list')
   @UseGuards(TokenValidationGuard)
   async getAllLeadsAssignedServices(
@@ -421,6 +439,52 @@ export class LeadController {
       return this.responseHandler.sendErrorResponse(res, error);
     }
   }
+
+  // @Put(':id/services/:serviceId')
+  // @UseGuards(TokenValidationGuard)
+
+  // @Get('templates/docx')
+  // @UseGuards(TokenValidationGuard)
+  // async getDocxTemplate(@Res() res: Response, @Query('file') file: string) {
+  //   try {
+  //     if (!file || typeof file !== 'string' || !file.toLowerCase().endsWith('.docx')) {
+  //       return this.responseHandler.sendErrorResponse(res, {
+  //         statusCode: 400,
+  //         message: 'Invalid file request',
+  //         extraError: '',
+  //         name: '',
+  //       } as any);
+  //     }
+  //     const baseDir = join(process.cwd(), 'libs', 'templates');
+  //     const safePath = normalize(join(baseDir, file));
+  //     if (!safePath.startsWith(baseDir)) {
+  //       return this.responseHandler.sendErrorResponse(res, {
+  //         statusCode: 400,
+  //         message: 'Invalid file path',
+  //         extraError: '',
+  //         name: '',
+  //       } as any);
+  //     }
+  //     if (!existsSync(safePath)) {
+  //       return this.responseHandler.sendErrorResponse(res, {
+  //         statusCode: 404,
+  //         message: 'File not found',
+  //         extraError: '',
+  //         name: '',
+  //       } as any);
+  //     }
+  //     res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+  //     res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(file)}"`);
+  //     createReadStream(safePath).pipe(res);
+  //   } catch (error) {
+  //     return this.responseHandler.sendErrorResponse(res, {
+  //       statusCode: 500,
+  //       message: 'Unable to serve file',
+  //       extraError: error?.message || '',
+  //       name: '',
+  //     } as any);
+  //   }
+  // }
 
   @Put(':id/services/:serviceId')
   @UseGuards(TokenValidationGuard)

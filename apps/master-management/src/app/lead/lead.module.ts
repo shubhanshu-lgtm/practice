@@ -22,13 +22,15 @@ import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/mid
 import { S3Module } from '../../../../../libs/S3-Service/s3.module';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
+import { Department } from '../../../../../libs/database/src/entities/department.entity';
+
 @Module({
   imports: [
     DBModule.forRoot(),
     ResponseHandlerModule,
     ConfigModule,
     S3Module,
-    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager]),
+    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager, Department]),
   ],
   controllers: [LeadController],
   providers: [LeadService, LeadServiceEntity, LeadServiceRepository, JwtService, TokenValidationMiddleware, checkIfAdmin, TokenValidationGuard, CheckIfAdminGuard],

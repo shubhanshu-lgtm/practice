@@ -5,12 +5,7 @@ import { ServiceMaster } from "./service-master.entity";
 import { User } from "./user.entity";
 import { Department } from "./department.entity";
 
-export enum SERVICE_STATUS {
-    REQUIREMENT_CONFIRMED = 'Requirement Confirmed',
-    IN_PROGRESS = 'In Progress',
-    ON_HOLD = 'On Hold',
-    DROPPED = 'Dropped'
-}
+import { SERVICE_STATUS } from "../../../constants/serviceConstants";
 
 @Entity('lead_service')
 export class LeadService {

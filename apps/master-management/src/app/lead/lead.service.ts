@@ -14,11 +14,12 @@ import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { ServiceMaster } from '../../../../../libs/database/src/entities/service-master.entity';
 import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
+import { Department } from '../../../../../libs/database/src/entities/department.entity';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
-import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE } from '../../../../../libs/constants/serviceConstants';
+import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
 import { IPagination, IPaginationObject } from '../../../../../libs/interfaces/commonTypes/custom.interface';
 import { paginate } from '../../../../../libs/utils/basicUtils';
 
@@ -26,6 +27,12 @@ interface ServiceAssignment {
   serviceId: number;
   description?: string;
   deliverables?: string[];
+  remarks?: string;
+  ownerId?: number;
+  departmentId?: number;
+  status?: SERVICE_STATUS;
+  startDate?: string;
+  endDate?: string;
 }
 
 @Injectable()
@@ -57,6 +64,8 @@ export class LeadService {
     private readonly permissionRepository: Repository<PermissionManager>,
     @InjectRepository(ServiceDeliverable)
     private readonly deliverableRepository: Repository<ServiceDeliverable>,
+    @InjectRepository(Department)
+    private readonly departmentRepository: Repository<Department>,
     private readonly s3Service: S3FileService,
   ) {}
 
@@ -673,19 +682,22 @@ export class LeadService {
         const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
         const services = await this.serviceRepository.find({ where: { id: In(uniqueServiceIds) } });
         
-        if (services.length !== uniqueServiceIds.length) {
-          throw new BadRequestException('One or more service IDs are invalid');
+        const foundServiceIds = services.map(s => s.id);
+        
+        // Filter assignments to only include those that exist in the master catalog
+        const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.serviceId));
+
+        if (validAssignments.length === 0 && serviceAssignments.length > 0) {
+          throw new BadRequestException(`None of the provided service IDs exist in the catalog: ${uniqueServiceIds.join(', ')}`);
         }
 
         const servicesToUpdate = new Map<number, ServiceMaster>();
         const leadServicesData = [];
 
-        for (const assignment of serviceAssignments) {
+        for (const assignment of validAssignments) {
           const service = services.find(s => s.id === assignment.serviceId);
-          if (!service) {
-            throw new BadRequestException(`Service with ID ${assignment.serviceId} not found`);
-          }
-
+          // service will always exist here because we filtered by foundServiceIds
+          
           if (assignment.description) {
             service.description = assignment.description;
             servicesToUpdate.set(service.id, service);
@@ -695,10 +707,26 @@ export class LeadService {
             ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d))]
             : [];
 
+          let owner = null;
+          if (assignment.ownerId) {
+            owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+          }
+
+          let department = null;
+          if (assignment.departmentId) {
+            department = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+          }
+
           leadServicesData.push({
             lead: lead,
             service: service,
-            deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null
+            deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
+            remarks: assignment.remarks,
+            owner: owner,
+            department: department,
+            status: assignment.status || SERVICE_STATUS.REQUIREMENT_CONFIRMED,
+            startDate: assignment.startDate ? new Date(assignment.startDate) : null,
+            endDate: assignment.endDate ? new Date(assignment.endDate) : null,
           });
         }
 
@@ -710,7 +738,13 @@ export class LeadService {
           this.leadServiceEntityRepository.create({
             lead: data.lead,
             service: data.service,
-            deliverables: data.deliverables
+            deliverables: data.deliverables,
+            remarks: data.remarks,
+            owner: data.owner,
+            department: data.department,
+            status: data.status,
+            startDate: data.startDate,
+            endDate: data.endDate,
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -718,7 +752,7 @@ export class LeadService {
 
       return await this.leadRepository.findOne({ 
         where: { id: leadId }, 
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.deliverables'] 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -887,11 +921,37 @@ export class LeadService {
         leadService.deliverables = uniqueDeliverables.length > 0 ? uniqueDeliverables : null;
       }
 
+      if (assignment.remarks !== undefined) {
+        leadService.remarks = assignment.remarks;
+      }
+
+      if (assignment.ownerId) {
+        const owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+        if (owner) leadService.owner = owner;
+      }
+
+      if (assignment.departmentId) {
+        const dept = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+        if (dept) leadService.department = dept;
+      }
+
+      if (assignment.status) {
+        leadService.status = assignment.status;
+      }
+
+      if (assignment.startDate) {
+        leadService.startDate = new Date(assignment.startDate);
+      }
+
+      if (assignment.endDate) {
+        leadService.endDate = new Date(assignment.endDate);
+      }
+
       await this.leadServiceEntityRepository.save(leadService);
 
       return await this.leadRepository.findOne({ 
         where: { id: leadId }, 
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service'] 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
     } catch (error) {
       throw new BadRequestException(error.message);

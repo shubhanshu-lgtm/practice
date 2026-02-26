@@ -1,8 +1,11 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsDate, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { PartialType } from '@nestjs/mapped-types';
+import { PROPOSAL_STATUS } from '../../database/src/entities/proposal.entity';
 
 export class CreateProposalPaymentTermDto {
   @IsString()
+  @IsOptional()
   milestoneName: string;
 
   @IsNumber()
@@ -73,4 +76,10 @@ export class CreateProposalDto {
   @ValidateNested({ each: true })
   @Type(() => CreateProposalItemDto)
   items: CreateProposalItemDto[];
+}
+
+export class UpdateProposalDto extends PartialType(CreateProposalDto) {
+  @IsEnum(PROPOSAL_STATUS)
+  @IsOptional()
+  status?: PROPOSAL_STATUS;
 }

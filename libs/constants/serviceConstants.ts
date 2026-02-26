@@ -48,8 +48,14 @@ export enum SERVICE_TYPE {
 export enum SERVICE_ACCESS_LEVEL {
   PUBLIC = 'PUBLIC',           // All users can see
   DEPARTMENT_ONLY = 'DEPARTMENT_ONLY',  // Only specific department
-  ROLE_BASED = 'ROLE_BASED',   // Based on user role/group
-  RESTRICTED = 'RESTRICTED'    // Specific users only
+  PRIVATE = 'PRIVATE'           // Only assigned owners
+}
+
+export enum SERVICE_STATUS {
+    REQUIREMENT_CONFIRMED = 'Requirement Confirmed',
+    IN_PROGRESS = 'In Progress',
+    ON_HOLD = 'On Hold',
+    DROPPED = 'Dropped'
 }
 
 // Mapping of which user groups can access which service categories

@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { ArrayMinSize, IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, ValidateNested, IsEnum, IsNumber, IsObject, Min, Max, IsDateString } from 'class-validator';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../constants/salesConstants';
-import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL } from '../../constants/serviceConstants';
+import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../constants/serviceConstants';
 import { ADDRESS_TYPE, USER_GROUP } from '../../../libs/constants/autenticationConstants/userContants';
 import { PERMISSIONS } from '../../constants/autenticationConstants/permissionManagerConstants';
 import { FOLLOWUP_TYPE, FOLLOWUP_PRIORITY } from '../../database/src/entities/lead-followup.entity';
@@ -448,6 +448,30 @@ export class ServiceAssignmentDto {
   @IsArray()
   @IsString({ each: true })
   deliverables?: string[];
+
+  @IsOptional()
+  @IsString()
+  remarks?: string;
+
+  @IsOptional()
+  @IsNumber()
+  ownerId?: number;
+
+  @IsOptional()
+  @IsNumber()
+  departmentId?: number;
+
+  @IsOptional()
+  @IsEnum(SERVICE_STATUS)
+  status?: SERVICE_STATUS;
+
+  @IsOptional()
+  @IsDateString()
+  startDate?: string;
+
+  @IsOptional()
+  @IsDateString()
+  endDate?: string;
 }
 
 export class AssignServicesToLeadDto {
