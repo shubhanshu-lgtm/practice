@@ -238,7 +238,7 @@ export class checkIfAdminUser implements NestMiddleware {
           };
         console.log("payload",req['userPayload'])
           const payload: JWTPayload = req['userPayload'];
-          if (payload.user_group != USER_GROUP.ADMIN) {
+          if (payload.user_group != USER_GROUP.SUPER_ADMIN && payload.user_group != USER_GROUP.ADMIN) {
             this.ResponseHandler.sendErrorResponse(res, errorResponse)
           }
     next();
