@@ -9,9 +9,11 @@ export interface JWTPayload
     guestId: string,
     refreshToken: string,
     userRole: string,
+    role?: string,
     permissionId: number,
     sessionId: number,
     user_group: USER_GROUP,
+    email?: string,
     tokenType: TOKEN_TYPE,
     modules?: (number | string)[]
 }

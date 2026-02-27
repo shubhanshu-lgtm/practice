@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, In } from 'typeorm';
 import { User, LoginSession, Department, SystemModule, LoginSessionRepository } from '../../../../../libs/database/src';
 import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 import { TOKEN_TYPE, ERROR_CODES, DEVICE_TYPE } from '../../../../../libs/constants/commonConstants';
@@ -91,6 +91,28 @@ export class AuthService {
                 throw new UnauthorizedException('User with this email already exists.');
             }
 
+            // Validate and fetch departments if provided
+            let departments = [];
+            if (createUser.departments && createUser.departments.length > 0) {
+                departments = await this.departmentRepository.find({
+                    where: { id: In(createUser.departments) }
+                });
+                if (departments.length !== createUser.departments.length) {
+                    throw new BadRequestException('One or more department IDs are invalid');
+                }
+            }
+
+            // Validate and fetch modules if provided
+            let modules = [];
+            if (createUser.modules && createUser.modules.length > 0) {
+                modules = await this.systemModuleRepository.find({
+                    where: { id: In(createUser.modules) }
+                });
+                if (modules.length !== createUser.modules.length) {
+                    throw new BadRequestException('One or more module IDs are invalid');
+                }
+            }
+
             const defaultPassword = "Intercert@OPMS123";
             const passwordToHash = createUser.password || defaultPassword;
             const hashedPassword = await bcrypt.hash(passwordToHash, 10);
@@ -105,6 +127,8 @@ export class AuthService {
                 verifyStatus: USER_VERIFY_STATUS.VERIFIED,
                 loginSource: USER_LOGIN_SOURCE.LOCAL,
                 addedBy: user,
+                departments: departments,
+                modules: modules,
             });
 
             return { 
@@ -245,7 +269,8 @@ export class AuthService {
 
         const payload: Partial<JWTPayload> = {
             referenceId: user.id,
-            userRole: user.roleName,
+            userRole: user.roleName || user.user_group, // Ensure role is never empty
+            role: user.roleName || user.user_group, // Add role field for frontend compatibility
             user_group: user.user_group,
             sessionId: savedSession.id,
             permissionId: user.permission?.id,

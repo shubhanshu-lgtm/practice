@@ -12,7 +12,9 @@ import { ProposalPaymentTermRepository } from '../../../../../libs/database/src/
 import { ConfigModule } from '../../../../../libs/config/config.module';
 import { DBModule } from '../../../../../libs/database/src/database.module';
 import { ResponseHandlerModule } from '../../../../../libs/response-handler/response-handler.module';
-
+import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
+import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
+import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 @Module({
   imports: [
     DBModule.forRoot(),
@@ -26,7 +28,13 @@ import { ResponseHandlerModule } from '../../../../../libs/response-handler/resp
       LeadService
     ])
   ],
-  providers: [ProposalService, LeadService, ProposalItemRepository, ProposalPaymentTermRepository],
+  providers: [ProposalService, LeadService, ProposalItemRepository, ProposalPaymentTermRepository,
+    JwtService,
+    TokenValidationMiddleware,
+    TokenValidationGuard,
+    CheckIfAdminGuard,
+    checkIfAdmin
+  ],
   controllers: [ProposalController],
   exports: [ProposalService, ProposalItemRepository, ProposalPaymentTermRepository]
 })

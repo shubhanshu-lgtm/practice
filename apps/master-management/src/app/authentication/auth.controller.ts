@@ -61,6 +61,7 @@ export class AuthController {
       //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
 
       const result = await this.authService.validateGoogleUser(googleUser);
+      console.log('[Google Auth] Successful login for:', googleUser.email, 'Role:', result.data.user.roleName);
       return res.redirect(`${frontendUrl}/auth-callback?token=${result.data.token}`);
 
     } catch (err) {
