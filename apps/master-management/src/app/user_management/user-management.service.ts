@@ -172,6 +172,14 @@ export class UserManagementService {
     return this.getUser(userId);
   }
 
+  async updateUserGroup(userId: number, userGroup: USER_GROUP) {
+    const user = await this.userRepo.findOne({ where: { id: userId } });
+    if (!user) throw new NotFoundException('User not found');
+    user.user_group = userGroup;
+    await this.userRepo.save(user);
+    return this.getUser(userId);
+  }
+
   async deleteUser(userId: number, deletedBy: number) {
     const user = await this.userRepo.findOne({ where: { id: userId } });
     if (!user) throw new NotFoundException('User not found');

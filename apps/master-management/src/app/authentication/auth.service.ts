@@ -7,10 +7,9 @@ import { TOKEN_TYPE, ERROR_CODES, DEVICE_TYPE } from '../../../../../libs/consta
 import { JWTPayload } from '../../../../../libs/interfaces/jwtPayload.interface';
 import { LOGIN_BY, SESSION_STATUS, USER_ACCOUNT_STATUS, USER_GROUP, USER_VERIFY_STATUS, USER_LOGIN_SOURCE } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { LoginDto, DeleteIntercertUserDto } from '../../../../../libs/dtos/authentication/user.dto';
-import { checkPasswordHash } from '../../../../../libs/utils/bcryptUtil';
+import { checkPasswordHash, generatePasswordHash } from '../../../../../libs/utils/bcryptUtil';
 import { LOGIN_MSG } from '../../../../../libs/constants/autenticationConstants/messageConstants';
 import { CreateUserDto } from '../../../../../libs/dtos/master_management/user_management.dto';
-import * as bcrypt from 'bcrypt';
 
 // interface GoogleUser {
 //     email: string;
@@ -115,7 +114,7 @@ export class AuthService {
 
             const defaultPassword = "Intercert@OPMS123";
             const passwordToHash = createUser.password || defaultPassword;
-            const hashedPassword = await bcrypt.hash(passwordToHash, 10);
+            const hashedPassword = await generatePasswordHash(passwordToHash);
 
             const newUser = await this.userRepository.save({
                 name: createUser.name,
@@ -341,4 +340,3 @@ export class AuthService {
         });
     }
 }
-

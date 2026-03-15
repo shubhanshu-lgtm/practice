@@ -1,7 +1,14 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import * as fs from 'fs';
 import * as path from 'path';
+import PizZip from 'pizzip';
+
+// Define proposal division enum
+export enum PROPOSAL_DIVISION {
+  GRC_DIVISION = 'GRC_DIVISION',
+  CERTIFICATION_DIVISION = 'CERTIFICATION_DIVISION'
+}
 
 @Injectable()
 export class PdfTemplateService {
@@ -194,5 +201,135 @@ export class PdfTemplateService {
       this.logger.error('Error saving modified PDF:', error);
       throw new Error(`Failed to save modified PDF: ${error.message}`);
     }
+  }
+
+  extractDocxTemplateTags(docxPath: string): string[] {
+    if (!fs.existsSync(docxPath)) {
+      throw new NotFoundException(`Template not found: ${docxPath}`);
+    }
+
+    const content = fs.readFileSync(docxPath);
+    const zip = new PizZip(content);
+    const tags = new Set<string>();
+    const regex = /\{\{([^}]+)\}\}/g;
+
+    Object.keys(zip.files).forEach(relativePath => {
+      const file = zip.files[relativePath];
+      if (!relativePath.endsWith('.xml')) return;
+      try {
+        const text = file.asText();
+        let match: RegExpExecArray | null;
+        while ((match = regex.exec(text))) {
+          const tag = match[1].trim();
+          if (tag) tags.add(tag);
+        }
+      } catch {
+        // ignore non-text entries
+      }
+    });
+
+    return Array.from(tags).sort();
+  }
+
+  async fillProposalPdf(templatePath: string, data: any): Promise<Buffer> {
+    if (!fs.existsSync(templatePath)) {
+      throw new NotFoundException(`Template not found: ${templatePath}`);
+    }
+
+    const pdfBytes = fs.readFileSync(templatePath);
+    const pdfDoc = await PDFDocument.load(new Uint8Array(pdfBytes));
+
+    const pages = pdfDoc.getPages();
+    const pageCount = pages.length;
+    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const helveticaBoldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+    // Fill cover page (page 1)
+    const page1 = pages[0];
+    page1.drawText(data.subject || '', { x: 90, y: 220, size: 14, font: helveticaBoldFont, color: rgb(0, 0, 0) });
+    page1.drawText(data.customer?.name || '', { x: 90, y: 270, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+    page1.drawText(data.proposal?.reference || '', { x: 350, y: 315, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+    page1.drawText(data.proposal?.date || '', { x: 450, y: 315, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+
+    // Page 2 (Cover Letter)
+    const page2 = pages[1]; // 0-indexed
+    // multi-line address block
+    if (data.customer?.addressLines) {
+      data.customer.addressLines.forEach((line: string, idx: number) => {
+        page2.drawText(line, { x: 80, y: 125 + idx * 15, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+      });
+    }
+    page2.drawText(data.subject || '', { x: 80, y: 195, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+    page2.drawText(data.customer?.name || '', { x: 170, y: 485, size: 12, font: helveticaFont, color: rgb(0, 0, 0) });
+
+    // Page 3 (Scoping / Company Details)
+    const page3 = pages[2];
+    page3.drawText(data.customer?.name || '', { x: 190, y: 130, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    // certification vs GRC fields
+    if (data.proposal?.division === PROPOSAL_DIVISION.GRC_DIVISION) {
+      page3.drawText(`${data.customer?.location || ''} / ${data.customer?.headcount || ''}`, { x: 320, y: 130, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+      page3.drawText(data.customer?.business_activities || '', { x: 485, y: 130, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    } else {
+      page3.drawText(data.customer?.headOfficeAddress || '', { x: 130, y: 130, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+      page3.drawText(data.customer?.locationAddresses || '', { x: 380, y: 130, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    }
+    // first scope line
+    const scopeItems = data.scope_of_services || [];
+    if (scopeItems[0]) page3.drawText(scopeItems[0], { x: 150, y: 180, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+
+    // Page 4 (Commercial Summary)
+    const page4 = pages[3];
+    const services = data.services || [];
+    if (data.proposal?.division === PROPOSAL_DIVISION.GRC_DIVISION) {
+      const feeX = 470;
+      const feeYs = [185, 215, 245, 300];
+      services.forEach((service: any, idx: number) => {
+        if (idx < feeYs.length) {
+          page4.drawText(service.fee || '', { x: feeX, y: feeYs[idx], size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+        }
+      });
+    } else {
+      const feeX = 400;
+      const feeYs = [185, 220, 280, 315, 350, 400];
+      services.forEach((service: any, idx: number) => {
+        if (idx < feeYs.length) {
+          page4.drawText(service.fee || '', { x: feeX, y: feeYs[idx], size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+        }
+      });
+      page4.drawText(data.total_fee || '', { x: feeX, y: 400, size: 12, font: helveticaBoldFont, color: rgb(0, 0, 0) });
+    }
+
+    // Page 5 (Commercial Terms)
+    const page5 = pages[4];
+    page5.drawText(data.validity_days?.toString() || '30', { x: 245, y: 100, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    if (data.paymentTerms && data.paymentTerms.length) {
+      page5.drawText(`${data.paymentTerms[0].percentage}%`, { x: 340, y: 170, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    }
+    if (data.proposal?.currency === 'INR') {
+      page5.drawText(data.taxRate || '', { x: 300, y: 80, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    }
+
+    // Page 6/8 liability & signature
+    const liabilityPage = pageCount >= 8 ? pages[5] : pages[5];
+    liabilityPage.drawText(data.customer?.name || '', { x: 295, y: 405, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+
+    // Signature coordinates per document
+    let clientNameY = 195;
+    let clientDateY = 235;
+    const tpl = path.basename(templatePath).toLowerCase();
+    if (tpl.includes('usa grc')) { clientNameY = 185; clientDateY = 220; }
+    if (tpl.includes('india grc')) { clientNameY = 180; clientDateY = 215; }
+    if (tpl.includes('usa certification') || tpl.includes('india certification')) {
+      clientNameY = 195; clientDateY = 235;
+    }
+    const lastPage = pages[pageCount - 1];
+    lastPage.drawText('Prashant K', { x: 170, y: clientNameY - 20, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    lastPage.drawText(data.proposal?.date || '', { x: 170, y: clientNameY - 10, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    lastPage.drawText(data.customer?.name || '', { x: 370, y: clientNameY, size: 12, font: helveticaBoldFont, color: rgb(0, 0, 0) });
+    lastPage.drawText(data.customer?.designation || '', { x: 370, y: clientNameY + 20, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+    lastPage.drawText(data.customer?.date || '', { x: 370, y: clientDateY, size: 10, font: helveticaFont, color: rgb(0, 0, 0) });
+
+    const modifiedPdfBytes = await pdfDoc.save();
+    return Buffer.from(modifiedPdfBytes);
   }
 }

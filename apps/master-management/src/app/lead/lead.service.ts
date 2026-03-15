@@ -16,7 +16,7 @@ import { ServiceDeliverable } from '../../../../../libs/database/src/entities/se
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
 import { Department } from '../../../../../libs/database/src/entities/department.entity';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
@@ -539,6 +539,28 @@ export class LeadService {
     } catch (error) {
       throw new BadRequestException(error.message);
     }
+  }
+
+  async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
+    const lead = await this.leadRepository.findOne({ where: { id }, relations: ['createdBy'] });
+    if (!lead || !lead.isActive) {
+      throw new NotFoundException('Lead not found');
+    }
+    if (lead.status === LEAD_STATUS.LOST) {
+      throw new BadRequestException('Lead is already dropped');
+    }
+    if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+      if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+        throw new NotFoundException('Lead not found');
+      }
+    }
+    lead.status = LEAD_STATUS.LOST;
+    lead.isActive = false;
+    const droppedNote = `[DROPPED] Reason: ${payload.reason}`;
+    lead.notes = payload.notes
+      ? `${droppedNote} | Notes: ${payload.notes}`
+      : droppedNote;
+    return this.leadRepository.save(lead);
   }
 
   async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {

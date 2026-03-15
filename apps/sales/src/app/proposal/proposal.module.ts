@@ -5,37 +5,48 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { ProposalPaymentTerm } from '../../../../../libs/database/src/entities/proposal-payment-term.entity';
 import { ProposalService } from './proposal.service';
 import { ProposalController } from './proposal.controller';
+import { ProposalReportService } from './proposal-report.service';
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
-import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
-import { ProposalItemRepository } from '../../../../../libs/database/src/repositories/proposal-item.repository';
-import { ProposalPaymentTermRepository } from '../../../../../libs/database/src/repositories/proposal-payment-term.repository';
-import { ConfigModule } from '../../../../../libs/config/config.module';
+import { LeadService as LeadServiceEntity } from '../../../../../libs/database/src/entities/lead-service.entity';
+import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
+import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
+import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
+import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { DBModule } from '../../../../../libs/database/src/database.module';
+import { ConfigModule } from '../../../../../libs/config/config.module';
 import { ResponseHandlerModule } from '../../../../../libs/response-handler/response-handler.module';
 import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
 @Module({
   imports: [
     DBModule.forRoot(),
-    ConfigModule, 
+    ConfigModule,
     ResponseHandlerModule,
     TypeOrmModule.forFeature([
       Proposal,
       ProposalItem,
       ProposalPaymentTerm,
       Lead,
-      LeadService
+      LeadServiceEntity,
+      Customer,
+      CustomerAddress,
+      CustomerContact,
+      User
     ])
   ],
-  providers: [ProposalService, LeadService, ProposalItemRepository, ProposalPaymentTermRepository,
+  providers: [
+    ProposalService,
+    ProposalReportService,
+    PdfTemplateService,
     JwtService,
     TokenValidationMiddleware,
     TokenValidationGuard,
     CheckIfAdminGuard,
-    checkIfAdmin
+    checkIfAdmin,
   ],
   controllers: [ProposalController],
-  exports: [ProposalService, ProposalItemRepository, ProposalPaymentTermRepository]
+  exports: [ProposalService]
 })
 export class ProposalModule {}

@@ -1,9 +1,45 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsDate, IsNotEmpty, IsObject, IsOptional, IsString, IsUUID } from 'class-validator';
+import { IsArray, IsBoolean, IsDate, IsNotEmpty, IsNumber, IsObject, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { PartialType } from '@nestjs/mapped-types';
+
+export class BillToAddressDto {
+  @IsString()
+  addressLine1: string;
+
+  @IsString()
+  @IsOptional()
+  addressLine2?: string;
+
+  @IsString()
+  city: string;
+
+  @IsString()
+  @IsOptional()
+  state?: string;
+
+  @IsString()
+  country: string;
+
+  @IsString()
+  @IsOptional()
+  postalCode?: string;
+}
+
+export class BillingContactPersonDto {
+  @IsString()
+  name: string;
+
+  @IsString()
+  email: string;
+
+  @IsString()
+  @IsOptional()
+  phone?: string;
+}
 
 export class CreateClosureDto {
-  @IsUUID()
-  proposalId: string;
+  @IsNumber()
+  proposalId: number;
 
   @IsDate()
   @Type(() => Date)
@@ -24,16 +60,10 @@ export class CreateClosureDto {
   @IsOptional()
   billToCompanyName?: string;
 
-  @IsObject()
+  @ValidateNested()
+  @Type(() => BillToAddressDto)
   @IsOptional()
-  billToAddress?: {
-    addressLine1: string;
-    addressLine2?: string;
-    city: string;
-    state?: string;
-    country: string;
-    postalCode?: string;
-  };
+  billToAddress?: BillToAddressDto;
 
   @IsString()
   @IsOptional()
@@ -47,13 +77,10 @@ export class CreateClosureDto {
   @IsOptional()
   billingEmailIds?: string[];
 
-  @IsObject()
+  @ValidateNested()
+  @Type(() => BillingContactPersonDto)
   @IsOptional()
-  billingContactPerson?: {
-    name: string;
-    email: string;
-    phone?: string;
-  };
+  billingContactPerson?: BillingContactPersonDto;
 
   @IsString()
   @IsOptional()
@@ -71,3 +98,5 @@ export class CreateClosureDto {
   @IsOptional()
   notes?: string;
 }
+
+export class UpdateClosureDto extends PartialType(CreateClosureDto) {}

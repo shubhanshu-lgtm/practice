@@ -5,7 +5,7 @@ import { Response } from 'express';
 // import { join, normalize } from 'path';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -322,6 +322,22 @@ export class LeadController {
       await this.leadService.deleteLeadFollowUp(id, hard, req.user);
       const action = hard ? 'permanently deleted' : 'deactivated';
       return this.responseHandler.sendSuccessResponse(res, { message: `Follow-up ${action} successfully` });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Patch(':id/drop')
+  @UseGuards(TokenValidationGuard)
+  async dropLead(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: DropLeadDto,
+  ) {
+    try {
+      const lead = await this.leadService.dropLead(id, payload, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead dropped successfully', data: lead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }

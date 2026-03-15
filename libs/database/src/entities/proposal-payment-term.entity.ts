@@ -1,17 +1,17 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
-import { ProposalItem } from './proposal-item.entity';
+import { Proposal } from './proposal.entity';
 
 @Entity('proposal_payment_term')
 export class ProposalPaymentTerm {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => ProposalItem, (item) => item.paymentTerms, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'proposalItemId' })
-  proposalItem: ProposalItem;
+  @ManyToOne(() => Proposal, (proposal) => proposal.paymentTerms, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'proposalId' })
+  proposal: Proposal;
 
   @Column()
-  proposalItemId: number;
+  proposalId: number;
 
   @Column()
   milestoneName: string;
@@ -23,7 +23,7 @@ export class ProposalPaymentTerm {
   triggerEvent: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
-  amount: number; // Calculated based on percentage of item net amount
+  amount: number;
 
   @CreateDateColumn()
   createdAt: Date;

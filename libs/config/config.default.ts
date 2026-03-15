@@ -23,7 +23,7 @@ export const DEFAULT_CONFIG: ConfigData = {
         userManagement: 8086,
         auditManagement:8088,
         auditorManagement:8089,
-        masterManagement: 8090,
+        masterManagement: 8094,
         sales: 8091,
 
     },
