@@ -1,19 +1,20 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested, Min, Max } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
-import { PROPOSAL_STATUS } from '../../database/src/entities/proposal.entity';
+import { PROPOSAL_STATUS, PROPOSAL_DIVISION, SUBMITTED_BY } from '../../database/src/entities/proposal.entity';
 
 export class CreateProposalPaymentTermDto {
   @IsString()
-  @IsOptional()
   milestoneName: string;
 
   @IsNumber()
+  @Min(1)
+  @Max(100)
   percentage: number;
 
   @IsString()
   @IsOptional()
-  triggerEvent: string;
+  triggerEvent?: string;
 }
 
 export class CreateProposalItemDto {
@@ -22,7 +23,25 @@ export class CreateProposalItemDto {
 
   @IsString()
   @IsOptional()
-  description: string;
+  serviceName?: string;
+
+  @IsString()
+  @IsOptional()
+  serviceType?: string;
+
+  @IsString()
+  @IsOptional()
+  description?: string;
+
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  startDate?: Date;
+
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  endDate?: Date;
 
   @IsNumber()
   amount: number;
@@ -32,16 +51,14 @@ export class CreateProposalItemDto {
 
   @IsNumber()
   @IsOptional()
-  discount: number;
+  @Min(0)
+  @Max(100)
+  discount?: number;
 
   @IsNumber()
   @IsOptional()
-  taxPercentage: number;
-
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => CreateProposalPaymentTermDto)
-  paymentTerms: CreateProposalPaymentTermDto[];
+  @Min(0)
+  taxPercentage?: number;
 }
 
 export class CreateProposalDto {
@@ -50,36 +67,61 @@ export class CreateProposalDto {
 
   @IsDate()
   @Type(() => Date)
-  proposalDate: Date;
+  @IsOptional()
+  proposalDate?: Date;
 
   @IsDate()
   @Type(() => Date)
   @IsOptional()
-  validUntil: Date;
+  validUntil?: Date;
 
-  @IsString()
-  submittedBy: string;
+  @IsEnum(SUBMITTED_BY)
+  @IsOptional()
+  submittedBy?: SUBMITTED_BY;
+
+  @IsEnum(PROPOSAL_DIVISION)
+  @IsOptional()
+  division?: PROPOSAL_DIVISION;
 
   @IsString()
   @IsOptional()
-  subject: string;
+  subject?: string;
 
   @IsString()
   @IsOptional()
-  introduction: string;
+  introduction?: string;
 
   @IsString()
   @IsOptional()
-  termsAndConditions: string;
+  termsAndConditions?: string;
+
+  @IsString()
+  @IsOptional()
+  notes?: string;
 
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreateProposalItemDto)
   items: CreateProposalItemDto[];
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateProposalPaymentTermDto)
+  @IsOptional()
+  paymentTerms?: CreateProposalPaymentTermDto[];
 }
 
 export class UpdateProposalDto extends PartialType(CreateProposalDto) {
   @IsEnum(PROPOSAL_STATUS)
   @IsOptional()
   status?: PROPOSAL_STATUS;
+}
+
+export class UpdateProposalStatusDto {
+  @IsEnum(PROPOSAL_STATUS)
+  status: PROPOSAL_STATUS;
+
+  @IsString()
+  @IsOptional()
+  notes?: string;
 }

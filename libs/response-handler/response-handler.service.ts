@@ -8,8 +8,18 @@ export class ResponseHandlerService {
     res.status(200).json(response);
   }
 
-  sendErrorResponse(res: any, errorBody: ApiResponse.ApiErrorType) {
-    console.error('Error Response: ', JSON.stringify(errorBody));
+  sendErrorResponse(res: any, errorBody: any) {
+    // normalize Error instances or plain objects
+    if (errorBody instanceof Error) {
+      console.error('Error Response (Error object):', errorBody.message, errorBody.stack);
+      errorBody = {
+        statusCode: ERROR_CODES.UNEXPECTED_ERROR,
+        message: errorBody.message || ErrorMessages.UNEXPECTED_ERROR,
+        extraError: errorBody.stack,
+      };
+    } else {
+      console.error('Error Response: ', JSON.stringify(errorBody));
+    }
 
     if (!errorBody.statusCode || !errorBody.message) {
       errorBody.statusCode = ERROR_CODES.UNEXPECTED_ERROR;

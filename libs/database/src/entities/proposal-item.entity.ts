@@ -1,7 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
 import { Proposal } from './proposal.entity';
 import { LeadService } from './lead-service.entity';
-import { ProposalPaymentTerm } from './proposal-payment-term.entity';
 
 @Entity('proposal_item')
 export class ProposalItem {
@@ -15,7 +14,7 @@ export class ProposalItem {
   @Column()
   proposalId: number;
 
-  @ManyToOne(() => LeadService)
+  @ManyToOne(() => LeadService, { nullable: true })
   @JoinColumn({ name: 'leadServiceId' })
   leadService: LeadService;
 
@@ -23,10 +22,19 @@ export class ProposalItem {
   leadServiceId: number;
 
   @Column({ nullable: true })
-  serviceName: string; // Snapshot of service name
+  serviceName: string;
+
+  @Column({ nullable: true })
+  serviceType: string;
 
   @Column({ type: 'text', nullable: true })
   description: string;
+
+  @Column({ type: 'date', nullable: true })
+  startDate: Date;
+
+  @Column({ type: 'date', nullable: true })
+  endDate: Date;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   amount: number;
@@ -35,16 +43,22 @@ export class ProposalItem {
   currency: string;
 
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
-  discount: number; // Percentage
+  discount: number;
 
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   taxPercentage: number;
 
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
+  discountAmount: number;
+
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  taxableAmount: number;
+
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
+  taxAmount: number;
+
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   netAmount: number;
-
-  @OneToMany(() => ProposalPaymentTerm, (term) => term.proposalItem, { cascade: true })
-  paymentTerms: ProposalPaymentTerm[];
 
   @CreateDateColumn()
   createdAt: Date;

@@ -12,7 +12,9 @@ export class ConfigService {
     }
 
   public loadFromEnv() {
+    console.log('[ConfigService] Loading from env. GOOGLE_CALLBACK_URL from process.env:', process.env.GOOGLE_CALLBACK_URL);
     this.config = this.parseConfigFromEnv(process.env);
+    console.log('[ConfigService] Final GoogleAuth config:', this.config.GoogleAuth);
   }
 
   private parseConfigFromEnv(env: NodeJS.ProcessEnv): ConfigData {

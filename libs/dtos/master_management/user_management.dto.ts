@@ -122,6 +122,11 @@ export class UpdateUserDto {
   teams?: number[];
 }
 
+export class UpdateUserGroupDto {
+  @IsEnum(USER_GROUP)
+  user_group: USER_GROUP;
+}
+
 export class LoginUserDto {
   @IsEmail()
   email: string;

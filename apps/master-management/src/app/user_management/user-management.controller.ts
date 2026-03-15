@@ -1,8 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { UserManagementService } from './user-management.service';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
-import { CreateUserDto, UpdateUserDto } from '../../../../../libs/dtos/master_management/user_management.dto';
+import { CreateUserDto, UpdateUserDto, UpdateUserGroupDto } from '../../../../../libs/dtos/master_management/user_management.dto';
 
 @Controller('user')
 @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
@@ -129,6 +129,16 @@ export class UserManagementController {
       success: true,
       message: 'Teams assigned successfully',
       data: result
+    };
+  }
+
+  @Patch('users/:id/user-group')
+  async updateUserGroup(@Param('id') id: number, @Body() body: UpdateUserGroupDto) {
+    const user = await this.svc.updateUserGroup(Number(id), body.user_group);
+    return {
+      success: true,
+      message: 'User group updated successfully',
+      data: user
     };
   }
 

@@ -606,6 +606,16 @@ export class GetAssignedServicesFilterDto {
   draw?: number;
 }
 
+export class DropLeadDto {
+  @IsString()
+  @IsNotEmpty()
+  reason: string;
+
+  @IsString()
+  @IsOptional()
+  notes?: string;
+}
+
 export class GetLeadFollowUpsDto {
   @IsOptional()
   @IsEnum(FOLLOWUP_TYPE)
