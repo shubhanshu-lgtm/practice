@@ -417,7 +417,7 @@ export class ProposalService {
         }
         const terms = termDtos.map(t =>
           manager.create(ProposalPaymentTerm, {
-            proposalId: id,
+            proposal: proposal,
             milestoneName: t.milestoneName,
             percentage: t.percentage,
             triggerEvent: t.triggerEvent,
