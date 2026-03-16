@@ -8,6 +8,7 @@ tmp
 transfer.sh
 # dependencies
 node_modules
+node_modules_bak
 
 # IDEs and editors
 /.idea
