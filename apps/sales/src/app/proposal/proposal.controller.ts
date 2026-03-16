@@ -7,9 +7,9 @@ import { ProposalService } from './proposal.service';
 import { CreateProposalDto, UpdateProposalDto, UpdateProposalStatusDto } from '../../../../../libs/dtos/sales/create-proposal.dto';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { TokenValidationGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 import { PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
-import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
+//import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
 @Controller('proposals')
 export class ProposalController {
   constructor(
@@ -18,6 +18,7 @@ export class ProposalController {
   ) {}
 
   @Post()
+  @UseGuards(TokenValidationGuard)
   async create(@Res() res: Response, @Body() dto: CreateProposalDto) {
     try {
       const proposal = await this.proposalService.createProposal(dto);
@@ -33,6 +34,7 @@ export class ProposalController {
   }
 
   @Post('preview')
+  @UseGuards(TokenValidationGuard)
   async preview(@Res() res: Response, @Body() dto: CreateProposalDto) {
     try {
       const preview = await this.proposalService.previewProposal(dto);
@@ -45,20 +47,22 @@ export class ProposalController {
     }
   }
 
-  @Post('with-services')
-  async createWithServices(@Res() res: Response, @Body() dto: CreateProposalWithServicesDto) {
-    try {
-      const proposal = await this.proposalService.createProposalWithServices(dto);
-      return this.responseHandler.sendSuccessResponse(res, {
-        message: 'Proposal created successfully',
-        data: proposal
-      });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
+  // @Post('with-services')
+  // @UseGuards(TokenValidationGuard)
+  // async createWithServices(@Res() res: Response, @Body() dto: CreateProposalWithServicesDto) {
+  //   try {
+  //     const proposal = await this.proposalService.createProposalWithServices(dto);
+  //     return this.responseHandler.sendSuccessResponse(res, {
+  //       message: 'Proposal created successfully',
+  //       data: proposal
+  //     });
+  //   } catch (error) {
+  //     return this.responseHandler.sendErrorResponse(res, error);
+  //   }
+  // }
 
   @Post('/with-pdf')
+  @UseGuards(TokenValidationGuard)
   async createWithPdf(@Res() res: Response, @Body() dto: CreateProposalDto) {
     try {
       const result = await this.proposalService.createProposalWithPdf(dto);
@@ -72,6 +76,7 @@ export class ProposalController {
   }
 
   @Post('with-pdf-download')
+  @UseGuards(TokenValidationGuard)
   async createWithPdfDownload(@Res() res: Response, @Body() dto: CreateProposalDto) {
     try {
       const { proposal, pdfBuffer } = await this.proposalService.createProposalWithPdfBuffer(dto);
@@ -91,6 +96,7 @@ export class ProposalController {
   }
 
   @Get()
+  @UseGuards(TokenValidationGuard)
   async findAll(
     @Res() res: Response,
     @Query('leadId') leadId?: number,
@@ -111,6 +117,7 @@ export class ProposalController {
   }
 
   @Get(':id')
+  @UseGuards(TokenValidationGuard)
   async findOne(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const proposal = await this.proposalService.getProposal(id);
@@ -124,6 +131,7 @@ export class ProposalController {
   }
 
   @Get(':id/pdf-meta')
+  @UseGuards(TokenValidationGuard)
   async getPdfMeta(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const meta = await this.proposalService.getPdfMeta(id);
@@ -137,6 +145,7 @@ export class ProposalController {
   }
 
   @Get(':id/template-tags')
+  @UseGuards(TokenValidationGuard)
   async getTemplateTags(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const tags = await this.proposalService.getTemplateTagsForProposal(id);
@@ -150,6 +159,7 @@ export class ProposalController {
   }
 
   @Get(':id/pdf')
+  @UseGuards(TokenValidationGuard)
   async downloadPdf(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const proposal = await this.proposalService.getProposal(id);
@@ -173,6 +183,7 @@ export class ProposalController {
   }
 
   @Patch(':id/status')
+  @UseGuards(TokenValidationGuard)
   async updateStatus(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -190,6 +201,7 @@ export class ProposalController {
   }
 
   @Patch(':id')
+  @UseGuards(TokenValidationGuard)
   async update(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,

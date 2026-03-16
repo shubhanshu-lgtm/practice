@@ -6,19 +6,19 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { ProposalPaymentTerm } from '../../../../../libs/database/src/entities/proposal-payment-term.entity';
 import {
   CreateProposalDto,
-  CreateProposalItemDto,
+  //CreateProposalItemDto,
   UpdateProposalDto,
   UpdateProposalStatusDto
 } from '../../../../../libs/dtos/sales/create-proposal.dto';
-import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
+//import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
-import PDFDocument from 'pdfkit';
+//import PDFDocument from 'pdfkit';
 import { ProposalReportService } from './proposal-report.service';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
 import * as path from 'path';
 import * as fs from 'fs';
-import * as os from 'os';
+//import * as os from 'os';
 
 @Injectable()
 export class ProposalService {
@@ -234,44 +234,44 @@ export class ProposalService {
     return { proposal, pdfBuffer };
   }
 
-  async createProposalWithServices(dto: CreateProposalWithServicesDto): Promise<Proposal> {
-    // Transform service assignments into proposal items
-    const lead = await this.leadRepo.findOne({
-      where: { id: Number(dto.leadId) },
-      relations: ['leadServices', 'leadServices.service', 'customer', 'customer.contacts', 'customer.addresses']
-    });
+  // async createProposalWithServices(dto: CreateProposalWithServicesDto): Promise<Proposal> {
+  //   // Transform service assignments into proposal items
+  //   const lead = await this.leadRepo.findOne({
+  //     where: { id: Number(dto.leadId) },
+  //     relations: ['leadServices', 'leadServices.service', 'customer', 'customer.contacts', 'customer.addresses']
+  //   });
 
-    if (!lead) throw new NotFoundException('Lead not found');
+  //   if (!lead) throw new NotFoundException('Lead not found');
 
-    const items: CreateProposalItemDto[] = (dto.services || []).map((service) => {
-      const leadService = lead.leadServices?.find(ls => ls.service?.id === service.serviceId);
-      if (!leadService) {
-        throw new BadRequestException(`Service with id ${service.serviceId} is not assigned to the lead`);
-      }
+  //   const items: CreateProposalItemDto[] = (dto.services || []).map((service) => {
+  //     const leadService = lead.leadServices?.find(ls => ls.service?.id === service.serviceId);
+  //     if (!leadService) {
+  //       throw new BadRequestException(`Service with id ${service.serviceId} is not assigned to the lead`);
+  //     }
 
-      const description = service.description || (leadService.deliverables ? leadService.deliverables.join(', ') : '');
+  //     const description = service.description || (leadService.deliverables ? leadService.deliverables.join(', ') : '');
 
-      return {
-        leadServiceId: leadService.id,
-        serviceName: leadService.service?.name || '',
-        serviceType: leadService.service?.category || '',
-        description,
-        startDate: leadService.startDate,
-        endDate: leadService.endDate,
-        amount: service.amount ?? 0,
-        currency: 'INR',
-        discount: 0,
-        taxPercentage: 0
-      };
-    });
+  //     return {
+  //       leadServiceId: leadService.id,
+  //       serviceName: leadService.service?.name || '',
+  //       serviceType: leadService.service?.category || '',
+  //       description,
+  //       startDate: leadService.startDate,
+  //       endDate: leadService.endDate,
+  //       amount: service.amount ?? 0,
+  //       currency: 'INR',
+  //       discount: 0,
+  //       taxPercentage: 0
+  //     };
+  //   });
 
-    const { services: _services, ...baseDto } = dto as any;
+  //   const { services: _services, ...baseDto } = dto as any;
 
-    return this.createProposal({
-      ...baseDto,
-      items,
-    });
-  }
+  //   return this.createProposal({
+  //     ...baseDto,
+  //     items,
+  //   });
+  // }
 
   async getProposal(id: number): Promise<Proposal> {
     const proposal = await this.proposalRepo.findOne({
@@ -335,12 +335,22 @@ export class ProposalService {
         relations: ['items', 'paymentTerms']
       });
       if (!proposal) throw new NotFoundException('Proposal not found');
+      // Prevent updates if proposal is already approved
+      if (proposal.status === PROPOSAL_STATUS.APPROVED) {
+        throw new BadRequestException('Approved proposals cannot be modified');
+      }
 
       const { items: itemDtos, paymentTerms: termDtos, ...otherData } = dto;
       Object.assign(proposal, otherData);
 
+      let hasChanges = Object.keys(otherData).length > 0;
+
       if (itemDtos) {
+        hasChanges = true;
         await manager.delete(ProposalItem, { proposalId: id });
+
+        // Fetch existing items to preserve serviceName if not provided
+        const existingItems = proposal.items || [];
 
         let subTotal = 0;
         let totalDiscount = 0;
@@ -353,17 +363,20 @@ export class ProposalService {
             relations: ['service'],
           });
 
+          // Find existing item for this leadServiceId to preserve serviceName
+          const existingItem = existingItems.find(ei => ei.leadServiceId === itemDto.leadServiceId);
+
           const item = manager.create(ProposalItem, {
             leadServiceId: itemDto.leadServiceId,
-            serviceName: itemDto.serviceName,
-            serviceType: itemDto.serviceType,
-            description: itemDto.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : ''),
-            startDate: itemDto.startDate || leadService?.startDate,
-            endDate: itemDto.endDate || leadService?.endDate,
+            serviceName: itemDto.serviceName || existingItem?.serviceName || leadService?.service?.name || '',
+            serviceType: itemDto.serviceType || existingItem?.serviceType || leadService?.service?.category || '',
+            description: itemDto.description || existingItem?.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : ''),
+            startDate: itemDto.startDate || existingItem?.startDate || leadService?.startDate,
+            endDate: itemDto.endDate || existingItem?.endDate || leadService?.endDate,
             amount: itemDto.amount,
-            currency: itemDto.currency,
-            discount: itemDto.discount || 0,
-            taxPercentage: itemDto.taxPercentage || 0
+            currency: itemDto.currency || existingItem?.currency || 'INR',
+            discount: itemDto.discount !== undefined ? itemDto.discount : (existingItem?.discount || 0),
+            taxPercentage: itemDto.taxPercentage !== undefined ? itemDto.taxPercentage : (existingItem?.taxPercentage || 0)
           });
 
           item.leadService = leadService;
@@ -395,9 +408,8 @@ export class ProposalService {
         }
       }
 
-      await manager.save(Proposal, proposal);
-
       if (termDtos) {
+        hasChanges = true;
         await manager.delete(ProposalPaymentTerm, { proposalId: id });
         const totalPct = termDtos.reduce((s, t) => s + t.percentage, 0);
         if (Math.abs(totalPct - 100) > 0.01) {
@@ -414,6 +426,13 @@ export class ProposalService {
         );
         await manager.save(ProposalPaymentTerm, terms);
       }
+
+      // Increment version if there are changes
+      if (hasChanges) {
+        proposal.version = (proposal.version || 1) + 1;
+      }
+
+      await manager.save(Proposal, proposal);
 
       return this.getProposal(id);
     });

@@ -14,6 +14,7 @@ export class ClosureController {
   ) {}
 
   @Post()
+  @UseGuards(TokenValidationGuard)
   async create(@Res() res: Response, @Body() dto: CreateClosureDto) {
     try {
       const closure = await this.closureService.acceptProposal(dto);
@@ -27,6 +28,7 @@ export class ClosureController {
   }
 
   @Get()
+  @UseGuards(TokenValidationGuard)
   async findAll(
     @Res() res: Response,
     @Query('leadId') leadId?: number,
@@ -45,6 +47,7 @@ export class ClosureController {
   }
 
   @Get(':id')
+  @UseGuards(TokenValidationGuard)
   async findOne(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       const closure = await this.closureService.getClosure(id);
@@ -58,6 +61,7 @@ export class ClosureController {
   }
 
   @Patch(':id')
+  @UseGuards(TokenValidationGuard)
   async update(
     @Res() res: Response,
     @Param('id', ParseIntPipe) id: number,
@@ -75,6 +79,7 @@ export class ClosureController {
   }
 
   @Delete(':id')
+  @UseGuards(TokenValidationGuard)
   async remove(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
     try {
       await this.closureService.deleteClosure(id);

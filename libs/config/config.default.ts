@@ -24,7 +24,7 @@ export const DEFAULT_CONFIG: ConfigData = {
         auditManagement:8088,
         auditorManagement:8089,
         masterManagement: 8094,
-        sales: 8091,
+        sales: 8095,
 
     },
     S3_bucket: { access_key_id: '', bucket_name: '', region: '', secret_access_key: '' },
