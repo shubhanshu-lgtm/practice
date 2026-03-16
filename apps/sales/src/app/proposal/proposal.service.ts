@@ -697,6 +697,7 @@ export class ProposalService {
       submittedBy: proposal.submittedBy || 'INTERCERT',
       prepared_by_name: createdBy?.name || proposal.submittedBy || 'N/A',
       prepared_by_email: createdBy?.email || 'info@intercert.com',
+      validity_days: validityDays,
 
       // Structured objects (for templates using nested tags)
       proposal: {
@@ -713,6 +714,7 @@ export class ProposalService {
         total_tax: this.formatCurrency(proposal.totalTaxAmount, proposal.currency),
         total_fee: total_fee,
         grand_total: total_fee,
+        validity_days: validityDays,
       },
 
       customer: {
