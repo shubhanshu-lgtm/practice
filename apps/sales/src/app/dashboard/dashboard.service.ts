@@ -89,16 +89,14 @@ export class DashboardService {
     });
     const completedPercentage = totalProjects > 0 ? (completedProjectsCount / totalProjects) * 100 : 0;
 
-    const salesCount = await this.leadRepo.count({
-      where: { status: LEAD_STATUS.AWARDED, isActive: true },
-    });
+    const salesCount = totalClient; // Use totalClient as the sales count (accepted proposals)
 
     const distributedCount = await this.leadServiceRepo.count({
-      where: { owner: Not(IsNull()) },
+      where: { department: Not(IsNull()) }, // Count services assigned to a department
     });
 
     const returnCount = await this.proposalRepo.count({
-      where: { status: In([PROPOSAL_STATUS.REJECTED, PROPOSAL_STATUS.REVISED]) },
+      where: { status: In([PROPOSAL_STATUS.REJECTED, PROPOSAL_STATUS.REVISED, PROPOSAL_STATUS.EXPIRED]) },
     });
 
     // 7. Recently Added Enquiries
@@ -127,6 +125,8 @@ export class DashboardService {
         companyName: lead.customer?.name || 'N/A',
         created: lead.createdAt,
         status: lead.status,
+        contacts: lead.customer?.contacts || [],
+        addresses: lead.customer?.addresses || [],
       })),
       salesReport,
     };
