@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like, Repository, In, Between, IsNull, FindOptionsWhere, Not } from 'typeorm';
+import { Like, Repository, In, Between, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -307,6 +307,44 @@ export class LeadService {
     }
   }
 
+  /**
+   * Fetch dropped leads (Status = LOST)
+   */
+  async getDroppedLeads(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
+    try {
+      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+
+      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
+      const where: FindOptionsWhere<Lead> = { status: LEAD_STATUS.LOST };
+      
+      if (!isAdmin && actor?.id) {
+        where.createdBy = { id: actor.id };
+      }
+
+      const [leads, total] = await this.leadRepository.findAndCount({
+        where,
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'],
+        skip: offset,
+        take: limit,
+        order: { createdAt: 'DESC' }
+      });
+
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        docs: leads,
+        page: currentPage,
+        limit: limit,
+        totalDocs: total,
+        totalPages: totalPages,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1
+      };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
   async getServices(filter?: GetServicesFilterDto): Promise<IPaginationObject> {
     try {
       const { currentPage, limit, offset } = paginate(filter?.page, filter?.pageSize);
@@ -491,6 +529,51 @@ export class LeadService {
 
       const categories = await qb.getMany();
       return categories;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  /**
+   * Fetch services by category type (Category or Sub-Category)
+   * If type is Sub-Category and parentId or categoryName is provided, returns children of that specific parent.
+   */
+  async getServicesByCategory(type: CATEGORY_TYPE, parentId?: number, categoryName?: string) {
+    try {
+      const qb = this.serviceRepository.createQueryBuilder('service')
+        .leftJoinAndSelect('service.parent', 'parent')
+        .leftJoinAndSelect('service.department', 'department')
+        .leftJoinAndSelect('service.deliverables', 'deliverables')
+        .where('service.isActive = :isActive', { isActive: true });
+
+      if (type === CATEGORY_TYPE.CATEGORY) {
+        qb.andWhere('service.parentId IS NULL');
+        if (categoryName) {
+          qb.andWhere(new Brackets(pqb => {
+            pqb.where('service.name LIKE :name', { name: `%${categoryName}%` })
+               .orWhere('service.code LIKE :name', { name: `%${categoryName}%` })
+               .orWhere('service.category LIKE :name', { name: `%${categoryName}%` });
+          }));
+        }
+      } else if (type === CATEGORY_TYPE.SUB_CATEGORY) {
+        if (parentId) {
+          qb.andWhere('service.parentId = :parentId', { parentId });
+        } else if (categoryName) {
+          // Exact match for parent category to avoid "dirty" results
+          qb.andWhere(new Brackets(pqb => {
+            pqb.where('parent.name = :catName', { catName: categoryName })
+               .orWhere('parent.code = :catName', { catName: categoryName })
+               .orWhere('parent.category = :catName', { catName: categoryName });
+          }));
+          qb.andWhere('service.parentId IS NOT NULL');
+        } else {
+          qb.andWhere('service.parentId IS NOT NULL');
+        }
+      }
+
+      qb.orderBy('service.sortOrder', 'ASC').addOrderBy('service.name', 'ASC');
+
+      return await qb.getMany();
     } catch (error) {
       throw new BadRequestException(error.message);
     }

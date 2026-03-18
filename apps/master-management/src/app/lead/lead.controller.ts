@@ -44,6 +44,21 @@ export class LeadController {
     }
   }
 
+  @Get('services/category')
+  @UseGuards(TokenValidationGuard)
+  async getServicesByCategory(
+    @Res() res: Response,
+    @Query('type') type: CATEGORY_TYPE,
+    @Query('parentId') parentId?: number,
+    @Query('categoryName') categoryName?: string,
+  ) {
+    try {
+      const result = await this.leadService.getServicesByCategory(type, parentId, categoryName);
+      return this.responseHandler.sendSuccessResponse(res, { message: `${type} fetched successfully`, data: result });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
 
   @Get('services/categorywithsubcat')
   async getCategoryAllList(@Res() res: Response, @Query('name') name?: string) {
@@ -154,6 +169,23 @@ export class LeadController {
       const result = await this.leadService.getLeads(req.user, pagination);
       return this.responseHandler.sendSuccessResponse(res, { 
         message: 'Leads fetched successfully', 
+        data: result,
+        recordsTotal: result.totalDocs,
+        recordsFiltered: result.totalDocs,
+        draw: pagination.draw
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('dropped-list')
+  @UseGuards(TokenValidationGuard)
+  async getDroppedLeads(@Req() req: AuthenticatedRequest, @Res() res: Response, @Query() pagination: PaginationDto) {
+    try {
+      const result = await this.leadService.getDroppedLeads(req.user, pagination);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Dropped leads fetched successfully',
         data: result,
         recordsTotal: result.totalDocs,
         recordsFiltered: result.totalDocs,
@@ -327,7 +359,7 @@ export class LeadController {
     }
   }
 
-  @Patch(':id/drop')
+  @Post(':id/drop')
   @UseGuards(TokenValidationGuard)
   async dropLead(
     @Req() req: AuthenticatedRequest,

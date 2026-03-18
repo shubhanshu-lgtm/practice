@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { ProposalModule } from './proposal/proposal.module';
 import { ClosureModule } from './closure/closure.module';
 import { ProjectModule } from './project/project.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { ProjectModule } from './project/project.module';
         ProposalModule,
         ClosureModule,
         ProjectModule,
+        DashboardModule,
     ],
     controllers: [AppController],
     providers: [AppService],
