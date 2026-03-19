@@ -26,7 +26,7 @@ export class DashboardService {
   async getDashboardCounts() {
     // 1. Total Enquiry (Total lead List)
     const totalEnquiry = await this.leadRepo.count({
-      where: { isDraft: false, isActive: true },
+      where: { isDraft: false },
     });
 
     // 2. Total Client (closer list)
@@ -37,7 +37,7 @@ export class DashboardService {
 
     // 4. Drop client = that client has been dropped
     const dropClients = await this.leadRepo.count({
-      where: { status: LEAD_STATUS.LOST, isDraft: false, isActive: true },
+      where: { status: LEAD_STATUS.LOST, isDraft: false },
     });
 
     // 5. Pending to send invoice = That closer has not been assigned to Dept till now
@@ -101,8 +101,8 @@ export class DashboardService {
 
     // 7. Recently Added Enquiries
     const recentEnquiries = await this.leadRepo.find({
-      where: { isDraft: false, isActive: true },
-      relations: ['customer'],
+      where: { isDraft: false },
+      relations: ['customer', 'customer.contacts', 'customer.addresses'],
       order: { createdAt: 'DESC' },
       take: 5,
     });
