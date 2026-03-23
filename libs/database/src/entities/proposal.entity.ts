@@ -93,6 +93,9 @@ export class Proposal {
   @Column({ length: 3, default: 'INR' })
   currency: string;
 
+  @Column({ nullable: true })
+  pdfUrl: string;
+
   @ManyToOne(() => Lead, (lead) => lead.proposals)
   @JoinColumn({ name: 'leadId' })
   lead: Lead;

@@ -16,6 +16,7 @@ import { LeadService } from '../../../../../libs/database/src/entities/lead-serv
 //import PDFDocument from 'pdfkit';
 import { ProposalReportService } from './proposal-report.service';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
+import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import * as path from 'path';
 import * as fs from 'fs';
 //import * as os from 'os';
@@ -30,6 +31,7 @@ export class ProposalService {
     private dataSource: DataSource,
     private proposalReportService: ProposalReportService,
     private pdfTemplateService: PdfTemplateService,
+    private s3Service: S3FileService,
   ) {}
 
   private async buildProposalDraft(dto: CreateProposalDto, lead?: Lead): Promise<{
@@ -219,18 +221,63 @@ export class ProposalService {
 
   async createProposalWithPdf(dto: CreateProposalDto) {
     const proposal = await this.createProposal(dto);
-    const templateData = this.getTemplateDataForProposal(proposal);
     const pdfBuffer = await this.generatePdfFromTemplate(proposal.id);
+    
+    // Upload to S3 with structured path
+    const year = new Date().getFullYear().toString();
+    const companyName = proposal.lead?.customer?.name || 'Unknown_Company';
+    const fileName = `${proposal.proposalReference.replace(/\//g, '_')}.pdf`;
+    
+    const uploadResult = await this.s3Service.uploadProposalPdf(
+      pdfBuffer,
+      fileName,
+      year,
+      companyName
+    );
+
+    // Update proposal with pdfUrl
+    proposal.pdfUrl = uploadResult.viewUrl;
+    await this.proposalRepo.save(proposal);
+
     return {
       proposal,
-      templateData,
+      pdfUrl: uploadResult.viewUrl,
       pdfBase64: pdfBuffer.toString('base64'),
     };
   }
 
+
+  //  async createProposalWithPdf(dto: CreateProposalDto) {
+  //   const proposal = await this.createProposal(dto);
+  //   const templateData = this.getTemplateDataForProposal(proposal);
+  //   const pdfBuffer = await this.generatePdfFromTemplate(proposal.id);
+  //   return {
+  //     proposal,
+  //     templateData,
+  //     pdfBase64: pdfBuffer.toString('base64'),
+  //   };
+  // }
+
   async createProposalWithPdfBuffer(dto: CreateProposalDto): Promise<{ proposal: Proposal; pdfBuffer: Buffer; }> {
     const proposal = await this.createProposal(dto);
     const pdfBuffer = await this.generatePdfFromTemplate(proposal.id);
+
+   // Upload to S3 with structured path
+    const year = new Date().getFullYear().toString();
+    const companyName = proposal.lead?.customer?.name || 'Unknown_Company';
+    const fileName = `${proposal.proposalReference.replace(/\//g, '_')}.pdf`;
+
+    const uploadResult = await this.s3Service.uploadProposalPdf(
+      pdfBuffer,
+      fileName,
+      year,
+      companyName
+    );
+
+    // Update proposal with pdfUrl
+    proposal.pdfUrl = uploadResult.viewUrl;
+    await this.proposalRepo.save(proposal);
+
     return { proposal, pdfBuffer };
   }
 
@@ -289,6 +336,32 @@ export class ProposalService {
     });
     if (!proposal) throw new NotFoundException('Proposal not found');
     return proposal;
+  }
+
+  async uploadProposalFile(proposalId: number, file: any): Promise<any> {
+    const proposal = await this.getProposal(proposalId);
+    const companyName = proposal.lead?.customer?.name || 'Unknown_Company';
+    const year = new Date().getFullYear().toString();
+
+    const uploadResult = await this.s3Service.uploadProposalPdf(
+      file.buffer,
+      file.originalname,
+      year,
+      companyName
+    );
+
+    proposal.pdfUrl = uploadResult.viewUrl;
+    await this.proposalRepo.save(proposal);
+
+    return uploadResult;
+  }
+
+  async uploadSignature(file: any): Promise<any> {
+    return this.s3Service.uploadSignature(file.buffer, file.originalname);
+  }
+
+  async uploadAuditorFile(file: any): Promise<any> {
+    return this.s3Service.uploadAuditorFile(file.buffer, file.originalname);
   }
 
   async getProposals(query?: {

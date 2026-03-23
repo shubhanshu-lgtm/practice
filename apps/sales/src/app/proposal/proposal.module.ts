@@ -19,11 +19,14 @@ import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
+import { S3Module } from '../../../../../libs/S3-Service/s3.module';
+
 @Module({
   imports: [
     DBModule.forRoot(),
     ConfigModule,
     ResponseHandlerModule,
+    S3Module,
     TypeOrmModule.forFeature([
       Proposal,
       ProposalItem,

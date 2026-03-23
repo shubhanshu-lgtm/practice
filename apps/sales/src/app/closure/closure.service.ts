@@ -7,13 +7,14 @@ import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
 import { LEAD_STATUS, PROJECT_STATUS } from '../../../../../libs/constants/salesConstants';
 import { CreateClosureDto, UpdateClosureDto } from '../../../../../libs/dtos/sales/create-closure.dto';
-
+import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 @Injectable()
 export class ClosureService {
   constructor(
     @InjectRepository(ProposalAcceptance)
     private acceptanceRepo: Repository<ProposalAcceptance>,
-    private dataSource: DataSource
+    private dataSource: DataSource,
+    private s3Service: S3FileService
   ) {}
 
   private async generateProjectCode(manager: EntityManager): Promise<string> {
@@ -26,6 +27,29 @@ export class ClosureService {
     const countVal = count ? Number(count.count) : 0;
     const seq = String(countVal + 1).padStart(3, '0');
     return `PRJ/${year}/${seq}`;
+  }
+
+  async uploadProposalFile(proposalId: number, file: any): Promise<any> {
+    const proposal = await this.dataSource.manager.findOne(Proposal, {
+      where: { id: proposalId },
+      relations: ['lead', 'lead.customer']
+    });
+
+    if (!proposal) {
+      throw new NotFoundException('Proposal not found');
+    }
+
+    const companyName = proposal.lead?.customer?.name || 'Unknown_Company';
+    const year = new Date().getFullYear().toString();
+
+    const uploadResult = await this.s3Service.uploadProposalPdf(
+      file.buffer,
+      file.originalname,
+      year,
+      companyName
+    );
+
+    return uploadResult;
   }
 
   async acceptProposal(dto: CreateClosureDto): Promise<ProposalAcceptance> {

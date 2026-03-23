@@ -1,20 +1,24 @@
-import {
-  Body, Controller, Get, Param, Post, Query, Res,
-  UseGuards, Patch, Delete, ParseIntPipe, HttpStatus
-} from '@nestjs/common';
-
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UseGuards, HttpStatus, BadRequestException, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { ProposalService } from './proposal.service';
-import { CreateProposalDto, UpdateProposalDto, UpdateProposalStatusDto } from '../../../../../libs/dtos/sales/create-proposal.dto';
+import {
+  CreateProposalDto,
+  UpdateProposalDto,
+  UpdateProposalStatusDto
+} from '../../../../../libs/dtos/sales/create-proposal.dto';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { TokenValidationGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { FileUpload } from '../../../../../libs/interfaces/commonTypes/custom.interface';
 import { PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
+import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 //import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
 @Controller('proposals')
 export class ProposalController {
   constructor(
     private readonly proposalService: ProposalService,
     private readonly responseHandler: ResponseHandlerService,
+    private readonly s3Service: S3FileService,
   ) {}
 
   @Post()
@@ -27,6 +31,66 @@ export class ProposalController {
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposal created successfully',
         data: { proposal, templateData }
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post('upload-pdf')
+  @UseGuards(TokenValidationGuard)
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadPdf(
+    @Res() res: Response,
+    @UploadedFile() file: FileUpload,
+    @Query('proposalId', ParseIntPipe) proposalId: number,
+  ) {
+    try {
+      if (!file) throw new BadRequestException('No file uploaded');
+      if (!file.originalname.match(/\.(pdf)$/)) throw new BadRequestException('Only PDF files are allowed!');
+
+      const result = await this.proposalService.uploadProposalFile(proposalId, file);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Proposal PDF uploaded successfully',
+        data: result,
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post('upload-signature')
+  @UseGuards(TokenValidationGuard)
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadSignature(
+    @Res() res: Response,
+    @UploadedFile() file: FileUpload,
+  ) {
+    try {
+      if (!file) throw new BadRequestException('No file uploaded');
+      const result = await this.proposalService.uploadSignature(file);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Signature uploaded successfully',
+        data: result,
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post('upload-auditor-file')
+  @UseGuards(TokenValidationGuard)
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadAuditorFile(
+    @Res() res: Response,
+    @UploadedFile() file: FileUpload,
+  ) {
+    try {
+      if (!file) throw new BadRequestException('No file uploaded');
+      const result = await this.proposalService.uploadAuditorFile(file);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Auditor file uploaded successfully',
+        data: result,
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

@@ -175,6 +175,19 @@ const viewUrl = s3.getSignedUrl('getObject', {
         return `OPMS/${folder}/${fileName}`;
     }
 
+    proposalPath(year: string, companyName: string, fileName: string) {
+        const sanitizedCompanyName = companyName.replace(/[^a-zA-Z0-9]/g, '_');
+        return `OPMS/proposals/${year}/${sanitizedCompanyName}/${fileName}`;
+    }
+
+    auditorPath(fileName: string) {
+        return `OPMS/auditors/${fileName}`;
+    }
+
+    signaturePath(fileName: string) {
+        return `OPMS/signature/${fileName}`;
+    }
+
     /** ---------- UPLOAD HELPERS --------------- **/
 
     async uploadCertificate(buffer: Buffer, originalName: string) {
@@ -186,6 +199,24 @@ const viewUrl = s3.getSignedUrl('getObject', {
     async uploadPdf(buffer: Buffer, originalName: string) {
         const fileName = this.generateFileName(originalName);
         const path = this.pdfPath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+
+    async uploadProposalPdf(buffer: Buffer, originalName: string, year: string, companyName: string) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.proposalPath(year, companyName, fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+
+    async uploadAuditorFile(buffer: Buffer, originalName: string) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.auditorPath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+
+    async uploadSignature(buffer: Buffer, originalName: string) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.signaturePath(fileName);
         return this.s3FileUpload(buffer, path, originalName);
     }
 

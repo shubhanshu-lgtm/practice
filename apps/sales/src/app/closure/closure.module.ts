@@ -12,12 +12,14 @@ import { ResponseHandlerModule } from '../../../../../libs/response-handler/resp
 import { JwtService } from '../../../../../libs/jwt-service/jwt.service';
 import { TokenValidationMiddleware, checkIfAdmin } from '../../../../../libs/middlewares/authMiddleware';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { S3Module } from '../../../../../libs/S3-Service/s3.module';
 
 @Module({
   imports: [
     DBModule.forRoot(),
     ConfigModule,
     ResponseHandlerModule,
+    S3Module,
     TypeOrmModule.forFeature([ProposalAcceptance, Proposal, Lead, Project])
   ],
   providers: [

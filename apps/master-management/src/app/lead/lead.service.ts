@@ -986,23 +986,31 @@ export class LeadService {
       for (const assignment of assignments) {
         const lead = assignment.lead;
         const leadId = lead?.id;
+
+        const leadMetadata = {
+          id: lead?.id || null,
+          enquiryId: lead?.enquiryId || null,
+          enquiryReference: lead?.enquiryReference || null,
+          leadStatus: lead?.status || null,
+          quality: lead?.quality || null,
+          source: lead?.source || null,
+          sourceDescription: lead?.sourceDescription || null,
+          notes: lead?.notes || null,
+          createdAt: lead?.createdAt || null,
+          companyName: lead?.customer?.name || null,
+          createdBy: lead?.createdBy
+            ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email, phoneNo: lead.createdBy.phoneNo, avatar: lead.createdBy.avatar, status: lead.createdBy.status, verifyStatus: lead.createdBy.verifyStatus, roleName: lead.createdBy.roleName, user_group: lead.createdBy.user_group, loginSource: lead.createdBy.loginSource, platform: lead.createdBy.platform }
+            : null,
+          addresses: lead?.customer?.addresses || [],
+        };
+
         if (!groupedMap.has(leadId)) {
           groupedMap.set(leadId, {
-            companyName: lead?.customer?.name || null,
-            enquiryId: lead?.enquiryId || null,
-            enquiryReference: lead?.enquiryReference || null,
-            leadStatus: lead?.status || null,
-            quality: lead?.quality || null,
-            source: lead?.source || null,
-            sourceDescription: lead?.sourceDescription || null,
-            notes: lead?.notes || null,
-            createdAt: lead?.createdAt || null,
-            createdBy: lead?.createdBy
-              ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
-              : null,
+            ...leadMetadata,
             services: [],
           });
         }
+
         groupedMap.get(leadId).services.push({
           Department: assignment.service?.category || null,
           serviceName: assignment.service?.name || null,
@@ -1017,6 +1025,27 @@ export class LeadService {
             : null,
           department: assignment.department
             ? { id: assignment.department.id, name: assignment.department.name }
+            : null,
+          lead: leadMetadata,
+          service: assignment.service
+            ? {
+                id: assignment.service.id,
+                name: assignment.service.name,
+                code: assignment.service.code,
+                description: assignment.service.description,
+                isActive: assignment.service.isActive,
+                departmentId: assignment.service.departmentId,
+                createdAt: assignment.service.createdAt,
+                parentId: assignment.service.parentId,
+                level: assignment.service.level,
+                category: assignment.service.category,
+                type: assignment.service.type,
+                accessLevel: assignment.service.accessLevel,
+                allowedUserGroups: assignment.service.allowedUserGroups,
+                allowedDepartments: assignment.service.allowedDepartments,
+                sortOrder: assignment.service.sortOrder,
+                logo: assignment.service.logo,
+              }
             : null,
         });
       }
