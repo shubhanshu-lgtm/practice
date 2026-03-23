@@ -769,7 +769,36 @@ export class LeadService {
     }
   }
 
-  async assignServices(leadId: number, serviceAssignments: ServiceAssignment[], actor?: User): Promise<Lead> {
+  private formatLeadServicesSummary(lead: Lead): any {
+    return {
+      company_name: lead.customer?.name || null,
+      enquiryId: lead.enquiryId || null,
+      enquiryReference: lead.enquiryReference || null,
+      leadStatus: lead.status || null,
+      quality: lead.quality || null,
+      source: lead.source || null,
+      sourceDescription: lead.sourceDescription || null,
+      notes: lead.notes || null,
+      createdAt: lead.createdAt || null,
+      createdBy: lead.createdBy
+        ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
+        : null,
+      services: (lead.leadServices || []).map(ls => ({
+        service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
+        sub_service_name: ls.service?.name || null,
+        description: ls.service?.description || null,
+        deliverables: ls.deliverables || [],
+        status: ls.status || null,
+        startDate: ls.startDate || null,
+        endDate: ls.endDate || null,
+        remarks: ls.remarks || null,
+        owner: ls.owner ? { id: ls.owner.id, name: ls.owner.name, email: ls.owner.email } : null,
+        department: ls.department ? { id: ls.department.id, name: ls.department.name } : null,
+      })),
+    };
+  }
+
+  async assignServices(leadId: number, serviceAssignments: ServiceAssignment[], actor?: User): Promise<any> {
     try {
       const lead = await this.leadRepository.findOne({ where: { id: leadId }, relations: ['leadServices', 'createdBy'] });
       if (!lead || !lead.isActive) {
@@ -855,10 +884,12 @@ export class LeadService {
         await this.leadServiceEntityRepository.save(leadServices);
       }
 
-      return await this.leadRepository.findOne({ 
+      const fullLead = await this.leadRepository.findOne({ 
         where: { id: leadId }, 
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.parent', 'leadServices.owner', 'leadServices.department'] 
       });
+
+      return this.formatLeadServicesSummary(fullLead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -947,8 +978,49 @@ export class LeadService {
       const [assignments, total] = await query.getManyAndCount();
       const totalPages = Math.ceil(total / limit);
 
+      const groupedMap = new Map<number, any>();
+      for (const assignment of assignments) {
+        const lead = assignment.lead;
+        const leadId = lead?.id;
+        if (!groupedMap.has(leadId)) {
+          groupedMap.set(leadId, {
+            companyName: lead?.customer?.name || null,
+            enquiryId: lead?.enquiryId || null,
+            enquiryReference: lead?.enquiryReference || null,
+            leadStatus: lead?.status || null,
+            quality: lead?.quality || null,
+            source: lead?.source || null,
+            sourceDescription: lead?.sourceDescription || null,
+            notes: lead?.notes || null,
+            createdAt: lead?.createdAt || null,
+            createdBy: lead?.createdBy
+              ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
+              : null,
+            services: [],
+          });
+        }
+        groupedMap.get(leadId).services.push({
+          Department: assignment.service?.category || null,
+          serviceName: assignment.service?.name || null,
+          description: assignment.service?.description || null,
+          deliverables: assignment.deliverables || [],
+          status: assignment.status || null,
+          startDate: assignment.startDate || null,
+          endDate: assignment.endDate || null,
+          remarks: assignment.remarks || null,
+          owner: assignment.owner
+            ? { id: assignment.owner.id, name: assignment.owner.name, email: assignment.owner.email }
+            : null,
+          department: assignment.department
+            ? { id: assignment.department.id, name: assignment.department.name }
+            : null,
+        });
+      }
+
+      const groupedDocs = Array.from(groupedMap.values());
+
       return {
-        docs: assignments,
+        docs: groupedDocs,
         page: currentPage,
         limit,
         totalDocs: total,
