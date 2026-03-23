@@ -23,6 +23,7 @@ import { S3Module } from '../../../../../libs/S3-Service/s3.module';
 import { TokenValidationGuard, CheckIfAdminGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
 
 import { Department } from '../../../../../libs/database/src/entities/department.entity';
+import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 
 @Module({
   imports: [
@@ -30,7 +31,7 @@ import { Department } from '../../../../../libs/database/src/entities/department
     ResponseHandlerModule,
     ConfigModule,
     S3Module,
-    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager, Department]),
+    TypeOrmModule.forFeature([Lead, LeadContact, LeadAddress, Customer, CustomerAddress, CustomerContact, User, LoginSession, ServiceMaster, ServiceDeliverable, LeadServiceEntity, PermissionManager, Department, ProposalItem]),
   ],
   controllers: [LeadController],
   providers: [LeadService, LeadServiceEntity, LeadServiceRepository, JwtService, TokenValidationMiddleware, checkIfAdmin, TokenValidationGuard, CheckIfAdminGuard],

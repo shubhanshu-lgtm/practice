@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like, Repository, In, Between, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
+import { DataSource, Like, Repository, In, Between, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -15,6 +15,7 @@ import { ServiceMaster } from '../../../../../libs/database/src/entities/service
 import { ServiceDeliverable } from '../../../../../libs/database/src/entities/service-deliverable.entity';
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
 import { Department } from '../../../../../libs/database/src/entities/department.entity';
+import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
@@ -38,6 +39,7 @@ interface ServiceAssignment {
 @Injectable()
 export class LeadService {
   constructor(
+    private readonly dataSource: DataSource,
     @InjectRepository(Lead)
     private readonly leadRepository: Repository<Lead>,
     @InjectRepository(LeadContact)
@@ -66,6 +68,8 @@ export class LeadService {
     private readonly deliverableRepository: Repository<ServiceDeliverable>,
     @InjectRepository(Department)
     private readonly departmentRepository: Repository<Department>,
+    @InjectRepository(ProposalItem)
+    private readonly proposalItemRepository: Repository<ProposalItem>,
     private readonly s3Service: S3FileService,
   ) {}
 
@@ -800,96 +804,96 @@ export class LeadService {
 
   async assignServices(leadId: number, serviceAssignments: ServiceAssignment[], actor?: User): Promise<any> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id: leadId }, relations: ['leadServices', 'createdBy'] });
-      if (!lead || !lead.isActive) {
-        throw new NotFoundException('Lead not found');
-      }
-      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
-        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+      return await this.dataSource.transaction(async manager => {
+        const lead = await manager.findOne(Lead, {
+          where: { id: leadId },
+          relations: ['createdBy'],
+        });
+
+        if (!lead || !lead.isActive) {
           throw new NotFoundException('Lead not found');
         }
-      }
 
-      await this.leadServiceEntityRepository.delete({ lead: { id: leadId } });
-
-      if (serviceAssignments && serviceAssignments.length > 0) {
-        const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
-        const services = await this.serviceRepository.find({ where: { id: In(uniqueServiceIds) } });
-        
-        const foundServiceIds = services.map(s => s.id);
-        
-        // Filter assignments to only include those that exist in the master catalog
-        const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.serviceId));
-
-        if (validAssignments.length === 0 && serviceAssignments.length > 0) {
-          throw new BadRequestException(`None of the provided service IDs exist in the catalog: ${uniqueServiceIds.join(', ')}`);
+        if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+          if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+            throw new NotFoundException('Lead not found');
+          }
         }
 
-        const servicesToUpdate = new Map<number, ServiceMaster>();
-        const leadServicesData = [];
+        // Atomically unlink proposal items and delete existing services
+        await manager
+          .createQueryBuilder()
+          .update(ProposalItem)
+          .set({ leadServiceId: null })
+          .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId })
+          .execute();
 
-        for (const assignment of validAssignments) {
-          const service = services.find(s => s.id === assignment.serviceId);
-          // service will always exist here because we filtered by foundServiceIds
-          
-          if (assignment.description) {
-            service.description = assignment.description;
-            servicesToUpdate.set(service.id, service);
+        await manager.delete(LeadServiceEntity, { lead: { id: leadId } });
+
+        if (serviceAssignments && serviceAssignments.length > 0) {
+          const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
+          const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) } });
+
+          const foundServiceIds = services.map(s => s.id);
+          const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.serviceId));
+
+          if (validAssignments.length === 0 && serviceAssignments.length > 0) {
+            throw new BadRequestException(`None of the provided service IDs exist: ${uniqueServiceIds.join(', ')}`);
           }
 
-          const uniqueDeliverables = assignment.deliverables 
-            ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d))]
-            : [];
+          const servicesToUpdate = new Map<number, ServiceMaster>();
+          const leadServicesData = [];
 
-          let owner = null;
-          if (assignment.ownerId) {
-            owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+          for (const assignment of validAssignments) {
+            const service = services.find(s => s.id === assignment.serviceId);
+
+            if (assignment.description) {
+              service.description = assignment.description;
+              servicesToUpdate.set(service.id, service);
+            }
+
+            const uniqueDeliverables = assignment.deliverables
+              ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter(Boolean))]
+              : [];
+
+            let owner = null;
+            if (assignment.ownerId) {
+              owner = await manager.findOne(User, { where: { id: assignment.ownerId } });
+            }
+
+            let department = null;
+            if (assignment.departmentId) {
+              department = await manager.findOne(Department, { where: { id: assignment.departmentId } });
+            }
+
+            leadServicesData.push({
+              lead,
+              service,
+              deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
+              remarks: assignment.remarks,
+              owner,
+              department,
+              status: assignment.status || SERVICE_STATUS.REQUIREMENT_CONFIRMED,
+              startDate: assignment.startDate ? new Date(assignment.startDate) : null,
+              endDate: assignment.endDate ? new Date(assignment.endDate) : null,
+            });
           }
 
-          let department = null;
-          if (assignment.departmentId) {
-            department = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+          if (servicesToUpdate.size > 0) {
+            await manager.save(Array.from(servicesToUpdate.values()));
           }
 
-          leadServicesData.push({
-            lead: lead,
-            service: service,
-            deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
-            remarks: assignment.remarks,
-            owner: owner,
-            department: department,
-            status: assignment.status || SERVICE_STATUS.REQUIREMENT_CONFIRMED,
-            startDate: assignment.startDate ? new Date(assignment.startDate) : null,
-            endDate: assignment.endDate ? new Date(assignment.endDate) : null,
-          });
+          const leadServices = leadServicesData.map(data => manager.create(LeadServiceEntity, data));
+          await manager.save(leadServices);
         }
 
-        if (servicesToUpdate.size > 0) {
-          await this.serviceRepository.save(Array.from(servicesToUpdate.values()));
-        }
+        const fullLead = await manager.findOne(Lead, {
+          where: { id: leadId },
+          relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.parent', 'leadServices.owner', 'leadServices.department'],
+        });
 
-        const leadServices = leadServicesData.map(data =>
-          this.leadServiceEntityRepository.create({
-            lead: data.lead,
-            service: data.service,
-            deliverables: data.deliverables,
-            remarks: data.remarks,
-            owner: data.owner,
-            department: data.department,
-            status: data.status,
-            startDate: data.startDate,
-            endDate: data.endDate,
-          })
-        );
-        await this.leadServiceEntityRepository.save(leadServices);
-      }
-
-      const fullLead = await this.leadRepository.findOne({ 
-        where: { id: leadId }, 
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.parent', 'leadServices.owner', 'leadServices.department'] 
+        return this.formatLeadServicesSummary(fullLead);
       });
-
-      return this.formatLeadServicesSummary(fullLead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
