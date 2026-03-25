@@ -59,6 +59,12 @@ export class CreateProposalItemDto {
   @IsOptional()
   @Min(0)
   taxPercentage?: number;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateProposalPaymentTermDto)
+  @IsOptional()
+  paymentTerms?: CreateProposalPaymentTermDto[];
 }
 
 export class CreateProposalDto {

@@ -445,8 +445,7 @@ export class LeadService {
 
   async addServiceCategory(payload: CreateServiceDto, type: CATEGORY_TYPE, file?: { originalname?: string; buffer?: Buffer }) {
     try {
-      const categoryValue = payload.service_category || payload.category;
-      if (!categoryValue) {
+      const categoryValue = payload.service_category || payload.category; if (!categoryValue || typeof categoryValue !== 'string') {
         throw new BadRequestException('service_category is required');
       }
 
