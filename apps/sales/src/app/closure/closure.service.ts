@@ -181,7 +181,8 @@ export class ClosureService {
 
     const qb = this.acceptanceRepo.createQueryBuilder('closure')
       .leftJoinAndSelect('closure.proposal', 'proposal')
-      .leftJoinAndSelect('closure.lead', 'lead') .leftJoinAndSelect('closure.accountDepartment', 'accountDepartment')
+      .leftJoinAndSelect('closure.lead', 'lead')
+      .leftJoinAndSelect('closure.accountDepartment', 'accountDepartment')
       .leftJoinAndSelect('lead.customer', 'customer')
       .orderBy('closure.createdAt', 'DESC')
       .skip((page - 1) * limit)
