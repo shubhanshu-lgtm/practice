@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
 import { Proposal } from './proposal.entity';
+import { ProposalItem } from './proposal-item.entity';
 
 @Entity('proposal_payment_term')
 export class ProposalPaymentTerm {
@@ -12,6 +13,13 @@ export class ProposalPaymentTerm {
 
   @Column()
   proposalId: number;
+
+  @ManyToOne(() => ProposalItem, (item) => item.paymentTerms, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'proposalItemId' })
+  proposalItem: ProposalItem;
+
+  @Column({ nullable: true })
+  proposalItemId: number;
 
   @Column()
   milestoneName: string;

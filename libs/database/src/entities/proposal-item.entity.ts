@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn, OneToMany } from 'typeorm';
 import { Proposal } from './proposal.entity';
 import { LeadService } from './lead-service.entity';
+import { ProposalPaymentTerm } from './proposal-payment-term.entity';
 
 @Entity('proposal_item')
 export class ProposalItem {
@@ -59,6 +60,9 @@ export class ProposalItem {
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   netAmount: number;
+
+  @OneToMany(() => ProposalPaymentTerm, (term) => term.proposalItem, { cascade: true })
+  paymentTerms: ProposalPaymentTerm[];
 
   @CreateDateColumn()
   createdAt: Date;

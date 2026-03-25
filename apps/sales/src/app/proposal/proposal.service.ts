@@ -155,23 +155,26 @@ export class ProposalService {
 
       const saved = await manager.save(Proposal, proposal);
 
-      if (dto.paymentTerms && dto.paymentTerms.length > 0) {
-        const totalPct = dto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
-        if (Math.abs(totalPct - 100) > 0.01) {
-          throw new BadRequestException('Payment term percentages must sum to 100');
-        }
+      for (const item of saved.items) {
+        const itemDto = dto.items.find(i => i.leadServiceId === item.leadServiceId);
+        if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
+          const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
+          if (Math.abs(totalPct - 100) > 0.01) {
+            throw new BadRequestException(`Payment term percentages for service ${item.serviceName} must sum to 100`);
+          }
 
-        const terms: ProposalPaymentTerm[] = dto.paymentTerms.map(t =>
-          manager.create(ProposalPaymentTerm, {
-            proposalId: saved.id,
-            milestoneName: t.milestoneName,
-            percentage: t.percentage,
-            triggerEvent: t.triggerEvent,
-            amount: (saved.grandTotal * t.percentage) / 100
-          })
-        );
-        await manager.save(ProposalPaymentTerm, terms);
-        saved.paymentTerms = terms;
+          const terms: ProposalPaymentTerm[] = itemDto.paymentTerms.map(t =>
+            manager.create(ProposalPaymentTerm, {
+              proposalId: saved.id,
+              proposalItemId: item.id,
+              milestoneName: t.milestoneName,
+              percentage: t.percentage,
+              triggerEvent: t.triggerEvent,
+              amount: (item.netAmount * t.percentage) / 100
+            })
+          );
+          await manager.save(ProposalPaymentTerm, terms);
+        }
       }
 
       const result = await manager.findOne(Proposal, {
@@ -519,7 +522,7 @@ export class ProposalService {
         proposal.division = this.deriveDivisionFromLeadServices(items);
       }
 
-      if (termDtos) {
+      if (termDtos && termDtos.length > 0) {
         hasChanges = true;
         await manager.delete(ProposalPaymentTerm, { proposalId: id });
         const totalPct = termDtos.reduce((s, t) => s + t.percentage, 0);
