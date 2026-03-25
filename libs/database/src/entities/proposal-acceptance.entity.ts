@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Proposal } from './proposal.entity';
 import { Lead } from './lead.entity';
+import { Department } from './department.entity';
 
 @Entity('proposal_acceptance')
 export class ProposalAcceptance {
@@ -64,6 +65,13 @@ export class ProposalAcceptance {
 
   @Column({ nullable: true })
   raisedFromEntity: string;
+
+  @ManyToOne(() => Department, { nullable: true })
+  @JoinColumn({ name: 'accountDepartmentId' })
+  accountDepartment: Department;
+
+  @Column({ nullable: true })
+  accountDepartmentId: number;
 
   @Column({ type: 'simple-array', nullable: true })
   invoiceServices: string[];

@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDat
 import { Lead } from './lead.entity';
 import { ProposalItem } from './proposal-item.entity';
 import { ProposalPaymentTerm } from './proposal-payment-term.entity';
+import { ProposalFile } from './proposal-file.entity';
 
 export enum PROPOSAL_STATUS {
   DRAFT = 'Draft',
@@ -108,6 +109,9 @@ export class Proposal {
 
   @OneToMany(() => ProposalPaymentTerm, (term) => term.proposal, { cascade: true })
   paymentTerms: ProposalPaymentTerm[];
+
+  @OneToMany(() => ProposalFile, (file) => file.proposal, { cascade: true })
+  files: ProposalFile[];
 
   @CreateDateColumn()
   createdAt: Date;

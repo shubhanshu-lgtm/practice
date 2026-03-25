@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 import { ProposalPaymentTerm } from '../../../../../libs/database/src/entities/proposal-payment-term.entity';
+import { ProposalFile } from '../../../../../libs/database/src/entities/proposal-file.entity';
 import { ProposalService } from './proposal.service';
 import { ProposalController } from './proposal.controller';
 import { ProposalReportService } from './proposal-report.service';
@@ -31,6 +32,7 @@ import { S3Module } from '../../../../../libs/S3-Service/s3.module';
       Proposal,
       ProposalItem,
       ProposalPaymentTerm,
+      ProposalFile,
       Lead,
       LeadServiceEntity,
       Customer,

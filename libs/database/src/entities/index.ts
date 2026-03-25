@@ -45,4 +45,8 @@ export * from './proposal.entity';
 export * from './proposal-item.entity';
 export * from './proposal-payment-term.entity';
 export * from './proposal-acceptance.entity';
+export * from './proposal-file.entity';
 export * from './project.entity';
+export * from './invoice.entity';
+export * from './invoice-item.entity';
+export * from './payment-record.entity';

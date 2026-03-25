@@ -49,7 +49,7 @@ export class ProposalController {
       if (!file) throw new BadRequestException('No file uploaded');
       if (!file.originalname.match(/\.(pdf)$/)) throw new BadRequestException('Only PDF files are allowed!');
 
-      const result = await this.proposalService.uploadProposalFile(proposalId, file);
+      const result = await this.proposalService.uploadProposalFiles(proposalId, [file]);
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposal PDF uploaded successfully',
         data: result,

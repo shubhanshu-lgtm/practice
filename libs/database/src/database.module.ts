@@ -44,11 +44,15 @@ import {
     Proposal,
     ProposalItem,
     ProposalPaymentTerm,
+    ProposalFile,
     ProposalAcceptance,
     Project,
     ServiceMaster,
     ServiceDeliverable,
-    LeadFollowUp
+    LeadFollowUp,
+    Invoice,
+    InvoiceItem,
+    PaymentRecord
 } from './entities';
 
 import {
@@ -121,10 +125,15 @@ export class DBModule {
                 Proposal,
                 ProposalItem,
                 ProposalPaymentTerm,
+                ProposalFile,
                 ProposalAcceptance,
                 Project,
                 ServiceMaster,
                 ServiceDeliverable,
+                Invoice,
+                InvoiceItem,
+                PaymentRecord,
+                
             ],
             synchronize: false,
             //dropSchema: true,
@@ -202,10 +211,14 @@ export class DBModule {
                    Proposal,
                    ProposalItem,
                    ProposalPaymentTerm,
+                   ProposalFile,
                    ProposalAcceptance,
                    Project,
                    ServiceMaster,
                    ServiceDeliverable,
+                   Invoice,
+                   InvoiceItem,
+                   PaymentRecord,
                 ]),
             ],
             controllers: [],
