@@ -16,17 +16,29 @@ export class LeadService {
   @JoinColumn({ name: 'leadId' })
   lead: Lead;
 
+  @Column()
+  leadId: number;
+
   @ManyToOne(() => ServiceMaster)
   @JoinColumn({ name: 'serviceId' })
   service: ServiceMaster;
+
+  @Column({ nullable: true })
+  serviceId: number;
 
   @ManyToOne(() => Department)
   @JoinColumn({ name: 'departmentId' })
   department: Department;
 
+  @Column({ nullable: true })
+  departmentId: number;
+
   @ManyToOne(() => User)
   @JoinColumn({ name: 'ownerId' })
   owner: User;
+
+  @Column({ nullable: true })
+  ownerId: number;
 
   @Column({
     type: 'enum',
