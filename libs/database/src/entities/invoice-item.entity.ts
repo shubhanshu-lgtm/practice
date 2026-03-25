@@ -22,13 +22,13 @@ export class InvoiceItem {
   invoiceId: number;
 
   @Column({ nullable: true })
-  proposalItemId: number;
+  proposalItemId?: number;
 
   @Column()
   serviceName: string;
 
   @Column({ type: 'text', nullable: true })
-  serviceDescription: string;
+  serviceDescription?: string;
 
   @Column({ type: 'int', default: 1 })
   qty: number;
