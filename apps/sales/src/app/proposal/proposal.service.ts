@@ -58,7 +58,7 @@ export class ProposalService {
     let leadServices = lead.leadServices;
     if (!leadServices || leadServices.length === 0) {
       leadServices = await this.dataSource.getRepository(LeadService).find({
-        where: { lead: { id: lead.id } },
+        where: { leadId: lead.id },
         relations: ['service'],
       });
     }
@@ -83,6 +83,10 @@ export class ProposalService {
 
     for (const itemDto of itemsDto) {
       const leadService = leadServices?.find((ls) => ls.id === itemDto.leadServiceId);
+
+      if (!leadService) {
+        throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to this lead (Lead ID: ${lead.id}).`);
+      }
 
       const item = new ProposalItem();
       item.leadServiceId = itemDto.leadServiceId;
@@ -471,9 +475,13 @@ export class ProposalService {
 
         for (const itemDto of itemDtos) {
           const leadService = await manager.findOne(LeadService, {
-            where: { id: itemDto.leadServiceId },
+            where: { id: itemDto.leadServiceId, leadId: proposal.leadId },
             relations: ['service'],
           });
+
+          if (!leadService) {
+            throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to the lead (Lead ID: ${proposal.leadId}) associated with this proposal.`);
+          }
 
           // Find existing item for this leadServiceId to preserve serviceName
           const existingItem = existingItems.find(ei => ei.leadServiceId === itemDto.leadServiceId);
