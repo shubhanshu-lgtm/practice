@@ -238,9 +238,13 @@ export class ProposalService {
       companyName
     );
 
-    // Update proposal with pdfUrl
-    proposal.pdfUrl = uploadResult.viewUrl;
-    await this.proposalRepo.save(proposal);
+    // Create proposal file record
+    const proposalFile = this.proposalFileRepo.create({
+      proposalId: proposal.id,
+      fileUrl: uploadResult.viewUrl,
+      fileName: fileName
+    });
+    await this.proposalFileRepo.save(proposalFile);
 
     return {
       proposal,
@@ -277,9 +281,13 @@ export class ProposalService {
       companyName
     );
 
-    // Update proposal with pdfUrl
-    proposal.pdfUrl = uploadResult.viewUrl;
-    await this.proposalRepo.save(proposal);
+    // Create proposal file record
+    const proposalFile = this.proposalFileRepo.create({
+      proposalId: proposal.id,
+      fileUrl: uploadResult.viewUrl,
+      fileName: fileName
+    });
+    await this.proposalFileRepo.save(proposalFile);
 
     return { proposal, pdfBuffer };
   }
@@ -365,12 +373,6 @@ export class ProposalService {
       await this.proposalFileRepo.save(doc);
       
       uploadResults.push(uploadResult);
-    }
-
-    // Keep pdfUrl as the latest uploaded file for backward compatibility
-    if (uploadResults.length > 0) {
-      proposal.pdfUrl = uploadResults[uploadResults.length - 1].viewUrl;
-      await this.proposalRepo.save(proposal);
     }
 
     return uploadResults;
