@@ -44,7 +44,7 @@ export class Proposal {
   proposalDate: Date;
 
   @Column({ type: 'date', nullable: true })
-  validUntil: Date;
+  validUntil?: Date;
 
   @Column({
     type: 'enum',
@@ -68,16 +68,16 @@ export class Proposal {
   submittedBy: SUBMITTED_BY;
 
   @Column({ nullable: true })
-  subject: string;
+  subject?: string;
 
   @Column({ type: 'text', nullable: true })
-  introduction: string;
+  introduction?: string;
 
   @Column({ type: 'text', nullable: true })
-  termsAndConditions: string;
+  termsAndConditions?: string;
 
   @Column({ type: 'text', nullable: true })
-  notes: string;
+  notes?: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   subTotal: number;
@@ -95,14 +95,14 @@ export class Proposal {
   currency: string;
 
   @Column({ nullable: true })
-  pdfUrl: string;
+  pdfUrl?: string;
 
   @ManyToOne(() => Lead, (lead) => lead.proposals)
   @JoinColumn({ name: 'leadId' })
   lead: Lead;
 
   @Column({ nullable: true })
-  leadId: number;
+  leadId?: number;
 
   @OneToMany(() => ProposalItem, (item) => item.proposal, { cascade: true })
   items: ProposalItem[];

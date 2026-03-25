@@ -23,7 +23,7 @@ export class PaymentRecord {
   invoiceId: number;
 
   @Column({ nullable: true })
-  orderId: string;
+  orderId?: string;
 
   @Column({ type: 'date' })
   paymentDate: Date;
@@ -39,19 +39,19 @@ export class PaymentRecord {
   paymentMethod: PAYMENT_METHOD;
 
   @Column({ nullable: true })
-  bankName: string;
+  bankName?: string;
 
   @Column({ nullable: true })
-  transactionId: string;
+  transactionId?: string;
 
   @Column({ nullable: true })
-  chequeNumber: string;
+  chequeNumber?: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   remainingBalance: number;
 
   @Column({ type: 'text', nullable: true })
-  notes: string;
+  notes?: string;
 
   @CreateDateColumn()
   createdAt: Date;

@@ -34,10 +34,10 @@ export class Invoice {
 
   @ManyToOne(() => Project, { nullable: true })
   @JoinColumn({ name: 'projectId' })
-  project: Project;
+  project?: Project;
 
   @Column({ nullable: true })
-  projectId: number;
+  projectId?: number;
 
   @ManyToOne(() => Lead, { nullable: false })
   @JoinColumn({ name: 'leadId' })
@@ -48,26 +48,26 @@ export class Invoice {
 
   @ManyToOne(() => ProposalPaymentTerm, { nullable: true })
   @JoinColumn({ name: 'paymentTermId' })
-  paymentTerm: ProposalPaymentTerm;
+  paymentTerm?: ProposalPaymentTerm;
 
   @Column({ nullable: true })
-  paymentTermId: number;
+  paymentTermId?: number;
 
   @ManyToOne(() => Department, { nullable: true })
   @JoinColumn({ name: 'accountDepartmentId' })
-  accountDepartment: Department;
+  accountDepartment?: Department;
 
   @Column({ nullable: true })
-  accountDepartmentId: number;
+  accountDepartmentId?: number;
 
   @Column({ nullable: true })
-  billFromEntity: string;
+  billFromEntity?: string;
 
   @Column({ nullable: true })
-  billToCompanyName: string;
+  billToCompanyName?: string;
 
   @Column({ type: 'json', nullable: true })
-  billToAddress: {
+  billToAddress?: {
     addressLine1: string;
     addressLine2?: string;
     city: string;
@@ -77,25 +77,25 @@ export class Invoice {
   };
 
   @Column({ nullable: true })
-  billToGstNumber: string;
+  billToGstNumber?: string;
 
   @Column({ nullable: true })
-  billToPan: string;
+  billToPan?: string;
 
   @Column({ nullable: true })
-  customerPoNumber: string;
+  customerPoNumber?: string;
 
   @Column({ nullable: true })
-  accountManager: string;
+  accountManager?: string;
 
   @Column({ nullable: true })
-  businessNumber: string;
+  businessNumber?: string;
 
   @Column({ nullable: true })
-  sacCode: string;
+  sacCode?: string;
 
   @Column({ type: 'json', nullable: true })
-  bankDetails: {
+  bankDetails?: {
     beneficiaryName: string;
     beneficiaryAddress?: string;
     accountNumber: string;
@@ -110,7 +110,7 @@ export class Invoice {
   invoiceDate: Date;
 
   @Column({ type: 'date', nullable: true })
-  dueDate: Date;
+  dueDate?: Date;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   subTotal: number;
@@ -172,10 +172,10 @@ export class Invoice {
   status: INVOICE_STATUS;
 
   @Column({ nullable: true })
-  pdfUrl: string;
+  pdfUrl?: string;
 
   @Column({ type: 'text', nullable: true })
-  notes: string;
+  notes?: string;
 
   @OneToMany(() => InvoiceItem, (item) => item.invoice, { cascade: true })
   items: InvoiceItem[];
