@@ -4,6 +4,7 @@ import { ProposalAcceptance } from '../../../../../libs/database/src/entities/pr
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
+import { Department } from '../../../../../libs/database/src/entities/department.entity';
 import { ClosureService } from './closure.service';
 import { ClosureController } from './closure.controller';
 import { DBModule } from '../../../../../libs/database/src/database.module';
@@ -20,7 +21,7 @@ import { S3Module } from '../../../../../libs/S3-Service/s3.module';
     ConfigModule,
     ResponseHandlerModule,
     S3Module,
-    TypeOrmModule.forFeature([ProposalAcceptance, Proposal, Lead, Project])
+    TypeOrmModule.forFeature([ProposalAcceptance, Proposal, Lead, Project, Department])
   ],
   providers: [
     ClosureService,

@@ -1,10 +1,10 @@
-import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UploadedFiles, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ClosureService } from './closure.service';
-import { CreateClosureDto, UpdateClosureDto } from '../../../../../libs/dtos/sales/create-closure.dto';
+import { AssignDepartmentsDto, AssignToAccountDto, CreateClosureDto, UpdateClosureDto } from '../../../../../libs/dtos/sales/create-closure.dto';
 import { Response } from 'express';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { TokenValidationGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { FileUpload } from '../../../../../libs/interfaces/commonTypes/custom.interface';
 
 @Controller('closures')
@@ -31,24 +31,27 @@ export class ClosureController {
 
   @Post('upload-pdf')
   @UseGuards(TokenValidationGuard)
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FilesInterceptor('files', 5))
   async uploadPO(
     @Res() res: Response,
-    @UploadedFile() file: FileUpload,
+    @UploadedFiles() files: FileUpload[],
     @Query('proposalId', ParseIntPipe) proposalId: number,
   ) {
     try {
-      if (!file) {
-        throw new BadRequestException('No file uploaded');
+      if (!files || files.length === 0) {
+        throw new BadRequestException('No files uploaded');
       }
-      if (!file.originalname.match(/\.(pdf)$/)) {
-        throw new BadRequestException('Only PDF files are allowed!');
+      
+      for (const file of files) {
+        if (!file.originalname.match(/\.(pdf)$/)) {
+          throw new BadRequestException('Only PDF files are allowed!');
+        }
       }
 
-      const result = await this.closureService.uploadProposalFile(proposalId, file);
+      const results = await this.closureService.uploadProposalFiles(proposalId, files);
       return this.responseHandler.sendSuccessResponse(res, {
-        message: 'File uploaded successfully',
-        data: result,
+        message: 'Files uploaded successfully',
+        data: results,
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
@@ -113,6 +116,59 @@ export class ClosureController {
       await this.closureService.deleteClosure(id);
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Closure deleted successfully'
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Post(':id/assign-departments')
+  @UseGuards(TokenValidationGuard)
+  async assignDepartments(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: AssignDepartmentsDto
+  ) {
+    try {
+      const result = await this.closureService.assignDepartmentsToProjects(id, dto);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: `${result.created.length} department(s) assigned as projects. ${result.skipped.length} already existed.`,
+        data: result
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get(':id/departments')
+  @UseGuards(TokenValidationGuard)
+  async getClosureDepartments(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number
+  ) {
+    try {
+      const result = await this.closureService.getClosureDepartments(id);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Closure departments fetched successfully',
+        data: result
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Patch(':id/assign-account')
+  @UseGuards(TokenValidationGuard)
+  async assignToAccount(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: AssignToAccountDto
+  ) {
+    try {
+      const closure = await this.closureService.assignToAccount(id, dto);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Closure assigned to account department successfully',
+        data: closure
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

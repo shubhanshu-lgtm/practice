@@ -44,3 +44,27 @@ export enum PROJECT_STATUS {
     COMPLETED = 'Completed',
     CANCELLED = 'Cancelled'
 }
+
+export enum INVOICE_STATUS {
+    DRAFT = 'Draft',
+    SENT = 'Sent',
+    PAID = 'Paid',
+    PARTIAL = 'Partial',
+    OVERDUE = 'Overdue',
+    CANCELLED = 'Cancelled'
+}
+
+export enum INVOICE_TAX_TYPE {
+    CGST_SGST = 'CGST_SGST',
+    IGST = 'IGST',
+    NONE = 'None'
+}
+
+export enum PAYMENT_METHOD {
+    NEFT = 'NEFT',
+    RTGS = 'RTGS',
+    CHEQUE = 'Cheque',
+    CASH = 'Cash',
+    ONLINE = 'Online',
+    UPI = 'UPI'
+}

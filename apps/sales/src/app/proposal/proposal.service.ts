@@ -14,6 +14,7 @@ import {
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
 //import PDFDocument from 'pdfkit';
+import { ProposalFile } from '../../../../../libs/database/src/entities/proposal-file.entity';
 import { ProposalReportService } from './proposal-report.service';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
@@ -28,6 +29,8 @@ export class ProposalService {
     private proposalRepo: Repository<Proposal>,
     @InjectRepository(Lead)
     private leadRepo: Repository<Lead>,
+    @InjectRepository(ProposalFile)
+    private proposalFileRepo: Repository<ProposalFile>,
     private dataSource: DataSource,
     private proposalReportService: ProposalReportService,
     private pdfTemplateService: PdfTemplateService,
@@ -328,6 +331,7 @@ export class ProposalService {
         'items.leadService',
         'items.leadService.service',
         'paymentTerms',
+        'files',
         'lead',
         'lead.customer',
         'lead.customer.contacts',
@@ -338,22 +342,38 @@ export class ProposalService {
     return proposal;
   }
 
-  async uploadProposalFile(proposalId: number, file: any): Promise<any> {
+  async uploadProposalFiles(proposalId: number, files: any[]): Promise<any[]> {
     const proposal = await this.getProposal(proposalId);
     const companyName = proposal.lead?.customer?.name || 'Unknown_Company';
     const year = new Date().getFullYear().toString();
 
-    const uploadResult = await this.s3Service.uploadProposalPdf(
-      file.buffer,
-      file.originalname,
-      year,
-      companyName
-    );
+    const uploadResults = [];
+    for (const file of files) {
+      const uploadResult = await this.s3Service.uploadProposalPdf(
+        file.buffer,
+        file.originalname,
+        year,
+        companyName
+      );
+      
+      // Create a document record for each file
+      const doc = this.proposalFileRepo.create({
+        proposalId,
+        fileUrl: uploadResult.viewUrl,
+        fileName: file.originalname
+      });
+      await this.proposalFileRepo.save(doc);
+      
+      uploadResults.push(uploadResult);
+    }
 
-    proposal.pdfUrl = uploadResult.viewUrl;
-    await this.proposalRepo.save(proposal);
+    // Keep pdfUrl as the latest uploaded file for backward compatibility
+    if (uploadResults.length > 0) {
+      proposal.pdfUrl = uploadResults[uploadResults.length - 1].viewUrl;
+      await this.proposalRepo.save(proposal);
+    }
 
-    return uploadResult;
+    return uploadResults;
   }
 
   async uploadSignature(file: any): Promise<any> {
@@ -378,6 +398,7 @@ export class ProposalService {
       .leftJoinAndSelect('proposal.lead', 'lead')
       .leftJoinAndSelect('lead.customer', 'customer')
       .leftJoinAndSelect('proposal.paymentTerms', 'paymentTerms')
+      .leftJoinAndSelect('proposal.files', 'files')
       .leftJoinAndSelect('proposal.items', 'items');
 
     // If no specific lead or search criteria is provided, only show the latest version per lead.

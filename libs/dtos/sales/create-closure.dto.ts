@@ -37,6 +37,19 @@ export class BillingContactPersonDto {
   phone?: string;
 }
 
+export class DepartmentTeamAssignmentDto {
+  @IsNumber()
+  departmentId: number;
+
+  @IsNumber()
+  @IsOptional()
+  teamId?: number;
+
+  @IsNumber()
+  @IsOptional()
+  assignedToUserId?: number;
+}
+
 export class CreateClosureDto {
   @IsNumber()
   proposalId: number;
@@ -86,6 +99,10 @@ export class CreateClosureDto {
   @IsOptional()
   raisedFromEntity?: string;
 
+  @IsString()
+  @IsOptional()
+  notes?: string;
+
   @IsArray()
   @IsOptional()
   invoiceServices?: string[];
@@ -94,9 +111,42 @@ export class CreateClosureDto {
   @IsOptional()
   department?: string;
 
+  /**
+   * Optional: override team/user assignment per department.
+   * Key = departmentId, value = teamId and/or assignedToUserId.
+   * If not provided, projects are created with department only.
+   * Example: [{ departmentId: 2, teamId: 5, assignedToUserId: 12 }]
+   */
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => DepartmentTeamAssignmentDto)
+  departmentAssignments?: DepartmentTeamAssignmentDto[];
+}
+
+export class AssignToAccountDto {
+  @IsNumber()
+  accountDepartmentId: number;
+
+  @IsString()
+  @IsOptional()
+  billFromEntity?: string;
+
   @IsString()
   @IsOptional()
   notes?: string;
+}
+
+export class AssignDepartmentsDto {
+  @IsArray()
+  @IsNumber({}, { each: true })
+  departmentIds: number[];
+
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => DepartmentTeamAssignmentDto)
+  teamAssignments?: DepartmentTeamAssignmentDto[];
 }
 
 export class UpdateClosureDto extends PartialType(CreateClosureDto) {}
