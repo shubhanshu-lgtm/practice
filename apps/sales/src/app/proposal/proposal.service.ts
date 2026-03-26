@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DataSource } from 'typeorm';
+import { Repository, DataSource, In } from 'typeorm';
 import { Proposal, PROPOSAL_STATUS, PROPOSAL_DIVISION, SUBMITTED_BY } from '../../../../../libs/database/src/entities/proposal.entity';
 import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 import { ProposalPaymentTerm } from '../../../../../libs/database/src/entities/proposal-payment-term.entity';
