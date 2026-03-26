@@ -468,11 +468,21 @@ export class ProposalService {
       if (itemDtos) {
         hasChanges = true;
         
-        // 1. Clear existing payment terms and items first to avoid FK constraint issues
+        // 1. Fetch current items to delete them and their terms explicitly
+        const currentItems = await manager.find(ProposalItem, { where: { proposalId: id } });
+        const currentItemIds = currentItems.map(item => item.id);
+
+        // 2. Clear existing payment terms first to avoid FK constraint issues when deleting items
+        if (currentItemIds.length > 0) {
+          await manager.delete(ProposalPaymentTerm, { proposalItemId: In(currentItemIds) });
+        }
+        // Also clear any terms directly linked to proposal (legacy or fallback)
         await manager.delete(ProposalPaymentTerm, { proposalId: id });
+        
+        // 3. Now delete the items
         await manager.delete(ProposalItem, { proposalId: id });
 
-        // Fetch existing items to preserve serviceName if not provided
+        // Fetch existing items info (from memory/dto) to preserve serviceName if not provided
         const existingItems = proposal.items || [];
 
         let subTotal = 0;
