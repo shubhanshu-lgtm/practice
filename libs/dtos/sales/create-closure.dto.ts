@@ -62,9 +62,10 @@ export class CreateClosureDto {
   @IsOptional()
   poNumber?: string;
 
-  @IsString()
+  @IsArray()
+  @IsString({ each: true })
   @IsOptional()
-  poFileUrl?: string;
+  poFileUrls?: string[];
 
   @IsBoolean()
   billingNameSameAsCustomer: boolean;

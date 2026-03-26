@@ -28,8 +28,8 @@ export class ProposalAcceptance {
   @Column({ nullable: true })
   poNumber: string;
 
-  @Column({ nullable: true })
-  poFileUrl: string;
+  @Column({ type: 'simple-array', nullable: true })
+  poFileUrls: string[];
 
   @Column({ default: true })
   billingNameSameAsCustomer: boolean;

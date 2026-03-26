@@ -86,12 +86,16 @@ export class ClosureService {
       });
       if (existing) throw new BadRequestException('Closure already exists for this proposal');
 
+      if (dto.poFileUrls && dto.poFileUrls.length > 5) {
+        throw new BadRequestException('Maximum 5 PO files are allowed');
+      }
+
       const acceptance = manager.create(ProposalAcceptance, {
         proposalId: Number(dto.proposalId),
         leadId: Number(proposal.leadId),
         awardDate: dto.awardDate,
         poNumber: dto.poNumber,
-        poFileUrl: dto.poFileUrl,
+        poFileUrls: dto.poFileUrls,
         billingNameSameAsCustomer: dto.billingNameSameAsCustomer,
         billToCompanyName: dto.billToCompanyName || proposal.lead?.customer?.name,
         billToAddress: dto.billToAddress,
@@ -216,6 +220,10 @@ export class ClosureService {
   async updateClosure(id: number, dto: UpdateClosureDto): Promise<ProposalAcceptance> {
     const closure = await this.acceptanceRepo.findOne({ where: { id } });
     if (!closure) throw new NotFoundException('Closure not found');
+
+    if (dto.poFileUrls && dto.poFileUrls.length > 5) {
+      throw new BadRequestException('Maximum 5 PO files are allowed');
+    }
 
     Object.assign(closure, dto);
     await this.acceptanceRepo.save(closure);
