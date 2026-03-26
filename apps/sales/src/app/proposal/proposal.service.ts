@@ -467,6 +467,9 @@ export class ProposalService {
 
       if (itemDtos) {
         hasChanges = true;
+        
+        // 1. Clear existing payment terms and items first to avoid FK constraint issues
+        await manager.delete(ProposalPaymentTerm, { proposalId: id });
         await manager.delete(ProposalItem, { proposalId: id });
 
         // Fetch existing items to preserve serviceName if not provided
@@ -475,7 +478,7 @@ export class ProposalService {
         let subTotal = 0;
         let totalDiscount = 0;
         let totalTaxAmount = 0;
-        const items: ProposalItem[] = [];
+        const savedItems: ProposalItem[] = [];
 
         for (const itemDto of itemDtos) {
           const leadService = await manager.findOne(LeadService, {
@@ -496,7 +499,7 @@ export class ProposalService {
           const existingItem = existingItems.find(ei => ei.leadServiceId === itemDto.leadServiceId);
 
           const item = manager.create(ProposalItem, {
-            proposalId: proposal.id, // Explicitly set proposalId
+            proposalId: proposal.id,
             leadServiceId: itemDto.leadServiceId,
             serviceName: itemDto.serviceName || leadService?.service?.name || existingItem?.serviceName || '',
             serviceType: itemDto.serviceType || leadService?.service?.category || existingItem?.serviceType || '',
@@ -509,8 +512,6 @@ export class ProposalService {
             taxPercentage: itemDto.taxPercentage !== undefined ? itemDto.taxPercentage : (existingItem?.taxPercentage || 0)
           });
 
-          item.leadService = leadService;
-
           const discountAmt = (item.amount * item.discount) / 100;
           const taxableAmt = item.amount - discountAmt;
           const taxAmt = (taxableAmt * item.taxPercentage) / 100;
@@ -520,17 +521,16 @@ export class ProposalService {
           item.taxAmount = taxAmt;
           item.netAmount = taxableAmt + taxAmt;
 
-          subTotal += item.amount;
+          // Save item individually to ensure we get the ID back for payment terms
+          const savedItem = await manager.save(ProposalItem, item);
+          savedItems.push(savedItem);
+
+          subTotal += savedItem.amount;
           totalDiscount += discountAmt;
           totalTaxAmount += taxAmt;
-          items.push(item);
         }
 
-        proposal.items = items;
-        const savedItems = await manager.save(ProposalItem, items);
-
-        // Handle payment terms per item
-        await manager.delete(ProposalPaymentTerm, { proposalId: id });
+        // 2. Handle payment terms per item using the newly saved items
         for (const item of savedItems) {
           const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
@@ -553,14 +553,15 @@ export class ProposalService {
           }
         }
 
+        proposal.items = savedItems;
         proposal.subTotal = subTotal;
         proposal.totalDiscount = totalDiscount;
         proposal.totalTaxAmount = totalTaxAmount;
         proposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
-        if (items.length > 0) proposal.currency = items[0].currency;
+        if (savedItems.length > 0) proposal.currency = savedItems[0].currency;
 
-        // Recalculate division to ensure it's always correct (e.g., GRC vs Certification)
-        proposal.division = this.deriveDivisionFromLeadServices(items);
+        // Recalculate division
+        proposal.division = this.deriveDivisionFromLeadServices(savedItems);
       }
 
       // Increment version if there are changes
