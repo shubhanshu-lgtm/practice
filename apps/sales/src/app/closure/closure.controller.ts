@@ -31,7 +31,11 @@ export class ClosureController {
 
   @Post('upload-pdf')
   @UseGuards(TokenValidationGuard)
-  @UseInterceptors(FilesInterceptor('files', 5))
+  @UseInterceptors(FilesInterceptor('files', 5, {
+    limits: {
+      fileSize: 10 * 1024 * 1024 // 10MB per file
+    }
+  }))
   async uploadPO(
     @Res() res: Response,
     @UploadedFiles() files: FileUpload[],
