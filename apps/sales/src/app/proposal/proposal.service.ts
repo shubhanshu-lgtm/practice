@@ -85,7 +85,11 @@ export class ProposalService {
       const leadService = leadServices?.find((ls) => ls.id === itemDto.leadServiceId);
 
       if (!leadService) {
-        throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to this lead (Lead ID: ${lead.id}).`);
+        const availableIds = leadServices?.map(ls => ls.id) || [];
+        throw new BadRequestException(
+          `Service with ID ${itemDto.leadServiceId} is not assigned to this lead (Lead ID: ${lead.id}). ` +
+          `Assigned Service IDs for this lead are: ${availableIds.join(', ')}`
+        );
       }
 
       const item = new ProposalItem();
@@ -480,7 +484,12 @@ export class ProposalService {
           });
 
           if (!leadService) {
-            throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to the lead (Lead ID: ${proposal.leadId}) associated with this proposal.`);
+            const availableServices = await manager.find(LeadService, { where: { leadId: proposal.leadId } });
+            const availableIds = availableServices.map(ls => ls.id);
+            throw new BadRequestException(
+              `Service with ID ${itemDto.leadServiceId} is not assigned to the lead (Lead ID: ${proposal.leadId}) associated with this proposal. ` +
+              `Assigned Service IDs for this lead are: ${availableIds.join(', ')}`
+            );
           }
 
           // Find existing item for this leadServiceId to preserve serviceName
@@ -518,7 +527,31 @@ export class ProposalService {
         }
 
         proposal.items = items;
-        await manager.save(ProposalItem, items); // Explicitly save items to ensure proposalId is persisted
+        const savedItems = await manager.save(ProposalItem, items);
+
+        // Handle payment terms per item
+        await manager.delete(ProposalPaymentTerm, { proposalId: id });
+        for (const item of savedItems) {
+          const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
+          if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
+            const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
+            if (Math.abs(totalPct - 100) > 0.01) {
+              throw new BadRequestException(`Payment term percentages for service ${item.serviceName} must sum to 100`);
+            }
+
+            const terms: ProposalPaymentTerm[] = itemDto.paymentTerms.map(t =>
+              manager.create(ProposalPaymentTerm, {
+                proposalId: proposal.id,
+                proposalItemId: item.id,
+                milestoneName: t.milestoneName,
+                percentage: t.percentage,
+                triggerEvent: t.triggerEvent,
+                amount: (item.netAmount * t.percentage) / 100
+              })
+            );
+            await manager.save(ProposalPaymentTerm, terms);
+          }
+        }
 
         proposal.subTotal = subTotal;
         proposal.totalDiscount = totalDiscount;
@@ -528,26 +561,6 @@ export class ProposalService {
 
         // Recalculate division to ensure it's always correct (e.g., GRC vs Certification)
         proposal.division = this.deriveDivisionFromLeadServices(items);
-      }
-
-      if (termDtos && termDtos.length > 0) {
-        hasChanges = true;
-        await manager.delete(ProposalPaymentTerm, { proposalId: id });
-        const totalPct = termDtos.reduce((s, t) => s + t.percentage, 0);
-        if (Math.abs(totalPct - 100) > 0.01) {
-          throw new BadRequestException('Payment term percentages must sum to 100');
-        }
-        const terms = termDtos.map(t =>
-          manager.create(ProposalPaymentTerm, {
-            proposalId: proposal.id, // Explicitly set proposalId
-            milestoneName: t.milestoneName,
-            percentage: t.percentage,
-            triggerEvent: t.triggerEvent,
-            amount: (proposal.grandTotal * t.percentage) / 100
-          })
-        );
-        await manager.save(ProposalPaymentTerm, terms);
-        proposal.paymentTerms = terms; // Associate new terms with the proposal object
       }
 
       // Increment version if there are changes

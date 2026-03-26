@@ -44,6 +44,7 @@ export class TokenValidationMiddleware implements NestMiddleware
               req['userPayload'] = payload;
               (req as any).user = {
                 id: payload.referenceId,
+                name: payload.name,
                 user_group: payload.user_group
               };
               (req as any).user_group = payload.user_group;
@@ -114,6 +115,7 @@ export class TokenValidationAndGuestMiddleware implements NestMiddleware {
                   req['userPayload'] = payload;
                   (req as any).user = {
                     id: payload.referenceId,
+                    name: payload.name,
                     user_group: payload.user_group
                   };
                   (req as any).user_group = payload.user_group;

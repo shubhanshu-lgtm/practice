@@ -271,6 +271,8 @@ export class AuthService {
             userRole: user.roleName || user.user_group, // Ensure role is never empty
             role: user.roleName || user.user_group, // Add role field for frontend compatibility
             user_group: user.user_group,
+            name: user.name,
+            email: user.email,
             sessionId: savedSession.id,
             permissionId: user.permission?.id,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
