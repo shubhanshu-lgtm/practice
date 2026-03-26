@@ -10,6 +10,7 @@ export interface JWTPayload
     permissionId: number,
     sessionId: number,
     email?: string,
+    name?: string,
     user_group: USER_GROUP,
     department?: string,
     modules?: (number | string)[],

@@ -14,6 +14,7 @@ export interface JWTPayload
     sessionId: number,
     user_group: USER_GROUP,
     email?: string,
+    name?: string,
     tokenType: TOKEN_TYPE,
     modules?: (number | string)[]
 }

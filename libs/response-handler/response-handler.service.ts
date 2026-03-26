@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException } from '@nestjs/common';
 import { ERROR_CODES, ErrorMessages } from '../constants/commonConstants';
 import { ApiResponse } from '../interfaces/commonTypes/apiResponse.interface';
 
@@ -10,7 +10,15 @@ export class ResponseHandlerService {
 
   sendErrorResponse(res: any, errorBody: any) {
     // normalize Error instances or plain objects
-    if (errorBody instanceof Error) {
+    if (errorBody instanceof HttpException) {
+      const status = errorBody.getStatus();
+      const response = errorBody.getResponse() as any;
+      errorBody = {
+        statusCode: status,
+        message: typeof response === 'string' ? response : response.message || errorBody.message,
+        extraError: errorBody.stack,
+      };
+    } else if (errorBody instanceof Error) {
       console.error('Error Response (Error object):', errorBody.message, errorBody.stack);
       errorBody = {
         statusCode: ERROR_CODES.UNEXPECTED_ERROR,

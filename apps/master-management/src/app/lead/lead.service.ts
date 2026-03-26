@@ -819,15 +819,11 @@ export class LeadService {
           }
         }
 
-        // Atomically unlink proposal items and delete existing services
-        await manager
-          .createQueryBuilder()
-          .update(ProposalItem)
-          .set({ leadServiceId: null })
-          .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId })
-          .execute();
-
-        await manager.delete(LeadServiceEntity, { lead: { id: leadId } });
+        // Fetch existing lead services to compare and merge
+        const existingLeadServices = await manager.find(LeadServiceEntity, {
+          where: { lead: { id: leadId } },
+          relations: ['owner', 'service', 'department'],
+        });
 
         if (serviceAssignments && serviceAssignments.length > 0) {
           const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
@@ -840,11 +836,29 @@ export class LeadService {
             throw new BadRequestException(`None of the provided service IDs exist: ${uniqueServiceIds.join(', ')}`);
           }
 
+          // Services to remove: those in existing but not in payload
+          const incomingServiceIds = validAssignments.map(sa => sa.serviceId);
+          const servicesToRemove = existingLeadServices.filter(els => !incomingServiceIds.includes(els.serviceId));
+
+          if (servicesToRemove.length > 0) {
+            const removeIds = servicesToRemove.map(s => s.id);
+            // Atomically unlink proposal items for services being removed
+            await manager
+              .createQueryBuilder()
+              .update(ProposalItem)
+              .set({ leadServiceId: null })
+              .where(`leadServiceId IN (:...removeIds)`, { removeIds })
+              .execute();
+
+            await manager.delete(LeadServiceEntity, { id: In(removeIds) });
+          }
+
           const servicesToUpdate = new Map<number, ServiceMaster>();
-          const leadServicesData = [];
+          const leadServicesToSave: LeadServiceEntity[] = [];
 
           for (const assignment of validAssignments) {
             const service = services.find(s => s.id === assignment.serviceId);
+            const existing = existingLeadServices.find(els => els.serviceId === assignment.serviceId);
 
             if (assignment.description) {
               service.description = assignment.description;
@@ -858,32 +872,57 @@ export class LeadService {
             let owner = null;
             if (assignment.ownerId) {
               owner = await manager.findOne(User, { where: { id: assignment.ownerId } });
+            } else if (existing && existing.owner) {
+              // Preserve existing owner if already set
+              owner = existing.owner;
+            } else if (actor) {
+              // Default to authenticated user for new assignments
+              owner = actor;
             }
 
             let department = null;
             if (assignment.departmentId) {
               department = await manager.findOne(Department, { where: { id: assignment.departmentId } });
+            } else if (existing && existing.department) {
+              department = existing.department;
             }
 
-            leadServicesData.push({
+            const leadServiceData = {
               lead,
               service,
-              deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
-              remarks: assignment.remarks,
+              deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : (existing ? existing.deliverables : null),
+              remarks: assignment.remarks !== undefined ? assignment.remarks : (existing ? existing.remarks : null),
               owner,
               department,
-              status: assignment.status || SERVICE_STATUS.REQUIREMENT_CONFIRMED,
-              startDate: assignment.startDate ? new Date(assignment.startDate) : null,
-              endDate: assignment.endDate ? new Date(assignment.endDate) : null,
-            });
+              status: assignment.status || (existing ? existing.status : SERVICE_STATUS.REQUIREMENT_CONFIRMED),
+              startDate: assignment.startDate ? new Date(assignment.startDate) : (existing ? existing.startDate : null),
+              endDate: assignment.endDate ? new Date(assignment.endDate) : (existing ? existing.endDate : null),
+            };
+
+            let leadService;
+            if (existing) {
+              leadService = manager.merge(LeadServiceEntity, existing, leadServiceData);
+            } else {
+              leadService = manager.create(LeadServiceEntity, leadServiceData);
+            }
+            leadServicesToSave.push(leadService);
           }
 
           if (servicesToUpdate.size > 0) {
             await manager.save(Array.from(servicesToUpdate.values()));
           }
 
-          const leadServices = leadServicesData.map(data => manager.create(LeadServiceEntity, data));
-          await manager.save(leadServices);
+          await manager.save(leadServicesToSave);
+        } else {
+          // If payload is empty or null, remove all services for this lead
+          await manager
+            .createQueryBuilder()
+            .update(ProposalItem)
+            .set({ leadServiceId: null })
+            .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId })
+            .execute();
+
+          await manager.delete(LeadServiceEntity, { lead: { id: leadId } });
         }
 
         const fullLead = await manager.findOne(Lead, {
