@@ -445,39 +445,37 @@ export class LeadService {
 
   async addServiceCategory(payload: CreateServiceDto, type: CATEGORY_TYPE, file?: { originalname?: string; buffer?: Buffer }) {
     try {
-      const categoryValue = payload.service_category || payload.category; if (!categoryValue || typeof categoryValue !== 'string') {
+      const categoryValue = payload.service_category || payload.category;
+      if (!categoryValue || typeof categoryValue !== 'string') {
         throw new BadRequestException('service_category is required');
-      }
-
-      if (type === CATEGORY_TYPE.SUB_CATEGORY && !payload.parentId) {
-        // try to find parent by category name if parentId not provided
-        const parentCategory = await this.serviceRepository.findOne({
-          where: [
-            { category: categoryValue, parentId: IsNull() },
-            { name: categoryValue, parentId: IsNull() },
-            { code: categoryValue, parentId: IsNull() }
-          ]
-        });
-        if (parentCategory) {
-          payload.parentId = parentCategory.id;
-        } else {
-          throw new BadRequestException(`Parent category '${categoryValue}' not found. Please provide valid parentId or category name.`);
-        }
       }
 
       if (type === CATEGORY_TYPE.CATEGORY) {
         payload.parentId = null;
       }
 
-      // ensure not duplicate (same category and parent pair)
+      if (type === CATEGORY_TYPE.SUB_CATEGORY && !payload.parentId) {
+        const parentCategory = await this.serviceRepository.findOne({
+          where: [
+            { name: categoryValue },
+            { code: categoryValue },
+            { category: categoryValue, parentId: IsNull() },
+          ]
+        });
+        if (parentCategory) {
+          payload.parentId = parentCategory.id;
+        }
+      }
+
+      // ensure not duplicate (same name/code and parent pair)
       const existing = await this.serviceRepository.findOne({
-        where: {
-          category: categoryValue,
-          parentId: payload.parentId || IsNull(),
-        },
+        where: [
+          { name: payload.name, parentId: payload.parentId || IsNull() },
+          { code: payload.code, parentId: payload.parentId || IsNull() }
+        ],
       });
       if (existing) {
-        throw new BadRequestException('Category already exists');
+        throw new BadRequestException(`A service or sub-category with name '${payload.name}' or code '${payload.code}' already exists under this parent.`);
       }
 
       // allow creating sub-categories if parentId provided

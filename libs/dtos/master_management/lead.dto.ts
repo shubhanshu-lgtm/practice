@@ -234,8 +234,8 @@ export class CreateServiceDto {
   @IsNotEmpty()
   name: string;
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
   code: string;
 
   @IsOptional()
