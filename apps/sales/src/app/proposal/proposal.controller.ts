@@ -26,11 +26,15 @@ export class ProposalController {
   async create(@Res() res: Response, @Body() dto: CreateProposalDto) {
     try {
       const proposal = await this.proposalService.createProposal(dto);
+      const skipped: number[] = (proposal as any)._skippedAlreadyProposedServiceIds ?? [];
       const templateData = this.proposalService.getTemplateDataForProposal(proposal);
+      const isUpdated = skipped.length > 0 || false;
 
       return this.responseHandler.sendSuccessResponse(res, {
-        message: 'Proposal created successfully',
-        data: { proposal, templateData }
+        message: isUpdated
+          ? `Existing proposal updated with new services. ${skipped.length} service(s) were already in the proposal and skipped.`
+          : 'Proposal created successfully',
+        data: { proposal, templateData, skippedLeadServiceIds: skipped }
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
@@ -174,6 +178,23 @@ export class ProposalController {
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposals fetched successfully',
         data: result
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('lead-services/:leadId')
+  @UseGuards(TokenValidationGuard)
+  async getLeadServiceStatuses(
+    @Res() res: Response,
+    @Param('leadId', ParseIntPipe) leadId: number,
+  ) {
+    try {
+      const result = await this.proposalService.getLeadServiceStatuses(leadId);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Lead service statuses fetched successfully',
+        data: result,
       });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

@@ -15,6 +15,7 @@ import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
 //import PDFDocument from 'pdfkit';
 import { ProposalFile } from '../../../../../libs/database/src/entities/proposal-file.entity';
+import { ProposalAcceptance } from '../../../../../libs/database/src/entities/proposal-acceptance.entity';
 import { ProposalReportService } from './proposal-report.service';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
@@ -146,6 +147,121 @@ export class ProposalService {
       const lead = await manager.findOne(Lead, { where: { id: Number(dto.leadId) } });
       if (!lead) throw new NotFoundException('Lead not found');
 
+      // --- Smart upsert: if an active (DRAFT/SUBMITTED) proposal exists for this lead,
+      //     append only the new services to it instead of creating a duplicate proposal. ---
+      const existingProposal = await manager.findOne(Proposal, {
+        where: { leadId: Number(dto.leadId), status: In([PROPOSAL_STATUS.DRAFT, PROPOSAL_STATUS.SUBMITTED]) },
+        relations: ['items'],
+        order: { id: 'DESC' },
+      });
+
+      if (existingProposal) {
+        const alreadyProposedIds = new Set(existingProposal.items.map(i => i.leadServiceId));
+        const newItemDtos = dto.items.filter(i => !alreadyProposedIds.has(i.leadServiceId));
+        const skippedServiceIds = dto.items
+          .filter(i => alreadyProposedIds.has(i.leadServiceId))
+          .map(i => i.leadServiceId);
+
+        if (newItemDtos.length === 0) {
+          throw new BadRequestException(
+            `All specified services are already included in proposal ${existingProposal.proposalReference}. ` +
+            `Use the update endpoint (PATCH /proposals/${existingProposal.id}) to modify it.`
+          );
+        }
+
+        // Append new items to the existing proposal
+        let subTotal = Number(existingProposal.subTotal);
+        let totalDiscount = Number(existingProposal.totalDiscount);
+        let totalTaxAmount = Number(existingProposal.totalTaxAmount);
+
+        for (const itemDto of newItemDtos) {
+          const leadService = await manager.findOne(LeadService, {
+            where: { id: itemDto.leadServiceId, leadId: lead.id },
+            relations: ['service'],
+          });
+          if (!leadService) {
+            throw new BadRequestException(
+              `Service with ID ${itemDto.leadServiceId} is not assigned to this lead`
+            );
+          }
+
+          const item = manager.create(ProposalItem, {
+            proposalId: existingProposal.id,
+            leadServiceId: itemDto.leadServiceId,
+            serviceName: itemDto.serviceName || leadService?.service?.name || '',
+            serviceType: itemDto.serviceType || leadService?.service?.category || '',
+            description: itemDto.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : leadService?.service?.description || ''),
+            startDate: itemDto.startDate || leadService?.startDate,
+            endDate: itemDto.endDate || leadService?.endDate,
+            amount: itemDto.amount,
+            currency: itemDto.currency,
+            discount: itemDto.discount ?? 0,
+            taxPercentage: itemDto.taxPercentage ?? 0,
+          });
+
+          const discountAmt = (item.amount * item.discount) / 100;
+          const taxableAmt = item.amount - discountAmt;
+          const taxAmt = (taxableAmt * item.taxPercentage) / 100;
+
+          item.discountAmount = discountAmt;
+          item.taxableAmount = taxableAmt;
+          item.taxAmount = taxAmt;
+          item.netAmount = taxableAmt + taxAmt;
+
+          const savedItem = await manager.save(ProposalItem, item);
+
+          if (itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
+            const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
+            if (Math.abs(totalPct - 100) > 0.01) {
+              throw new BadRequestException(
+                `Payment term percentages for service ${savedItem.serviceName} must sum to 100`
+              );
+            }
+            const terms = itemDto.paymentTerms.map(t =>
+              manager.create(ProposalPaymentTerm, {
+                proposalId: existingProposal.id,
+                proposalItemId: savedItem.id,
+                milestoneName: t.milestoneName,
+                percentage: t.percentage,
+                triggerEvent: t.triggerEvent,
+                amount: (savedItem.netAmount * t.percentage) / 100,
+              })
+            );
+            await manager.save(ProposalPaymentTerm, terms);
+          }
+
+          subTotal += Number(savedItem.amount);
+          totalDiscount += discountAmt;
+          totalTaxAmount += taxAmt;
+        }
+
+        const grandTotal = subTotal - totalDiscount + totalTaxAmount;
+
+        existingProposal.subTotal = subTotal;
+        existingProposal.totalDiscount = totalDiscount;
+        existingProposal.totalTaxAmount = totalTaxAmount;
+        existingProposal.grandTotal = grandTotal;
+        existingProposal.version = (existingProposal.version || 1) + 1;
+        existingProposal.division = dto.division || existingProposal.division;
+        existingProposal.paymentTerms = [];
+        existingProposal.items = [];
+
+        await manager.save(Proposal, existingProposal);
+
+        const updated = await manager.findOne(Proposal, {
+          where: { id: existingProposal.id },
+          relations: [
+            'items', 'items.leadService', 'items.leadService.service',
+            'paymentTerms', 'lead', 'lead.customer',
+            'lead.customer.contacts', 'lead.customer.addresses',
+          ],
+        });
+
+        (updated as any)._skippedAlreadyProposedServiceIds = skippedServiceIds;
+        return updated ?? existingProposal;
+      }
+
+      // --- No active proposal found: create a fresh proposal ---
       const count = await manager.count(Proposal, { where: { leadId: Number(dto.leadId) } });
       const seq = String(count + 1).padStart(2, '0');
       const reference = `PROP/${lead.enquiryId || 'UNKNOWN'}/${seq}`;
@@ -188,7 +304,7 @@ export class ProposalService {
       const result = await manager.findOne(Proposal, {
         where: { id: saved.id },
         relations: [
-          'items',
+             'items',
           'items.leadService',
           'items.leadService.service',
           'paymentTerms',
@@ -448,6 +564,74 @@ export class ProposalService {
     return { data, total, page, limit };
   }
 
+  async getLeadServiceStatuses(leadId: number): Promise<{
+    available: LeadService[];
+    proposed: Array<LeadService & { proposalId: number; proposalReference: string; proposalStatus: string }>;
+    closed: Array<LeadService & { proposalId: number; proposalReference: string; closureId?: number }>;
+  }> {
+    const leadServices = await this.dataSource.getRepository(LeadService).find({
+      where: { leadId },
+      relations: ['service'],
+    });
+
+    const proposals = await this.proposalRepo.find({
+      where: { leadId },
+      relations: ['items'],
+      order: { id: 'DESC' },
+    });
+
+    const closureMap = new Map<number, number>();
+    if (proposals.some(p => p.status === PROPOSAL_STATUS.APPROVED)) {
+      const approvedIds = proposals
+        .filter(p => p.status === PROPOSAL_STATUS.APPROVED)
+        .map(p => p.id);
+      const closures = await this.dataSource
+        .getRepository(ProposalAcceptance)
+        .find({ where: { proposalId: In(approvedIds) } });
+      for (const c of closures) {
+        closureMap.set(Number(c.proposalId), Number(c.id));
+      }
+    }
+
+    const serviceStatusMap = new Map<number, {
+      proposalId: number;
+      proposalReference: string;
+      proposalStatus: string;
+      closureId?: number;
+    }>();
+
+    for (const proposal of proposals) {
+      for (const item of proposal.items || []) {
+        if (!serviceStatusMap.has(item.leadServiceId)) {
+          const closureId = closureMap.get(proposal.id);
+          serviceStatusMap.set(item.leadServiceId, {
+            proposalId: proposal.id,
+            proposalReference: proposal.proposalReference,
+            proposalStatus: proposal.status,
+            closureId,
+          });
+        }
+      }
+    }
+
+    const available: LeadService[] = [];
+    const proposed: Array<LeadService & { proposalId: number; proposalReference: string; proposalStatus: string }> = [];
+    const closed: Array<LeadService & { proposalId: number; proposalReference: string; closureId?: number }> = [];
+
+    for (const ls of leadServices) {
+      const info = serviceStatusMap.get(ls.id);
+      if (!info) {
+        available.push(ls);
+      } else if (info.proposalStatus === PROPOSAL_STATUS.APPROVED) {
+        closed.push({ ...ls, proposalId: info.proposalId, proposalReference: info.proposalReference, closureId: info.closureId });
+      } else {
+        proposed.push({ ...ls, proposalId: info.proposalId, proposalReference: info.proposalReference, proposalStatus: info.proposalStatus });
+      }
+    }
+
+    return { available, proposed, closed };
+  }
+
   async updateProposal(id: number, dto: UpdateProposalDto): Promise<Proposal> {
     return this.dataSource.transaction(async (manager) => {
       const proposal = await manager.findOne(Proposal, {
@@ -563,7 +747,6 @@ export class ProposalService {
           }
         }
 
-        proposal.items = savedItems;
         proposal.subTotal = subTotal;
         proposal.totalDiscount = totalDiscount;
         proposal.totalTaxAmount = totalTaxAmount;
@@ -572,6 +755,12 @@ export class ProposalService {
 
         // Recalculate division
         proposal.division = this.deriveDivisionFromLeadServices(savedItems);
+
+        // Clear in-memory relations so TypeORM cascade does not attempt to
+        // re-insert the already-deleted payment terms (which would produce a
+        // null proposalId error) or the already-saved items.
+        proposal.paymentTerms = [];
+        proposal.items = savedItems;
       }
 
       // Increment version if there are changes

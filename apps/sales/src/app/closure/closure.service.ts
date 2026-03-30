@@ -164,6 +164,8 @@ export class ClosureService {
         relations: [
           'proposal',
           'proposal.items',
+          'proposal.items.leadService',
+          'proposal.items.leadService.service',
           'proposal.paymentTerms',
           'lead',
           'lead.customer',
@@ -185,6 +187,10 @@ export class ClosureService {
 
     const qb = this.acceptanceRepo.createQueryBuilder('closure')
       .leftJoinAndSelect('closure.proposal', 'proposal')
+      .leftJoinAndSelect('proposal.items', 'proposalItems')
+      .leftJoinAndSelect('proposalItems.leadService', 'leadService')
+      .leftJoinAndSelect('leadService.service', 'service')
+      .leftJoinAndSelect('proposal.paymentTerms', 'paymentTerms')
       .leftJoinAndSelect('closure.lead', 'lead')
       .leftJoinAndSelect('closure.accountDepartment', 'accountDepartment')
       .leftJoinAndSelect('lead.customer', 'customer')
@@ -206,6 +212,8 @@ export class ClosureService {
       relations: [
         'proposal',
         'proposal.items',
+        'proposal.items.leadService',
+        'proposal.items.leadService.service',
         'proposal.paymentTerms',
         'lead',
         'lead.customer',
@@ -356,6 +364,8 @@ export class ClosureService {
       relations: [
         'proposal',
         'proposal.items',
+        'proposal.items.leadService',
+        'proposal.items.leadService.service',
         'proposal.paymentTerms',
         'lead',
         'lead.customer',
