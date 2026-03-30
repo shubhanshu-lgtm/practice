@@ -86,6 +86,10 @@ export class ClosureService {
 
       if (!proposal) throw new NotFoundException('Proposal not found');
 
+      const existing = await manager.findOne(ProposalAcceptance, {
+        where: { proposalId: Number(dto.proposalId) }
+      });
+
       // If a closure record already exists, we update it (Upsert behavior)
       if (existing) {
         Object.assign(existing, {

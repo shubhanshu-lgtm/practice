@@ -640,8 +640,8 @@ export class ProposalService {
       });
       if (!proposal) throw new NotFoundException('Proposal not found');
 
-      // Destructure items and ignore top-level paymentTerms if they exist in payload
-      const { items: itemDtos, paymentTerms: _ignored, ...otherData } = dto;
+      // Destructure items and exclude paymentTerms from otherData
+      const { items: itemDtos, paymentTerms: _paymentTerms, ...otherData } = dto;
       Object.assign(proposal, otherData);
 
       let hasChanges = Object.keys(otherData).length > 0;
