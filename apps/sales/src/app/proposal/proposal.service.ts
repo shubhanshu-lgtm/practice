@@ -639,12 +639,9 @@ export class ProposalService {
         relations: ['items', 'paymentTerms']
       });
       if (!proposal) throw new NotFoundException('Proposal not found');
-      // Prevent updates if proposal is already approved (Temporarily commented out for testing)
-      // if (proposal.status === PROPOSAL_STATUS.APPROVED) {
-      //   throw new BadRequestException('Approved proposals cannot be modified');
-      // }
 
-      const { items: itemDtos, paymentTerms: termDtos, ...otherData } = dto;
+      // Destructure items and ignore top-level paymentTerms if they exist in payload
+      const { items: itemDtos, paymentTerms: _ignored, ...otherData } = dto;
       Object.assign(proposal, otherData);
 
       let hasChanges = Object.keys(otherData).length > 0;
@@ -724,7 +721,7 @@ export class ProposalService {
           totalTaxAmount += taxAmt;
         }
 
-        // 2. Handle payment terms per item using the newly saved items
+        // 4. Handle payment terms per item using the newly saved items
         for (const item of savedItems) {
           const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
@@ -756,11 +753,9 @@ export class ProposalService {
         // Recalculate division
         proposal.division = this.deriveDivisionFromLeadServices(savedItems);
 
-        // Clear in-memory relations so TypeORM cascade does not attempt to
-        // re-insert the already-deleted payment terms (which would produce a
-        // null proposalId error) or the already-saved items.
-        proposal.paymentTerms = [];
-        proposal.items = savedItems;
+        // Detach relations to prevent TypeORM from attempting to nullify already-deleted records
+        delete proposal.items;
+        delete proposal.paymentTerms;
       }
 
       // Increment version if there are changes
