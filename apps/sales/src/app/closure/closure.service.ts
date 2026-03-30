@@ -86,35 +86,29 @@ export class ClosureService {
 
       if (!proposal) throw new NotFoundException('Proposal not found');
 
-      // If already approved, check if we should update the existing closure instead of failing
-      const existing = await manager.findOne(ProposalAcceptance, {
-        where: { proposalId: Number(dto.proposalId) }
-      });
-
-      if (proposal.status === PROPOSAL_STATUS.APPROVED || existing) {
-        if (existing) {
-          // If it exists, we update it instead of throwing error (Upsert behavior)
-          Object.assign(existing, {
-            awardDate: dto.awardDate,
-            poNumber: dto.poNumber,
-            poFileUrls: dto.poFileUrls,
-            billingNameSameAsCustomer: dto.billingNameSameAsCustomer,
-            billToCompanyName: dto.billToCompanyName || proposal.lead?.customer?.name,
-            billToAddress: dto.billToAddress,
-            gstNumber: dto.gstNumber,
-            gstType: dto.gstType,
-            billingEmailIds: dto.billingEmailIds,
-            billingContactPerson: dto.billingContactPerson,
-            raisedFromEntity: dto.raisedFromEntity,
-            invoiceServices: dto.invoiceServices,
-            department: dto.department,
-            notes: dto.notes
-          });
-          return await manager.save(ProposalAcceptance, existing);
-        }
-        throw new BadRequestException('Proposal is already approved but no closure record found. Please contact support.');
+      // If a closure record already exists, we update it (Upsert behavior)
+      if (existing) {
+        Object.assign(existing, {
+          awardDate: dto.awardDate,
+          poNumber: dto.poNumber,
+          poFileUrls: dto.poFileUrls,
+          billingNameSameAsCustomer: dto.billingNameSameAsCustomer,
+          billToCompanyName: dto.billToCompanyName || proposal.lead?.customer?.name,
+          billToAddress: dto.billToAddress,
+          gstNumber: dto.gstNumber,
+          gstType: dto.gstType,
+          billingEmailIds: dto.billingEmailIds,
+          billingContactPerson: dto.billingContactPerson,
+          raisedFromEntity: dto.raisedFromEntity,
+          invoiceServices: dto.invoiceServices,
+          department: dto.department,
+          notes: dto.notes
+        });
+        return await manager.save(ProposalAcceptance, existing);
       }
 
+      // If no closure exists, we proceed with creation even if proposal status is already APPROVED
+      // (This handles cases where the status was updated but the closure record is missing)
       if (dto.poFileUrls && dto.poFileUrls.length > 5) {
         throw new BadRequestException('Maximum 5 PO files are allowed');
       }
