@@ -468,6 +468,8 @@ export class ProposalService {
         'paymentTerms',
         'files',
         'lead',
+        'lead.contacts',
+        'lead.addresses',
         'lead.customer',
         'lead.customer.contacts',
         'lead.customer.addresses'
@@ -526,9 +528,15 @@ export class ProposalService {
     const qb = this.proposalRepo.createQueryBuilder('proposal')
       .leftJoinAndSelect('proposal.lead', 'lead')
       .leftJoinAndSelect('lead.customer', 'customer')
+      .leftJoinAndSelect('lead.contacts', 'leadContacts')
+      .leftJoinAndSelect('lead.addresses', 'leadAddresses')
+      .leftJoinAndSelect('customer.contacts', 'customerContacts')
+      .leftJoinAndSelect('customer.addresses', 'customerAddresses')
       .leftJoinAndSelect('proposal.paymentTerms', 'paymentTerms')
       .leftJoinAndSelect('proposal.files', 'files')
-      .leftJoinAndSelect('proposal.items', 'items');
+      .leftJoinAndSelect('proposal.items', 'items')
+      .leftJoinAndSelect('items.leadService', 'leadService')
+      .leftJoinAndSelect('leadService.service', 'service');
 
     // If no specific lead or search criteria is provided, only show the latest version per lead.
     // This keeps the general list clean. If a search/filter is applied, we show all versions.
@@ -641,7 +649,8 @@ export class ProposalService {
       if (!proposal) throw new NotFoundException('Proposal not found');
 
       // Destructure items and exclude paymentTerms from otherData
-      const { items: itemDtos, paymentTerms: _paymentTerms, ...otherData } = dto;
+      const { items: itemDtos, ...otherData } = dto;
+      delete (otherData as any).paymentTerms;
       Object.assign(proposal, otherData);
 
       let hasChanges = Object.keys(otherData).length > 0;
