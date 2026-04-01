@@ -34,7 +34,8 @@ export enum PROPOSAL_STATUS {
     SENT = 'Sent',
     APPROVED = 'Approved', // Accepted
     REJECTED = 'Rejected',
-    EXPIRED = 'Expired'
+    EXPIRED = 'Expired',
+    DROPPED = 'Dropped'
 }
 
 export enum PROJECT_STATUS {
