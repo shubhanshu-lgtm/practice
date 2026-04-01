@@ -19,7 +19,7 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { PROPOSAL_STATUS } from '../../../../../libs/constants/salesConstants';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
@@ -323,19 +323,29 @@ export class LeadService {
       const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
 
       const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
-      const where: FindOptionsWhere<Lead> = { status: LEAD_STATUS.LOST };
       
+      const query = this.leadRepository.createQueryBuilder('lead')
+        .leftJoinAndSelect('lead.customer', 'customer')
+        .leftJoinAndSelect('customer.contacts', 'customerContacts')
+        .leftJoinAndSelect('customer.addresses', 'customerAddresses')
+        .leftJoinAndSelect('lead.createdBy', 'createdBy')
+        .leftJoinAndSelect('lead.leadServices', 'leadServices')
+        .leftJoinAndSelect('leadServices.service', 'service')
+        .leftJoinAndSelect('lead.proposals', 'proposals')
+        .where(new Brackets(qb => {
+          qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
+            .orWhere('proposals.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED });
+        }));
+
       if (!isAdmin && actor?.id) {
-        where.createdBy = { id: actor.id };
+        query.andWhere('createdBy.id = :actorId', { actorId: actor.id });
       }
 
-      const [leads, total] = await this.leadRepository.findAndCount({
-        where,
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'],
-        skip: offset,
-        take: limit,
-        order: { createdAt: 'DESC' }
-      });
+      const [leads, total] = await query
+        .orderBy('lead.createdAt', 'DESC')
+        .skip(offset)
+        .take(limit)
+        .getManyAndCount();
 
       const totalPages = Math.ceil(total / limit);
 
@@ -1068,7 +1078,11 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
         .leftJoinAndSelect('ls.service', 'service')
         .leftJoinAndSelect('ls.owner', 'owner')
         .leftJoinAndSelect('ls.department', 'department')
-        .where('lead.isActive = :isActive', { isActive: true });
+        .leftJoin(ProposalItem, 'pi', 'pi.leadServiceId = ls.id')
+        .leftJoin(Proposal, 'p', 'p.id = pi.proposalId AND p.status != :droppedProposalStatus', { droppedProposalStatus: PROPOSAL_STATUS.DROPPED })
+        .where('lead.isActive = :isActive', { isActive: true })
+        .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
+        .andWhere('p.id IS NULL');
 
       if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
         query.andWhere('createdBy.id = :actorId', { actorId: actor.id });

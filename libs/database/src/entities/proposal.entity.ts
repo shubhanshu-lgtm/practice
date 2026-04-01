@@ -10,7 +10,8 @@ export enum PROPOSAL_STATUS {
   APPROVED = 'Approved',
   REJECTED = 'Rejected',
   REVISED = 'Revised',
-  EXPIRED = 'Expired'
+  EXPIRED = 'Expired',
+  DROPPED = 'Dropped'
 }
 
 export enum PROPOSAL_DIVISION {

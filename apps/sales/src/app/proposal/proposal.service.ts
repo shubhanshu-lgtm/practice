@@ -21,6 +21,7 @@ import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.s
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import * as path from 'path';
 import * as fs from 'fs';
+import { SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
 //import * as os from 'os';
 
 @Injectable()
@@ -460,7 +461,10 @@ export class ProposalService {
 
   async getProposal(id: number): Promise<Proposal> {
     const proposal = await this.proposalRepo.findOne({
-      where: { id },
+      where: { 
+        id,
+        lead: { isActive: true }
+      },
       relations: [
         'items',
         'items.leadService',
@@ -536,7 +540,9 @@ export class ProposalService {
       .leftJoinAndSelect('proposal.files', 'files')
       .leftJoinAndSelect('proposal.items', 'items')
       .leftJoinAndSelect('items.leadService', 'leadService')
-      .leftJoinAndSelect('leadService.service', 'service');
+      .leftJoinAndSelect('leadService.service', 'service')
+      .where('lead.isActive = :isActive', { isActive: true })
+      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
 
     // If no specific lead or search criteria is provided, only show the latest version per lead.
     // This keeps the general list clean. If a search/filter is applied, we show all versions.
@@ -632,7 +638,7 @@ export class ProposalService {
         available.push(ls);
       } else if (info.proposalStatus === PROPOSAL_STATUS.APPROVED) {
         closed.push({ ...ls, proposalId: info.proposalId, proposalReference: info.proposalReference, closureId: info.closureId });
-      } else {
+      } else if (info.proposalStatus !== PROPOSAL_STATUS.DROPPED) {
         proposed.push({ ...ls, proposalId: info.proposalId, proposalReference: info.proposalReference, proposalStatus: info.proposalStatus });
       }
     }
@@ -779,7 +785,10 @@ export class ProposalService {
   }
 
   async updateStatus(id: number, dto: UpdateProposalStatusDto): Promise<Proposal> {
-    const proposal = await this.proposalRepo.findOne({ where: { id } });
+    const proposal = await this.proposalRepo.findOne({ 
+      where: { id },
+      relations: ['items']
+    });
     if (!proposal) throw new NotFoundException('Proposal not found');
 
     if (proposal.status === PROPOSAL_STATUS.APPROVED) {
@@ -788,6 +797,18 @@ export class ProposalService {
 
     proposal.status = dto.status;
     if (dto.notes) proposal.notes = dto.notes;
+
+    // If status is DROPPED, also mark all associated lead services as DROPPED
+    if (dto.status === PROPOSAL_STATUS.DROPPED) {
+      const leadServiceIds = proposal.items?.map(item => item.leadServiceId).filter(Boolean);
+      if (leadServiceIds && leadServiceIds.length > 0) {
+        await this.dataSource.getRepository(LeadService).update(
+          { id: In(leadServiceIds) },
+          { status: SERVICE_STATUS.DROPPED }
+        );
+      }
+    }
+
     await this.proposalRepo.save(proposal);
     return this.getProposal(id);
   }
