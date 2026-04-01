@@ -946,39 +946,33 @@ export class ProposalService {
   }
 
   private getTemplatePath(proposal: Proposal): string {
-    const rawCountry = proposal.lead?.customer?.addresses?.[0]?.country;
+    const primaryAddress = proposal.lead?.customer?.addresses?.find(a => a.isPrimary) || proposal.lead?.customer?.addresses?.[0];
+    const rawCountry = primaryAddress?.country;
     const customerCountry = rawCountry ? rawCountry.toString().trim().toUpperCase() : '';
     
     // Normalize common country representations
     const isIndia = ['INDIA', 'IND', 'IN'].includes(customerCountry);
-    const isUSA = ['USA', 'US', 'UNITED STATES', 'UNITED STATES OF AMERICA'].includes(customerCountry);
 
     // Use the stored division from the entity.
-    const isGrc = proposal.division === PROPOSAL_DIVISION.GRC_DIVISION;
-    const isVapt = proposal.division === PROPOSAL_DIVISION.VAPT_DIVISION;
+    const isCertification = proposal.division === PROPOSAL_DIVISION.CERTIFICATION_DIVISION;
 
     let templateName = '';
 
     if (isIndia) {
-      if (isGrc) {
-        templateName = 'India GRC Proposal.pdf';
-      } else if (isVapt) {
-        // Handle VAPT for India if a specific template exists, otherwise default
-        templateName = 'India GRC Proposal.pdf'; // Assuming GRC template for now as no VAPT specific one was listed
-      } else {
+      if (isCertification) {
         templateName = 'India Certification Divison Proposal.pdf';
-      }
-    } else if (isUSA) {
-      if (isGrc) {
-        templateName = 'USA GRC PROPOSAL.pdf';
-      } else if (isVapt) {
-        templateName = 'USA GRC PROPOSAL.pdf'; // Same as above
       } else {
-        templateName = 'USA Certification Divison Proposal.pdf';
+        // GRC, VAPT, or any other division for India
+        templateName = 'India GRC Proposal.pdf';
       }
     } else {
-      // Default to India Certification if country doesn't match
-      templateName = 'India Certification Divison Proposal.pdf';
+      // For any other country (e.g. USA)
+      if (isCertification) {
+        templateName = 'USA Certification Divison Proposal.pdf';
+      } else {
+        // GRC, VAPT, or any other division for other countries
+        templateName = 'USA GRC PROPOSAL.pdf';
+      }
     }
 
     return path.join(process.cwd(), 'libs', 'templates', 'Proposal', templateName);
@@ -1009,30 +1003,34 @@ export class ProposalService {
 
     const items = proposal.items?.map((item, index) => ({
       index: index + 1,
-      service_name: item.serviceName || item.leadService?.service?.name || 'N/A',
+      serviceName: item.serviceName || item.leadService?.service?.name || 'N/A',
+      serviceType: item.serviceType || item.leadService?.service?.category || 'N/A',
       description: item.description,
+      startDate: item.startDate ? this.formatDate(item.startDate) : null,
+      endDate: item.endDate ? this.formatDate(item.endDate) : null,
+      amount: this.formatCurrency(item.amount, item.currency),
+      currency: item.currency,
+      discount: `${Number(item.discount).toFixed(2)}%`,
+      taxPercentage: `${Number(item.taxPercentage).toFixed(2)}%`,
+      discountAmount: this.formatCurrency(item.discountAmount, item.currency),
+      taxableAmount: this.formatCurrency(item.taxableAmount, item.currency),
+      taxAmount: this.formatCurrency(item.taxAmount, item.currency),
+      netAmount: this.formatCurrency(item.netAmount, item.currency),
       deliverables: item.leadService?.deliverables?.map(d => ({ deliverable: d })) || [],
-      timeline: item.startDate || item.endDate ?
-        `${this.formatDate(item.startDate)} - ${this.formatDate(item.endDate)}` :
-        '3-4 Weeks',
-      fee: this.formatCurrency(item.netAmount, item.currency),
+      timeline: item.leadService?.service?.description || 'N/A', // As requested: Timelines -> service -> description
     }));
 
     const total_fee = this.formatCurrency(proposal.grandTotal, proposal.currency);
 
     const companyName = customer?.name || 'N/A';
-    const companyLocation = [primaryAddress?.city, primaryAddress?.state, primaryAddress?.country]
-      .filter(Boolean)
-      .join(', ');
+    const companyLocation = primaryAddress ? 
+      `${primaryAddress.addressLine1}${primaryAddress.addressLine2 ? ', ' + primaryAddress.addressLine2 : ''}, ${primaryAddress.city}, ${primaryAddress.state}, ${primaryAddress.country} - ${primaryAddress.postalCode}` : 
+      'N/A';
+    
     const headcount = customer?.headcount || 'N/A';
     const businessActivities = customer?.businessActivities || 'N/A';
 
-    const scopeOfServices = items?.map(i => i.service_name).filter(Boolean) || [];
-
-    const timelines = items?.map(i => ({
-      service: i.service_name,
-      timeline: i.timeline,
-    }));
+    const scopeOfServices = items?.map(i => i.serviceName).filter(Boolean) || [];
 
     const proposalReference = proposal.proposalReference;
     const proposalDateFormatted = this.formatDate(proposal.proposalDate);
@@ -1042,42 +1040,47 @@ export class ProposalService {
       : 30;
 
     return {
-      // Flat keys (kept for older templates)
-      proposal_no: proposalReference,
-      proposal_ref: proposalReference,
-      proposal_reference: proposalReference,
-      proposalNumber: proposalReference,
-      proposal_number: proposalReference,
-      proposal_date: proposalDateFormatted,
-      dated: proposalDateFormatted,
-      proposal_date_formatted: proposalDateFormatted,
-      subject: proposal.subject,
-      title: proposal.subject,
+      // Direct field requirements
       division: proposal.division,
-      submitted_by: proposal.submittedBy || 'INTERCERT',
-      submittedBy: proposal.submittedBy || 'INTERCERT',
+      subject: proposal.subject,
+      submittedTo: companyName,
+      proposalNo: proposalReference,
+      proposalId: proposalReference,
+      submittedBy: proposal.submittedBy,
+      proposalDate: proposalDateFormatted,
+      currency: proposal.currency,
+
+      // Scoping
+      scoping: {
+        locations_and_headcounts: companyLocation,
+        headcount: headcount,
+        businessActivities: businessActivities,
+        scopeOfServices: scopeOfServices.join(', '),
+      },
+
+      // Project Deliverables & timelines (A.3)
+      project_deliverables: items?.map(i => ({
+        service: i.serviceName,
+        deliverables: i.deliverables
+      })),
+      timelines: items?.map(i => ({
+        service: i.serviceName,
+        timeline: i.timeline
+      })),
+
+      // Table data
+      items: items,
+
+      // Auth & Summary
       prepared_by_name: createdBy?.name || proposal.submittedBy || 'N/A',
       prepared_by_email: createdBy?.email || 'info@intercert.com',
       validity_days: validityDays,
-
-      // Structured objects (for templates using nested tags)
-      proposal: {
-        reference: proposalReference,
-        number: proposalReference,
-        date: proposalDateFormatted,
-        subject: proposal.subject,
-        division: proposal.division,
-        submitted_by: proposal.submittedBy || 'INTERCERT',
-        prepared_by_name: createdBy?.name || proposal.submittedBy || 'N/A',
-        prepared_by_email: createdBy?.email || 'info@intercert.com',
-        subtotal: this.formatCurrency(proposal.subTotal, proposal.currency),
-        total_discount: this.formatCurrency(proposal.totalDiscount, proposal.currency),
-        total_tax: this.formatCurrency(proposal.totalTaxAmount, proposal.currency),
-        total_fee: total_fee,
-        grand_total: total_fee,
-        validity_days: validityDays,
-      },
-
+      subtotal: this.formatCurrency(proposal.subTotal, proposal.currency),
+      total_discount: this.formatCurrency(proposal.totalDiscount, proposal.currency),
+      total_tax: this.formatCurrency(proposal.totalTaxAmount, proposal.currency),
+      grand_total: total_fee,
+      
+      // Kept for older template compatibility
       customer: {
         name: companyName,
         location: companyLocation,
@@ -1085,30 +1088,6 @@ export class ProposalService {
         business_activities: businessActivities,
         contact: primaryContact?.name || 'CEO',
       },
-
-      // Scopes and Fees
-      company_name: companyName,
-      customer_name: companyName,
-      company_location: companyLocation,
-      customer_location: [primaryAddress?.city, primaryAddress?.country].filter(Boolean).join(', '),
-      company_headcount: headcount,
-      customer_headcount: headcount,
-      business_activities: businessActivities,
-
-      scope_of_services: scopeOfServices,
-      scope_of_services_text: scopeOfServices.join(', '),
-      timelines,
-      services: items,
-
-      total_fee: total_fee,
-      subtotal: this.formatCurrency(proposal.subTotal, proposal.currency),
-      total_discount: this.formatCurrency(proposal.totalDiscount, proposal.currency),
-      total_tax: this.formatCurrency(proposal.totalTaxAmount, proposal.currency),
-
-      fee_total: total_fee,
-      total_amount: total_fee,
-      grand_total: total_fee,
-      total_amount_in_words: total_fee,
     };
   }
 }
