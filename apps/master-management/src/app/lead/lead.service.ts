@@ -16,6 +16,8 @@ import { ServiceDeliverable } from '../../../../../libs/database/src/entities/se
 import { PermissionManager } from '../../../../../libs/database/src/entities/permissionManager.entity';
 import { Department } from '../../../../../libs/database/src/entities/department.entity';
 import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
+import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
+import { PROPOSAL_STATUS } from '../../../../../libs/constants/salesConstants';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
@@ -70,6 +72,8 @@ export class LeadService {
     private readonly departmentRepository: Repository<Department>,
     @InjectRepository(ProposalItem)
     private readonly proposalItemRepository: Repository<ProposalItem>,
+    @InjectRepository(Proposal)
+    private readonly proposalRepository: Repository<Proposal>,
     private readonly s3Service: S3FileService,
   ) {}
 
@@ -625,26 +629,52 @@ export class LeadService {
     }
   }
 
-  async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
-    const lead = await this.leadRepository.findOne({ where: { id }, relations: ['createdBy'] });
-    if (!lead || !lead.isActive) {
-      throw new NotFoundException('Lead not found');
-    }
-    if (lead.status === LEAD_STATUS.LOST) {
-      throw new BadRequestException('Lead is already dropped');
-    }
-    if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
-      if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
+    return await this.dataSource.transaction(async (manager) => {
+      const lead = await manager.findOne(Lead, { where: { id }, relations: ['createdBy'] });
+      if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
-    }
-    lead.status = LEAD_STATUS.LOST;
-    lead.isActive = false;
-    const droppedNote = `[DROPPED] Reason: ${payload.reason}`;
-    lead.notes = payload.notes
-      ? `${droppedNote} | Notes: ${payload.notes}`
-      : droppedNote;
-    return this.leadRepository.save(lead);
+      if (lead.status === LEAD_STATUS.LOST) {
+        throw new BadRequestException('Lead is already dropped');
+      }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      // Update all LeadServices to DROPPED
+      await manager.update(LeadServiceEntity, { leadId: id }, { 
+        status: SERVICE_STATUS.DROPPED 
+      });
+
+      // Update all Proposals to REJECTED with drop reason
+      const dropReasonNote = `[REJECTED DUE TO LEAD DROP] Lead Drop Reason: ${payload.reason}`;
+      await manager.getRepository(Proposal).update({ 
+        leadId: id 
+      }, { 
+        status: PROPOSAL_STATUS.REJECTED as any,
+        notes: payload.notes 
+          ? `${dropReasonNote} | Additional Notes: ${payload.notes}`
+          : dropReasonNote
+      });
+
+      // Update lead
+      lead.status = LEAD_STATUS.LOST;
+      lead.isActive = false;
+      const droppedNote = `[DROPPED] Reason: ${payload.reason}`;
+      lead.notes = payload.notes
+        ? `${droppedNote} | Notes: ${payload.notes}`
+        : droppedNote;
+      const savedLead = await manager.save(lead);
+
+      // Return full lead with relations
+      return await manager.findOne(Lead, {
+        where: { id: savedLead.id },
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+      });
+    });
   }
 
   async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {
