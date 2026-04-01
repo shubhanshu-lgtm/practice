@@ -19,7 +19,7 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { PROPOSAL_STATUS } from '../../../../../libs/constants/salesConstants';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
@@ -676,6 +676,53 @@ async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
       });
     });
   }
+
+async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
+    return await this.dataSource.transaction(async (manager) => {
+      const lead = await manager.findOne(Lead, { where: { id }, relations: ['createdBy'] });
+      if (!lead || lead.status !== LEAD_STATUS.LOST) {
+        throw new BadRequestException('Lead must be in LOST status to rollback');
+      }
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      // Rollback LeadServices to REQUIREMENT_CONFIRMED
+      await manager.update(LeadServiceEntity, { leadId: id }, { 
+        status: SERVICE_STATUS.REQUIREMENT_CONFIRMED 
+      });
+
+      // Rollback Proposals to DRAFT
+      const rollbackNote = `[ROLLEDBACK] Rollback Reason: ${payload.reason}`;
+      await manager.getRepository(Proposal).update({ 
+        leadId: id 
+      }, { 
+        status: PROPOSAL_STATUS.DRAFT as any,
+        notes: payload.notes 
+          ? `${rollbackNote} | Notes: ${payload.notes}`
+          : rollbackNote
+      });
+
+      // Rollback lead
+      lead.status = LEAD_STATUS.SERVICES;
+      lead.isActive = true;
+      const rollbackLeadNote = `[ROLLEDBACK from LOST] Reason: ${payload.reason}`;
+      lead.notes = payload.notes 
+        ? `${rollbackLeadNote} | Notes: ${payload.notes}`
+        : rollbackLeadNote;
+      const savedLead = await manager.save(lead);
+
+      // Return full lead
+      return await manager.findOne(Lead, {
+        where: { id: savedLead.id },
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+      });
+    });
+  }
+
+
 
   async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {
     try {
@@ -1688,5 +1735,4 @@ async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
       throw new BadRequestException(error.message);
     }
   }
-
 }

@@ -5,7 +5,7 @@ import { Response } from 'express';
 // import { join, normalize } from 'path';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -359,7 +359,7 @@ export class LeadController {
     }
   }
 
-  @Post(':id/drop')
+@Post(':id/drop')
   @UseGuards(TokenValidationGuard)
   async dropLead(
     @Req() req: AuthenticatedRequest,
@@ -374,6 +374,23 @@ export class LeadController {
       return this.responseHandler.sendErrorResponse(res, error);
     }
   }
+
+  @Post(':id/rollback')
+  @UseGuards(TokenValidationGuard)
+  async rollbackLead(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: RollbackLeadDto,
+  ) {
+    try {
+      const lead = await this.leadService.rollbackLead(id, payload, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead rollback successful', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
 
   @Delete(':id')
   @UseGuards(TokenValidationGuard)

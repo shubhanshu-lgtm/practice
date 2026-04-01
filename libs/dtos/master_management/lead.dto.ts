@@ -653,4 +653,17 @@ export class GetLeadFollowUpsDto {
   draw?: number;
 }
 
+export class RollbackLeadDto {
+  @IsString()
+  @IsOptional()
+  reason: string;
+
+  @IsString()
+  @IsOptional()
+  notes?: string;
+}
+
+
+
+
 
