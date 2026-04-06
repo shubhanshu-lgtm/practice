@@ -234,7 +234,7 @@ export class LeadService {
         sourceDescription: payload.sourceDescription,
         sourceDetail: payload.sourceDetail,
         meta: payload.meta,
-        status: (payload.status as LEAD_STATUS) || LEAD_STATUS.NEW,
+        //status: (payload.status as LEAD_STATUS) || LEAD_STATUS.NEW,
         notes: payload.notes,
         isDraft: payload.isDraft || false,
         customer,
