@@ -150,10 +150,6 @@ export class CreateLeadDto {
   meta?: Record<string, any>;
 
   @IsOptional()
-  @IsEnum(LEAD_STATUS)
-  status?: LEAD_STATUS;
-
-  @IsOptional()
   @IsString()
   notes?: string;
 
