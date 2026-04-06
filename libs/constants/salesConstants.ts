@@ -8,12 +8,29 @@ export enum LEAD_SOURCE {
     EVENTS = 'Events',
     REFERENCE = 'Reference',
     REPEAT_CLIENT = 'Repeat Client',
-    B2B = 'B2B',
+    SOCIAL_MEDIA = 'Social Media',
+    DIRECT = 'Direct',
+    ASSOCIATES = 'Associates',
+    B2B_PARTNER_NAME = 'B2B_Partner_Name',
     SPRINTO = 'Sprinto',
     SCYTALE = 'Scytale',
     OTHERS = 'Others'
 }
 
+export enum SOCIAL_MEDIA_PLATFORM {
+    GOOGLE_ADS = 'Google Ads',
+    INSTAGRAM = 'Instagram',
+    FACEBOOK = 'Facebook',
+    LINKEDIN = 'LinkedIn',
+    YOUTUBE = 'YouTube',
+    X_TWITTER = 'X (Twitter)'
+}
+
+export enum B2B_PARTNER_NAME {
+    SPRINTO = 'Sprinto',
+    SCYTALE = 'Scytale',
+    OTHERS = 'Others'
+}
 export enum LEAD_STATUS {
     NEW = 'New',
     CONTACTED = 'Contacted',
