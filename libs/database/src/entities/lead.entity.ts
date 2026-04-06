@@ -24,11 +24,11 @@ export class Lead {
   enquiryReference: string
 
   @Column({
-    type: 'enum',
-    enum: LEAD_SOURCE,
+    type: 'varchar',
+    length: 100,
     default: LEAD_SOURCE.WEBSITE
   })
-  source: LEAD_SOURCE
+  source: string | LEAD_SOURCE
 
  @Column({ type: 'varchar', length: 255, nullable: true })
   sourceDetail: string
