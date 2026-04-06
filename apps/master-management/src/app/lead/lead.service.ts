@@ -481,16 +481,30 @@ export class LeadService {
         }
       }
 
-      // ensure not duplicate (same name/code and parent pair)
-      const existing = await this.serviceRepository.findOne({
-        where: [
-          { name: payload.name, parentId: payload.parentId || IsNull() },
-          { code: payload.code, parentId: payload.parentId || IsNull() }
-        ],
-      });
-      if (existing) {
-        throw new BadRequestException(`A service or sub-category with name '${payload.name}' or code '${payload.code}' already exists under this parent.`);
+      // ensure not duplicate (same name/code) - case-insensitive check
+      const trimmedName = payload.name?.trim();
+      const trimmedCode = payload.code?.trim();
+
+      // Check for existing under the same parent to provide a specific message
+      const existingUnderParent = await this.serviceRepository.createQueryBuilder('service')
+        .where('(LOWER(service.name) = LOWER(:name) OR LOWER(service.code) = LOWER(:code))', { 
+          name: trimmedName, 
+          code: trimmedCode 
+        })
+        .andWhere(payload.parentId ? 'service.parentId = :parentId' : 'service.parentId IS NULL', { 
+          parentId: payload.parentId 
+        })
+        .getOne();
+
+      if (existingUnderParent) {
+        throw new BadRequestException(`A service or sub-category with name '${trimmedName}' or code '${trimmedCode}' already exists under this parent.`);
       }
+
+      // update payload with trimmed values
+      payload.name = trimmedName;
+      payload.code = trimmedCode;
+
+      
 
       // allow creating sub-categories if parentId provided
       let logoUrl: string = payload.logo;
@@ -1327,6 +1341,24 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
   async createService(payload: CreateServiceDto): Promise<ServiceMaster> {
     try {
+      const trimmedName = payload.name?.trim();
+      const trimmedCode = payload.code?.trim();
+
+      // global duplicate check for name and code
+      const existingGlobal = await this.serviceRepository.createQueryBuilder('service')
+        .where('(LOWER(service.name) = LOWER(:name) OR LOWER(service.code) = LOWER(:code))', { 
+          name: trimmedName, 
+          code: trimmedCode 
+        })
+        .getOne();
+
+      if (existingGlobal) {
+        throw new BadRequestException(`A service with name '${trimmedName}' or code '${trimmedCode}' already exists globally.`);
+      }
+
+      payload.name = trimmedName;
+      payload.code = trimmedCode;
+
       let level = 0;
       let parent: ServiceMaster = null;
       let category: string = null;
