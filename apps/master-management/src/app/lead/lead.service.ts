@@ -180,6 +180,14 @@ export class LeadService {
         
         if (existingCustomer) {
           customer = existingCustomer;
+          // Update customer if info provided
+          if (payload.customer.businessActivities) {
+            customer.businessActivities = payload.customer.businessActivities;
+          }
+          if (payload.customer.headcount) {
+            customer.headcount = payload.customer.headcount;
+          }
+          await this.customerRepository.save(customer);
         } else {
           const primaryAddress = payload.addresses?.find(addr => addr.isPrimary) || payload.addresses?.[0];
           const country = primaryAddress?.country || 'IND';
@@ -514,30 +522,12 @@ export class LeadService {
         }
       }
 
-      // ensure not duplicate (same name/code) - case-insensitive check
       const trimmedName = payload.name?.trim();
       const trimmedCode = payload.code?.trim();
-
-      // Check for existing under the same parent to provide a specific message
-      const existingUnderParent = await this.serviceRepository.createQueryBuilder('service')
-        .where('(LOWER(service.name) = LOWER(:name) OR LOWER(service.code) = LOWER(:code))', { 
-          name: trimmedName, 
-          code: trimmedCode 
-        })
-        .andWhere(payload.parentId ? 'service.parentId = :parentId' : 'service.parentId IS NULL', { 
-          parentId: payload.parentId 
-        })
-        .getOne();
-
-      if (existingUnderParent) {
-        throw new BadRequestException(`A service or sub-category with name '${trimmedName}' or code '${trimmedCode}' already exists under this parent.`);
-      }
 
       // update payload with trimmed values
       payload.name = trimmedName;
       payload.code = trimmedCode;
-
-      
 
       // allow creating sub-categories if parentId provided
       let logoUrl: string = payload.logo;
@@ -1388,16 +1378,20 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       const trimmedName = payload.name?.trim();
       const trimmedCode = payload.code?.trim();
 
-      // global duplicate check for name and code
-      const existingGlobal = await this.serviceRepository.createQueryBuilder('service')
+      // duplicate check for name and code - relative to parent
+      const existing = await this.serviceRepository.createQueryBuilder('service')
         .where('(LOWER(service.name) = LOWER(:name) OR LOWER(service.code) = LOWER(:code))', { 
           name: trimmedName, 
           code: trimmedCode 
         })
+        .andWhere(payload.parentId ? 'service.parentId = :parentId' : 'service.parentId IS NULL', { 
+          parentId: payload.parentId 
+        })
         .getOne();
 
-      if (existingGlobal) {
-        throw new BadRequestException(`A service with name '${trimmedName}' or code '${trimmedCode}' already exists globally.`);
+      if (existing) {
+        const context = payload.parentId ? 'under this parent' : 'globally';
+        throw new BadRequestException(`A service with name '${trimmedName}' or code '${trimmedCode}' already exists ${context}.`);
       }
 
       payload.name = trimmedName;
