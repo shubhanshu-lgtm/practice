@@ -162,6 +162,9 @@ export class LeadService {
 
   async createLead(payload: CreateLeadDto, userId?: number): Promise<Lead> {
     try {
+      // Validate meta based on source
+      this.validateLeadSourceMeta(payload);
+
       const enquiryId = await this.generateEnquiryId();
       
       let customer: Customer = null;
@@ -229,17 +232,8 @@ export class LeadService {
         enquiryReference: payload.enquiryReference,
         source: payload.source as LEAD_SOURCE,
         sourceDescription: payload.sourceDescription,
-        socialMediaPlatform: payload.socialMediaPlatform,
-        directSourceDetail: payload.directSourceDetail,
-        directSpokePerson: payload.directSpokePerson,
-        directSpokePersonMobile: payload.directSpokePersonMobile,
-        associateName: payload.associateName,
-        associateSpokePerson: payload.associateSpokePerson,
-        associateSpokePersonMobile: payload.associateSpokePersonMobile,
-        b2bPartner: payload.b2bPartner,
-        b2bSpokePerson: payload.b2bSpokePerson,
-        b2bSpokePersonMobile: payload.b2bSpokePersonMobile,
-        otherSourceName: payload.otherSourceName,
+        sourceDetail: payload.sourceDetail,
+        meta: payload.meta,
         status: (payload.status as LEAD_STATUS) || LEAD_STATUS.NEW,
         notes: payload.notes,
         isDraft: payload.isDraft || false,
@@ -289,6 +283,34 @@ export class LeadService {
       });
     } catch (error) {
       throw new BadRequestException(error.message);
+    }
+  }
+
+  private validateLeadSourceMeta(payload: CreateLeadDto | UpdateLeadDto) {
+    const { source, meta } = payload;
+
+    if (source === LEAD_SOURCE.SOCIAL_MEDIA) {
+      if (!meta?.platform) {
+        throw new BadRequestException('Social Media Platform is required in meta');
+      }
+    }
+
+    if (source === LEAD_SOURCE.DIRECT) {
+      if (!meta?.spokePerson) {
+        throw new BadRequestException('Spoke Person is required in meta for Direct source');
+      }
+    }
+
+    if (source === LEAD_SOURCE.ASSOCIATES) {
+      if (!meta?.associateName || !meta?.spokePerson) {
+        throw new BadRequestException('Associate Name and Spoke Person are required in meta');
+      }
+    }
+
+    if (source === LEAD_SOURCE.B2B) {
+      if (!meta?.partner || !meta?.spokePerson) {
+        throw new BadRequestException('B2B Partner and Spoke Person are required in meta');
+      }
     }
   }
 
@@ -761,6 +783,17 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
   async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {
     try {
+      // Validate meta based on source if provided
+      if (payload.source || payload.meta) {
+        // Create a temporary object to validate against the logic
+        const tempLead = await this.leadRepository.findOne({ where: { id } });
+        const validationPayload = {
+          source: payload.source || tempLead.source,
+          meta: payload.meta || tempLead.meta
+        } as CreateLeadDto;
+        this.validateLeadSourceMeta(validationPayload);
+      }
+
       const lead = await this.leadRepository.findOne({
         where: { id },
         relations: ['leadServices', 'customer', 'customer.contacts', 'customer.addresses', 'createdBy']

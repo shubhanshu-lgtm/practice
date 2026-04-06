@@ -142,48 +142,12 @@ export class CreateLeadDto {
   sourceDescription?: string;
 
   @IsOptional()
-  @IsEnum(SOCIAL_MEDIA_PLATFORM)
-  socialMediaPlatform?: string;
+  @IsString()
+  sourceDetail?: string;
 
   @IsOptional()
-  @IsString()
-  directSourceDetail?: string;
-
-  @IsOptional()
-  @IsString()
-  directSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  directSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  associateName?: string;
-
-  @IsOptional()
-  @IsString()
-  associateSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  associateSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bPartner?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  otherSourceName?: string;
+  @IsObject()
+  meta?: Record<string, any>;
 
   @IsOptional()
   @IsEnum(LEAD_STATUS)
@@ -240,48 +204,12 @@ export class UpdateLeadDto {
   sourceDescription?: string;
 
   @IsOptional()
-  @IsEnum(SOCIAL_MEDIA_PLATFORM)
-  socialMediaPlatform?: string;
+  @IsString()
+  sourceDetail?: string;
 
   @IsOptional()
-  @IsString()
-  directSourceDetail?: string;
-
-  @IsOptional()
-  @IsString()
-  directSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  directSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  associateName?: string;
-
-  @IsOptional()
-  @IsString()
-  associateSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  associateSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bPartner?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bSpokePerson?: string;
-
-  @IsOptional()
-  @IsString()
-  b2bSpokePersonMobile?: string;
-
-  @IsOptional()
-  @IsString()
-  otherSourceName?: string;
+  @IsObject()
+  meta?: Record<string, any>;
 
   @IsOptional()
   @IsEnum(LEAD_STATUS)
