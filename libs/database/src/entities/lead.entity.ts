@@ -33,6 +33,39 @@ export class Lead {
   @Column({ nullable: true })
   sourceDescription: string
 
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  socialMediaPlatform: string
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  directSourceDetail: string
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  directSpokePerson: string
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  directSpokePersonMobile: string
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  associateName: string
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  associateSpokePerson: string
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  associateSpokePersonMobile: string
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  b2bPartner: string
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  b2bSpokePerson: string
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  b2bSpokePersonMobile: string
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  otherSourceName: string
+
   @Column({
     type: 'enum',
     enum: LEAD_STATUS,
