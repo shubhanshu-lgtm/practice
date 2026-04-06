@@ -134,6 +134,7 @@ export class DBModule {
                 InvoiceItem,
                 PaymentRecord,
                 
+                
             ],
             synchronize: false,
             //dropSchema: true,
