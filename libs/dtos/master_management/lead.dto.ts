@@ -155,6 +155,10 @@ export class CreateLeadDto {
 
   @IsOptional()
   @IsString()
+  directSpokePersonMobile?: string;
+
+  @IsOptional()
+  @IsString()
   associateName?: string;
 
   @IsOptional()
@@ -163,11 +167,19 @@ export class CreateLeadDto {
 
   @IsOptional()
   @IsString()
+  associateSpokePersonMobile?: string;
+
+  @IsOptional()
+  @IsString()
   b2bPartner?: string;
 
   @IsOptional()
   @IsString()
   b2bSpokePerson?: string;
+
+  @IsOptional()
+  @IsString()
+  b2bSpokePersonMobile?: string;
 
   @IsOptional()
   @IsString()
@@ -241,6 +253,10 @@ export class UpdateLeadDto {
 
   @IsOptional()
   @IsString()
+  directSpokePersonMobile?: string;
+
+  @IsOptional()
+  @IsString()
   associateName?: string;
 
   @IsOptional()
@@ -249,11 +265,19 @@ export class UpdateLeadDto {
 
   @IsOptional()
   @IsString()
+  associateSpokePersonMobile?: string;
+
+  @IsOptional()
+  @IsString()
   b2bPartner?: string;
 
   @IsOptional()
   @IsString()
   b2bSpokePerson?: string;
+
+  @IsOptional()
+  @IsString()
+  b2bSpokePersonMobile?: string;
 
   @IsOptional()
   @IsString()
