@@ -213,27 +213,27 @@ export class LeadController {
     }
   }
 
-  @Get('services/tree')
-  @UseGuards(TokenValidationGuard)
-  async getServicesTree(@Res() res: Response, @Query() query: GetServicesFilterDto) {
-    try {
-      const tree = await this.leadService.getServicesTree(query);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Service tree fetched successfully', data: tree });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
+  // @Get('services/tree')
+  // @UseGuards(TokenValidationGuard)
+  // async getServicesTree(@Res() res: Response, @Query() query: GetServicesFilterDto) {
+  //   try {
+  //     const tree = await this.leadService.getServicesTree(query);
+  //     return this.responseHandler.sendSuccessResponse(res, { message: 'Service tree fetched successfully', data: tree });
+  //   } catch (error) {
+  //     return this.responseHandler.sendErrorResponse(res, error);
+  //   }
+  // }
 
-  @Get('services/:id/children')
-  @UseGuards(TokenValidationGuard)
-  async getServiceChildren(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
-    try {
-      const children = await this.leadService.getServiceChildren(id);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Service children fetched successfully', data: children });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
+  // @Get('services/:id/children')
+  // @UseGuards(TokenValidationGuard)
+  // async getServiceChildren(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+  //   try {
+  //     const children = await this.leadService.getServiceChildren(id);
+  //     return this.responseHandler.sendSuccessResponse(res, { message: 'Service children fetched successfully', data: children });
+  //   } catch (error) {
+  //     return this.responseHandler.sendErrorResponse(res, error);
+  //   }
+  // }
 
   @Get('/customers/search')
   @UseGuards(TokenValidationGuard)
