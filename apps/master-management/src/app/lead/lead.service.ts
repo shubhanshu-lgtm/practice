@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DataSource, Like, Repository, In, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
+import { DataSource, Like, Repository, IsNull, FindOptionsWhere, Not, Brackets, In } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -19,7 +19,7 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { PROPOSAL_STATUS } from '../../../../../libs/constants/salesConstants';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
@@ -77,23 +77,23 @@ export class LeadService {
     private readonly s3Service: S3FileService,
   ) {}
 
-  private buildServiceTree(services: ServiceMaster[]) {
-    type ServiceTreeNode = ServiceMaster & { children: ServiceTreeNode[] };
-    const nodes = new Map<number, ServiceTreeNode>();
-    for (const s of services) {
-      nodes.set(s.id, { ...s, children: [] });
-    }
-    const roots: ServiceTreeNode[] = [];
-    for (const node of nodes.values()) {
-      const parentId = node.parentId;
-      if (parentId && nodes.has(parentId)) {
-        nodes.get(parentId).children.push(node);
-      } else {
-        roots.push(node);
-      }
-    }
-    return roots;
-  }
+  // private buildServiceTree(services: ServiceMaster[]) {
+  //   type ServiceTreeNode = ServiceMaster & { children: ServiceTreeNode[] };
+  //   const nodes = new Map<number, ServiceTreeNode>();
+  //   for (const s of services) {
+  //     nodes.set(s.id, { ...s, children: [] });
+  //   }
+  //   const roots: ServiceTreeNode[] = [];
+  //   for (const node of nodes.values()) {
+  //     const parentId = node.parentId;
+  //     if (parentId && nodes.has(parentId)) {
+  //       nodes.get(parentId).children.push(node);
+  //     } else {
+  //       roots.push(node);
+  //     }
+  //   }
+  //   return roots;
+  // }
 
   private deduplicateDeliverables(service: ServiceMaster): ServiceMaster {
     if (service?.deliverables?.length) {
@@ -200,10 +200,10 @@ export class LeadService {
       // Validate meta based on source
       this.validateLeadSourceMeta(payload);
 
-      const companyName = payload.customer?.name || (payload.customerId ? (await this.customerRepository.findOne({ where: { id: payload.customerId } }))?.name : 'UNK');
+      const companyName = payload.customer?.name || (payload.customerId ? (await this.customerRepository.findOne({ where: { id: payload.customerId } }))?.name : 'UNK') || 'UNK';
       const enquiryId = await this.generateEnquiryId(companyName);
       
-      let customer: Customer = null;
+      let customer: Customer | null = null;
       if (payload.customerId) {
         customer = await this.customerRepository.findOne({ where: { id: payload.customerId } });
         if (!customer) {
@@ -227,7 +227,7 @@ export class LeadService {
         } else {
           const primaryAddress = payload.addresses?.find(addr => addr.isPrimary) || payload.addresses?.[0];
           const country = primaryAddress?.country || 'IND';
-          const customerId = await this.generateUniqueCustomerId(payload.customer.name, country);
+          const customerId = await this.generateUniqueCustomerId(payload.customer.name || 'UNK', country);
           
           const newCustomer = this.customerRepository.create({
             ...payload.customer,
@@ -241,7 +241,7 @@ export class LeadService {
           
           if (payload.addresses && payload.addresses.length > 0) {
             const addresses = payload.addresses.map(addr => 
-              this.addressRepository.create({ ...addr, customer })
+              this.addressRepository.create({ ...addr, customer: customer as Customer })
             );
             await this.addressRepository.save(addresses);
           }
@@ -251,7 +251,7 @@ export class LeadService {
           const contacts = payload.contacts.map((contact) =>
             this.contactRepository.create({
               ...contact,
-              customer,
+              customer: customer as Customer,
             }),
           );
           await this.contactRepository.save(contacts);
@@ -260,7 +260,7 @@ export class LeadService {
         throw new BadRequestException('Either customerId or customer data must be provided');
       }
 
-      let createdBy: User = null;
+      let createdBy: User | null = null;
       const createdById = userId || payload.createdBy;
       if (createdById) {
         createdBy = await this.userRepository.findOne({ where: { id: createdById } });
@@ -281,8 +281,8 @@ export class LeadService {
         //status: (payload.status as LEAD_STATUS) || LEAD_STATUS.NEW,
         notes: payload.notes,
         isDraft: payload.isDraft || false,
-        customer,
-        createdBy,
+        customer: customer as Customer,
+        createdBy: createdBy as User,
       });
 
       const savedLead = await this.leadRepository.save(lead);
@@ -323,8 +323,12 @@ export class LeadService {
       
       const fullLead = await this.leadRepository.findOne({
         where: { id: savedLead.id },
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
-      });
+          relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+    });
+
+      if (!fullLead) {
+        throw new BadRequestException('Lead not found after save');
+      }
 
       return this.formatLeadServicesSummary(fullLead);
     } catch (error) {
@@ -362,7 +366,9 @@ export class LeadService {
 
   async getLeads(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
     try {
-      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+      const page = pagination?.page ?? 1;
+      const pageSize = pagination?.pageSize ?? 20;
+      const { currentPage, limit, offset } = paginate(page, pageSize);
 
       const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
       const where: FindOptionsWhere<Lead> = { isActive: true };
@@ -372,8 +378,7 @@ export class LeadService {
 
       const [leads, total] = await this.leadRepository.findAndCount({ 
         where,
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'],
-        skip: offset,
+          relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'],        skip: offset,
         take: limit,
         order: { createdAt: 'DESC' }
       });
@@ -389,7 +394,7 @@ export class LeadService {
         hasNextPage: currentPage < totalPages,
         hasPrevPage: currentPage > 1
       };
-    } catch (error) {
+    } catch (error: any) {
       throw new BadRequestException(error.message);
     }
   }
@@ -399,7 +404,9 @@ export class LeadService {
    */
   async getDroppedLeads(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
     try {
-      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+      const page = pagination?.page ?? 1;
+      const pageSize = pagination?.pageSize ?? 20;
+      const { currentPage, limit, offset } = paginate(page, pageSize);
 
       const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
       
@@ -437,14 +444,14 @@ export class LeadService {
         hasNextPage: currentPage < totalPages,
         hasPrevPage: currentPage > 1
       };
-    } catch (error) {
+    } catch (error: any) {
       throw new BadRequestException(error.message);
     }
   }
 
   async getServices(filter?: GetServicesFilterDto): Promise<IPaginationObject> {
     try {
-      const { currentPage, limit, offset } = paginate(filter?.page, filter?.pageSize);
+      const { currentPage, limit, offset } = paginate(filter?.page ?? 1, filter?.pageSize ?? 20);
 
       const baseWhere: FindOptionsWhere<ServiceMaster> = { isActive: true };
       if (filter?.parentId !== undefined && filter.parentId !== null) {
@@ -491,9 +498,29 @@ export class LeadService {
         hasNextPage: currentPage < totalPages,
         hasPrevPage: currentPage > 1
       };
-    } catch (error) {
+    } catch (error: any) {
       throw new BadRequestException(error.message);
     }
+  }
+
+  private buildServiceTree(services: ServiceMaster[]) {
+    type ServiceTreeNode = ServiceMaster & { children: ServiceTreeNode[] };
+    const nodes = new Map<number, ServiceTreeNode>();
+    for (const s of services) {
+      nodes.set(s.id, { ...s, children: [] });
+    }
+    const tree: ServiceTreeNode[] = [];
+    for (const s of services) {
+      const node = nodes.get(s.id);
+      if (node) {
+        if (s.parentId && nodes.has(s.parentId)) {
+          nodes.get(s.parentId)?.children.push(node);
+        } else {
+          tree.push(node);
+        }
+      }
+    }
+    return tree;
   }
 
   async getServicesTree(filter?: GetServicesFilterDto) {
@@ -515,10 +542,10 @@ export class LeadService {
         order: { sortOrder: 'ASC', name: 'ASC' }
       });
       const filtered = filter?.userGroup
-        ? services.filter(s => s.accessLevel === SERVICE_ACCESS_LEVEL.PUBLIC || (s.allowedUserGroups || []).includes(filter.userGroup))
+        ? services.filter(s => s.accessLevel === SERVICE_ACCESS_LEVEL.PUBLIC || (s.allowedUserGroups || []).includes(filter.userGroup as string))
         : services;
       return this.buildServiceTree(filtered);
-    } catch (error) {
+    } catch (error: any) {
       throw new BadRequestException(error.message);
     }
   }
@@ -544,7 +571,7 @@ export class LeadService {
       }
 
       if (type === CATEGORY_TYPE.CATEGORY) {
-        payload.parentId = null;
+        payload.parentId = undefined;
       }
 
       if (type === CATEGORY_TYPE.SUB_CATEGORY && !payload.parentId) {
@@ -568,7 +595,7 @@ export class LeadService {
       payload.code = trimmedCode;
 
       // allow creating sub-categories if parentId provided
-      let logoUrl: string = payload.logo;
+      let logoUrl: string = payload.logo || '';
       if (file && file.buffer && file.originalname) {
         // upload to s3 and use returned view URL
         try {
@@ -584,7 +611,7 @@ export class LeadService {
       const servicePayload: CreateServiceDto = {
         ...payload,
         // keep any incoming parentId (may be undefined) so subcategory logic works
-        parentId: payload.parentId || null,
+        parentId: payload.parentId,
         category: categoryValue,
         logo: logoUrl,
       };
@@ -619,7 +646,7 @@ export class LeadService {
 
       const categories = await qb.getMany();
       return categories;
-    } catch (error) {
+        } catch (error) {
       throw new BadRequestException(error.message);
     }
   }
@@ -709,7 +736,7 @@ export class LeadService {
         lead.isActive = false;
         await this.leadRepository.save(lead);
       }
-    } catch (error) {
+    } catch (error) { 
       throw new BadRequestException(error.message);
     }
   }
@@ -758,11 +785,11 @@ async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
       return await manager.findOne(Lead, {
         where: { id: savedLead.id },
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
-      });
+      }) as Lead;
     });
   }
 
-async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
+async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<Lead> {
     return await this.dataSource.transaction(async (manager) => {
       const lead = await manager.findOne(Lead, { where: { id }, relations: ['createdBy'] });
       if (!lead || lead.status !== LEAD_STATUS.LOST) {
@@ -803,7 +830,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       return await manager.findOne(Lead, {
         where: { id: savedLead.id },
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
-      });
+      }) as Lead;
     });
   }
 
@@ -910,8 +937,8 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
         // Remove existing lead services - strategy: delete all and recreate
         await this.leadServiceEntityRepository.delete({ lead: { id: lead.id } });
         
-        const services = await this.serviceRepository.find({ where: { id: In(serviceIds) } });
-        const leadServices = services.map(service => 
+        const servicesToAssign = await this.serviceRepository.find({ where: { id: In(serviceIds) } });
+        const leadServices = servicesToAssign.map(service => 
           this.leadServiceEntityRepository.create({
             lead: lead,
             service: service
@@ -927,6 +954,10 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
         where: { id: lead.id },
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
+
+      if (!updatedLead) {
+        throw new BadRequestException('Lead not found after update');
+      }
 
       return this.formatLeadServicesSummary(updatedLead);
     } catch (error) {
@@ -945,6 +976,40 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
     }
   }
 
+  private formatCustomer(customer: Customer): any {
+    return {
+      id: customer.id,
+      createdAt: customer.createdAt || null,
+      customerId: customer.customerId || null,
+      name: customer.name || null,
+      businessActivities: customer.businessActivities || null,
+      headcount: customer.headcount || null,
+      designation: customer.designation || null,
+      contacts: (customer.contacts || []).map(contact => ({
+        id: contact.id,
+        createdAt: contact.createdAt || null,
+        name: contact.name || null,
+        designation: contact.designation || null,
+        email: contact.email || null,
+        phoneNo: contact.phoneNo || null,
+        countryCode: contact.countryCode || null,
+        isPrimary: contact.isPrimary || false,
+      })),
+      addresses: (customer.addresses || []).map(address => ({
+        id: address.id,
+        createdAt: address.createdAt || null,
+        addressLine1: address.addressLine1 || null,
+        addressLine2: address.addressLine2 || null,
+        city: address.city || null,
+        state: address.state || null,
+        country: address.country || null,
+        postalCode: address.postalCode || null,
+        addressType: address.addressType || null,
+        isPrimary: address.isPrimary || false,
+      })),
+    };
+  }
+
   private formatLeadServicesSummary(lead: Lead): any {
     return {
       id: lead.enquiryId || lead.id,
@@ -955,11 +1020,12 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       quality: lead.quality || null,
       source: lead.source || null,
       sourceDetail: lead.sourceDetail || null,
-      meta: lead.meta || null,
+      meta: lead.meta as Record<string, any> || null,
       sourceDescription: lead.sourceDescription || null,
       notes: lead.notes || null,
       isDraft: lead.isDraft,
       isActive: lead.isActive,
+      customer: lead.customer ? this.formatCustomer(lead.customer) : null,
       createdAt: lead.createdAt || null,
       createdBy: lead.createdBy
         ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
@@ -970,7 +1036,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
         service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
         sub_service_name: ls.service?.name || null,
         description: ls.service?.description || null,
-        deliverables: ls.deliverables || [],
+        deliverables: ls.deliverables as string[] || [],
         status: ls.status || null,
         startDate: ls.startDate || null,
         endDate: ls.endDate || null,
@@ -1047,7 +1113,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
             const service = services.find(s => s.id === assignment.serviceId);
             const existing = existingLeadServices.find(els => els.serviceId === assignment.serviceId);
 
-            if (assignment.description) {
+            if (service && assignment.description) {
               service.description = assignment.description;
               servicesToUpdate.set(service.id, service);
             }
@@ -1074,7 +1140,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
               department = existing.department;
             }
 
-            const leadServiceData = {
+            const leadServiceData = {  
               lead,
               service,
               deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : (existing ? existing.deliverables : null),
@@ -1114,7 +1180,17 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
         const fullLead = await manager.findOne(Lead, {
           where: { id: leadId },
-          relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.service.parent', 'leadServices.owner', 'leadServices.department'],
+          relations: [
+            'customer',
+            'customer.contacts',
+            'customer.addresses',
+            'createdBy',
+            'leadServices',
+            'leadServices.service',
+            'leadServices.service.parent',
+            'leadServices.owner',
+            'leadServices.department'
+          ],
         });
 
         return this.formatLeadServicesSummary(fullLead);
@@ -1126,7 +1202,9 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
   async getAllLeadsAssignedServices(actor?: User, pagination?: IPagination): Promise<IPaginationObject> {
     try {
-      const { currentPage, limit, offset } = paginate(pagination?.page, pagination?.pageSize);
+      const page = pagination?.page ?? 1;
+      const pageSize = pagination?.pageSize ?? 20;
+      const { currentPage, limit, offset } = paginate(page, pageSize);
 
       let where: FindOptionsWhere<Lead> = { isActive: true };
       
