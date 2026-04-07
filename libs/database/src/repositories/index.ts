@@ -13,3 +13,4 @@ export * from './proposal-item.repository';
 export * from './proposal-payment-term.repository';
 export * from './proposal-acceptance.repository';
 export * from './project.repository';
+export * from './intercert-partner-user.repository';

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { LeadEnquiry } from '../entities/lead-enquiry.entity';
 import { LeadContact } from '../entities/lead-contact.entity';
 import { LeadAddress } from '../entities/lead-address.entity';
@@ -19,13 +19,54 @@ export class LeadRepository {
   ) {}
 
   /**
-   * Generate enquiry ID: IS/YY/MM/DD/Sequence
+   * Generate enquiry ID: [PREFIX][YYYY][MM][DD][HH][mm][ss]_[SEQ]
+   * Prefix is dynamic based on company name differentiation.
    */
-  async generateEnquiryId(): Promise<string> {
+  async generateEnquiryId(companyName: string): Promise<string> {
     const today = new Date();
-    const yy = today.getFullYear().toString().slice(-2);
+    
+    // 1. Clean the company name: remove common suffixes and non-alphanumeric chars
+    const cleanedName = (companyName || 'UNK')
+      .replace(/(?:pvt ltd|private limited|ltd|limited|inc|corp|llp)/gi, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .trim()
+      .toUpperCase();
+
+    // 2. Find similar companies to determine differentiation length
+    // We look for names that share the first 4 characters in the lead_enquiry table
+    const initialPrefix = cleanedName.substring(0, 4);
+    const similarLeads = await this.leadEnquiryRepo.find({
+      where: { companyName: Like(`${initialPrefix}%`) },
+      select: ['companyName']
+    });
+
+    // Default prefix length is 4 (or less if name is shorter)
+    let requiredLength = Math.min(cleanedName.length, 4);
+    
+    for (const lead of similarLeads) {
+      const otherCleaned = lead.companyName
+        .replace(/(?:pvt ltd|private limited|ltd|limited|inc|corp|llp)/gi, '')
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .trim()
+        .toUpperCase();
+
+      if (otherCleaned === cleanedName) continue;
+
+      let i = 0;
+      while (i < cleanedName.length && i < otherCleaned.length && cleanedName[i] === otherCleaned[i]) {
+        i++;
+      }
+      requiredLength = Math.max(requiredLength, i + 1);
+    }
+
+    const prefix = cleanedName.substring(0, Math.min(cleanedName.length, requiredLength));
+    
+    const yyyy = today.getFullYear().toString();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
+    const hh = String(today.getHours()).padStart(2, '0');
+    const min = String(today.getMinutes()).padStart(2, '0');
+    const ss = String(today.getSeconds()).padStart(2, '0');
 
     // Count leads created today
     const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -41,7 +82,7 @@ export class LeadRepository {
     });
 
     const sequence = String(count + 1).padStart(2, '0');
-    return `IS/${yy}/${mm}/${dd}/${sequence}`;
+    return `${prefix}${yyyy}${mm}${dd}${hh}${min}${ss}_${sequence}`;
   }
 
   /**
@@ -59,7 +100,7 @@ export class LeadRepository {
    * Create new lead enquiry
    */
   async createLead(dto: CreateLeadEnquiryDto, createdById: number): Promise<LeadEnquiry> {
-    const enquiryId = await this.generateEnquiryId();
+    const enquiryId = await this.generateEnquiryId(dto.companyName);
     const customerId = this.generateCustomerId(dto.companyName, dto.addresses[0]?.country || 'IND');
 
     const lead = this.leadEnquiryRepo.create({

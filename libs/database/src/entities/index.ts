@@ -50,3 +50,4 @@ export * from './project.entity';
 export * from './invoice.entity';
 export * from './invoice-item.entity';
 export * from './payment-record.entity';
+export * from './intercert-partner-user.entity';
