@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DataSource, Like, Repository, In, Between, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
+import { DataSource, Like, Repository, In, IsNull, FindOptionsWhere, Not, Brackets } from 'typeorm';
 import { Customer } from '../../../../../libs/database/src/entities/customer.entity';
 import { CustomerAddress } from '../../../../../libs/database/src/entities/customerAddress.entity';
 import { CustomerContact } from '../../../../../libs/database/src/entities/customerContact.entity';
@@ -110,23 +110,58 @@ export class LeadService {
     return service;
   }
 
-  private async generateEnquiryId(): Promise<string> {
+  private async generateEnquiryId(companyName: string): Promise<string> {
     const today = new Date();
-    const yy = today.getFullYear().toString().slice(-2);
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
+    
+    // 1. Clean the company name: remove common suffixes and non-alphanumeric chars
+    const cleanedName = (companyName || 'UNK')
+      .replace(/(?:pvt ltd|private limited|ltd|limited|inc|corp|llp)/gi, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .trim()
+      .toUpperCase();
 
-    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const todayEnd = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-
-    const count = await this.leadRepository.count({
-      where: {
-        createdAt: Between(todayStart, todayEnd),
-      },
+    // 2. Find similar companies to determine differentiation length
+    // We start by looking for names that share the first 4 characters
+    const initialPrefix = cleanedName.substring(0, 4);
+    const similarCustomers = await this.customerRepository.find({
+      where: { name: Like(`${initialPrefix}%`) },
+      select: ['name']
     });
 
-    const sequence = String(count + 1).padStart(2, '0');
-    return `IS/${yy}/${mm}/${dd}/${sequence}`;
+    // Default prefix length is 4 (or less if name is shorter)
+    let requiredLength = Math.min(cleanedName.length, 4);
+    
+    // Compare with each similar company to find the first point of difference
+    for (const customer of similarCustomers) {
+      const otherCleaned = customer.name
+        .replace(/(?:pvt ltd|private limited|ltd|limited|inc|corp|llp)/gi, '')
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .trim()
+        .toUpperCase();
+
+      // Skip if it's the exact same company name (cleaned)
+      if (otherCleaned === cleanedName) continue;
+
+      let i = 0;
+      // Find the first index where characters differ
+      while (i < cleanedName.length && i < otherCleaned.length && cleanedName[i] === otherCleaned[i]) {
+        i++;
+      }
+      // The prefix needs to include the differing character
+      requiredLength = Math.max(requiredLength, i + 1);
+    }
+
+    // Ensure we don't exceed the cleaned name's length
+    const prefix = cleanedName.substring(0, Math.min(cleanedName.length, requiredLength));
+    
+    const yyyy = today.getFullYear().toString();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const hh = String(today.getHours()).padStart(2, '0');
+    const min = String(today.getMinutes()).padStart(2, '0');
+    const ss = String(today.getSeconds()).padStart(2, '0');   
+
+    return `${prefix}${yyyy}${mm}${dd}${hh}${min}${ss}`;
   }
 
   private generateCustomerId(companyName: string, country: string): string {
@@ -160,12 +195,13 @@ export class LeadService {
     return `${base}/${maxSuffix + 1}`;
   }
 
-  async createLead(payload: CreateLeadDto, userId?: number): Promise<Lead> {
+  async createLead(payload: CreateLeadDto, userId?: number): Promise<any> {
     try {
       // Validate meta based on source
       this.validateLeadSourceMeta(payload);
 
-      const enquiryId = await this.generateEnquiryId();
+      const companyName = payload.customer?.name || (payload.customerId ? (await this.customerRepository.findOne({ where: { id: payload.customerId } }))?.name : 'UNK');
+      const enquiryId = await this.generateEnquiryId(companyName);
       
       let customer: Customer = null;
       if (payload.customerId) {
@@ -285,10 +321,12 @@ export class LeadService {
         await this.leadServiceEntityRepository.save(leadServices);
       }
       
-      return this.leadRepository.findOne({
+      const fullLead = await this.leadRepository.findOne({
         where: { id: savedLead.id },
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
+
+      return this.formatLeadServicesSummary(fullLead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -343,7 +381,7 @@ export class LeadService {
       const totalPages = Math.ceil(total / limit);
 
       return {
-        docs: leads,
+        docs: leads.map(lead => this.formatLeadServicesSummary(lead)),
         page: currentPage,
         limit: limit,
         totalDocs: total,
@@ -391,7 +429,7 @@ export class LeadService {
       const totalPages = Math.ceil(total / limit);
 
       return {
-        docs: leads,
+        docs: leads.map(lead => this.formatLeadServicesSummary(lead)),
         page: currentPage,
         limit: limit,
         totalDocs: total,
@@ -771,7 +809,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
 
 
-  async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<Lead> {
+  async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<any> {
     try {
       // Validate meta based on source if provided
       if (payload.source || payload.meta) {
@@ -885,10 +923,12 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       Object.assign(lead, updateData);
 
       await this.leadRepository.save(lead);
-      return await this.leadRepository.findOne({
+      const updatedLead = await this.leadRepository.findOne({
         where: { id: lead.id },
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
+
+      return this.formatLeadServicesSummary(updatedLead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -907,19 +947,26 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
 
   private formatLeadServicesSummary(lead: Lead): any {
     return {
+      id: lead.enquiryId || lead.id,
       company_name: lead.customer?.name || null,
       enquiryId: lead.enquiryId || null,
       enquiryReference: lead.enquiryReference || null,
       leadStatus: lead.status || null,
       quality: lead.quality || null,
       source: lead.source || null,
+      sourceDetail: lead.sourceDetail || null,
+      meta: lead.meta || null,
       sourceDescription: lead.sourceDescription || null,
       notes: lead.notes || null,
+      isDraft: lead.isDraft,
+      isActive: lead.isActive,
       createdAt: lead.createdAt || null,
       createdBy: lead.createdBy
         ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
         : null,
       services: (lead.leadServices || []).map(ls => ({
+        id: ls.id,
+        serviceId: ls.service?.id || null,
         service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
         sub_service_name: ls.service?.name || null,
         description: ls.service?.description || null,
@@ -939,11 +986,18 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       return await this.dataSource.transaction(async manager => {
         const lead = await manager.findOne(Lead, {
           where: { id: leadId },
-          relations: ['createdBy'],
+          relations: ['createdBy', 'customer'],
         });
 
         if (!lead || !lead.isActive) {
           throw new NotFoundException('Lead not found');
+        }
+
+        // Generate new enquiry ID in the requested format if it's currently in the old format
+        // or if it doesn't exist. This ensures the lead has the new "Senior Developer" recommended ID.
+        if (!lead.enquiryId || lead.enquiryId.startsWith('IS/')) {
+          lead.enquiryId = await this.generateEnquiryId(lead.customer?.name);
+          await manager.save(lead);
         }
 
         if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
@@ -1098,7 +1152,7 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
       const totalPages = Math.ceil(total / limit);
 
       return {
-        docs: leads,
+        docs: leads.map(lead => this.formatLeadServicesSummary(lead)),
         page: currentPage,
         limit: limit,
         totalDocs: total,
@@ -1169,8 +1223,12 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
           leadStatus: lead?.status || null,
           quality: lead?.quality || null,
           source: lead?.source || null,
+          sourceDetail: lead?.sourceDetail || null,
+          meta: lead?.meta || null,
           sourceDescription: lead?.sourceDescription || null,
           notes: lead?.notes || null,
+          isDraft: lead?.isDraft || false,
+          isActive: lead?.isActive || false,
           createdAt: lead?.createdAt || null,
           companyName: lead?.customer?.name || null,
           createdBy: lead?.createdBy
@@ -1187,6 +1245,8 @@ async rollbackLead(id: number, payload: any, actor?: User): Promise<Lead> {
         }
 
         groupedMap.get(leadId).services.push({
+          id: assignment.id,
+          serviceId: assignment.service?.id || null,
           Department: assignment.service?.category || null,
           serviceName: assignment.service?.name || null,
           description: assignment.service?.description || null,

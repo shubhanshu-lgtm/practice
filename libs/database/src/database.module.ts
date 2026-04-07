@@ -52,7 +52,8 @@ import {
     LeadFollowUp,
     Invoice,
     InvoiceItem,
-    PaymentRecord
+    PaymentRecord,
+    IntercertPartnerUser
 } from './entities';
 
 import {
@@ -68,7 +69,8 @@ import {
     ProjectRepository,
     LoginSessionRepository,
     PermissionManagerRepository,
-    LeadServiceRepository
+    LeadServiceRepository,
+    IntercertPartnerUserRepository
 } from './repositories';
 
 @Module({})
@@ -133,8 +135,7 @@ export class DBModule {
                 Invoice,
                 InvoiceItem,
                 PaymentRecord,
-                
-                
+                IntercertPartnerUser
             ],
             synchronize: false,
             //dropSchema: true,
@@ -220,6 +221,7 @@ export class DBModule {
                    Invoice,
                    InvoiceItem,
                    PaymentRecord,
+                   IntercertPartnerUser
                 ]),
             ],
             controllers: [],
@@ -237,6 +239,7 @@ export class DBModule {
                 LoginSessionRepository,
                 PermissionManagerRepository,
                 LeadServiceRepository,
+                IntercertPartnerUserRepository,
                 TypeOrmModule
             ],
             exports: [
@@ -251,8 +254,9 @@ export class DBModule {
                 ProposalAcceptanceRepository,
                 ProjectRepository,
                 LoginSessionRepository,
-                LeadServiceRepository,
                 PermissionManagerRepository,
+                LeadServiceRepository,
+                IntercertPartnerUserRepository,
                 TypeOrmModule
             ],
         };
