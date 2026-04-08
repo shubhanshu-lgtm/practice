@@ -107,7 +107,7 @@ export class ClosureService {
           invoiceServices: dto.invoiceServices,
           department: dto.department,
           notes: dto.notes,
-          assignmentGroupId: proposal.assignmentGroupId,
+          assignmentGroupId: proposal.assignmentGroupId || null,
         });
         return await manager.save(ProposalAcceptance, existing);
       }
@@ -121,7 +121,7 @@ export class ClosureService {
       const acceptance = manager.create(ProposalAcceptance, {
         proposalId: Number(dto.proposalId),
         leadId: Number(proposal.leadId),
-        assignmentGroupId: proposal.assignmentGroupId,
+        assignmentGroupId: proposal.assignmentGroupId || null,
         awardDate: dto.awardDate,
         poNumber: dto.poNumber,
         poFileUrls: dto.poFileUrls,
