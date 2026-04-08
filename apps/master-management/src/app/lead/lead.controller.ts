@@ -418,11 +418,8 @@ export class LeadController {
     @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
-      const result = await this.leadService.assignServices(id, payload.services, req.user);
-      const message = result.newLeadCreated
-        ? 'New lead created for additional services'
-        : 'Services assigned to lead successfully';
-      return this.responseHandler.sendSuccessResponse(res, { message, data: result.lead });
+      const lead = await this.leadService.assignServices(id, payload.services, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Services assigned to lead successfully', data: lead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -437,11 +434,8 @@ export class LeadController {
     @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
-      const result = await this.leadService.assignServices(id, payload.services, req.user);
-      const message = result.newLeadCreated
-        ? 'New lead created for additional services'
-        : 'Lead services updated successfully';
-      return this.responseHandler.sendSuccessResponse(res, { message, data: result.lead });
+      const lead = await this.leadService.assignServices(id, payload.services, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services updated successfully', data: lead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
