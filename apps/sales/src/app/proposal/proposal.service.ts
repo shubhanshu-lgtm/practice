@@ -1,12 +1,12 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DataSource, In } from 'typeorm';
+import { Repository, DataSource, In, EntityManager } from 'typeorm';
 import { Proposal, PROPOSAL_STATUS, PROPOSAL_DIVISION, SUBMITTED_BY } from '../../../../../libs/database/src/entities/proposal.entity';
 import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 import { ProposalPaymentTerm } from '../../../../../libs/database/src/entities/proposal-payment-term.entity';
 import {
   CreateProposalDto,
-  //CreateProposalItemDto,
+  CreateProposalItemDto,
   UpdateProposalDto,
   UpdateProposalStatusDto
 } from '../../../../../libs/dtos/sales/create-proposal.dto';
@@ -138,6 +138,10 @@ export class ProposalService {
       totalDiscount,
       totalTaxAmount,
       grandTotal,
+      assignmentGroupId: this.resolveAssignmentGroupIdFromLeadServices(
+        leadServices,
+        itemsDto.map((item) => item.leadServiceId)
+      ),
     };
 
     return { draft, items: itemEntities, totals: { subTotal, totalDiscount, totalTaxAmount, grandTotal } };
@@ -244,6 +248,7 @@ export class ProposalService {
         existingProposal.grandTotal = grandTotal;
         existingProposal.version = (existingProposal.version || 1) + 1;
         existingProposal.division = dto.division || existingProposal.division;
+        existingProposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, existingProposal.items.map(i => i.leadServiceId).concat(newItemDtos.map(i => i.leadServiceId)));
         existingProposal.paymentTerms = [];
         existingProposal.items = [];
 
@@ -767,6 +772,7 @@ export class ProposalService {
 
         // Recalculate division
         proposal.division = this.deriveDivisionFromLeadServices(savedItems);
+        proposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
 
         // Detach relations to prevent TypeORM from attempting to nullify already-deleted records
         delete proposal.items;
@@ -943,6 +949,27 @@ export class ProposalService {
       return PROPOSAL_DIVISION.VAPT_DIVISION;
     }
     return PROPOSAL_DIVISION.CERTIFICATION_DIVISION;
+  }
+
+  private resolveAssignmentGroupIdFromLeadServices(leadServices: LeadService[], leadServiceIds: number[]): string | null {
+    const assignmentGroupIds = leadServiceIds
+      .map(id => leadServices.find(ls => ls.id === id)?.assignmentGroupId)
+      .filter((id): id is string => Boolean(id));
+    const uniqueGroups = [...new Set(assignmentGroupIds)];
+    return uniqueGroups.length === 1 ? uniqueGroups[0] : null;
+  }
+
+  private async resolveProposalAssignmentGroupId(manager: EntityManager, leadServiceIds: number[]): Promise<string | null> {
+    if (!leadServiceIds || leadServiceIds.length === 0) {
+      return null;
+    }
+    const uniqueServiceIds = [...new Set(leadServiceIds)];
+    const leadServices = await manager.find(LeadService, { where: { id: In(uniqueServiceIds) } });
+    const groupIds = leadServices
+      .map(ls => ls.assignmentGroupId)
+      .filter((id): id is string => Boolean(id));
+    const uniqueGroups = [...new Set(groupIds)];
+    return uniqueGroups.length === 1 ? uniqueGroups[0] : null;
   }
 
   private getTemplatePath(proposal: Proposal): string {

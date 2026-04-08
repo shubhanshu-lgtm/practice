@@ -170,6 +170,11 @@ export class LeadService {
     return `IS/${comp}/${cnt}`;
   }
 
+  private generateAssignmentGroupId(): string {
+    const randomSegment = Math.random().toString(36).substring(2, 8).toUpperCase();
+    return `ASG-${Date.now()}-${randomSegment}`;
+  }
+
   private async generateUniqueCustomerId(companyName: string, country: string, excludeCustomerId?: number): Promise<string> {
     const base = this.generateCustomerId(companyName, country);
     const existing = await this.customerRepository.find({
@@ -312,10 +317,12 @@ export class LeadService {
       }
 
       if (services.length > 0) {
+        const assignmentGroupId = this.generateAssignmentGroupId();
         const leadServices = services.map(service => 
           this.leadServiceEntityRepository.create({
             lead: savedLead,
-            service: service
+            service: service,
+            assignmentGroupId
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -955,11 +962,13 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         // Remove existing lead services - strategy: delete all and recreate
         await this.leadServiceEntityRepository.delete({ lead: { id: lead.id } });
         
+        const assignmentGroupId = this.generateAssignmentGroupId();
         const servicesToAssign = await this.serviceRepository.find({ where: { id: In(serviceIds) } });
         const leadServices = servicesToAssign.map(service => 
           this.leadServiceEntityRepository.create({
             lead: lead,
-            service: service
+            service: service,
+            assignmentGroupId
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -1053,6 +1062,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
     if (includeServices) {
       summary.services = (lead.leadServices || []).map(ls => ({
         id: ls.id,
+        assignmentGroupId: ls.assignmentGroupId || null,
         serviceId: ls.service?.id || null,
         service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
         sub_service_name: ls.service?.name || null,
@@ -1124,6 +1134,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             return this.formatLeadServicesSummary(lead);
           }
 
+          const assignmentGroupId = this.generateAssignmentGroupId();
+
           // Keep assignments on the same lead; do not create a duplicate lead record.
           // This avoids duplicate company rows in lead list and preserves follow-up/rollback/delete flows.
 
@@ -1157,6 +1169,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             const leadServiceData = {
               lead: targetLead,
               service,
+              assignmentGroupId,
               deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
               remarks: assignment.remarks || null,
               owner,

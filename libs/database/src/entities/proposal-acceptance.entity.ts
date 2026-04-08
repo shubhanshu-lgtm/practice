@@ -22,6 +22,9 @@ export class ProposalAcceptance {
   @Column()
   leadId: number;
 
+  @Column({ nullable: true })
+  assignmentGroupId?: string;
+
   @Column({ type: 'date' })
   awardDate: Date;
 
