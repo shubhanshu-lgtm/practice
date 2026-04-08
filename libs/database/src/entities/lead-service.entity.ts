@@ -19,6 +19,9 @@ export class LeadService {
   @Column()
   leadId: number;
 
+  @Column({ nullable: true })
+  assignmentGroupId: string;
+
   @ManyToOne(() => ServiceMaster)
   @JoinColumn({ name: 'serviceId' })
   service: ServiceMaster;

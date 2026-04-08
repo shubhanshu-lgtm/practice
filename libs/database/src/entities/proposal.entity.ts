@@ -102,6 +102,9 @@ export class Proposal {
   @Column({ nullable: true })
   leadId?: number;
 
+  @Column({ nullable: true })
+  assignmentGroupId?: string;
+
   @OneToMany(() => ProposalItem, (item) => item.proposal, { cascade: true })
   items: ProposalItem[];
 
