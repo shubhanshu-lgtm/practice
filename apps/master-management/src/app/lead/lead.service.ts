@@ -386,7 +386,7 @@ export class LeadService {
       const totalPages = Math.ceil(total / limit);
 
       return {
-        docs: leads.map(lead => this.formatLeadServicesSummary(lead)),
+        docs: leads.map(lead => this.formatLeadServicesSummary(lead, false)),
         page: currentPage,
         limit: limit,
         totalDocs: total,
@@ -1028,8 +1028,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
     };
   }
 
-  private formatLeadServicesSummary(lead: Lead): any {
-    return {
+  private formatLeadServicesSummary(lead: Lead, includeServices = true): any {
+    const summary: any = {
       id: lead.enquiryId || lead.id,
       company_name: lead.customer?.name || null,
       enquiryId: lead.enquiryId || null,
@@ -1048,7 +1048,10 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
       createdBy: lead.createdBy
         ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
         : null,
-      services: (lead.leadServices || []).map(ls => ({
+    };
+
+    if (includeServices) {
+      summary.services = (lead.leadServices || []).map(ls => ({
         id: ls.id,
         serviceId: ls.service?.id || null,
         service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
@@ -1061,8 +1064,10 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         remarks: ls.remarks || null,
         owner: ls.owner ? { id: ls.owner.id, name: ls.owner.name, email: ls.owner.email } : null,
         department: ls.department ? { id: ls.department.id, name: ls.department.name } : null,
-      })),
-    };
+      }));
+    }
+
+    return summary;
   }
 
   async assignServices(leadId: string, serviceAssignments: ServiceAssignment[], actor?: User): Promise<any> {
@@ -1100,7 +1105,6 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         });
 
         let targetLead = lead;
-        let newLeadCreated = false;
         if (serviceAssignments && serviceAssignments.length > 0) {
           const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
           const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) } });
@@ -1117,31 +1121,11 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           );
 
           if (newAssignments.length === 0) {
-            return {
-              lead: this.formatLeadServicesSummary(lead),
-              newLeadCreated: false,
-            };
+            return this.formatLeadServicesSummary(lead);
           }
 
-          if (existingLeadServices.length > 0) {
-            // Create a new lead record for additional services when the original lead already has services
-            targetLead = manager.create(Lead, {
-              customer: lead.customer,
-              createdBy: lead.createdBy,
-              enquiryId: await this.generateEnquiryId(lead.customer?.name),
-              enquiryReference: lead.enquiryReference,
-              source: lead.source,
-              sourceDetail: lead.sourceDetail,
-              meta: lead.meta,
-              sourceDescription: lead.sourceDescription,
-              notes: lead.notes,
-              isDraft: false,
-              status: LEAD_STATUS.SERVICES,
-              quality: lead.quality,
-            });
-            await manager.save(targetLead);
-            newLeadCreated = true;
-          }
+          // Keep assignments on the same lead; do not create a duplicate lead record.
+          // This avoids duplicate company rows in lead list and preserves follow-up/rollback/delete flows.
 
           const servicesToUpdate = new Map<number, ServiceMaster>();
           const leadServicesToSave: LeadServiceEntity[] = [];
@@ -1192,10 +1176,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
 
           await manager.save(leadServicesToSave);
         } else {
-          return {
-            lead: this.formatLeadServicesSummary(lead),
-            newLeadCreated: false,
-          };
+          return this.formatLeadServicesSummary(lead);
         }
 
         const fullLead = await manager.findOne(Lead, {
@@ -1213,10 +1194,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           ],
         });
 
-        return {
-          lead: this.formatLeadServicesSummary(fullLead),
-          newLeadCreated,
-        };
+        return this.formatLeadServicesSummary(fullLead);
       });
     } catch (error) {
       throw new BadRequestException(error.message);
