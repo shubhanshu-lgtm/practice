@@ -1099,6 +1099,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           relations: ['owner', 'service', 'department'],
         });
 
+        let targetLead = lead;
+        let newLeadCreated = false;
         if (serviceAssignments && serviceAssignments.length > 0) {
           const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
           const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) } });
@@ -1106,38 +1108,46 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           const foundServiceIds = services.map(s => s.id);
           const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.serviceId));
 
-          if (validAssignments.length === 0 && serviceAssignments.length > 0) {
+          if (validAssignments.length === 0) {
             throw new BadRequestException(`None of the provided service IDs exist: ${uniqueServiceIds.join(', ')}`);
           }
 
-          // Do not remove existing services, only add new ones
-          // const incomingServiceIds = validAssignments.map(sa => sa.serviceId);
-          // const servicesToRemove = existingLeadServices.filter(els => !incomingServiceIds.includes(els.serviceId));
+          const newAssignments = validAssignments.filter(assignment =>
+            !existingLeadServices.some(existing => existing.serviceId === assignment.serviceId),
+          );
 
-          // if (servicesToRemove.length > 0) {
-          //   const removeIds = servicesToRemove.map(s => s.id);
-          //   // Atomically unlink proposal items for services being removed
-          //   await manager
-          //     .createQueryBuilder()
-          //     .update(ProposalItem)
-          //     .set({ leadServiceId: null })
-          //     .where(`leadServiceId IN (:...removeIds)`, { removeIds })
-          //     .execute();
+          if (newAssignments.length === 0) {
+            return {
+              lead: this.formatLeadServicesSummary(lead),
+              newLeadCreated: false,
+            };
+          }
 
-          //   await manager.delete(LeadServiceEntity, { id: In(removeIds) });
-          // }
+          if (existingLeadServices.length > 0) {
+            // Create a new lead record for additional services when the original lead already has services
+            targetLead = manager.create(Lead, {
+              customer: lead.customer,
+              createdBy: lead.createdBy,
+              enquiryId: await this.generateEnquiryId(lead.customer?.name),
+              enquiryReference: lead.enquiryReference,
+              source: lead.source,
+              sourceDetail: lead.sourceDetail,
+              meta: lead.meta,
+              sourceDescription: lead.sourceDescription,
+              notes: lead.notes,
+              isDraft: false,
+              status: LEAD_STATUS.SERVICES,
+              quality: lead.quality,
+            });
+            await manager.save(targetLead);
+            newLeadCreated = true;
+          }
 
           const servicesToUpdate = new Map<number, ServiceMaster>();
           const leadServicesToSave: LeadServiceEntity[] = [];
 
-          for (const assignment of validAssignments) {
+          for (const assignment of newAssignments) {
             const service = services.find(s => s.id === assignment.serviceId);
-            const existing = existingLeadServices.find(els => els.serviceId === assignment.serviceId);
-
-            // If service already assigned, skip to prevent overwrite
-            if (existing) {
-              continue;
-            }
 
             if (service && assignment.description) {
               service.description = assignment.description;
@@ -1152,7 +1162,6 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             if (assignment.ownerId) {
               owner = await manager.findOne(User, { where: { id: assignment.ownerId } });
             } else if (actor) {
-              // Default to authenticated user for new assignments
               owner = actor;
             }
 
@@ -1161,8 +1170,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
               department = await manager.findOne(Department, { where: { id: assignment.departmentId } });
             }
 
-            const leadServiceData = {  
-              lead,
+            const leadServiceData = {
+              lead: targetLead,
               service,
               deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
               remarks: assignment.remarks || null,
@@ -1183,19 +1192,14 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
 
           await manager.save(leadServicesToSave);
         } else {
-          // If payload is empty or null, do nothing (additive only)
-          // await manager
-          //   .createQueryBuilder()
-          //   .update(ProposalItem)
-          //   .set({ leadServiceId: null })
-          //   .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId: lead.id })
-          //   .execute();
-
-          // await manager.delete(LeadServiceEntity, { lead: { id: lead.id } });
+          return {
+            lead: this.formatLeadServicesSummary(lead),
+            newLeadCreated: false,
+          };
         }
 
         const fullLead = await manager.findOne(Lead, {
-          where: { id: lead.id },
+          where: { id: targetLead.id },
           relations: [
             'customer',
             'customer.contacts',
@@ -1209,7 +1213,10 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           ],
         });
 
-        return this.formatLeadServicesSummary(fullLead);
+        return {
+          lead: this.formatLeadServicesSummary(fullLead),
+          newLeadCreated,
+        };
       });
     } catch (error) {
       throw new BadRequestException(error.message);
