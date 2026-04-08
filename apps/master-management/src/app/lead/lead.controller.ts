@@ -247,7 +247,7 @@ export class LeadController {
   }
 
   @Get(':id')
-  async getLeadById(@Req() req: AuthenticatedRequest, @Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+  async getLeadById(@Req() req: AuthenticatedRequest, @Res() res: Response, @Param('id') id: string) {
     try {
       const lead = await this.leadService.getLeadById(id, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead fetched successfully', data: lead });

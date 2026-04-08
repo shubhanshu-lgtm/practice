@@ -696,21 +696,27 @@ export class LeadService {
     }
   }
 
-  async getLeadById(id: number, actor?: User): Promise<Lead> {
+  async getLeadById(id: string, actor?: User): Promise<any> {
     try {
-      const lead = await this.leadRepository.findOne({ 
-        where: { id }, 
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
+      const lead = await this.leadRepository.findOne({
+        where,
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
+
       if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
+
       if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
         if (!lead.createdBy || lead.createdBy.id !== actor.id) {
           throw new NotFoundException('Lead not found');
         }
       }
-      return lead;
+
+      return this.formatLeadServicesSummary(lead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
