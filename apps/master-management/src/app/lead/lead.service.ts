@@ -696,29 +696,38 @@ export class LeadService {
     }
   }
 
-  async getLeadById(id: number, actor?: User): Promise<Lead> {
+  async getLeadById(id: string, actor?: User): Promise<any> {
     try {
-      const lead = await this.leadRepository.findOne({ 
-        where: { id }, 
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
+      const lead = await this.leadRepository.findOne({
+        where,
+        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
       });
+
       if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
+
       if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
         if (!lead.createdBy || lead.createdBy.id !== actor.id) {
           throw new NotFoundException('Lead not found');
         }
       }
-      return lead;
+
+      return this.formatLeadServicesSummary(lead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
   }
 
-  async deleteLead(id: number, hard = false, actor?: User): Promise<void> {
+  async deleteLead(id: string, hard = false, actor?: User): Promise<void> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id }, relations: ['createdBy'] });
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
+      const lead = await this.leadRepository.findOne({ where, relations: ['createdBy'] });
       if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
@@ -730,7 +739,7 @@ export class LeadService {
 
       if (hard) {
         // Manually delete lead services as they don't have cascade delete
-        await this.leadServiceEntityRepository.delete({ lead: { id } });
+        await this.leadServiceEntityRepository.delete({ lead: { id: lead.id } });
         await this.leadRepository.remove(lead);
       } else {
         lead.isActive = false;
@@ -741,9 +750,12 @@ export class LeadService {
     }
   }
 
-async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
+async dropLead(id: string, payload: DropLeadDto, actor?: User): Promise<Lead> {
     return await this.dataSource.transaction(async (manager) => {
-      const lead = await manager.findOne(Lead, { where: { id }, relations: ['createdBy'] });
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
+      const lead = await manager.findOne(Lead, { where, relations: ['createdBy'] });
       if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
@@ -757,14 +769,14 @@ async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
       }
 
       // Update all LeadServices to DROPPED
-      await manager.update(LeadServiceEntity, { leadId: id }, { 
+      await manager.update(LeadServiceEntity, { leadId: lead.id }, { 
         status: SERVICE_STATUS.DROPPED 
       });
 
       // Update all Proposals to REJECTED with drop reason
       const dropReasonNote = `[REJECTED DUE TO LEAD DROP] Lead Drop Reason: ${payload.reason}`;
       await manager.getRepository(Proposal).update({ 
-        leadId: id 
+        leadId: lead.id 
       }, { 
         status: PROPOSAL_STATUS.REJECTED as any,
         notes: payload.notes 
@@ -789,9 +801,12 @@ async dropLead(id: number, payload: DropLeadDto, actor?: User): Promise<Lead> {
     });
   }
 
-async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<Lead> {
+async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<Lead> {
     return await this.dataSource.transaction(async (manager) => {
-      const lead = await manager.findOne(Lead, { where: { id }, relations: ['createdBy'] });
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
+      const lead = await manager.findOne(Lead, { where, relations: ['createdBy'] });
       if (!lead || lead.status !== LEAD_STATUS.LOST) {
         throw new BadRequestException('Lead must be in LOST status to rollback');
       }
@@ -802,14 +817,14 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
       }
 
       // Rollback LeadServices to REQUIREMENT_CONFIRMED
-      await manager.update(LeadServiceEntity, { leadId: id }, { 
+      await manager.update(LeadServiceEntity, { leadId: lead.id }, { 
         status: SERVICE_STATUS.REQUIREMENT_CONFIRMED 
       });
 
       // Rollback Proposals to DRAFT
       const rollbackNote = `[ROLLEDBACK] Rollback Reason: ${payload.reason}`;
       await manager.getRepository(Proposal).update({ 
-        leadId: id 
+        leadId: lead.id 
       }, { 
         status: PROPOSAL_STATUS.DRAFT as any,
         notes: payload.notes 
@@ -836,12 +851,15 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
 
 
 
-  async updateLead(id: number, payload: UpdateLeadDto, actor?: User): Promise<any> {
+  async updateLead(id: string, payload: UpdateLeadDto, actor?: User): Promise<any> {
     try {
+      const isNumeric = !isNaN(Number(id));
+      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+
       // Validate meta based on source if provided
       if (payload.source || payload.meta) {
         // Create a temporary object to validate against the logic
-        const tempLead = await this.leadRepository.findOne({ where: { id } });
+        const tempLead = await this.leadRepository.findOne({ where });
         const validationPayload = {
           source: payload.source || tempLead.source,
           meta: payload.meta || tempLead.meta
@@ -850,7 +868,7 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
       }
 
       const lead = await this.leadRepository.findOne({
-        where: { id },
+        where,
         relations: ['leadServices', 'customer', 'customer.contacts', 'customer.addresses', 'createdBy']
       });
       if (!lead || !lead.isActive) {
@@ -1047,11 +1065,14 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
     };
   }
 
-  async assignServices(leadId: number, serviceAssignments: ServiceAssignment[], actor?: User): Promise<any> {
+  async assignServices(leadId: string, serviceAssignments: ServiceAssignment[], actor?: User): Promise<any> {
     try {
       return await this.dataSource.transaction(async manager => {
+        const isNumeric = !isNaN(Number(leadId));
+        const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
         const lead = await manager.findOne(Lead, {
-          where: { id: leadId },
+          where,
           relations: ['createdBy', 'customer'],
         });
 
@@ -1074,7 +1095,7 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
 
         // Fetch existing lead services to compare and merge
         const existingLeadServices = await manager.find(LeadServiceEntity, {
-          where: { lead: { id: leadId } },
+          where: { lead: { id: lead.id } },
           relations: ['owner', 'service', 'department'],
         });
 
@@ -1172,14 +1193,14 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
             .createQueryBuilder()
             .update(ProposalItem)
             .set({ leadServiceId: null })
-            .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId })
+            .where(`leadServiceId IN (SELECT id FROM lead_service WHERE leadId = :leadId)`, { leadId: lead.id })
             .execute();
 
-          await manager.delete(LeadServiceEntity, { lead: { id: leadId } });
+          await manager.delete(LeadServiceEntity, { lead: { id: lead.id } });
         }
 
         const fullLead = await manager.findOne(Lead, {
-          where: { id: leadId },
+          where: { id: lead.id },
           relations: [
             'customer',
             'customer.contacts',
@@ -1379,10 +1400,13 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
     }
   }
 
-  async getLeadAssignedServices(leadId: number, actor?: User) {
+  async getLeadAssignedServices(leadId: string, actor?: User) {
     try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
       const lead = await this.leadRepository.findOne({ 
-        where: { id: leadId }, 
+        where, 
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service'] 
       });
       
@@ -1402,10 +1426,13 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
     }
   }
 
-  async updateLeadService(leadId: number, serviceId: number, assignment: ServiceAssignment, actor?: User): Promise<Lead> {
+async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAssignment, actor?: User): Promise<Lead> {
     try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
       const lead = await this.leadRepository.findOne({ 
-        where: { id: leadId }, 
+        where, 
         relations: ['leadServices', 'createdBy'] 
       });
       
@@ -1425,7 +1452,7 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
       }
 
       const leadService = await this.leadServiceEntityRepository.findOne({
-        where: { lead: { id: leadId }, service: { id: serviceId } }
+        where: { lead: { id: lead.id }, service: { id: serviceId } }
       });
 
       if (!leadService) {
@@ -1473,7 +1500,7 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
       await this.leadServiceEntityRepository.save(leadService);
 
       return await this.leadRepository.findOne({ 
-        where: { id: leadId }, 
+        where: { id: lead.id },
         relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
     } catch (error) {
@@ -1481,10 +1508,13 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
     }
   }
 
-  async removeLeadService(leadId: number, serviceId: number, actor?: User): Promise<void> {
+  async removeLeadService(leadId: string, serviceId: number, actor?: User): Promise<void> {
     try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
       const lead = await this.leadRepository.findOne({ 
-        where: { id: leadId }, 
+        where, 
         relations: ['createdBy'] 
       });
       
@@ -1499,7 +1529,7 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
       }
 
       const result = await this.leadServiceEntityRepository.delete({
-        lead: { id: leadId },
+        lead: { id: lead.id },
         service: { id: serviceId }
       });
 
@@ -1791,16 +1821,19 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
   }
 
   // --- lead follow-up methods ------------------------------------------------
-  async createLeadFollowUp(leadId: number, payload: CreateLeadFollowUpDto, actor?: User): Promise<LeadFollowUp> {
+  async createLeadFollowUp(leadId: string, payload: CreateLeadFollowUpDto, actor?: User): Promise<LeadFollowUp> {
     try {
-      const lead = await this.leadRepository.findOne({ where: { id: leadId } });
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
+      const lead = await this.leadRepository.findOne({ where });
       if (!lead || !lead.isActive) {
         throw new NotFoundException('Lead not found');
       }
       const followUp = this.followUpRepository.create({
         ...payload,
         lead,
-        leadId,
+        leadId: lead.id,
         followUpDate: payload.followUpDate ? new Date(payload.followUpDate) : null,
         completedAt: payload.completedAt ? new Date(payload.completedAt) : null,
         createdBy: actor || null,
@@ -1826,15 +1859,23 @@ async rollbackLead(id: number, payload: RollbackLeadDto, actor?: User): Promise<
   }
 
   async getLeadFollowUps(
-    leadId: number,
+    leadId: string,
     filter?: GetLeadFollowUpsDto,
     pagination?: IPagination,
   ): Promise<IPaginationObject> {
     try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
+      const lead = await this.leadRepository.findOne({ where });
+      if (!lead) {
+        throw new NotFoundException('Lead not found');
+      }
+
       const query = this.followUpRepository.createQueryBuilder('f')
         .leftJoinAndSelect('f.createdBy', 'createdBy')
         .leftJoinAndSelect('f.updatedBy', 'updatedBy')
-        .where('f.leadId = :leadId', { leadId })
+        .where('f.leadId = :leadId', { leadId: lead.id })
         .andWhere('f.isActive = :isActive', { isActive: true });
 
       if (filter) {

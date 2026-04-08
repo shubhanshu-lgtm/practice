@@ -247,7 +247,7 @@ export class LeadController {
   }
 
   @Get(':id')
-  async getLeadById(@Req() req: AuthenticatedRequest, @Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+  async getLeadById(@Req() req: AuthenticatedRequest, @Res() res: Response, @Param('id') id: string) {
     try {
       const lead = await this.leadService.getLeadById(id, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead fetched successfully', data: lead });
@@ -261,7 +261,7 @@ export class LeadController {
   async updateLead(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: UpdateLeadDto,
   ) {
     try {
@@ -278,7 +278,7 @@ export class LeadController {
   async createLeadFollowUp(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: CreateLeadFollowUpDto,
   ) {
     try {
@@ -294,7 +294,7 @@ export class LeadController {
   async getLeadFollowUps(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Query() filter: GetLeadFollowUpsDto,
     @Query() pagination: PaginationDto,
   ) {
@@ -364,7 +364,7 @@ export class LeadController {
   async dropLead(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: DropLeadDto,
   ) {
     try {
@@ -380,7 +380,7 @@ export class LeadController {
   async rollbackLead(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: RollbackLeadDto,
   ) {
     try {
@@ -397,7 +397,7 @@ export class LeadController {
   async deleteLead(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body('hard') hard?: boolean,
   ) {
     try {
@@ -414,7 +414,7 @@ export class LeadController {
   async assignServicesToLead(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
@@ -430,7 +430,7 @@ export class LeadController {
   async updateLeadServices(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
@@ -495,7 +495,7 @@ export class LeadController {
   async getLeadAssignedServices(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
   ) {
     try {
       const leadServices = await this.leadService.getLeadAssignedServices(id, req.user);
@@ -556,7 +556,7 @@ export class LeadController {
   async updateLeadService(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Param('serviceId', ParseIntPipe) serviceId: number,
     @Body() payload: AssignServicesToLeadDto,
   ) {
@@ -573,7 +573,7 @@ export class LeadController {
   async removeLeadService(
     @Req() req: AuthenticatedRequest,
     @Res() res: Response,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Param('serviceId', ParseIntPipe) serviceId: number,
   ) {
     try {
