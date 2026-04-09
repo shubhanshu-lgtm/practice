@@ -428,6 +428,9 @@ export class LeadService {
         .leftJoinAndSelect('lead.createdBy', 'createdBy')
         .leftJoinAndSelect('lead.leadServices', 'leadServices')
         .leftJoinAndSelect('leadServices.service', 'service')
+        .leftJoinAndSelect('service.parent', 'parent')
+        .leftJoinAndSelect('leadServices.owner', 'owner')
+        .leftJoinAndSelect('leadServices.department', 'department')
         .leftJoinAndSelect('lead.proposals', 'proposals')
         .where(new Brackets(qb => {
           qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
@@ -1065,7 +1068,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
     };
 
     if (includeServices) {
-      summary.services = (lead.leadServices || []).map(ls => ({
+      const services = (lead.leadServices || []).map(ls => ({
         id: ls.id,
         assignmentGroupId: ls.assignmentGroupId || null,
         serviceId: ls.service?.id || null,
@@ -1082,6 +1085,16 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         owner: ls.owner ? { id: ls.owner.id, name: ls.owner.name, email: ls.owner.email } : null,
         department: ls.department ? { id: ls.department.id, name: ls.department.name } : null,
       }));
+      
+      summary.services = services;
+
+      // If all services share the same assignmentGroupId, include it as batchId at top level
+      if (services.length > 0) {
+        const firstGroupId = services[0].assignmentGroupId;
+        if (firstGroupId && services.every(s => s.assignmentGroupId === firstGroupId)) {
+          summary.batchId = firstGroupId;
+        }
+      }
     }
 
     return summary;
