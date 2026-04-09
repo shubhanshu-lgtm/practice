@@ -1318,41 +1318,41 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         const lead = assignment.lead;
         const leadId = lead?.id;
 
-        const leadMetadata = {
-          id: lead?.id || null,
-          enquiryId: lead?.enquiryId || null,
-          enquiryReference: lead?.enquiryReference || null,
-          leadStatus: lead?.status || null,
-          quality: lead?.quality || null,
-          source: lead?.source || null,
-          sourceDetail: lead?.sourceDetail || null,
-          meta: lead?.meta || null,
-          sourceDescription: lead?.sourceDescription || null,
-          notes: lead?.notes || null,
-          isDraft: lead?.isDraft || false,
-          isActive: lead?.isActive || false,
-          createdAt: lead?.createdAt || null,
-          companyName: lead?.customer?.name || null,
-          createdBy: lead?.createdBy
-            ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email, phoneNo: lead.createdBy.phoneNo, avatar: lead.createdBy.avatar, status: lead.createdBy.status, verifyStatus: lead.createdBy.verifyStatus, roleName: lead.createdBy.roleName, user_group: lead.createdBy.user_group, loginSource: lead.createdBy.loginSource, platform: lead.createdBy.platform }
-            : null,
-          addresses: lead?.customer?.addresses || [],
-        };
-
         if (!groupedMap.has(leadId)) {
-          groupedMap.set(leadId, {
-            ...leadMetadata,
+          const leadMetadata = {
+            id: lead.enquiryId || lead.id,
+            company_name: lead.customer?.name || null,
+            enquiryId: lead.enquiryId || null,
+            enquiryReference: lead.enquiryReference || null,
+            leadStatus: lead.status || null,
+            quality: lead.quality || null,
+            source: lead.source || null,
+            sourceDetail: lead.sourceDetail || null,
+            meta: lead.meta as Record<string, any> || null,
+            sourceDescription: lead.sourceDescription || null,
+            notes: lead.notes || null,
+            isDraft: lead.isDraft,
+            isActive: lead.isActive,
+            customer: lead.customer ? this.formatCustomer(lead.customer) : null,
+            createdAt: lead.createdAt || null,
+            createdBy: lead.createdBy
+              ? { id: lead.createdBy.id, name: lead.createdBy.name, email: lead.createdBy.email }
+              : null,
             services: [],
-          });
+            batchId: assignment.assignmentGroupId || null,
+          };
+          groupedMap.set(leadId, leadMetadata);
         }
 
         groupedMap.get(leadId).services.push({
           id: assignment.id,
+          assignmentGroupId: assignment.assignmentGroupId || null,
           serviceId: assignment.service?.id || null,
-          Department: assignment.service?.category || null,
-          serviceName: assignment.service?.name || null,
+          service_name: assignment.service?.category || assignment.service?.parent?.name || assignment.service?.parent?.category || assignment.service?.name || null,
+          sub_service_name: assignment.service?.name || null,
           description: assignment.description || assignment.service?.description || null,
           timeline: assignment.timeline,
+          service_timeline: assignment.service?.timeline || null,
           deliverables: assignment.deliverables || [],
           status: assignment.status || null,
           startDate: assignment.startDate || null,
@@ -1363,28 +1363,6 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             : null,
           department: assignment.department
             ? { id: assignment.department.id, name: assignment.department.name }
-            : null,
-          lead: leadMetadata,
-          service: assignment.service
-            ? {
-                id: assignment.service.id,
-                name: assignment.service.name,
-                code: assignment.service.code,
-                description: assignment.service.description,
-                timeline: assignment.service.timeline,
-                isActive: assignment.service.isActive,
-                departmentId: assignment.service.departmentId,
-                createdAt: assignment.service.createdAt,
-                parentId: assignment.service.parentId,
-                level: assignment.service.level,
-                category: assignment.service.category,
-                type: assignment.service.type,
-                accessLevel: assignment.service.accessLevel,
-                allowedUserGroups: assignment.service.allowedUserGroups,
-                allowedDepartments: assignment.service.allowedDepartments,
-                sortOrder: assignment.service.sortOrder,
-                logo: assignment.service.logo,
-              }
             : null,
         });
       }
