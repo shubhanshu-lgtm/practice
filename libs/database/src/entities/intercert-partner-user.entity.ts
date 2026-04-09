@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import "reflect-metadata";
 
 @Entity('intercert_partner_user')
 export class IntercertPartnerUser {

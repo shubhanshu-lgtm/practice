@@ -894,7 +894,7 @@ export class ProposalService {
             item.serviceName || item.leadService?.service?.name || '',
           description: item.description,
           deliverables: item.leadService?.deliverables || [],
-          timeline: null,
+          timeline: item.leadService?.timeline || item.leadService?.service?.description || 'N/A',
           amount: Number(item.amount),
           currency: item.currency,
           discount: Number(item.discount),
@@ -1044,7 +1044,7 @@ export class ProposalService {
       taxAmount: this.formatCurrency(item.taxAmount, item.currency),
       netAmount: this.formatCurrency(item.netAmount, item.currency),
       deliverables: item.leadService?.deliverables?.map(d => ({ deliverable: d })) || [],
-      timeline: item.leadService?.service?.description || 'N/A', // As requested: Timelines -> service -> description
+      timeline: item.leadService?.timeline || item.leadService?.service?.description || 'N/A',
     }));
 
     const total_fee = this.formatCurrency(proposal.grandTotal, proposal.currency);

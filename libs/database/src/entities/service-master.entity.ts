@@ -18,6 +18,9 @@ export class ServiceMaster {
   @Column({ type: 'text', nullable: true })
   description: string
 
+  @Column({ type: 'text', nullable: true })
+  timeline?: string
+
   @Column({ default: true })
   isActive: boolean
 
@@ -69,6 +72,9 @@ export class ServiceMaster {
 
   @Column({ type: 'int', default: 0 })
   sortOrder: number;
+
+  @Column({ type: 'text', nullable: true })
+  assignmentGroupId: string;
 
   @Column({ type: 'text', nullable: true })
   logo: string;
