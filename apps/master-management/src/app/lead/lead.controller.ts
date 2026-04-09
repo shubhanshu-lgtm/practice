@@ -568,6 +568,23 @@ export class LeadController {
     }
   }
 
+  @Put(':id/services/batch/:groupId')
+  @UseGuards(TokenValidationGuard)
+  async updateLeadServicesByGroupId(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id') id: string,
+    @Param('groupId') groupId: string,
+    @Body() payload: AssignServicesToLeadDto,
+  ) {
+    try {
+      const updatedLead = await this.leadService.updateLeadServicesByGroupId(id, groupId, payload.services[0], req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services batch updated successfully', data: updatedLead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Delete(':id/services/:serviceId')
   @UseGuards(TokenValidationGuard)
   async removeLeadService(
@@ -579,6 +596,22 @@ export class LeadController {
     try {
       await this.leadService.removeLeadService(id, serviceId, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead service removed successfully' });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete(':id/services/batch/:groupId')
+  @UseGuards(TokenValidationGuard)
+  async removeLeadServicesByGroupId(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id') id: string,
+    @Param('groupId') groupId: string,
+  ) {
+    try {
+      await this.leadService.removeLeadServicesByGroupId(id, groupId, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services batch removed successfully' });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
