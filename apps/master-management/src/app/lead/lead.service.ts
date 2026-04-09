@@ -29,6 +29,7 @@ import { paginate } from '../../../../../libs/utils/basicUtils';
 interface ServiceAssignment {
   serviceId: number;
   description?: string;
+  timeline: string;
   deliverables?: string[];
   remarks?: string;
   ownerId?: number;
@@ -171,8 +172,10 @@ export class LeadService {
   }
 
   private generateAssignmentGroupId(): string {
+    const now = new Date();
+    const dateStr = now.toISOString().split('T')[0].replace(/-/g, '');
     const randomSegment = Math.random().toString(36).substring(2, 8).toUpperCase();
-    return `ASG-${Date.now()}-${randomSegment}`;
+    return `BATCH-${dateStr}-${randomSegment}`;
   }
 
   private async generateUniqueCustomerId(companyName: string, country: string, excludeCustomerId?: number): Promise<string> {
@@ -322,7 +325,8 @@ export class LeadService {
           this.leadServiceEntityRepository.create({
             lead: savedLead,
             service: service,
-            assignmentGroupId
+            assignmentGroupId,
+            timeline:service.timeline || 'TBD'// Default value for required field
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -968,7 +972,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           this.leadServiceEntityRepository.create({
             lead: lead,
             service: service,
-            assignmentGroupId
+            assignmentGroupId,
+            timeline: 'TBD' // Default value for required field
           })
         );
         await this.leadServiceEntityRepository.save(leadServices);
@@ -1066,7 +1071,9 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         serviceId: ls.service?.id || null,
         service_name: ls.service?.category || ls.service?.parent?.name || ls.service?.parent?.category || ls.service?.name || null,
         sub_service_name: ls.service?.name || null,
-        description: ls.service?.description || null,
+        description: ls.description || ls.service?.description || null,
+        timeline: ls.timeline,
+        service_timeline: ls.service?.timeline || null,
         deliverables: ls.deliverables as string[] || [],
         status: ls.status || null,
         startDate: ls.startDate || null,
@@ -1115,6 +1122,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         });
 
         let targetLead = lead;
+        let batchId: string | null = null;
+
         if (serviceAssignments && serviceAssignments.length > 0) {
           const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
           const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) } });
@@ -1135,20 +1144,15 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           }
 
           const assignmentGroupId = this.generateAssignmentGroupId();
+          batchId = assignmentGroupId;
 
           // Keep assignments on the same lead; do not create a duplicate lead record.
           // This avoids duplicate company rows in lead list and preserves follow-up/rollback/delete flows.
 
-          const servicesToUpdate = new Map<number, ServiceMaster>();
           const leadServicesToSave: LeadServiceEntity[] = [];
 
           for (const assignment of newAssignments) {
             const service = services.find(s => s.id === assignment.serviceId);
-
-            if (service && assignment.description) {
-              service.description = assignment.description;
-              servicesToUpdate.set(service.id, service);
-            }
 
             const uniqueDeliverables = assignment.deliverables
               ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter(Boolean))]
@@ -1170,6 +1174,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
               lead: targetLead,
               service,
               assignmentGroupId,
+              description: assignment.description || service?.description || null,
+              timeline: assignment.timeline,
               deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
               remarks: assignment.remarks || null,
               owner,
@@ -1181,10 +1187,6 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
 
             const leadService = manager.create(LeadServiceEntity, leadServiceData);
             leadServicesToSave.push(leadService);
-          }
-
-          if (servicesToUpdate.size > 0) {
-            await manager.save(Array.from(servicesToUpdate.values()));
           }
 
           await manager.save(leadServicesToSave);
@@ -1207,7 +1209,11 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           ],
         });
 
-        return this.formatLeadServicesSummary(fullLead);
+        const summary = this.formatLeadServicesSummary(fullLead);
+        return {
+          ...summary,
+          batchId,
+        };
       });
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -1298,6 +1304,10 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         query.andWhere('service.category = :category', { category: filter.category });
       }
 
+      if (filter?.assignmentGroupId) {
+        query.andWhere('ls.assignmentGroupId = :assignmentGroupId', { assignmentGroupId: filter.assignmentGroupId });
+      }
+
       query.orderBy('lead.createdAt', 'DESC').skip(offset).take(limit);
 
       const [assignments, total] = await query.getManyAndCount();
@@ -1341,7 +1351,8 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           serviceId: assignment.service?.id || null,
           Department: assignment.service?.category || null,
           serviceName: assignment.service?.name || null,
-          description: assignment.service?.description || null,
+          description: assignment.description || assignment.service?.description || null,
+          timeline: assignment.timeline,
           deliverables: assignment.deliverables || [],
           status: assignment.status || null,
           startDate: assignment.startDate || null,
@@ -1360,6 +1371,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
                 name: assignment.service.name,
                 code: assignment.service.code,
                 description: assignment.service.description,
+                timeline: assignment.service.timeline,
                 isActive: assignment.service.isActive,
                 departmentId: assignment.service.departmentId,
                 createdAt: assignment.service.createdAt,
@@ -1453,8 +1465,11 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
       }
 
       if (assignment.description) {
-        service.description = assignment.description;
-        await this.serviceRepository.save(service);
+        leadService.description = assignment.description;
+      }
+
+      if (assignment.timeline !== undefined) {
+        leadService.timeline = assignment.timeline;
       }
 
       if (assignment.deliverables) {

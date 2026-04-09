@@ -121,7 +121,6 @@ export class ClosureService {
       const acceptance = manager.create(ProposalAcceptance, {
         proposalId: Number(dto.proposalId),
         leadId: Number(proposal.leadId),
-        assignmentGroupId: proposal.assignmentGroupId || null,
         awardDate: dto.awardDate,
         poNumber: dto.poNumber,
         poFileUrls: dto.poFileUrls,

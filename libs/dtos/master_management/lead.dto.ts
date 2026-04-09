@@ -255,6 +255,10 @@ export class CreateServiceDto {
   description?: string;
 
   @IsOptional()
+  @IsString()
+  timeline?: string;
+
+  @IsOptional()
   @IsBoolean()
   isActive?: boolean;
 
@@ -354,6 +358,11 @@ export class UpdateServiceDto {
 
   @IsOptional()
   @IsString()
+  @IsNotEmpty()
+  timeline: string;
+
+  @IsOptional()
+  @IsString()
   logo?: string;
 }
 
@@ -378,6 +387,9 @@ export class GetServicesFilterDto {
   @IsString()
   userGroup?: string;
 
+  @IsOptional()
+  @IsString()
+  assignmentGroupId?: string;
   @Type(() => Number)
   @IsOptional()
   @IsNumber()
@@ -455,6 +467,10 @@ export class ServiceAssignmentDto {
   @IsOptional()
   @IsString()
   description?: string;
+
+  @IsString()
+  @IsNotEmpty()
+  timeline: string;
 
   @IsOptional()
   @IsArray()
@@ -601,6 +617,10 @@ export class GetAssignedServicesFilterDto {
   @IsOptional()
   @IsString()
   category?: string;
+
+  @IsOptional()
+  @IsString()
+  assignmentGroupId?: string;
 
   @Type(() => Number)
   @IsOptional()

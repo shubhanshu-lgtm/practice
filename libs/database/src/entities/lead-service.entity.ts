@@ -29,6 +29,12 @@ export class LeadService {
   @Column({ nullable: true })
   serviceId: number;
 
+  @Column({ type: 'text', nullable: true })
+  description?: string;
+
+  @Column({ type: 'text', nullable: true })
+  timeline?: string;
+
   @ManyToOne(() => Department)
   @JoinColumn({ name: 'departmentId' })
   department: Department;
@@ -57,8 +63,8 @@ export class LeadService {
   endDate: Date;
 
   @Column({ type: 'json', nullable: true })
-  deliverables: string[]; // Array of strings e.g., ["Report", "Certificate"]
+  deliverables?: string[]; // Array of strings e.g., ["Report", "Certificate"]
 
   @Column({ type: 'text', nullable: true })
-  remarks: string;
+  remarks?: string;
 }
