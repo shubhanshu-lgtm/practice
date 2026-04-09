@@ -1571,7 +1571,7 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
 
       return await this.leadRepository.findOne({ 
         where: { id: lead.id },
-        relations: ['customer','address', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
+        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -1627,7 +1627,9 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         throw new NotFoundException('Lead not found');
       }
 
-      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.MANAGER, USER_GROUP.VAPT_TEAM, USER_GROUP.SALES_TEAM,
+        USER_GROUP.ISO_TEAM,USER_GROUP
+      ].includes(actor.user_group)) {
         if (!lead.createdBy || lead.createdBy.id !== actor.id) {
           throw new NotFoundException('Lead not found');
         }
