@@ -578,7 +578,7 @@ export class LeadController {
     @Body() payload: AssignServicesToLeadDto,
   ) {
     try {
-      const updatedLead = await this.leadService.updateLeadServicesByGroupId(id, groupId, payload.services[0], req.user);
+      const updatedLead = await this.leadService.updateLeadServicesByGroupId(id, groupId, payload.services, req.user);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services batch updated successfully', data: updatedLead });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);

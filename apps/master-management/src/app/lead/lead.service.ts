@@ -1494,7 +1494,7 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
     }
   }
 
-  async updateLeadServicesByGroupId(leadId: string, groupId: string, assignment: ServiceAssignment, actor?: User): Promise<Lead> {
+  async updateLeadServicesByGroupId(leadId: string, groupId: string, assignments: ServiceAssignment[], actor?: User): Promise<Lead> {
     try {
       const isNumeric = !isNaN(Number(leadId));
       const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
@@ -1516,63 +1516,125 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         }
       }
 
-      const leadServices = await this.leadServiceEntityRepository.find({
-        where: { lead: { id: lead.id }, assignmentGroupId: groupId }
+      // Fetch all existing services in this batch
+      const existingBatchServices = await this.leadServiceEntityRepository.find({
+        where: { lead: { id: lead.id }, assignmentGroupId: groupId },
+        relations: ['service']
       });
 
-      if (!leadServices || leadServices.length === 0) {
+      if (!existingBatchServices || existingBatchServices.length === 0) {
         throw new NotFoundException('No services found for this group on the specified lead');
       }
 
-      for (const leadService of leadServices) {
-        if (assignment.description) {
-          leadService.description = assignment.description;
-        }
+      const payloadServiceIds = assignments.map(a => a.serviceId);
+      const existingServiceIds = existingBatchServices.map(ebs => ebs.serviceId);
 
-        if (assignment.timeline !== undefined) {
-          leadService.timeline = assignment.timeline;
-        }
+      // 1. Identify services to delete (present in DB batch but NOT in payload)
+      const servicesToDelete = existingBatchServices.filter(ebs => !payloadServiceIds.includes(ebs.serviceId));
+      if (servicesToDelete.length > 0) {
+        await this.leadServiceEntityRepository.remove(servicesToDelete);
+      }
 
-        if (assignment.deliverables) {
-          const uniqueDeliverables = [...new Set(
-            assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d)
-          )];
-          leadService.deliverables = uniqueDeliverables.length > 0 ? uniqueDeliverables : null;
-        }
+      // 2. Identify services to add (present in payload but NOT in DB batch)
+      const newServiceIds = payloadServiceIds.filter(id => !existingServiceIds.includes(id));
+      const leadServicesToSave: LeadServiceEntity[] = [];
 
-        if (assignment.remarks !== undefined) {
-          leadService.remarks = assignment.remarks;
-        }
+      if (newServiceIds.length > 0) {
+        const servicesData = await this.serviceRepository.find({ where: { id: In(newServiceIds) } });
+        for (const serviceId of newServiceIds) {
+          const assignment = assignments.find(a => a.serviceId === serviceId);
+          const service = servicesData.find(s => s.id === serviceId);
+          if (!service) continue;
 
-        if (assignment.ownerId) {
-          const owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
-          if (owner) leadService.owner = owner;
-        }
+          const uniqueDeliverables = assignment.deliverables
+            ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter(Boolean))]
+            : [];
 
-        if (assignment.departmentId) {
-          const dept = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
-          if (dept) leadService.department = dept;
-        }
+          let owner = null;
+          if (assignment.ownerId) {
+            owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+          }
 
-        if (assignment.status) {
-          leadService.status = assignment.status;
-        }
+          let department = null;
+          if (assignment.departmentId) {
+            department = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+          }
 
-        if (assignment.startDate) {
-          leadService.startDate = new Date(assignment.startDate);
-        }
-
-        if (assignment.endDate) {
-          leadService.endDate = new Date(assignment.endDate);
+          const leadService = this.leadServiceEntityRepository.create({
+            lead: lead,
+            service,
+            assignmentGroupId: groupId,
+            description: assignment.description || service?.description || null,
+            timeline: assignment.timeline,
+            deliverables: uniqueDeliverables.length > 0 ? uniqueDeliverables : null,
+            remarks: assignment.remarks || null,
+            owner,
+            department,
+            status: assignment.status || SERVICE_STATUS.REQUIREMENT_CONFIRMED,
+            startDate: assignment.startDate ? new Date(assignment.startDate) : null,
+            endDate: assignment.endDate ? new Date(assignment.endDate) : null,
+          });
+          leadServicesToSave.push(leadService);
         }
       }
 
-      await this.leadServiceEntityRepository.save(leadServices);
+      // 3. Update existing services (present in both)
+      const servicesToUpdateIds = payloadServiceIds.filter(id => existingServiceIds.includes(id));
+      for (const serviceId of servicesToUpdateIds) {
+        const assignment = assignments.find(a => a.serviceId === serviceId);
+        const leadService = existingBatchServices.find(ebs => ebs.serviceId === serviceId);
+        
+        if (leadService && assignment) {
+          if (assignment.description) leadService.description = assignment.description;
+          if (assignment.timeline !== undefined) leadService.timeline = assignment.timeline;
+          
+          if (assignment.deliverables) {
+            const uniqueDeliverables = [...new Set(
+              assignment.deliverables.map((d: string) => d.trim()).filter(Boolean)
+            )];
+            leadService.deliverables = uniqueDeliverables.length > 0 ? uniqueDeliverables : null;
+          }
 
-      return await this.leadRepository.findOne({ 
+          if (assignment.remarks !== undefined) leadService.remarks = assignment.remarks;
+          
+          if (assignment.ownerId) {
+            const owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+            if (owner) leadService.owner = owner;
+          }
+
+          if (assignment.departmentId) {
+            const dept = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+            if (dept) leadService.department = dept;
+          }
+
+          if (assignment.status) leadService.status = assignment.status;
+          if (assignment.startDate) leadService.startDate = new Date(assignment.startDate);
+          if (assignment.endDate) leadService.endDate = new Date(assignment.endDate);
+          
+          leadServicesToSave.push(leadService);
+        }
+      }
+
+      if (leadServicesToSave.length > 0) {
+        await this.leadServiceEntityRepository.save(leadServicesToSave);
+      }
+
+      const fullLead = await this.leadRepository.findOne({ 
         where: { id: lead.id },
-        relations: ['customer', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
+        relations: ['customer', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
+
+      const summary = this.formatLeadServicesSummary(fullLead);
+      
+      // Filter services to return only the ones belonging to this batch
+      if (summary.services) {
+        summary.services = summary.services.filter(s => s.assignmentGroupId === groupId);
+      }
+
+      return {
+        ...summary,
+        batchId: groupId,
+      };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
