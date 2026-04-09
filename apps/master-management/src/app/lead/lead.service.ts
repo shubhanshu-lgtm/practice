@@ -1494,7 +1494,126 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
     }
   }
 
+  async updateLeadServicesByGroupId(leadId: string, groupId: string, assignment: ServiceAssignment, actor?: User): Promise<Lead> {
+    try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
+      const lead = await this.leadRepository.findOne({ 
+        where, 
+        relations: ['leadServices', 'createdBy'] 
+      });
+      
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.MANAGER, USER_GROUP.VAPT_TEAM, USER_GROUP.SALES_TEAM,
+        USER_GROUP.ISO_TEAM,
+      ].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      const leadServices = await this.leadServiceEntityRepository.find({
+        where: { lead: { id: lead.id }, assignmentGroupId: groupId }
+      });
+
+      if (!leadServices || leadServices.length === 0) {
+        throw new NotFoundException('No services found for this group on the specified lead');
+      }
+
+      for (const leadService of leadServices) {
+        if (assignment.description) {
+          leadService.description = assignment.description;
+        }
+
+        if (assignment.timeline !== undefined) {
+          leadService.timeline = assignment.timeline;
+        }
+
+        if (assignment.deliverables) {
+          const uniqueDeliverables = [...new Set(
+            assignment.deliverables.map((d: string) => d.trim()).filter((d: string) => d)
+          )];
+          leadService.deliverables = uniqueDeliverables.length > 0 ? uniqueDeliverables : null;
+        }
+
+        if (assignment.remarks !== undefined) {
+          leadService.remarks = assignment.remarks;
+        }
+
+        if (assignment.ownerId) {
+          const owner = await this.userRepository.findOne({ where: { id: assignment.ownerId } });
+          if (owner) leadService.owner = owner;
+        }
+
+        if (assignment.departmentId) {
+          const dept = await this.departmentRepository.findOne({ where: { id: assignment.departmentId } });
+          if (dept) leadService.department = dept;
+        }
+
+        if (assignment.status) {
+          leadService.status = assignment.status;
+        }
+
+        if (assignment.startDate) {
+          leadService.startDate = new Date(assignment.startDate);
+        }
+
+        if (assignment.endDate) {
+          leadService.endDate = new Date(assignment.endDate);
+        }
+      }
+
+      await this.leadServiceEntityRepository.save(leadServices);
+
+      return await this.leadRepository.findOne({ 
+        where: { id: lead.id },
+        relations: ['customer','address', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
+      });
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
   async removeLeadService(leadId: string, serviceId: number, actor?: User): Promise<void> {
+    try {
+      const isNumeric = !isNaN(Number(leadId));
+      const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
+
+      const lead = await this.leadRepository.findOne({ 
+        where, 
+        relations: ['createdBy'] 
+      });
+      
+      if (!lead || !lead.isActive) {
+        throw new NotFoundException('Lead not found');
+      }
+
+      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.MANAGER, USER_GROUP.VAPT_TEAM, USER_GROUP.SALES_TEAM,
+        USER_GROUP.ISO_TEAM,USER_GROUP
+      ].includes(actor.user_group)) {
+        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+          throw new NotFoundException('Lead not found');
+        }
+      }
+
+      const result = await this.leadServiceEntityRepository.delete({
+        lead: { id: lead.id },
+        service: { id: serviceId }
+      });
+
+      if (result.affected === 0) {
+        throw new NotFoundException('Service not assigned to this lead');
+      }
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async removeLeadServicesByGroupId(leadId: string, groupId: string, actor?: User): Promise<void> {
     try {
       const isNumeric = !isNaN(Number(leadId));
       const where = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId };
@@ -1516,11 +1635,11 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
 
       const result = await this.leadServiceEntityRepository.delete({
         lead: { id: lead.id },
-        service: { id: serviceId }
+        assignmentGroupId: groupId
       });
 
       if (result.affected === 0) {
-        throw new NotFoundException('Service not assigned to this lead');
+        throw new NotFoundException('No services found for this group on the specified lead');
       }
     } catch (error) {
       throw new BadRequestException(error.message);
