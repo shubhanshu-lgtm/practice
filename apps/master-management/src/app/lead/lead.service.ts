@@ -1135,13 +1135,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             throw new BadRequestException(`None of the provided service IDs exist: ${uniqueServiceIds.join(', ')}`);
           }
 
-          const newAssignments = validAssignments.filter(assignment =>
-            !existingLeadServices.some(existing => existing.serviceId === assignment.serviceId),
-          );
-
-          if (newAssignments.length === 0) {
-            return this.formatLeadServicesSummary(lead);
-          }
+          const newAssignments = validAssignments;
 
           const assignmentGroupId = this.generateAssignmentGroupId();
           batchId = assignmentGroupId;
