@@ -434,7 +434,8 @@ export class LeadService {
         .leftJoinAndSelect('lead.proposals', 'proposals')
         .where(new Brackets(qb => {
           qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
-            .orWhere('proposals.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED });
+            .orWhere('proposals.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED })
+            .orWhere('leadServices.status = :serviceDroppedStatus', { serviceDroppedStatus: SERVICE_STATUS.DROPPED });
         }));
 
       if (!isAdmin && actor?.id) {
@@ -1669,10 +1670,15 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         }
       }
 
-      const result = await this.leadServiceEntityRepository.delete({
-        lead: { id: lead.id },
-        service: { id: serviceId }
-      });
+      const result = await this.leadServiceEntityRepository.update(
+        {
+          lead: { id: lead.id },
+          service: { id: serviceId }
+        },
+        {
+          status: SERVICE_STATUS.DROPPED
+        }
+      );
 
       if (result.affected === 0) {
         throw new NotFoundException('Service not assigned to this lead');
@@ -1704,10 +1710,15 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         }
       }
 
-      const result = await this.leadServiceEntityRepository.delete({
-        lead: { id: lead.id },
-        assignmentGroupId: groupId
-      });
+      const result = await this.leadServiceEntityRepository.update(
+        {
+          lead: { id: lead.id },
+          assignmentGroupId: groupId
+        },
+        {
+          status: SERVICE_STATUS.DROPPED
+        }
+      );
 
       if (result.affected === 0) {
         throw new NotFoundException('No services found for this group on the specified lead');
