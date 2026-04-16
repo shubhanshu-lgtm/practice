@@ -617,6 +617,22 @@ export class LeadController {
     }
   }
 
+  @Post(':id/services/batch/:groupId/rollback')
+  @UseGuards(TokenValidationGuard)
+  async rollbackLeadServicesByGroupId(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id') id: string,
+    @Param('groupId') groupId: string,
+  ) {
+    try {
+      const lead = await this.leadService.rollbackLeadServicesByGroupId(id, groupId, req.user);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Lead services batch rollback successful', data: lead });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Post('permissions')
   @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
   async createPermission(@Req() req: AuthenticatedRequest, @Res() res: Response, @Body() payload: CreatePermissionDto) {
