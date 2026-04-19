@@ -167,14 +167,15 @@ export class ProposalController {
   @UseGuards(TokenValidationGuard)
   async findAll(
     @Res() res: Response,
-    @Query('leadId') leadId?: number,
+    @Query('leadId') leadId?: string,
+    @Query('assignmentGroupId') assignmentGroupId?: string,
     @Query('status') status?: PROPOSAL_STATUS,
     @Query('search') search?: string,
     @Query('page') page?: number,
     @Query('limit') limit?: number,
   ) {
     try {
-      const result = await this.proposalService.getProposals({ leadId, status, search, page, limit });
+      const result = await this.proposalService.getProposals({ leadId, assignmentGroupId, status, search, page, limit });
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposals fetched successfully',
         data: result
@@ -188,7 +189,7 @@ export class ProposalController {
   @UseGuards(TokenValidationGuard)
   async getLeadServiceStatuses(
     @Res() res: Response,
-    @Param('leadId', ParseIntPipe) leadId: number,
+    @Param('leadId') leadId: string,
   ) {
     try {
       const result = await this.proposalService.getLeadServiceStatuses(leadId);

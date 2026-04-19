@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested, Min, Max } from 'class-validator';
+import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested, Min, Max, IsNotEmpty } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
 import { PROPOSAL_STATUS, PROPOSAL_DIVISION, SUBMITTED_BY } from '../../database/src/entities/proposal.entity';
 
@@ -68,8 +68,13 @@ export class CreateProposalItemDto {
 }
 
 export class CreateProposalDto {
-  @IsNumber()
-  leadId: number;
+  @IsString()
+  @IsNotEmpty()
+  leadId: string | number;
+
+  @IsString()
+  @IsOptional()
+  assignmentGroupId?: string;
 
   @IsDate()
   @Type(() => Date)

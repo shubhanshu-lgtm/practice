@@ -46,8 +46,10 @@ export class ProposalService {
   }> {
     // Ensure the lead record is available (with service assignments) for draft generation.
     if (!lead) {
+      const isNumeric = !isNaN(Number(dto.leadId));
+      const where = isNumeric ? { id: Number(dto.leadId) } : { enquiryId: dto.leadId as string };
       lead = await this.leadRepo.findOne({
-        where: { id: Number(dto.leadId) },
+        where,
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'leadServices', 'leadServices.service'],
       });
     }
@@ -123,8 +125,14 @@ export class ProposalService {
 
     const grandTotal = subTotal - totalDiscount + totalTaxAmount;
 
+    // Use the assignmentGroupId from the DTO if provided, otherwise resolve it from services
+    const assignmentGroupId = dto.assignmentGroupId || this.resolveAssignmentGroupIdFromLeadServices(
+      leadServices,
+      itemsDto.map((item) => item.leadServiceId)
+    );
+
     const draft: Partial<Proposal> = {
-      leadId: Number(dto.leadId),
+      leadId: lead.id,
       proposalDate,
       validUntil: dto.validUntil,
       submittedBy,
@@ -138,10 +146,7 @@ export class ProposalService {
       totalDiscount,
       totalTaxAmount,
       grandTotal,
-      assignmentGroupId: this.resolveAssignmentGroupIdFromLeadServices(
-        leadServices,
-        itemsDto.map((item) => item.leadServiceId)
-      ),
+      assignmentGroupId,
     };
 
     return { draft, items: itemEntities, totals: { subTotal, totalDiscount, totalTaxAmount, grandTotal } };
@@ -149,126 +154,17 @@ export class ProposalService {
 
   async createProposal(dto: CreateProposalDto): Promise<Proposal> {
     return this.dataSource.transaction(async (manager) => {
-      const lead = await manager.findOne(Lead, { where: { id: Number(dto.leadId) } });
+      const isNumeric = !isNaN(Number(dto.leadId));
+      const where = isNumeric ? { id: Number(dto.leadId) } : { enquiryId: dto.leadId as string };
+      const lead = await manager.findOne(Lead, { where });
       if (!lead) throw new NotFoundException('Lead not found');
 
-      // --- Smart upsert: if an active (DRAFT/SUBMITTED) proposal exists for this lead,
-      //     append only the new services to it instead of creating a duplicate proposal. ---
-      const existingProposal = await manager.findOne(Proposal, {
-        where: { leadId: Number(dto.leadId), status: In([PROPOSAL_STATUS.DRAFT, PROPOSAL_STATUS.SUBMITTED]) },
-        relations: ['items'],
-        order: { id: 'DESC' },
-      });
-
-      if (existingProposal) {
-        const alreadyProposedIds = new Set(existingProposal.items.map(i => i.leadServiceId));
-        const newItemDtos = dto.items.filter(i => !alreadyProposedIds.has(i.leadServiceId));
-        const skippedServiceIds = dto.items
-          .filter(i => alreadyProposedIds.has(i.leadServiceId))
-          .map(i => i.leadServiceId);
-
-        if (newItemDtos.length === 0) {
-          throw new BadRequestException(
-            `All specified services are already included in proposal ${existingProposal.proposalReference}. ` +
-            `Use the update endpoint (PATCH /proposals/${existingProposal.id}) to modify it.`
-          );
-        }
-
-        // Append new items to the existing proposal
-        let subTotal = Number(existingProposal.subTotal);
-        let totalDiscount = Number(existingProposal.totalDiscount);
-        let totalTaxAmount = Number(existingProposal.totalTaxAmount);
-
-        for (const itemDto of newItemDtos) {
-          const leadService = await manager.findOne(LeadService, {
-            where: { id: itemDto.leadServiceId, leadId: lead.id },
-            relations: ['service'],
-          });
-          if (!leadService) {
-            throw new BadRequestException(
-              `Service with ID ${itemDto.leadServiceId} is not assigned to this lead`
-            );
-          }
-
-          const item = manager.create(ProposalItem, {
-            proposalId: existingProposal.id,
-            leadServiceId: itemDto.leadServiceId,
-            serviceName: itemDto.serviceName || leadService?.service?.name || '',
-            serviceType: itemDto.serviceType || leadService?.service?.category || '',
-            description: itemDto.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : leadService?.service?.description || ''),
-            startDate: itemDto.startDate || leadService?.startDate,
-            endDate: itemDto.endDate || leadService?.endDate,
-            amount: itemDto.amount,
-            currency: itemDto.currency,
-            discount: itemDto.discount ?? 0,
-            taxPercentage: itemDto.taxPercentage ?? 0,
-          });
-
-          const discountAmt = (item.amount * item.discount) / 100;
-          const taxableAmt = item.amount - discountAmt;
-          const taxAmt = (taxableAmt * item.taxPercentage) / 100;
-
-          item.discountAmount = discountAmt;
-          item.taxableAmount = taxableAmt;
-          item.taxAmount = taxAmt;
-          item.netAmount = taxableAmt + taxAmt;
-
-          const savedItem = await manager.save(ProposalItem, item);
-
-          if (itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
-            const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
-            if (Math.abs(totalPct - 100) > 0.01) {
-              throw new BadRequestException(
-                `Payment term percentages for service ${savedItem.serviceName} must sum to 100`
-              );
-            }
-            const terms = itemDto.paymentTerms.map(t =>
-              manager.create(ProposalPaymentTerm, {
-                proposalId: existingProposal.id,
-                proposalItemId: savedItem.id,
-                milestoneName: t.milestoneName,
-                percentage: t.percentage,
-                triggerEvent: t.triggerEvent,
-                amount: (savedItem.netAmount * t.percentage) / 100,
-              })
-            );
-            await manager.save(ProposalPaymentTerm, terms);
-          }
-
-          subTotal += Number(savedItem.amount);
-          totalDiscount += discountAmt;
-          totalTaxAmount += taxAmt;
-        }
-
-        const grandTotal = subTotal - totalDiscount + totalTaxAmount;
-
-        existingProposal.subTotal = subTotal;
-        existingProposal.totalDiscount = totalDiscount;
-        existingProposal.totalTaxAmount = totalTaxAmount;
-        existingProposal.grandTotal = grandTotal;
-        existingProposal.version = (existingProposal.version || 1) + 1;
-        existingProposal.division = dto.division || existingProposal.division;
-        existingProposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, existingProposal.items.map(i => i.leadServiceId).concat(newItemDtos.map(i => i.leadServiceId)));
-        existingProposal.paymentTerms = [];
-        existingProposal.items = [];
-
-        await manager.save(Proposal, existingProposal);
-
-        const updated = await manager.findOne(Proposal, {
-          where: { id: existingProposal.id },
-          relations: [
-            'items', 'items.leadService', 'items.leadService.service',
-            'paymentTerms', 'lead', 'lead.customer',
-            'lead.customer.contacts', 'lead.customer.addresses',
-          ],
-        });
-
-        (updated as any)._skippedAlreadyProposedServiceIds = skippedServiceIds;
-        return updated ?? existingProposal;
-      }
-
-      // --- No active proposal found: create a fresh proposal ---
-      const count = await manager.count(Proposal, { where: { leadId: Number(dto.leadId) } });
+      // --- Fresh Proposal Creation ---
+      // We always create a new proposal record on POST. This allows users to generate 
+      // separate proposals for different services in the same batch at different times.
+      // If a user wants to add services to an existing draft, they should use the PATCH endpoint.
+      
+      const count = await manager.count(Proposal, { where: { leadId: lead.id } });
       const seq = String(count + 1).padStart(2, '0');
       const reference = `PROP/${lead.enquiryId || 'UNKNOWN'}/${seq}`;
 
@@ -276,9 +172,9 @@ export class ProposalService {
 
       const proposal = manager.create(Proposal, {
         ...draft,
-        leadId: Number(dto.leadId),
+        leadId: lead.id,
         proposalReference: reference,
-        version: count + 1,
+        version: 1, // Fresh proposals start at version 1
         status: PROPOSAL_STATUS.DRAFT,
         items,
       });
@@ -310,7 +206,7 @@ export class ProposalService {
       const result = await manager.findOne(Proposal, {
         where: { id: saved.id },
         relations: [
-             'items',
+          'items',
           'items.leadService',
           'items.leadService.service',
           'paymentTerms',
@@ -525,7 +421,8 @@ export class ProposalService {
   }
 
   async getProposals(query?: {
-    leadId?: number;
+    leadId?: string | number;
+    assignmentGroupId?: string;
     status?: PROPOSAL_STATUS;
     search?: string;
     page?: number;
@@ -549,21 +446,30 @@ export class ProposalService {
       .where('lead.isActive = :isActive', { isActive: true })
       .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
 
-    // If no specific lead or search criteria is provided, only show the latest version per lead.
-    // This keeps the general list clean. If a search/filter is applied, we show all versions.
-    if (!query?.search && !query?.leadId) {
+    // If no specific lead, assignmentGroup or search criteria is provided, only show the latest version per lead per batch.
+    if (!query?.search && !query?.leadId && !query?.assignmentGroupId) {
       qb.andWhere(qb => {
         const subQuery = qb.subQuery()
           .select('MAX(p.id)')
           .from(Proposal, 'p')
           .groupBy('p.leadId')
+          .addGroupBy('p.assignmentGroupId')
           .getQuery();
         return 'proposal.id IN ' + subQuery;
       });
     }
 
     if (query?.leadId) {
-      qb.andWhere('proposal.leadId = :leadId', { leadId: query.leadId });
+      const isNumeric = !isNaN(Number(query.leadId));
+      if (isNumeric) {
+        qb.andWhere('proposal.leadId = :leadId', { leadId: Number(query.leadId) });
+      } else {
+        qb.andWhere('lead.enquiryId = :enquiryId', { enquiryId: query.leadId });
+      }
+    }
+
+    if (query?.assignmentGroupId) {
+      qb.andWhere('proposal.assignmentGroupId = :assignmentGroupId', { assignmentGroupId: query.assignmentGroupId });
     }
 
     if (query?.status) {
@@ -583,18 +489,23 @@ export class ProposalService {
     return { data, total, page, limit };
   }
 
-  async getLeadServiceStatuses(leadId: number): Promise<{
+  async getLeadServiceStatuses(leadId: string | number): Promise<{
     available: LeadService[];
     proposed: Array<LeadService & { proposalId: number; proposalReference: string; proposalStatus: string }>;
     closed: Array<LeadService & { proposalId: number; proposalReference: string; closureId?: number }>;
   }> {
+    const isNumeric = !isNaN(Number(leadId));
+    const whereLead = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId as string };
+    const lead = await this.leadRepo.findOne({ where: whereLead });
+    if (!lead) throw new NotFoundException('Lead not found');
+
     const leadServices = await this.dataSource.getRepository(LeadService).find({
-      where: { leadId },
+      where: { leadId: lead.id },
       relations: ['service'],
     });
 
     const proposals = await this.proposalRepo.find({
-      where: { leadId },
+      where: { leadId: lead.id },
       relations: ['items'],
       order: { id: 'DESC' },
     });
@@ -659,12 +570,22 @@ export class ProposalService {
       });
       if (!proposal) throw new NotFoundException('Proposal not found');
 
-      // Destructure items and exclude paymentTerms from otherData
-      const { items: itemDtos, ...otherData } = dto;
+      // Destructure items and leadId to handle string resolution
+      const { items: itemDtos, leadId, ...otherData } = dto;
+      
+      // If leadId is provided (as string or number), resolve it to numeric ID
+      if (leadId) {
+        const isNumeric = !isNaN(Number(leadId));
+        const whereLead = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId as string };
+        const lead = await manager.findOne(Lead, { where: whereLead });
+        if (!lead) throw new NotFoundException('Lead not found');
+        proposal.leadId = lead.id;
+      }
+
       delete (otherData as any).paymentTerms;
       Object.assign(proposal, otherData);
 
-      let hasChanges = Object.keys(otherData).length > 0;
+      let hasChanges = Object.keys(otherData).length > 0 || !!leadId;
 
       if (itemDtos) {
         hasChanges = true;
@@ -677,15 +598,12 @@ export class ProposalService {
         if (currentItemIds.length > 0) {
           await manager.delete(ProposalPaymentTerm, { proposalItemId: In(currentItemIds) });
         }
-        // Also clear any terms directly linked to proposal (legacy or fallback)
         await manager.delete(ProposalPaymentTerm, { proposalId: id });
         
         // 3. Now delete the items
         await manager.delete(ProposalItem, { proposalId: id });
 
-        // Fetch existing items info (from memory/dto) to preserve serviceName if not provided
         const existingItems = proposal.items || [];
-
         let subTotal = 0;
         let totalDiscount = 0;
         let totalTaxAmount = 0;
@@ -698,15 +616,9 @@ export class ProposalService {
           });
 
           if (!leadService) {
-            const availableServices = await manager.find(LeadService, { where: { leadId: proposal.leadId } });
-            const availableIds = availableServices.map(ls => ls.id);
-            throw new BadRequestException(
-              `Service with ID ${itemDto.leadServiceId} is not assigned to the lead (Lead ID: ${proposal.leadId}) associated with this proposal. ` +
-              `Assigned Service IDs for this lead are: ${availableIds.join(', ')}`
-            );
+            throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to the lead.`);
           }
 
-          // Find existing item for this leadServiceId to preserve serviceName
           const existingItem = existingItems.find(ei => ei.leadServiceId === itemDto.leadServiceId);
 
           const item = manager.create(ProposalItem, {
@@ -732,22 +644,20 @@ export class ProposalService {
           item.taxAmount = taxAmt;
           item.netAmount = taxableAmt + taxAmt;
 
-          // Save item individually to ensure we get the ID back for payment terms
           const savedItem = await manager.save(ProposalItem, item);
           savedItems.push(savedItem);
 
-          subTotal += savedItem.amount;
+          subTotal += Number(savedItem.amount);
           totalDiscount += discountAmt;
           totalTaxAmount += taxAmt;
         }
 
-        // 4. Handle payment terms per item using the newly saved items
         for (const item of savedItems) {
           const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
             const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
             if (Math.abs(totalPct - 100) > 0.01) {
-              throw new BadRequestException(`Payment term percentages for service ${item.serviceName} must sum to 100`);
+              throw new BadRequestException(`Payment term percentages sum to 100`);
             }
 
             const terms: ProposalPaymentTerm[] = itemDto.paymentTerms.map(t =>
@@ -770,22 +680,22 @@ export class ProposalService {
         proposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
         if (savedItems.length > 0) proposal.currency = savedItems[0].currency;
 
-        // Recalculate division
         proposal.division = this.deriveDivisionFromLeadServices(savedItems);
-        proposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
+        
+        // Recalculate assignmentGroupId based on items if not explicitly provided in DTO
+        if (!dto.assignmentGroupId) {
+          proposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
+        }
 
-        // Detach relations to prevent TypeORM from attempting to nullify already-deleted records
-        delete proposal.items;
-        delete proposal.paymentTerms;
+        delete (proposal as any).items;
+        delete (proposal as any).paymentTerms;
       }
 
-      // Increment version if there are changes
       if (hasChanges) {
         proposal.version = (proposal.version || 1) + 1;
       }
 
       await manager.save(Proposal, proposal);
-
       return this.getProposal(id);
     });
   }
