@@ -446,19 +446,6 @@ export class ProposalService {
       .where('lead.isActive = :isActive', { isActive: true })
       .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
 
-    // If no specific lead, assignmentGroup or search criteria is provided, only show the latest version per lead per batch.
-    if (!query?.search && !query?.leadId && !query?.assignmentGroupId) {
-      qb.andWhere(qb => {
-        const subQuery = qb.subQuery()
-          .select('MAX(p.id)')
-          .from(Proposal, 'p')
-          .groupBy('p.leadId')
-          .addGroupBy('p.assignmentGroupId')
-          .getQuery();
-        return 'proposal.id IN ' + subQuery;
-      });
-    }
-
     if (query?.leadId) {
       const isNumeric = !isNaN(Number(query.leadId));
       if (isNumeric) {

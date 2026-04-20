@@ -868,150 +868,148 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
 
   async updateLead(id: string, payload: UpdateLeadDto, actor?: User): Promise<any> {
     try {
-      const isNumeric = !isNaN(Number(id));
-      const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
+      return await this.dataSource.transaction(async manager => {
+        const isNumeric = !isNaN(Number(id));
+        const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
 
-      // Validate meta based on source if provided
-      if (payload.source || payload.meta) {
-        // Create a temporary object to validate against the logic
-        const tempLead = await this.leadRepository.findOne({ where });
-        const validationPayload = {
-          source: payload.source || tempLead.source,
-          meta: payload.meta || tempLead.meta
-        } as CreateLeadDto;
-        this.validateLeadSourceMeta(validationPayload);
-      }
+        // Validate meta based on source if provided
+        if (payload.source || payload.meta) {
+          const tempLead = await manager.findOne(Lead, { where });
+          const validationPayload = {
+            source: payload.source || tempLead.source,
+            meta: payload.meta || tempLead.meta
+          } as CreateLeadDto;
+          this.validateLeadSourceMeta(validationPayload);
+        }
 
-      const lead = await this.leadRepository.findOne({
-        where,
-        relations: ['leadServices', 'customer', 'customer.contacts', 'customer.addresses', 'createdBy']
-      });
-      if (!lead || !lead.isActive) {
-        throw new NotFoundException('Lead not found');
-      }
-      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
-        if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+        const lead = await manager.findOne(Lead, {
+          where,
+          relations: ['leadServices', 'customer', 'customer.contacts', 'customer.addresses', 'createdBy']
+        });
+        if (!lead || !lead.isActive) {
           throw new NotFoundException('Lead not found');
         }
-      }
-
-      if (!lead.createdBy && actor) {
-        const createdByRef = new User();
-        createdByRef.id = actor.id;
-        lead.createdBy = createdByRef;
-      }
-
-      const { serviceIds, contacts, addresses, customer, ...updateData } = payload;
-
-      if (customer && lead.customer) {
-        const primaryAddress = addresses?.find(a => a.isPrimary) || addresses?.[0];
-        const currentCountry = lead.customer.addresses?.[0]?.country || 'IND';
-        const country = primaryAddress?.country || currentCountry;
-        const name = customer.name || lead.customer.name;
-        const currentBase = this.generateCustomerId(lead.customer.name, currentCountry);
-        const nextBase = this.generateCustomerId(name, country);
-        const nextCustomerId = nextBase === currentBase
-          ? lead.customer.customerId
-          : await this.generateUniqueCustomerId(name, country, lead.customer.id);
-        Object.assign(lead.customer, {
-          ...customer,
-          customerId: nextCustomerId
-        });
-        await this.customerRepository.save(lead.customer);
-      }
-
-      if (contacts) {
-        await this.contactRepository.delete({ customer: { id: lead.customer?.id } });
-        await this.leadContactRepository.delete({ lead: { id: lead.id } });
-        if (contacts.length > 0) {
-          const customerContacts = contacts.map(contact =>
-            this.contactRepository.create({
-              ...contact,
-              customer: lead.customer
-            })
-          );
-          await this.contactRepository.save(customerContacts);
-          const leadContacts = contacts.map(contact =>
-            this.leadContactRepository.create({
-              ...contact,
-              lead: lead,
-              leadId: lead.id
-            })
-          );
-          await this.leadContactRepository.save(leadContacts);
+        if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+          if (!lead.createdBy || lead.createdBy.id !== actor.id) {
+            throw new NotFoundException('Lead not found');
+          }
         }
-      }
 
-      if (addresses) {
-        await this.addressRepository.delete({ customer: { id: lead.customer?.id } });
-        await this.leadAddressRepository.delete({ lead: { id: lead.id } });
-        if (addresses.length > 0) {
-          const customerAddresses = addresses.map(addr =>
-            this.addressRepository.create({
-              ...addr,
-              customer: lead.customer
-            })
-          );
-          await this.addressRepository.save(customerAddresses);
-          const leadAddresses = addresses.map(addr => {
-            const { addressType, ...rest } = addr;
-            return this.leadAddressRepository.create({
-              ...rest,
-              addressType,
-              lead: lead,
-              leadId: lead.id
-            });
+        if (!lead.createdBy && actor) {
+          const createdByRef = new User();
+          createdByRef.id = actor.id;
+          lead.createdBy = createdByRef;
+        }
+
+        const { serviceIds, contacts, addresses, customer, ...updateData } = payload;
+
+        if (customer && lead.customer) {
+          const primaryAddress = addresses?.find(a => a.isPrimary) || addresses?.[0];
+          const currentCountry = lead.customer.addresses?.[0]?.country || 'IND';
+          const country = primaryAddress?.country || currentCountry;
+          const name = customer.name || lead.customer.name;
+          const currentBase = this.generateCustomerId(lead.customer.name, currentCountry);
+          const nextBase = this.generateCustomerId(name, country);
+          const nextCustomerId = nextBase === currentBase
+            ? lead.customer.customerId
+            : await this.generateUniqueCustomerId(name, country, lead.customer.id);
+          Object.assign(lead.customer, {
+            ...customer,
+            customerId: nextCustomerId
           });
-          await this.leadAddressRepository.save(leadAddresses);
+          await manager.save(Customer, lead.customer);
         }
-      }
 
-      if (serviceIds) {
-        // Fetch all current services for this lead
-        const existingServices = await this.leadServiceEntityRepository.find({
-          where: { lead: { id: lead.id } },
-          relations: ['service']
+        if (contacts) {
+          await manager.delete(CustomerContact, { customer: { id: lead.customer?.id } });
+          await manager.delete(LeadContact, { lead: { id: lead.id } });
+          if (contacts.length > 0) {
+            const customerContacts = contacts.map(contact =>
+              manager.create(CustomerContact, {
+                ...contact,
+                customer: lead.customer
+              })
+            );
+            await manager.save(CustomerContact, customerContacts);
+            const leadContacts = contacts.map(contact =>
+              manager.create(LeadContact, {
+                ...contact,
+                lead: lead,
+                leadId: lead.id
+              })
+            );
+            await manager.save(LeadContact, leadContacts);
+          }
+        }
+
+        if (addresses) {
+          await manager.delete(CustomerAddress, { customer: { id: lead.customer?.id } });
+          await manager.delete(LeadAddress, { lead: { id: lead.id } });
+          if (addresses.length > 0) {
+            const customerAddresses = addresses.map(addr =>
+              manager.create(CustomerAddress, {
+                ...addr,
+                customer: lead.customer
+              })
+            );
+            await manager.save(CustomerAddress, customerAddresses);
+            const leadAddresses = addresses.map(addr => {
+              const { addressType, ...rest } = addr;
+              return manager.create(LeadAddress, {
+                ...rest,
+                addressType: addressType,
+                lead: lead,
+                leadId: lead.id
+              });
+            });
+            await manager.save(LeadAddress, leadAddresses);
+          }
+        }
+
+        if (serviceIds) {
+          const existingServices = await manager.find(LeadServiceEntity, {
+            where: { lead: { id: lead.id } },
+            relations: ['service']
+          });
+          const existingServiceIds = existingServices.map(ls => ls.serviceId);
+
+          const servicesToDelete = existingServices.filter(ls => !serviceIds.includes(ls.serviceId));
+          const newServiceIds = serviceIds.filter(id => !existingServiceIds.includes(id));
+
+          if (servicesToDelete.length > 0) {
+            await manager.remove(servicesToDelete);
+          }
+
+          if (newServiceIds.length > 0) {
+            const assignmentGroupId = this.generateAssignmentGroupId();
+            const servicesToAssign = await manager.find(ServiceMaster, { where: { id: In(newServiceIds) } });
+            const leadServices = servicesToAssign.map(service => 
+              manager.create(LeadServiceEntity, {
+                leadId: lead.id,
+                service: service,
+                assignmentGroupId,
+                timeline: service.timeline || 'TBD'
+              })
+            );
+            await manager.save(LeadServiceEntity, leadServices);
+          }
+        }
+
+        const { ...finalUpdateData } = updateData;
+        Object.assign(lead, finalUpdateData);
+
+        await manager.save(Lead, lead);
+        const updatedLead = await manager.findOne(Lead, {
+          where: { id: lead.id },
+          relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
         });
-        const existingServiceIds = existingServices.map(ls => ls.serviceId);
 
-        // Identify services to keep, delete, and add
-        const servicesToDelete = existingServices.filter(ls => !serviceIds.includes(ls.serviceId));
-        const newServiceIds = serviceIds.filter(id => !existingServiceIds.includes(id));
-
-        if (servicesToDelete.length > 0) {
-          await this.leadServiceEntityRepository.remove(servicesToDelete);
+        if (!updatedLead) {
+          throw new BadRequestException('Lead not found after update');
         }
 
-        if (newServiceIds.length > 0) {
-          const assignmentGroupId = this.generateAssignmentGroupId();
-          const servicesToAssign = await this.serviceRepository.find({ where: { id: In(newServiceIds) } });
-          const leadServices = servicesToAssign.map(service => 
-            this.leadServiceEntityRepository.create({
-              leadId: lead.id,
-              service: service,
-              assignmentGroupId,
-              timeline: service.timeline || 'TBD'
-            })
-          );
-          await this.leadServiceEntityRepository.save(leadServices);
-        }
-      }
-
-      // Do not allow updating enquiryId via updateLead to prevent "new lead" confusion
-      const { ...finalUpdateData } = updateData;
-      Object.assign(lead, finalUpdateData);
-
-      await this.leadRepository.save(lead);
-      const updatedLead = await this.leadRepository.findOne({
-        where: { id: lead.id },
-        relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service']
+        return this.formatLeadServicesSummary(updatedLead);
       });
-
-      if (!updatedLead) {
-        throw new BadRequestException('Lead not found after update');
-      }
-
-      return this.formatLeadServicesSummary(updatedLead);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -1337,12 +1335,14 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
       const [assignments, total] = await query.getManyAndCount();
       const totalPages = Math.ceil(total / limit);
 
-      const groupedMap = new Map<number, any>();
+      const groupedMap = new Map<string, any>();
       for (const assignment of assignments) {
         const lead = assignment.lead;
         const leadId = lead?.id;
+        const groupId = assignment.assignmentGroupId || 'DEFAULT';
+        const uniqueKey = `${leadId}_${groupId}`;
 
-        if (!groupedMap.has(leadId)) {
+        if (!groupedMap.has(uniqueKey)) {
           const leadMetadata = {
             id: lead.enquiryId || lead.id,
             company_name: lead.customer?.name || null,
@@ -1365,10 +1365,10 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
             services: [],
             batchId: assignment.assignmentGroupId || null,
           };
-          groupedMap.set(leadId, leadMetadata);
+          groupedMap.set(uniqueKey, leadMetadata);
         }
 
-        groupedMap.get(leadId).services.push({
+        groupedMap.get(uniqueKey).services.push({
           id: assignment.id,
           assignmentGroupId: assignment.assignmentGroupId || null,
           serviceId: assignment.service?.id || null,
@@ -1554,9 +1554,13 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         const payloadServiceIds = assignments.map(a => a.serviceId);
         const existingServiceIds = existingBatchServices.map(ebs => ebs.serviceId);
 
-        // 1. Identify services to add or update (no deletion as per user request "Update will be only update")
-        // Existing services in the batch that are NOT in the payload will remain untouched.
-        
+        // 1. Identify services to delete (present in DB batch but NOT in payload)
+        // This ensures the batch reflects ONLY the services sent in the update request.
+        const servicesToDelete = existingBatchServices.filter(ebs => !payloadServiceIds.includes(ebs.serviceId));
+        if (servicesToDelete.length > 0) {
+          await manager.remove(servicesToDelete);
+        }
+
         const leadServicesToSave: LeadServiceEntity[] = [];
 
         // 2. Identify services to add (present in payload but NOT in DB batch)
