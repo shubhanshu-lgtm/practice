@@ -6,6 +6,7 @@ import { User } from "./user.entity";
 import { Department } from "./department.entity";
 
 import { SERVICE_STATUS } from "../../../constants/serviceConstants";
+export { SERVICE_STATUS };
 
 @Entity('lead_service')
 export class LeadService {

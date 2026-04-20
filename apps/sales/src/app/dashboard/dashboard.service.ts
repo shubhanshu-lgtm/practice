@@ -5,10 +5,9 @@ import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { ProposalAcceptance } from '../../../../../libs/database/src/entities/proposal-acceptance.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
 import { Proposal, PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
-import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
-import { LEAD_STATUS, PROJECT_STATUS } from '../../../../../libs/constants/salesConstants';
+import { LeadService, SERVICE_STATUS } from '../../../../../libs/database/src/entities/lead-service.entity';
+import { PROJECT_STATUS } from '../../../../../libs/constants/salesConstants';
 
-import { SERVICE_STATUS } from '../../../../../libs/database/src/entities/lead-service.entity';
 
 @Injectable()
 export class DashboardService {
@@ -26,61 +25,58 @@ export class DashboardService {
   ) {}
 
   async getDashboardCounts() {
-    // 1. Total Client = Count of /api/leads/list (Active leads with at least one non-dropped service)
-    const totalClientQb = this.leadRepo.createQueryBuilder('lead')
+    // 1. Total Client = Count of active lead list data (Leads with at least one active service)
+    const totalClient = await this.leadRepo.createQueryBuilder('lead')
       .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('lead.status != :lostStatus', { lostStatus: LEAD_STATUS.LOST });
+      .andWhere(qb => {
+        const subQuery = qb.subQuery()
+          .select('1')
+          .from(LeadService, 'ls')
+          .where('ls.leadId = lead.id')
+          .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
+          .getQuery();
+        return `EXISTS ${subQuery}`;
+      })
+      .getCount();
 
-    // Only count leads that have at least one service that is NOT dropped
-    totalClientQb.andWhere(qb => {
-      const subQuery = qb.subQuery()
-        .select('1')
-        .from(LeadService, 'ls')
-        .where('ls.leadId = lead.id')
-        .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
-        .getQuery();
-      return `EXISTS ${subQuery}`;
-    });
-
-    const totalClient = await totalClientQb.getCount();
-
-    // 2. Completed Lead = Count of /api/closures (Accepted proposals)
+    // 2. Completed Lead = Count of Closure List (ProposalAcceptance)
     const completedLead = await this.acceptanceRepo.count();
 
     // 3. Pending Leads = Service List Count + Proposal List Count
-    // Service List Count: Count of unique Lead + Batch pairs in assigned services
-    const assignedServicesCountRaw = await this.leadServiceRepo.createQueryBuilder('ls')
-      .select('COUNT(DISTINCT CONCAT(ls.leadId, "_", ls.assignmentGroupId))', 'count')
+    // Service List Count (Unique Lead + Batch pairs in LeadService not in any Proposal)
+    const serviceListCount = await this.leadServiceRepo.createQueryBuilder('ls')
+      .select('ls.leadId, ls.assignmentGroupId')
       .where('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
-      .getRawOne();
-    
-    // Proposal List Count: Excluding Approved and Dropped
-    const activeProposalsCount = await this.proposalRepo.count({
-      where: { 
-        status: Not(In([PROPOSAL_STATUS.APPROVED, PROPOSAL_STATUS.DROPPED]))
+      .andWhere(qb => {
+        const subQuery = qb.subQuery()
+          .select('1')
+          .from(Proposal, 'p')
+          .where('p.leadId = ls.leadId')
+          .andWhere('p.assignmentGroupId = ls.assignmentGroupId')
+          .getQuery();
+        return `NOT EXISTS ${subQuery}`;
+      })
+      .groupBy('ls.leadId, ls.assignmentGroupId')
+      .getRawMany();
+
+    const proposalListCount = await this.proposalRepo.count({
+      where: {
+        status: Not(In([PROPOSAL_STATUS.DROPPED]))
       }
     });
 
-    const pendingClients = Number(assignedServicesCountRaw?.count || 0) + activeProposalsCount;
+    const pendingClients = serviceListCount.length + proposalListCount;
 
-    // 4. Drop Leads = Count of /api/leads/dropped-list (isActive = false)
+    // 4. Drop Leads = Count of inactive leads
     const dropClients = await this.leadRepo.count({
       where: { isActive: false },
     });
 
-    // 5. Total Enquiry (Keep original logic for total lead count)
-    const totalEnquiry = await this.leadRepo.count({
-      where: { isDraft: false },
-    });
+    // 5. Pending Actions = 0 (Static for now)
+    const pendingActions = 0;
 
-    // 6. Static fields for now
-    const pendingInvoices = 0; 
-    const pendingActions = 0;  
-
-    // 7. Pending Projects (Projects in PENDING status)
-    const pendingProjects = await this.projectRepo.count({
-      where: { status: PROJECT_STATUS.PENDING },
-    });
+    // 6. Pending to send invoices to A/C = 0 (Static for now)
+    const pendingInvoices = 0;
 
     // --- Dynamic Sales Report (Last 6 Months) ---
     const sixMonthsAgo = new Date();
@@ -118,8 +114,6 @@ export class DashboardService {
     });
     const completedPercentage = totalProjects > 0 ? (completedProjectsCount / totalProjects) * 100 : 0;
 
-    const salesCount = completedLead; 
-
     const distributedCount = await this.leadServiceRepo.count({
       where: { department: Not(IsNull()) },
     });
@@ -138,16 +132,14 @@ export class DashboardService {
 
     return {
       totalClient,
-      totalEnquiry,
+      completedLead,
       pendingClients,
       dropClients,
-      pendingInvoices,
-      pendingProjects,
       pendingActions,
-      completedLead, // Adding explicitly as requested
+      pendingInvoices,
       overallProgress: {
         completedPercentage: Math.round(completedPercentage),
-        sales: salesCount,
+        sales: completedLead,
         distributed: distributedCount,
         return: returnCount,
       },
