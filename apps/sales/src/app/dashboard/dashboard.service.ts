@@ -75,8 +75,10 @@ export class DashboardService {
 
     const proposalListQuery = this.proposalRepo.createQueryBuilder('p')
       .innerJoin('p.lead', 'lead')
+      .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = p.id')
       .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('p.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
+      .andWhere('p.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
+      .andWhere('closure.id IS NULL');
 
     if (!isAdmin && actor?.id) {
       proposalListQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
@@ -89,10 +91,8 @@ export class DashboardService {
     // 4. Drop Leads = Count of leads in the dropped list (Matches Dropped List API)
     const dropClientsQuery = this.leadRepo.createQueryBuilder('lead')
       .leftJoin('lead.leadServices', 'ls')
-      .leftJoin('lead.proposals', 'p')
       .where(new Brackets(qb => {
         qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
-          .orWhere('p.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED })
           .orWhere('ls.status = :serviceDroppedStatus', { serviceDroppedStatus: SERVICE_STATUS.DROPPED });
       }));
 
