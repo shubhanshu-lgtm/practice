@@ -1,8 +1,9 @@
-import { Controller, Get, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
 import { DashboardService } from './dashboard.service';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
 import { TokenValidationGuard } from '../../../../../libs/middlewares/authMiddleware.guard';
+import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 
 @Controller('dashboard')
 export class DashboardController {
@@ -13,9 +14,9 @@ export class DashboardController {
 
   @Get('counts')
   @UseGuards(TokenValidationGuard)
-  async getCounts(@Res() res: Response) {
+  async getCounts(@Req() req: AuthenticatedRequest, @Res() res: Response) {
     try {
-      const counts = await this.dashboardService.getDashboardCounts();
+      const counts = await this.dashboardService.getDashboardCounts(req.user);
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Dashboard counts fetched successfully',
         data: counts,
