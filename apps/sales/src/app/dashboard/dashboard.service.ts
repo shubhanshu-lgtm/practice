@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Not, In, IsNull, Brackets } from 'typeorm';
+import { Repository, Not, In, IsNull, Brackets, FindOptionsWhere } from 'typeorm';
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { ProposalAcceptance } from '../../../../../libs/database/src/entities/proposal-acceptance.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
 import { Proposal, PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
-import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { LeadService, SERVICE_STATUS } from '../../../../../libs/database/src/entities/lead-service.entity';
+import { User } from '../../../../../libs/database/src/entities/user.entity';
 import { PROJECT_STATUS, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
+import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 
 
 @Injectable()
@@ -25,46 +27,80 @@ export class DashboardService {
     private readonly leadServiceRepo: Repository<LeadService>,
   ) {}
 
-  async getDashboardCounts() {
+  async getDashboardCounts(actor?: User) {
+    const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.AUDIT_TEAM,
+      USER_GROUP.VAPT_TEAM,USER_GROUP.ISO_TEAM, USER_GROUP.IT_SUPPORT,USER_GROUP.MANAGER, USER_GROUP.TEAM_LEAD,
+      USER_GROUP.USER,USER_GROUP.GRC_TEAM
+    ].includes(actor.user_group);
+
     // 1. Total Client = Count of active leads (Matches Client List API)
+    const leadWhere: FindOptionsWhere<Lead> = { isActive: true };
+    if (!isAdmin && actor?.id) {
+      leadWhere.createdBy = { id: actor.id };
+    }
     const totalClient = await this.leadRepo.count({
-      where: { isActive: true }
+      where: leadWhere
     });
 
     // 2. Completed Lead = Count of Closure List (ProposalAcceptance)
-    const completedLead = await this.acceptanceRepo.count();
+    const completedLeadQuery = this.acceptanceRepo.createQueryBuilder('acceptance')
+      .innerJoin('acceptance.lead', 'lead');
+    
+    if (!isAdmin && actor?.id) {
+      completedLeadQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+    }
+    const completedLead = await completedLeadQuery.getCount();
 
     // 3. Pending Leads = Service List Count + Proposal List Count
     // Service List Count (Unique Lead + Batch pairs in LeadService not in any non-dropped Proposal)
-    const serviceListItems = await this.leadServiceRepo.createQueryBuilder('ls')
+    const serviceListQuery = this.leadServiceRepo.createQueryBuilder('ls')
       .innerJoin('ls.lead', 'lead')
-      .leftJoin(ProposalItem, 'pi', 'pi.leadServiceId = ls.id')
-      .leftJoin(Proposal, 'p', 'p.id = pi.proposalId AND p.status != :droppedProposalStatus', { droppedProposalStatus: PROPOSAL_STATUS.DROPPED })
       .where('lead.isActive = :isActive', { isActive: true })
       .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
-      .andWhere('p.id IS NULL')
+      .andWhere(`NOT EXISTS (
+        SELECT 1 FROM proposal_item pi 
+        INNER JOIN proposal p ON p.id = pi.proposalId 
+        WHERE pi.leadServiceId = ls.id 
+        AND p.status != :droppedProposalStatus
+      )`, { droppedProposalStatus: PROPOSAL_STATUS.DROPPED });
+
+    if (!isAdmin && actor?.id) {
+      serviceListQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+    }
+
+    const serviceListItems = await serviceListQuery
       .select('ls.leadId, ls.assignmentGroupId')
       .groupBy('ls.leadId, ls.assignmentGroupId')
       .getRawMany();
 
-    const proposalListCount = await this.proposalRepo.count({
-      where: {
-        status: Not(In([PROPOSAL_STATUS.DROPPED])),
-        lead: { isActive: true }
-      }
-    });
+    const proposalListQuery = this.proposalRepo.createQueryBuilder('p')
+      .innerJoin('p.lead', 'lead')
+      .where('lead.isActive = :isActive', { isActive: true })
+      .andWhere('p.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
+
+    if (!isAdmin && actor?.id) {
+      proposalListQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+    }
+
+    const proposalListCount = await proposalListQuery.getCount();
 
     const pendingClients = serviceListItems.length + proposalListCount;
 
     // 4. Drop Leads = Count of leads in the dropped list (Matches Dropped List API)
-    const dropClientsCount = await this.leadRepo.createQueryBuilder('lead')
+    const dropClientsQuery = this.leadRepo.createQueryBuilder('lead')
       .leftJoin('lead.leadServices', 'ls')
       .leftJoin('lead.proposals', 'p')
       .where(new Brackets(qb => {
         qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
           .orWhere('p.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED })
           .orWhere('ls.status = :serviceDroppedStatus', { serviceDroppedStatus: SERVICE_STATUS.DROPPED });
-      }))
+      }));
+
+    if (!isAdmin && actor?.id) {
+      dropClientsQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+    }
+
+    const dropClientsCount = await dropClientsQuery
       .select('COUNT(DISTINCT lead.id)', 'count')
       .getRawOne();
 
