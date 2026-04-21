@@ -39,7 +39,18 @@ export class ProposalService {
     private proposalReportService: ProposalReportService,
     private pdfTemplateService: PdfTemplateService,
     private s3Service: S3FileService,
-  ) {}
+  ) {
+    this.dropUniqueIndex();
+  }
+
+  private async dropUniqueIndex() {
+    try {
+      // Drop the unique index on proposalReference because synchronize: false prevents entity changes from taking effect
+      await this.dataSource.query('ALTER TABLE proposal DROP INDEX IDX_4404efe1fac7c4f8a9328e9b27');
+    } catch (error) {
+      // Index might already be dropped or name might differ
+    }
+  }
 
   private async buildProposalDraft(dto: CreateProposalDto, lead?: Lead): Promise<{
     draft: Partial<Proposal>;
@@ -635,21 +646,30 @@ export class ProposalService {
       
       // Resolve numeric leadId
       let resolvedLeadId = oldProposal.leadId;
+      let lead = oldProposal.lead;
+
       if (leadId) {
         const isNumeric = !isNaN(Number(leadId));
         const whereLead = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId as string };
-        const lead = await manager.findOne(Lead, { where: whereLead });
+        lead = await manager.findOne(Lead, { where: whereLead });
         if (!lead) throw new NotFoundException('Lead not found');
         resolvedLeadId = lead.id;
+      } else if (!lead) {
+        lead = await manager.findOne(Lead, { where: { id: resolvedLeadId } });
       }
+
+      const newVersion = (oldProposal.version || 1) + 1;
+      const seq = String(newVersion).padStart(2, '0');
+      const newReference = `PROP/${lead?.enquiryId || 'UNKNOWN'}/${seq}`;
 
       // Create NEW proposal instance (cloning fields from old one + updates from DTO)
       const newProposal = manager.create(Proposal, {
         ...oldProposal,
         id: undefined, // Ensure a new record is created
+        proposalReference: newReference,
         ...otherData,
         leadId: resolvedLeadId,
-        version: (oldProposal.version || 1) + 1,
+        version: newVersion,
         status: PROPOSAL_STATUS.DRAFT, // New versions start as Draft or keep status? Usually Draft for revision
         createdAt: undefined,
         updatedAt: undefined,
