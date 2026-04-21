@@ -35,7 +35,7 @@ export class Proposal {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   proposalReference: string;
 
   @Column({ default: 1 })

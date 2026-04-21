@@ -22,6 +22,8 @@ import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 import * as path from 'path';
 import * as fs from 'fs';
 import { SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
+import { User } from '../../../../../libs/database/src/entities/user.entity';
+import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 //import * as os from 'os';
 
 @Injectable()
@@ -420,16 +422,24 @@ export class ProposalService {
     return this.s3Service.uploadAuditorFile(file.buffer, file.originalname);
   }
 
-  async getProposals(query?: {
-    leadId?: string | number;
-    assignmentGroupId?: string;
-    status?: PROPOSAL_STATUS;
-    search?: string;
-    page?: number;
-    limit?: number;
-  }): Promise<{ data: Proposal[]; total: number; page: number; limit: number }> {
+  async getProposals(
+    query?: {
+      leadId?: string | number;
+      assignmentGroupId?: string;
+      status?: PROPOSAL_STATUS;
+      search?: string;
+      page?: number;
+      limit?: number;
+    },
+    actor?: User
+  ): Promise<{ data: Proposal[]; total: number; page: number; limit: number }> {
     const page = query?.page || 1;
     const limit = query?.limit || 20;
+
+    const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.AUDIT_TEAM,
+      USER_GROUP.VAPT_TEAM, USER_GROUP.ISO_TEAM, USER_GROUP.IT_SUPPORT, USER_GROUP.MANAGER, USER_GROUP.TEAM_LEAD,
+      USER_GROUP.USER, USER_GROUP.GRC_TEAM
+    ].includes(actor.user_group);
 
     const qb = this.proposalRepo.createQueryBuilder('proposal')
       .leftJoinAndSelect('proposal.lead', 'lead')
@@ -447,6 +457,10 @@ export class ProposalService {
       .where('lead.isActive = :isActive', { isActive: true })
       .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
       .andWhere('closure.id IS NULL');
+
+    if (!isAdmin && actor?.id) {
+      qb.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+    }
 
     if (query?.leadId) {
       const isNumeric = !isNaN(Number(query.leadId));
@@ -497,10 +511,7 @@ export class ProposalService {
       .leftJoinAndSelect('proposal.items', 'items')
       .leftJoinAndSelect('items.leadService', 'leadService')
       .leftJoinAndSelect('leadService.service', 'service')
-      .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = proposal.id')
-      .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
-      .andWhere('closure.id IS NULL');
+      .where('lead.isActive = :isActive', { isActive: true });
 
     if (query?.leadId) {
       const isNumeric = !isNaN(Number(query.leadId));
@@ -608,54 +619,75 @@ export class ProposalService {
 
   async updateProposal(id: number, dto: UpdateProposalDto): Promise<Proposal> {
     return this.dataSource.transaction(async (manager) => {
-      const proposal = await manager.findOne(Proposal, {
+      // 1. Fetch the existing proposal (to be archived as REVISED)
+      const oldProposal = await manager.findOne(Proposal, {
         where: { id },
-        relations: ['items', 'paymentTerms']
+        relations: ['items', 'paymentTerms', 'files']
       });
-      if (!proposal) throw new NotFoundException('Proposal not found');
+      if (!oldProposal) throw new NotFoundException('Proposal not found');
 
-      // Destructure items and leadId to handle string resolution
+      // 2. Mark old proposal as REVISED
+      oldProposal.status = PROPOSAL_STATUS.REVISED;
+      await manager.save(Proposal, oldProposal);
+
+      // 3. Prepare data for the NEW proposal version
       const { items: itemDtos, leadId, ...otherData } = dto;
       
-      // If leadId is provided (as string or number), resolve it to numeric ID
+      // Resolve numeric leadId
+      let resolvedLeadId = oldProposal.leadId;
       if (leadId) {
         const isNumeric = !isNaN(Number(leadId));
         const whereLead = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId as string };
         const lead = await manager.findOne(Lead, { where: whereLead });
         if (!lead) throw new NotFoundException('Lead not found');
-        proposal.leadId = lead.id;
+        resolvedLeadId = lead.id;
       }
 
-      delete (otherData as any).paymentTerms;
-      Object.assign(proposal, otherData);
+      // Create NEW proposal instance (cloning fields from old one + updates from DTO)
+      const newProposal = manager.create(Proposal, {
+        ...oldProposal,
+        id: undefined, // Ensure a new record is created
+        ...otherData,
+        leadId: resolvedLeadId,
+        version: (oldProposal.version || 1) + 1,
+        status: PROPOSAL_STATUS.DRAFT, // New versions start as Draft or keep status? Usually Draft for revision
+        createdAt: undefined,
+        updatedAt: undefined,
+      });
 
-      let hasChanges = Object.keys(otherData).length > 0 || !!leadId;
+      // Save the new proposal first to get an ID
+      const savedProposal = await manager.save(Proposal, newProposal);
 
-      if (itemDtos) {
-        hasChanges = true;
-        
-        // 1. Fetch current items to delete them and their terms explicitly
-        const currentItems = await manager.find(ProposalItem, { where: { proposalId: id } });
-        const currentItemIds = currentItems.map(item => item.id);
+      // 4. Handle Items and Payment Terms for the NEW version
+      const itemsToProcess = itemDtos || oldProposal.items?.map(item => ({
+        leadServiceId: item.leadServiceId,
+        serviceName: item.serviceName,
+        serviceType: item.serviceType,
+        description: item.description,
+        startDate: item.startDate,
+        endDate: item.endDate,
+        amount: item.amount,
+        currency: item.currency,
+        discount: item.discount,
+        taxPercentage: item.taxPercentage,
+        paymentTerms: oldProposal.paymentTerms
+          ?.filter(pt => pt.proposalItemId === item.id)
+          .map(pt => ({
+            milestoneName: pt.milestoneName,
+            percentage: pt.percentage,
+            triggerEvent: pt.triggerEvent
+          }))
+      }));
 
-        // 2. Clear existing payment terms first to avoid FK constraint issues when deleting items
-        if (currentItemIds.length > 0) {
-          await manager.delete(ProposalPaymentTerm, { proposalItemId: In(currentItemIds) });
-        }
-        await manager.delete(ProposalPaymentTerm, { proposalId: id });
-        
-        // 3. Now delete the items
-        await manager.delete(ProposalItem, { proposalId: id });
-
-        const existingItems = proposal.items || [];
+      if (itemsToProcess) {
         let subTotal = 0;
         let totalDiscount = 0;
         let totalTaxAmount = 0;
         const savedItems: ProposalItem[] = [];
 
-        for (const itemDto of itemDtos) {
+        for (const itemDto of itemsToProcess) {
           const leadService = await manager.findOne(LeadService, {
-            where: { id: itemDto.leadServiceId, leadId: proposal.leadId },
+            where: { id: itemDto.leadServiceId, leadId: resolvedLeadId },
             relations: ['service'],
           });
 
@@ -663,20 +695,18 @@ export class ProposalService {
             throw new BadRequestException(`Service with ID ${itemDto.leadServiceId} is not assigned to the lead.`);
           }
 
-          const existingItem = existingItems.find(ei => ei.leadServiceId === itemDto.leadServiceId);
-
           const item = manager.create(ProposalItem, {
-            proposalId: proposal.id,
+            proposalId: savedProposal.id,
             leadServiceId: itemDto.leadServiceId,
-            serviceName: itemDto.serviceName || leadService?.service?.name || existingItem?.serviceName || '',
-            serviceType: itemDto.serviceType || leadService?.service?.category || existingItem?.serviceType || '',
-            description: itemDto.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : existingItem?.description || ''),
-            startDate: itemDto.startDate || existingItem?.startDate || leadService?.startDate,
-            endDate: itemDto.endDate || existingItem?.endDate || leadService?.endDate,
+            serviceName: itemDto.serviceName || leadService?.service?.name || '',
+            serviceType: itemDto.serviceType || leadService?.service?.category || '',
+            description: itemDto.description || (leadService?.deliverables ? leadService.deliverables.join(', ') : ''),
+            startDate: itemDto.startDate || leadService?.startDate,
+            endDate: itemDto.endDate || leadService?.endDate,
             amount: itemDto.amount,
-            currency: itemDto.currency || existingItem?.currency || 'INR',
-            discount: itemDto.discount !== undefined ? itemDto.discount : (existingItem?.discount || 0),
-            taxPercentage: itemDto.taxPercentage !== undefined ? itemDto.taxPercentage : (existingItem?.taxPercentage || 0)
+            currency: itemDto.currency || 'INR',
+            discount: itemDto.discount !== undefined ? itemDto.discount : 0,
+            taxPercentage: itemDto.taxPercentage !== undefined ? itemDto.taxPercentage : 0
           });
 
           const discountAmt = (item.amount * item.discount) / 100;
@@ -696,17 +726,13 @@ export class ProposalService {
           totalTaxAmount += taxAmt;
         }
 
+        // Save payment terms for the new items
         for (const item of savedItems) {
-          const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
+          const itemDto = itemsToProcess.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
-            const totalPct = itemDto.paymentTerms.reduce((s, t) => s + t.percentage, 0);
-            if (Math.abs(totalPct - 100) > 0.01) {
-              throw new BadRequestException(`Payment term percentages sum to 100`);
-            }
-
             const terms: ProposalPaymentTerm[] = itemDto.paymentTerms.map(t =>
               manager.create(ProposalPaymentTerm, {
-                proposalId: proposal.id,
+                proposalId: savedProposal.id,
                 proposalItemId: item.id,
                 milestoneName: t.milestoneName,
                 percentage: t.percentage,
@@ -718,29 +744,32 @@ export class ProposalService {
           }
         }
 
-        proposal.subTotal = subTotal;
-        proposal.totalDiscount = totalDiscount;
-        proposal.totalTaxAmount = totalTaxAmount;
-        proposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
-        if (savedItems.length > 0) proposal.currency = savedItems[0].currency;
-
-        proposal.division = this.deriveDivisionFromLeadServices(savedItems);
+        // Update totals on the new proposal
+        savedProposal.subTotal = subTotal;
+        savedProposal.totalDiscount = totalDiscount;
+        savedProposal.totalTaxAmount = totalTaxAmount;
+        savedProposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
+        if (savedItems.length > 0) savedProposal.currency = savedItems[0].currency;
+        savedProposal.division = this.deriveDivisionFromLeadServices(savedItems);
         
-        // Recalculate assignmentGroupId based on items if not explicitly provided in DTO
         if (!dto.assignmentGroupId) {
-          proposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
+          savedProposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
         }
 
-        delete (proposal as any).items;
-        delete (proposal as any).paymentTerms;
+        await manager.save(Proposal, savedProposal);
       }
 
-      if (hasChanges) {
-        proposal.version = (proposal.version || 1) + 1;
+      // 5. Clone existing files to the new proposal version
+      if (oldProposal.files && oldProposal.files.length > 0) {
+        const newFiles = oldProposal.files.map(f => manager.create(ProposalFile, {
+          proposalId: savedProposal.id,
+          fileName: f.fileName,
+          fileUrl: f.fileUrl
+        }));
+        await manager.save(ProposalFile, newFiles);
       }
 
-      await manager.save(Proposal, proposal);
-      return this.getProposal(id);
+      return this.getProposal(savedProposal.id);
     });
   }
 

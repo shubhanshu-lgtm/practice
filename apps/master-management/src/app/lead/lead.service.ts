@@ -381,7 +381,11 @@ export class LeadService {
       const pageSize = pagination?.pageSize ?? 20;
       const { currentPage, limit, offset } = paginate(page, pageSize);
 
-      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
+      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.AUDIT_TEAM,
+        USER_GROUP.VAPT_TEAM, USER_GROUP.ISO_TEAM, USER_GROUP.IT_SUPPORT, USER_GROUP.MANAGER, USER_GROUP.TEAM_LEAD,
+        USER_GROUP.USER, USER_GROUP.GRC_TEAM
+      ].includes(actor.user_group);
+
       const where: FindOptionsWhere<Lead> = { isActive: true };
       if (!isAdmin && actor?.id) {
         where.createdBy = { id: actor.id };
@@ -419,7 +423,10 @@ export class LeadService {
       const pageSize = pagination?.pageSize ?? 20;
       const { currentPage, limit, offset } = paginate(page, pageSize);
 
-      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group);
+      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.AUDIT_TEAM,
+        USER_GROUP.VAPT_TEAM, USER_GROUP.ISO_TEAM, USER_GROUP.IT_SUPPORT, USER_GROUP.MANAGER, USER_GROUP.TEAM_LEAD,
+        USER_GROUP.USER, USER_GROUP.GRC_TEAM
+      ].includes(actor.user_group);
       
       const query = this.leadRepository.createQueryBuilder('lead')
         .leftJoinAndSelect('lead.customer', 'customer')
@@ -1323,7 +1330,12 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
         .andWhere('p.id IS NULL');
 
-      if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
+      const isAdmin = actor && [USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN, USER_GROUP.AUDIT_TEAM,
+        USER_GROUP.VAPT_TEAM, USER_GROUP.ISO_TEAM, USER_GROUP.IT_SUPPORT, USER_GROUP.MANAGER, USER_GROUP.TEAM_LEAD,
+        USER_GROUP.USER, USER_GROUP.GRC_TEAM
+      ].includes(actor.user_group);
+
+      if (!isAdmin && actor?.id) {
         query.andWhere('createdBy.id = :actorId', { actorId: actor.id });
       }
 
@@ -1349,7 +1361,26 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
 
       query.orderBy('lead.createdAt', 'DESC').skip(offset).take(limit);
 
-      const [assignments, total] = await query.getManyAndCount();
+      const [assignments, _total] = await query.getManyAndCount();
+      
+      // Get the count of unique batches for totalDocs
+      const totalCountQuery = this.leadServiceEntityRepository.createQueryBuilder('ls')
+        .innerJoin('ls.lead', 'lead')
+        .leftJoin(ProposalItem, 'pi', 'pi.leadServiceId = ls.id')
+        .leftJoin(Proposal, 'p', 'p.id = pi.proposalId AND p.status != :droppedProposalStatus', { droppedProposalStatus: PROPOSAL_STATUS.DROPPED })
+        .where('lead.isActive = :isActive', { isActive: true })
+        .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
+        .andWhere('p.id IS NULL');
+
+      if (!isAdmin && actor?.id) {
+        totalCountQuery.andWhere('lead.createdBy = :actorId', { actorId: actor.id });
+      }
+
+      const totalCountResult = await totalCountQuery
+        .select('COUNT(DISTINCT CONCAT(ls.leadId, ls.assignmentGroupId))', 'count')
+        .getRawOne();
+      
+      const total = parseInt(totalCountResult?.count || '0', 10);
       const totalPages = Math.ceil(total / limit);
 
       const groupedMap = new Map<string, any>();

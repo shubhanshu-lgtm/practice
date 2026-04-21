@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UseGuards, HttpStatus, BadRequestException, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Res, UseGuards, HttpStatus, BadRequestException, UploadedFile, UseInterceptors, Req } from '@nestjs/common';
 import { ProposalService } from './proposal.service';
 import {
   CreateProposalDto,
@@ -12,6 +12,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { FileUpload } from '../../../../../libs/interfaces/commonTypes/custom.interface';
 import { PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
+import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 //import { CreateProposalWithServicesDto } from '../../../../../libs/dtos/sales/create-proposal-with-services.dto';
 @Controller('proposals')
 export class ProposalController {
@@ -166,6 +167,7 @@ export class ProposalController {
   @Get()
   @UseGuards(TokenValidationGuard)
   async findAll(
+    @Req() req: AuthenticatedRequest,
     @Res() res: Response,
     @Query('leadId') leadId?: string,
     @Query('assignmentGroupId') assignmentGroupId?: string,
@@ -175,7 +177,7 @@ export class ProposalController {
     @Query('limit') limit?: number,
   ) {
     try {
-      const result = await this.proposalService.getProposals({ leadId, assignmentGroupId, status, search, page, limit });
+      const result = await this.proposalService.getProposals({ leadId, assignmentGroupId, status, search, page, limit }, req.user);
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposals fetched successfully',
         data: result
