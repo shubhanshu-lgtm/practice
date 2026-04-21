@@ -434,7 +434,6 @@ export class LeadService {
         .leftJoinAndSelect('lead.proposals', 'proposals')
         .where(new Brackets(qb => {
           qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
-            .orWhere('proposals.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED })
             .orWhere('leadServices.status = :serviceDroppedStatus', { serviceDroppedStatus: SERVICE_STATUS.DROPPED });
         }));
 
@@ -817,12 +816,30 @@ async dropLead(id: string, payload: DropLeadDto, actor?: User): Promise<Lead> {
   }
 
 async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<Lead> {
+    // Support rollback by Batch ID via /leads/:id/rollback where id can be BATCH-*
+    if (id?.startsWith('BATCH-')) {
+      const batchService = await this.leadServiceEntityRepository.findOne({
+        where: { assignmentGroupId: id },
+        relations: ['lead']
+      });
+
+      if (!batchService?.leadId && !batchService?.lead?.id) {
+        throw new NotFoundException('No services found for the provided batch');
+      }
+
+      const resolvedLeadId = String(batchService.leadId || batchService.lead.id);
+      return this.rollbackLeadServicesByGroupId(resolvedLeadId, id, actor);
+    }
+
     return await this.dataSource.transaction(async (manager) => {
       const isNumeric = !isNaN(Number(id));
       const where = isNumeric ? { id: Number(id) } : { enquiryId: id };
 
       const lead = await manager.findOne(Lead, { where, relations: ['createdBy'] });
-      if (!lead || lead.status !== LEAD_STATUS.LOST) {
+      if (!lead) {
+        throw new NotFoundException('Lead not found');
+      }
+      if (lead.status !== LEAD_STATUS.LOST) {
         throw new BadRequestException('Lead must be in LOST status to rollback');
       }
       if (actor && ![USER_GROUP.SUPER_ADMIN, USER_GROUP.ADMIN].includes(actor.user_group)) {
@@ -836,12 +853,12 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         status: SERVICE_STATUS.REQUIREMENT_CONFIRMED 
       });
 
-      // Rollback Proposals to DRAFT
+      // Rollback Proposals to DROPPED so services move back to assigned-services list
       const rollbackNote = `[ROLLEDBACK] Rollback Reason: ${payload.reason}`;
       await manager.getRepository(Proposal).update({ 
         leadId: lead.id 
       }, { 
-        status: PROPOSAL_STATUS.DRAFT as any,
+        status: PROPOSAL_STATUS.DROPPED as any,
         notes: payload.notes 
           ? `${rollbackNote} | Notes: ${payload.notes}`
           : rollbackNote
@@ -1417,7 +1434,7 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         relations: ['customer', 'customer.contacts', 'customer.addresses', 'createdBy', 'leadServices', 'leadServices.service', 'leadServices.owner', 'leadServices.department'] 
       });
       
-      if (!lead || !lead.isActive) {
+      if (!lead) {
         throw new NotFoundException('Lead not found');
       }
 
@@ -1784,6 +1801,19 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
 
       if (result.affected === 0) {
         throw new NotFoundException('No dropped services found for this group on the specified lead');
+      }
+
+      const activeServiceCount = await this.leadServiceEntityRepository.count({
+        where: {
+          lead: { id: lead.id },
+          status: Not(SERVICE_STATUS.DROPPED)
+        }
+      });
+
+      if (activeServiceCount > 0 && (!lead.isActive || lead.status === LEAD_STATUS.LOST)) {
+        lead.isActive = true;
+        lead.status = LEAD_STATUS.SERVICES;
+        await this.leadRepository.save(lead);
       }
 
       return await this.leadRepository.findOne({ 

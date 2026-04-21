@@ -202,6 +202,28 @@ export class ProposalController {
     }
   }
 
+  @Get('versions')
+  @UseGuards(TokenValidationGuard)
+  async getVersions(
+    @Res() res: Response,
+    @Query('leadId') leadId?: string,
+    @Query('assignmentGroupId') assignmentGroupId?: string,
+    @Query('status') status?: PROPOSAL_STATUS,
+    @Query('search') search?: string,
+    @Query('page') page?: number,
+    @Query('limit') limit?: number,
+  ) {
+    try {
+      const result = await this.proposalService.getProposalVersions({ leadId, assignmentGroupId, status, search, page, limit });
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Proposal versions fetched successfully',
+        data: result
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Get(':id')
   @UseGuards(TokenValidationGuard)
   async findOne(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {

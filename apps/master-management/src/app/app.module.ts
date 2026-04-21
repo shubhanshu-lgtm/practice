@@ -12,6 +12,7 @@ import { LeadModule } from './lead/lead.module';
 import { UserManagementModule } from './user_management/user-management.module';
 import { TeamModule } from './team/team.module';
 import { PartnerUserModule } from './partner-user/partner-user.module';
+import { B2BPartnerModule } from './b2b-partner/b2b-partner.module';
 
 @Module({
     imports: [
@@ -26,6 +27,7 @@ import { PartnerUserModule } from './partner-user/partner-user.module';
         ModuleManagementModule,
         LeadModule,
         PartnerUserModule,
+        B2BPartnerModule,
     ],
     controllers: [AppController],
     providers: [AppService],
