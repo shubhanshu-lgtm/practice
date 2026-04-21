@@ -9,6 +9,7 @@ import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { CreateUserDto } from '../../../../../libs/dtos/master_management/user_management.dto';
 import { AuthenticatedRequest, GoogleUserRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
+import { ERROR_CODES, ErrorMessages } from '../../../../../libs/constants/commonConstants';
 
 @Controller('auth')
 export class AuthController {
@@ -64,11 +65,11 @@ export class AuthController {
       console.log('[Google Auth] Successful login for:', googleUser.email, 'Role:', result.data.user.roleName);
       return res.redirect(`${frontendUrl}/auth-callback?token=${result.data.token}`);
 
-    } catch (err) {
-      console.error('Google login error:', err);
+    } catch (error) {
+      console.error('Google login error:', error);
       const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
       //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
-      const errorMessage = encodeURIComponent(err.message || 'Login failed');
+      const errorMessage = encodeURIComponent(ErrorMessages.NOT_AUTHORIZED || 'Login failed');
       return res.redirect(`${frontendUrl}/login?error=${errorMessage}`);
     }
   }

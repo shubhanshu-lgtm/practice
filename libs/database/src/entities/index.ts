@@ -51,3 +51,4 @@ export * from './invoice.entity';
 export * from './invoice-item.entity';
 export * from './payment-record.entity';
 export * from './intercert-partner-user.entity';
+export * from './b2b-partner.entity';

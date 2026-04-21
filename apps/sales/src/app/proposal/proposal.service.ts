@@ -443,8 +443,10 @@ export class ProposalService {
       .leftJoinAndSelect('proposal.items', 'items')
       .leftJoinAndSelect('items.leadService', 'leadService')
       .leftJoinAndSelect('leadService.service', 'service')
+      .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = proposal.id')
       .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED });
+      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
+      .andWhere('closure.id IS NULL');
 
     if (query?.leadId) {
       const isNumeric = !isNaN(Number(query.leadId));
@@ -469,6 +471,61 @@ export class ProposalService {
     }
 
     qb.orderBy('proposal.createdAt', 'DESC')
+      .skip((page - 1) * limit)
+      .take(limit);
+
+    const [data, total] = await qb.getManyAndCount();
+    return { data, total, page, limit };
+  }
+
+  async getProposalVersions(query?: {
+    leadId?: string | number;
+    assignmentGroupId?: string;
+    status?: PROPOSAL_STATUS;
+    search?: string;
+    page?: number;
+    limit?: number;
+  }): Promise<{ data: Proposal[]; total: number; page: number; limit: number }> {
+    const page = query?.page || 1;
+    const limit = query?.limit || 20;
+
+    const qb = this.proposalRepo.createQueryBuilder('proposal')
+      .leftJoinAndSelect('proposal.lead', 'lead')
+      .leftJoinAndSelect('lead.customer', 'customer')
+      .leftJoinAndSelect('proposal.paymentTerms', 'paymentTerms')
+      .leftJoinAndSelect('proposal.files', 'files')
+      .leftJoinAndSelect('proposal.items', 'items')
+      .leftJoinAndSelect('items.leadService', 'leadService')
+      .leftJoinAndSelect('leadService.service', 'service')
+      .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = proposal.id')
+      .where('lead.isActive = :isActive', { isActive: true })
+      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
+      .andWhere('closure.id IS NULL');
+
+    if (query?.leadId) {
+      const isNumeric = !isNaN(Number(query.leadId));
+      if (isNumeric) {
+        qb.andWhere('proposal.leadId = :leadId', { leadId: Number(query.leadId) });
+      } else {
+        qb.andWhere('lead.enquiryId = :enquiryId', { enquiryId: query.leadId });
+      }
+    }
+
+    if (query?.assignmentGroupId) {
+      qb.andWhere('proposal.assignmentGroupId = :assignmentGroupId', { assignmentGroupId: query.assignmentGroupId });
+    }
+
+    if (query?.status) {
+      qb.andWhere('proposal.status = :status', { status: query.status });
+    }
+
+    if (query?.search) {
+      const search = `%${query.search}%`;
+      qb.andWhere('(proposal.proposalReference LIKE :search OR customer.name LIKE :search OR lead.enquiryId LIKE :search)', { search });
+    }
+
+    qb.orderBy('proposal.version', 'DESC')
+      .addOrderBy('proposal.updatedAt', 'DESC')
       .skip((page - 1) * limit)
       .take(limit);
 
