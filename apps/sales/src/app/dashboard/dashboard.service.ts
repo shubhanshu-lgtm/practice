@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Not, In, IsNull } from 'typeorm';
+import { Repository, Not, In, IsNull, Brackets } from 'typeorm';
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { ProposalAcceptance } from '../../../../../libs/database/src/entities/proposal-acceptance.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
 import { Proposal, PROPOSAL_STATUS } from '../../../../../libs/database/src/entities/proposal.entity';
+import { ProposalItem } from '../../../../../libs/database/src/entities/proposal-item.entity';
 import { LeadService, SERVICE_STATUS } from '../../../../../libs/database/src/entities/lead-service.entity';
-import { PROJECT_STATUS } from '../../../../../libs/constants/salesConstants';
+import { PROJECT_STATUS, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 
 
 @Injectable()
@@ -25,52 +26,49 @@ export class DashboardService {
   ) {}
 
   async getDashboardCounts() {
-    // 1. Total Client = Count of active lead list data (Leads with at least one active service)
-    const totalClient = await this.leadRepo.createQueryBuilder('lead')
-      .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere(qb => {
-        const subQuery = qb.subQuery()
-          .select('1')
-          .from(LeadService, 'ls')
-          .where('ls.leadId = lead.id')
-          .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
-          .getQuery();
-        return `EXISTS ${subQuery}`;
-      })
-      .getCount();
+    // 1. Total Client = Count of active leads (Matches Client List API)
+    const totalClient = await this.leadRepo.count({
+      where: { isActive: true }
+    });
 
     // 2. Completed Lead = Count of Closure List (ProposalAcceptance)
     const completedLead = await this.acceptanceRepo.count();
 
     // 3. Pending Leads = Service List Count + Proposal List Count
-    // Service List Count (Unique Lead + Batch pairs in LeadService not in any Proposal)
-    const serviceListCount = await this.leadServiceRepo.createQueryBuilder('ls')
+    // Service List Count (Unique Lead + Batch pairs in LeadService not in any non-dropped Proposal)
+    const serviceListItems = await this.leadServiceRepo.createQueryBuilder('ls')
+      .innerJoin('ls.lead', 'lead')
+      .leftJoin(ProposalItem, 'pi', 'pi.leadServiceId = ls.id')
+      .leftJoin(Proposal, 'p', 'p.id = pi.proposalId AND p.status != :droppedProposalStatus', { droppedProposalStatus: PROPOSAL_STATUS.DROPPED })
+      .where('lead.isActive = :isActive', { isActive: true })
+      .andWhere('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
+      .andWhere('p.id IS NULL')
       .select('ls.leadId, ls.assignmentGroupId')
-      .where('ls.status != :droppedStatus', { droppedStatus: SERVICE_STATUS.DROPPED })
-      .andWhere(qb => {
-        const subQuery = qb.subQuery()
-          .select('1')
-          .from(Proposal, 'p')
-          .where('p.leadId = ls.leadId')
-          .andWhere('p.assignmentGroupId = ls.assignmentGroupId')
-          .getQuery();
-        return `NOT EXISTS ${subQuery}`;
-      })
       .groupBy('ls.leadId, ls.assignmentGroupId')
       .getRawMany();
 
     const proposalListCount = await this.proposalRepo.count({
       where: {
-        status: Not(In([PROPOSAL_STATUS.DROPPED]))
+        status: Not(In([PROPOSAL_STATUS.DROPPED])),
+        lead: { isActive: true }
       }
     });
 
-    const pendingClients = serviceListCount.length + proposalListCount;
+    const pendingClients = serviceListItems.length + proposalListCount;
 
-    // 4. Drop Leads = Count of inactive leads
-    const dropClients = await this.leadRepo.count({
-      where: { isActive: false },
-    });
+    // 4. Drop Leads = Count of leads in the dropped list (Matches Dropped List API)
+    const dropClientsCount = await this.leadRepo.createQueryBuilder('lead')
+      .leftJoin('lead.leadServices', 'ls')
+      .leftJoin('lead.proposals', 'p')
+      .where(new Brackets(qb => {
+        qb.where('lead.status = :leadLostStatus', { leadLostStatus: LEAD_STATUS.LOST })
+          .orWhere('p.status = :proposalDroppedStatus', { proposalDroppedStatus: PROPOSAL_STATUS.DROPPED })
+          .orWhere('ls.status = :serviceDroppedStatus', { serviceDroppedStatus: SERVICE_STATUS.DROPPED });
+      }))
+      .select('COUNT(DISTINCT lead.id)', 'count')
+      .getRawOne();
+
+    const dropClients = parseInt(dropClientsCount?.count || '0', 10);
 
     // 5. Pending Actions = 0 (Static for now)
     const pendingActions = 0;
