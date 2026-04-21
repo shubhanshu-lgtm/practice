@@ -77,7 +77,7 @@ export class DashboardService {
       .innerJoin('p.lead', 'lead')
       .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = p.id')
       .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('p.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
+      .andWhere('p.status NOT IN (:...excludedStatuses)', { excludedStatuses: [PROPOSAL_STATUS.DROPPED, PROPOSAL_STATUS.REVISED] })
       .andWhere('closure.id IS NULL');
 
     if (!isAdmin && actor?.id) {

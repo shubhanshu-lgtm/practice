@@ -455,7 +455,7 @@ export class ProposalService {
       .leftJoinAndSelect('leadService.service', 'service')
       .leftJoin(ProposalAcceptance, 'closure', 'closure.proposalId = proposal.id')
       .where('lead.isActive = :isActive', { isActive: true })
-      .andWhere('proposal.status != :droppedStatus', { droppedStatus: PROPOSAL_STATUS.DROPPED })
+      .andWhere('proposal.status NOT IN (:...excludedStatuses)', { excludedStatuses: [PROPOSAL_STATUS.DROPPED, PROPOSAL_STATUS.REVISED] })
       .andWhere('closure.id IS NULL');
 
     if (!isAdmin && actor?.id) {
