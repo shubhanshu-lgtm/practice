@@ -659,32 +659,37 @@ export class ProposalService {
 
   async updateProposal(id: number, dto: UpdateProposalDto): Promise<Proposal> {
     return this.dataSource.transaction(async (manager) => {
-      // 1. Fetch the existing proposal (with relations to snapshot it)
-      const existingProposal = await manager.findOne(Proposal, {
+      // 1. Fetch the existing proposal WITH relations for snapshotting
+      const snapshotProposal = await manager.findOne(Proposal, {
         where: { id },
         relations: ['items', 'paymentTerms', 'files']
       });
-      if (!existingProposal) throw new NotFoundException('Proposal not found');
+      if (!snapshotProposal) throw new NotFoundException('Proposal not found');
 
-      // 2. SAVE A SNAPSHOT of the current state into ProposalVersion
-      // We store the full current state before any updates
-      // We strip the circular references and large entity objects for storage
+      // 2. SAVE A SNAPSHOT (Plain data only to avoid circular refs)
       const snapshotData = {
-        ...existingProposal,
-        items: existingProposal.items?.map(item => ({ ...item, proposal: undefined })),
-        paymentTerms: existingProposal.paymentTerms?.map(term => ({ ...term, proposal: undefined, proposalItem: undefined })),
-        files: existingProposal.files?.map(file => ({ ...file, proposal: undefined })),
+        ...snapshotProposal,
+        items: snapshotProposal.items?.map(item => ({
+          ...item,
+          proposal: undefined,
+          paymentTerms: snapshotProposal.paymentTerms?.filter(pt => pt.proposalItemId === item.id)
+        })),
+        paymentTerms: undefined, // Already nested in items for cleaner snapshot
+        files: snapshotProposal.files?.map(file => ({ ...file, proposal: undefined })),
         lead: undefined,
       };
 
       const proposalVersion = manager.create(ProposalVersion, {
-        proposalId: existingProposal.id,
-        version: existingProposal.version,
+        proposalId: snapshotProposal.id,
+        version: snapshotProposal.version,
         snapshotData: snapshotData
       });
       await manager.save(ProposalVersion, proposalVersion);
 
-      // 3. Prepare data for the UPDATE
+      // 3. Fetch the proposal AGAIN without relations for the actual update
+      // This prevents TypeORM from trying to cascade-update the old related items
+      const existingProposal = await manager.findOne(Proposal, { where: { id } });
+
       const { items: itemDtos, leadId, ...otherData } = dto;
       
       // Resolve leadId if changed
@@ -697,10 +702,8 @@ export class ProposalService {
         resolvedLeadId = lead.id;
       }
 
-      // Update the main proposal record (keep the same ID)
-      const newVersionNumber = (existingProposal.version || 1) + 1;
-      
       // Update basic fields
+      const newVersionNumber = (existingProposal.version || 1) + 1;
       Object.assign(existingProposal, {
         ...otherData,
         leadId: resolvedLeadId,
@@ -708,9 +711,9 @@ export class ProposalService {
         updatedAt: new Date(),
       });
 
-      // 4. Handle Items and Payment Terms (Delete old, Create new for same proposalId)
+      // 4. Handle Items and Payment Terms (Manual management)
       if (itemDtos) {
-        // Delete existing items and their payment terms (cascade should handle payment terms if set up)
+        // Delete old relations from DB
         await manager.delete(ProposalPaymentTerm, { proposalId: existingProposal.id });
         await manager.delete(ProposalItem, { proposalId: existingProposal.id });
 
@@ -760,7 +763,7 @@ export class ProposalService {
           totalTaxAmount += taxAmt;
         }
 
-        // Save payment terms for the new items
+        // Save payment terms
         for (const item of savedItems) {
           const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
@@ -778,7 +781,7 @@ export class ProposalService {
           }
         }
 
-        // Update totals on the proposal
+        // Update totals on the proposal object
         existingProposal.subTotal = subTotal;
         existingProposal.totalDiscount = totalDiscount;
         existingProposal.totalTaxAmount = totalTaxAmount;
@@ -791,7 +794,7 @@ export class ProposalService {
         }
       }
 
-      // Save the updated proposal record
+      // 5. Final Save of the proposal (No relations populated, so no ghost cascades)
       await manager.save(Proposal, existingProposal);
 
       return this.getProposal(existingProposal.id);
