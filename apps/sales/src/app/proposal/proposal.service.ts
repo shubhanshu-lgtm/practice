@@ -503,7 +503,21 @@ export class ProposalService {
       .take(limit);
 
     const [data, total] = await qb.getManyAndCount();
-    return { data, total, page, limit };
+
+    // Attach version history IDs to each proposal for the UI to know which versions are available
+    const proposalsWithVersions = await Promise.all(data.map(async (proposal) => {
+      const versions = await this.proposalVersionRepo.findByProposalId(proposal.id, { take: 100 });
+      return {
+        ...proposal,
+        versions: versions[0].map(v => ({
+          id: v.id,
+          version: v.version,
+          createdAt: v.createdAt
+        }))
+      };
+    }));
+
+    return { data: proposalsWithVersions, total, page, limit };
   }
 
   async getProposalVersions(query?: {
@@ -582,6 +596,117 @@ export class ProposalService {
 
     const [data, total] = await qb.getManyAndCount();
     return { data, total, page, limit };
+  }
+
+  async rollbackProposal(id: number, versionId: number, actor: User, query?: any): Promise<{ data: Proposal[]; total: number; page: number; limit: number }> {
+    await this.dataSource.transaction(async (manager) => {
+      // 1. Fetch the target version to restore from
+      const targetVersion = await manager.findOne(ProposalVersion, {
+        where: { id: versionId, proposalId: id }
+      });
+      if (!targetVersion) throw new NotFoundException('Proposal version not found');
+
+      // 2. Fetch current proposal WITH relations for snapshotting
+      const currentSnapshotProposal = await manager.findOne(Proposal, {
+        where: { id },
+        relations: ['items', 'paymentTerms', 'files']
+      });
+      if (!currentSnapshotProposal) throw new NotFoundException('Proposal not found');
+
+      // 3. SAVE A SNAPSHOT of current state before rollback
+      const snapshotData = {
+        ...currentSnapshotProposal,
+        items: currentSnapshotProposal.items?.map(item => ({
+          ...item,
+          proposal: undefined,
+          paymentTerms: currentSnapshotProposal.paymentTerms?.filter(pt => pt.proposalItemId === item.id)
+        })),
+        paymentTerms: undefined,
+        files: currentSnapshotProposal.files?.map(file => ({ ...file, proposal: undefined })),
+        lead: undefined,
+      };
+
+      const archiveVersion = manager.create(ProposalVersion, {
+        proposalId: currentSnapshotProposal.id,
+        version: currentSnapshotProposal.version,
+        snapshotData: snapshotData
+      });
+      await manager.save(ProposalVersion, archiveVersion);
+
+      // 4. RESTORE from targetVersion.snapshotData
+      const data = targetVersion.snapshotData as any;
+      
+      // Delete current relations from DB
+      await manager.delete(ProposalPaymentTerm, { proposalId: id });
+      await manager.delete(ProposalItem, { proposalId: id });
+
+      // Fetch a CLEAN instance without relations for the update
+      // This prevents TypeORM from trying to cascade-update (nullify) the old related items
+      const proposalToUpdate = await manager.findOne(Proposal, { where: { id } });
+      if (!proposalToUpdate) throw new NotFoundException('Proposal not found for update');
+
+      // Update main proposal fields (keep same ID, increment version)
+      const newVersionNumber = (proposalToUpdate.version || 1) + 1;
+      
+      // Filter out relations and metadata from snapshot data for scalar update
+      const {
+        items: _items,
+        paymentTerms: _paymentTerms,
+        files: _files,
+        lead: _lead,
+        id: _oldId,
+        createdAt: _createdAt,
+        updatedAt: _updatedAt,
+        version: _version,
+        ...scalarData
+      } = data;
+
+      Object.assign(proposalToUpdate, {
+        ...scalarData,
+        version: newVersionNumber,
+        updatedAt: new Date(),
+      });
+
+      await manager.save(Proposal, proposalToUpdate);
+
+      // 5. Restore Items and Payment Terms from snapshot
+      if (_items && _items.length > 0) {
+        for (const itemData of _items) {
+          const {
+            paymentTerms: itemPaymentTerms,
+            id: _oldItemId,
+            proposal: _proposal,
+            ...itemScalar
+          } = itemData;
+
+          const newItem = manager.create(ProposalItem, {
+            ...itemScalar,
+            proposalId: id
+          });
+          const savedItem = await manager.save(ProposalItem, newItem);
+
+          if (itemPaymentTerms && itemPaymentTerms.length > 0) {
+            const newTerms = itemPaymentTerms.map((pt: any) => {
+              const {
+                id: _oldPtId,
+                proposal: _ptProp,
+                proposalItem: _ptItem,
+                ...ptScalar
+              } = pt;
+              return manager.create(ProposalPaymentTerm, {
+                ...ptScalar,
+                proposalId: id,
+                proposalItemId: savedItem.id
+              });
+            });
+            await manager.save(ProposalPaymentTerm, newTerms);
+          }
+        }
+      }
+    });
+
+    // 6. Return the full proposal list as requested
+    return this.getProposals(query, actor);
   }
 
   async getLeadServiceStatuses(leadId: string | number): Promise<{
