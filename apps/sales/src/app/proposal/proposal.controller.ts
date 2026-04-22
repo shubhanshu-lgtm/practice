@@ -227,6 +227,26 @@ export class ProposalController {
     }
   }
 
+  @Post(':id/rollback/:versionId')
+  @UseGuards(TokenValidationGuard)
+  async rollback(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Param('versionId', ParseIntPipe) versionId: number,
+    @Query() query: any,
+  ) {
+    try {
+      const result = await this.proposalService.rollbackProposal(id, versionId, req.user, query);
+      return this.responseHandler.sendSuccessResponse(res, {
+        message: 'Proposal rolled back successfully',
+        data: result
+      });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Get(':id')
   @UseGuards(TokenValidationGuard)
   async findOne(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {

@@ -87,6 +87,8 @@ export class DashboardService {
     const proposalListCount = await proposalListQuery.getCount();
 
     const pendingClients = serviceListItems.length + proposalListCount;
+    const assignedServiceList = serviceListItems.length;
+    const proposalList = proposalListCount;
 
     // 4. Drop Leads = Count of leads in the dropped list (Matches Dropped List API)
     const dropClientsQuery = this.leadRepo.createQueryBuilder('lead')
@@ -168,6 +170,8 @@ export class DashboardService {
       totalClient,
       completedLead,
       pendingClients,
+      assignedServiceList,
+      proposalList,
       dropClients,
       pendingActions,
       pendingInvoices,
