@@ -15,3 +15,4 @@ export * from './proposal-acceptance.repository';
 export * from './project.repository';
 export * from './intercert-partner-user.repository';
 export * from './b2b-partner.repository';
+export * from './proposal-version.repository';

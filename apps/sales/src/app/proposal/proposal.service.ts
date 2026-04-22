@@ -15,6 +15,8 @@ import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { LeadService } from '../../../../../libs/database/src/entities/lead-service.entity';
 //import PDFDocument from 'pdfkit';
 import { ProposalFile } from '../../../../../libs/database/src/entities/proposal-file.entity';
+import { ProposalVersion } from '../../../../../libs/database/src/entities/proposal-version.entity';
+import { ProposalVersionRepository } from '../../../../../libs/database/src/repositories/proposal-version.repository';
 import { ProposalAcceptance } from '../../../../../libs/database/src/entities/proposal-acceptance.entity';
 import { ProposalReportService } from './proposal-report.service';
 import { PdfTemplateService } from '../../../../../libs/templates/pdf-template.service';
@@ -35,6 +37,7 @@ export class ProposalService {
     private leadRepo: Repository<Lead>,
     @InjectRepository(ProposalFile)
     private proposalFileRepo: Repository<ProposalFile>,
+    private proposalVersionRepo: ProposalVersionRepository,
     private dataSource: DataSource,
     private proposalReportService: ProposalReportService,
     private pdfTemplateService: PdfTemplateService,
@@ -504,15 +507,41 @@ export class ProposalService {
   }
 
   async getProposalVersions(query?: {
+    proposalId?: number;
     leadId?: string | number;
     assignmentGroupId?: string;
     status?: PROPOSAL_STATUS;
     search?: string;
     page?: number;
     limit?: number;
-  }): Promise<{ data: Proposal[]; total: number; page: number; limit: number }> {
+  }): Promise<{ data: any[]; total: number; page: number; limit: number }> {
     const page = query?.page || 1;
     const limit = query?.limit || 20;
+
+    // If proposalId is provided, we return history from ProposalVersion + Current
+    if (query?.proposalId) {
+      const current = await this.proposalRepo.findOne({
+        where: { id: query.proposalId },
+        relations: ['lead', 'lead.customer', 'paymentTerms', 'files', 'items', 'items.leadService', 'items.leadService.service']
+      });
+      if (!current) throw new NotFoundException('Proposal not found');
+
+      const [versions, count] = await this.proposalVersionRepo.findByProposalId(query.proposalId, { skip: (page - 1) * limit, take: limit });
+
+      const total = count + 1;
+
+      const history = versions.map(v => ({
+        ...v.snapshotData,
+        isCurrent: false,
+        versionId: v.id,
+        createdAt: v.createdAt
+      }));
+
+      // Only add current to the first page
+      const data = page === 1 ? [{ ...current, isCurrent: true }, ...history] : history;
+
+      return { data, total, page, limit };
+    }
 
     const qb = this.proposalRepo.createQueryBuilder('proposal')
       .leftJoinAndSelect('proposal.lead', 'lead')
@@ -630,82 +659,65 @@ export class ProposalService {
 
   async updateProposal(id: number, dto: UpdateProposalDto): Promise<Proposal> {
     return this.dataSource.transaction(async (manager) => {
-      // 1. Fetch the existing proposal (to be archived as REVISED)
-      const oldProposal = await manager.findOne(Proposal, {
+      // 1. Fetch the existing proposal (with relations to snapshot it)
+      const existingProposal = await manager.findOne(Proposal, {
         where: { id },
         relations: ['items', 'paymentTerms', 'files']
       });
-      if (!oldProposal) throw new NotFoundException('Proposal not found');
+      if (!existingProposal) throw new NotFoundException('Proposal not found');
 
-      // 2. Mark old proposal as REVISED
-      oldProposal.status = PROPOSAL_STATUS.REVISED;
-      await manager.save(Proposal, oldProposal);
+      // 2. SAVE A SNAPSHOT of the current state into ProposalVersion
+      // We store the full current state before any updates
+      const snapshotData = {
+        ...existingProposal,
+        items: existingProposal.items,
+        paymentTerms: existingProposal.paymentTerms,
+        files: existingProposal.files,
+      };
 
-      // 3. Prepare data for the NEW proposal version
+      const proposalVersion = manager.create(ProposalVersion, {
+        proposalId: existingProposal.id,
+        version: existingProposal.version,
+        snapshotData: snapshotData
+      });
+      await manager.save(ProposalVersion, proposalVersion);
+
+      // 3. Prepare data for the UPDATE
       const { items: itemDtos, leadId, ...otherData } = dto;
       
-      // Resolve numeric leadId
-      let resolvedLeadId = oldProposal.leadId;
-      let lead = oldProposal.lead;
-
+      // Resolve leadId if changed
+      let resolvedLeadId = existingProposal.leadId;
       if (leadId) {
         const isNumeric = !isNaN(Number(leadId));
         const whereLead = isNumeric ? { id: Number(leadId) } : { enquiryId: leadId as string };
-        lead = await manager.findOne(Lead, { where: whereLead });
+        const lead = await manager.findOne(Lead, { where: whereLead });
         if (!lead) throw new NotFoundException('Lead not found');
         resolvedLeadId = lead.id;
-      } else if (!lead) {
-        lead = await manager.findOne(Lead, { where: { id: resolvedLeadId } });
       }
 
-      const newVersion = (oldProposal.version || 1) + 1;
-      const seq = String(newVersion).padStart(2, '0');
-      const newReference = `PROP/${lead?.enquiryId || 'UNKNOWN'}/${seq}`;
-
-      // Create NEW proposal instance (cloning fields from old one + updates from DTO)
-      const newProposal = manager.create(Proposal, {
-        ...oldProposal,
-        id: undefined, // Ensure a new record is created
-        proposalReference: newReference,
+      // Update the main proposal record (keep the same ID)
+      const newVersionNumber = (existingProposal.version || 1) + 1;
+      
+      // Update basic fields
+      Object.assign(existingProposal, {
         ...otherData,
         leadId: resolvedLeadId,
-        version: newVersion,
-        status: PROPOSAL_STATUS.DRAFT, // New versions start as Draft or keep status? Usually Draft for revision
-        createdAt: undefined,
-        updatedAt: undefined,
+        version: newVersionNumber,
+        updatedAt: new Date(),
       });
 
-      // Save the new proposal first to get an ID
-      const savedProposal = await manager.save(Proposal, newProposal);
+      // 4. Handle Items and Payment Terms (Delete old, Create new for same proposalId)
+      if (itemDtos) {
+        // Delete existing items and their payment terms (cascade should handle payment terms if set up)
+        await manager.delete(ProposalPaymentTerm, { proposalId: existingProposal.id });
+        await manager.delete(ProposalItem, { proposalId: existingProposal.id });
 
-      // 4. Handle Items and Payment Terms for the NEW version
-      const itemsToProcess = itemDtos || oldProposal.items?.map(item => ({
-        leadServiceId: item.leadServiceId,
-        serviceName: item.serviceName,
-        serviceType: item.serviceType,
-        description: item.description,
-        startDate: item.startDate,
-        endDate: item.endDate,
-        amount: item.amount,
-        currency: item.currency,
-        discount: item.discount,
-        taxPercentage: item.taxPercentage,
-        paymentTerms: oldProposal.paymentTerms
-          ?.filter(pt => pt.proposalItemId === item.id)
-          .map(pt => ({
-            milestoneName: pt.milestoneName,
-            percentage: pt.percentage,
-            triggerEvent: pt.triggerEvent
-          }))
-      }));
-
-      if (itemsToProcess) {
         let subTotal = 0;
         let totalDiscount = 0;
         let totalTaxAmount = 0;
         const savedItems: ProposalItem[] = [];
 
-        for (const itemDto of itemsToProcess) {
+        for (const itemDto of itemDtos) {
           const leadService = await manager.findOne(LeadService, {
             where: { id: itemDto.leadServiceId, leadId: resolvedLeadId },
             relations: ['service'],
@@ -716,7 +728,7 @@ export class ProposalService {
           }
 
           const item = manager.create(ProposalItem, {
-            proposalId: savedProposal.id,
+            proposalId: existingProposal.id,
             leadServiceId: itemDto.leadServiceId,
             serviceName: itemDto.serviceName || leadService?.service?.name || '',
             serviceType: itemDto.serviceType || leadService?.service?.category || '',
@@ -748,11 +760,11 @@ export class ProposalService {
 
         // Save payment terms for the new items
         for (const item of savedItems) {
-          const itemDto = itemsToProcess.find(i => i.leadServiceId === item.leadServiceId);
+          const itemDto = itemDtos.find(i => i.leadServiceId === item.leadServiceId);
           if (itemDto && itemDto.paymentTerms && itemDto.paymentTerms.length > 0) {
             const terms: ProposalPaymentTerm[] = itemDto.paymentTerms.map(t =>
               manager.create(ProposalPaymentTerm, {
-                proposalId: savedProposal.id,
+                proposalId: existingProposal.id,
                 proposalItemId: item.id,
                 milestoneName: t.milestoneName,
                 percentage: t.percentage,
@@ -764,32 +776,23 @@ export class ProposalService {
           }
         }
 
-        // Update totals on the new proposal
-        savedProposal.subTotal = subTotal;
-        savedProposal.totalDiscount = totalDiscount;
-        savedProposal.totalTaxAmount = totalTaxAmount;
-        savedProposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
-        if (savedItems.length > 0) savedProposal.currency = savedItems[0].currency;
-        savedProposal.division = this.deriveDivisionFromLeadServices(savedItems);
+        // Update totals on the proposal
+        existingProposal.subTotal = subTotal;
+        existingProposal.totalDiscount = totalDiscount;
+        existingProposal.totalTaxAmount = totalTaxAmount;
+        existingProposal.grandTotal = subTotal - totalDiscount + totalTaxAmount;
+        if (savedItems.length > 0) existingProposal.currency = savedItems[0].currency;
+        existingProposal.division = this.deriveDivisionFromLeadServices(savedItems);
         
         if (!dto.assignmentGroupId) {
-          savedProposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
+          existingProposal.assignmentGroupId = await this.resolveProposalAssignmentGroupId(manager, savedItems.map(i => i.leadServiceId));
         }
-
-        await manager.save(Proposal, savedProposal);
       }
 
-      // 5. Clone existing files to the new proposal version
-      if (oldProposal.files && oldProposal.files.length > 0) {
-        const newFiles = oldProposal.files.map(f => manager.create(ProposalFile, {
-          proposalId: savedProposal.id,
-          fileName: f.fileName,
-          fileUrl: f.fileUrl
-        }));
-        await manager.save(ProposalFile, newFiles);
-      }
+      // Save the updated proposal record
+      await manager.save(Proposal, existingProposal);
 
-      return this.getProposal(savedProposal.id);
+      return this.getProposal(existingProposal.id);
     });
   }
 

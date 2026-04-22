@@ -54,7 +54,8 @@ import {
     InvoiceItem,
     PaymentRecord,
     IntercertPartnerUser,
-    B2BPartner
+    B2BPartner,
+    ProposalVersion
 } from './entities';
 
 import {
@@ -72,7 +73,8 @@ import {
     PermissionManagerRepository,
     LeadServiceRepository,
     IntercertPartnerUserRepository,
-    B2BPartnerRepository
+    B2BPartnerRepository,
+    ProposalVersionRepository
 } from './repositories';
 import { FieldAlreadyExistsError } from 'pdf-lib';
 
@@ -139,9 +141,10 @@ export class DBModule {
                 InvoiceItem,
                 PaymentRecord,
                 IntercertPartnerUser,
-                B2BPartner
+                B2BPartner,
+                ProposalVersion
             ],
-            synchronize: false,
+            synchronize: true,
             //dropSchema: true,
             logging: false,
             migrationsRun: false
@@ -226,7 +229,8 @@ export class DBModule {
                    InvoiceItem,
                    PaymentRecord,
                    IntercertPartnerUser,
-                   B2BPartner
+                   B2BPartner,
+                   ProposalVersion
                 ]),
             ],
             controllers: [],
@@ -246,6 +250,7 @@ export class DBModule {
                 LeadServiceRepository,
                 IntercertPartnerUserRepository,
                 B2BPartnerRepository,
+                ProposalVersionRepository,
                 TypeOrmModule
             ],
             exports: [
@@ -264,6 +269,7 @@ export class DBModule {
                 LeadServiceRepository,
                 IntercertPartnerUserRepository,
                 B2BPartnerRepository,
+                ProposalVersionRepository,
                 TypeOrmModule
             ],
         };
