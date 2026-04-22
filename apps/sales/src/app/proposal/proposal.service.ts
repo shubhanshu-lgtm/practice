@@ -668,11 +668,13 @@ export class ProposalService {
 
       // 2. SAVE A SNAPSHOT of the current state into ProposalVersion
       // We store the full current state before any updates
+      // We strip the circular references and large entity objects for storage
       const snapshotData = {
         ...existingProposal,
-        items: existingProposal.items,
-        paymentTerms: existingProposal.paymentTerms,
-        files: existingProposal.files,
+        items: existingProposal.items?.map(item => ({ ...item, proposal: undefined })),
+        paymentTerms: existingProposal.paymentTerms?.map(term => ({ ...term, proposal: undefined, proposalItem: undefined })),
+        files: existingProposal.files?.map(file => ({ ...file, proposal: undefined })),
+        lead: undefined,
       };
 
       const proposalVersion = manager.create(ProposalVersion, {
