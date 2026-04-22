@@ -208,6 +208,7 @@ export class ProposalController {
   @UseGuards(TokenValidationGuard)
   async getVersions(
     @Res() res: Response,
+    @Query('proposalId') proposalId?: number,
     @Query('leadId') leadId?: string,
     @Query('assignmentGroupId') assignmentGroupId?: string,
     @Query('status') status?: PROPOSAL_STATUS,
@@ -216,7 +217,7 @@ export class ProposalController {
     @Query('limit') limit?: number,
   ) {
     try {
-      const result = await this.proposalService.getProposalVersions({ leadId, assignmentGroupId, status, search, page, limit });
+      const result = await this.proposalService.getProposalVersions({ proposalId, leadId, assignmentGroupId, status, search, page, limit });
       return this.responseHandler.sendSuccessResponse(res, {
         message: 'Proposal versions fetched successfully',
         data: result
