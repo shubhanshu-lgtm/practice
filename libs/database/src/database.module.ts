@@ -144,7 +144,7 @@ export class DBModule {
                 B2BPartner,
                 ProposalVersion
             ],
-            synchronize: true,
+            synchronize: false,
             //dropSchema: true,
             logging: false,
             migrationsRun: false
