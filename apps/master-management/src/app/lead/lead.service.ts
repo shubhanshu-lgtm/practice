@@ -28,6 +28,7 @@ import { paginate } from '../../../../../libs/utils/basicUtils';
 
 interface ServiceAssignment {
   serviceId: number;
+  subserviceId?: number;
   description?: string;
   timeline: string;
   deliverables?: string[];
@@ -1177,14 +1178,14 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
         let batchId: string | null = null;
 
         if (serviceAssignments && serviceAssignments.length > 0) {
-          const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.serviceId))];
-          const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) } });
+          const uniqueServiceIds = [...new Set(serviceAssignments.map(sa => sa.subserviceId || sa.serviceId))];
+          const services = await manager.find(ServiceMaster, { where: { id: In(uniqueServiceIds) }, relations: ['parent'] });
 
           const foundServiceIds = services.map(s => s.id);
-          const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.serviceId));
+          const validAssignments = serviceAssignments.filter(sa => foundServiceIds.includes(sa.subserviceId || sa.serviceId));
 
           if (validAssignments.length === 0) {
-            throw new BadRequestException(`None of the provided service IDs exist: ${uniqueServiceIds.join(', ')}`);
+            throw new BadRequestException(`None of the provided service/subservice IDs exist: ${uniqueServiceIds.join(', ')}`);
           }
 
           const newAssignments = validAssignments;
@@ -1198,7 +1199,13 @@ async rollbackLead(id: string, payload: RollbackLeadDto, actor?: User): Promise<
           const leadServicesToSave: LeadServiceEntity[] = [];
 
           for (const assignment of newAssignments) {
-            const service = services.find(s => s.id === assignment.serviceId);
+            const targetId = assignment.subserviceId || assignment.serviceId;
+            const service = services.find(s => s.id === targetId);
+
+            // If subserviceId was used, we can optionally validate its parent matches serviceId
+            if (assignment.subserviceId && assignment.serviceId && service.parentId !== assignment.serviceId) {
+              console.warn(`Subservice ${assignment.subserviceId} does not belong to category ${assignment.serviceId}. Proceeding with subservice assignment.`);
+            }
 
             const uniqueDeliverables = assignment.deliverables
               ? [...new Set(assignment.deliverables.map((d: string) => d.trim()).filter(Boolean))]
@@ -1599,7 +1606,7 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
           throw new NotFoundException('No services found for this group on the specified lead');
         }
 
-        const payloadServiceIds = assignments.map(a => a.serviceId);
+        const payloadServiceIds = assignments.map(a => a.subserviceId || a.serviceId);
         const existingServiceIds = existingBatchServices.map(ebs => ebs.serviceId);
 
         // 1. Identify services to delete (present in DB batch but NOT in payload)
@@ -1616,7 +1623,7 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         if (newServiceIds.length > 0) {
           const servicesData = await manager.find(ServiceMaster, { where: { id: In(newServiceIds) } });
           for (const serviceId of newServiceIds) {
-            const assignment = assignments.find(a => a.serviceId === serviceId);
+            const assignment = assignments.find(a => (a.subserviceId || a.serviceId) === serviceId);
             const service = servicesData.find(s => s.id === serviceId);
             if (!service) continue;
 
@@ -1657,7 +1664,7 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         // 3. Update existing services (present in both)
         const servicesToUpdateIds = payloadServiceIds.filter(id => existingServiceIds.includes(id));
         for (const serviceId of servicesToUpdateIds) {
-          const assignment = assignments.find(a => a.serviceId === serviceId);
+          const assignment = assignments.find(a => (a.subserviceId || a.serviceId) === serviceId);
           const leadService = existingBatchServices.find(ebs => ebs.serviceId === serviceId);
 
           if (leadService && assignment) {
@@ -2041,13 +2048,26 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
 
   async createDeliverable(payload: CreateDeliverableDto): Promise<ServiceDeliverable> {
     try {
-      const service = await this.serviceRepository.findOne({ where: { id: payload.serviceId } });
+      // The deliverable belongs to the sub-service (global master data)
+      // Fallback to serviceId if subserviceId is not provided for backward compatibility
+      const targetServiceId = payload.subserviceId || payload.serviceId;
+      
+      const service = await this.serviceRepository.findOne({ 
+        where: { id: targetServiceId },
+        relations: ['parent']
+      });
+      
       if (!service) {
-        throw new NotFoundException(`Service with ID ${payload.serviceId} not found`);
+        throw new NotFoundException(`Service/Sub-service with ID ${targetServiceId} not found`);
+      }
+
+      // If both IDs are provided, ensure they have a parent-child relationship
+      if (payload.serviceId && payload.subserviceId && service.parentId !== payload.serviceId) {
+        console.warn(`Warning: Sub-service ${payload.subserviceId} parent ID ${service.parentId} does not match provided Category ID ${payload.serviceId}`);
       }
 
       const existing = await this.deliverableRepository.findOne({
-        where: { serviceId: payload.serviceId, name: payload.name },
+        where: { serviceId: targetServiceId, name: payload.name },
       });
       if (existing) {
         return existing;
@@ -2055,7 +2075,8 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
 
       const deliverable = this.deliverableRepository.create({
         ...payload,
-        service,
+        service: service,
+        serviceId: targetServiceId,
         dueDate: payload.dueDate ? new Date(payload.dueDate) : null,
       });
 
@@ -2117,19 +2138,15 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
     }
   }
 
-  async deleteDeliverable(id: number, hard = false): Promise<void> {
+  async deleteDeliverable(id: number): Promise<void> {
     try {
       const deliverable = await this.deliverableRepository.findOne({ where: { id } });
       if (!deliverable) {
         throw new NotFoundException('Deliverable not found');
       }
 
-      if (hard) {
-        await this.deliverableRepository.remove(deliverable);
-      } else {
-        deliverable.isActive = false;
-        await this.deliverableRepository.save(deliverable);
-      }
+      // Hard delete as requested
+      await this.deliverableRepository.remove(deliverable);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
