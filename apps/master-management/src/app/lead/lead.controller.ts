@@ -272,7 +272,33 @@ export class LeadController {
     }
   }
 
-  // --- follow-up routes ----------------------------------------------------
+  @Patch('deliverables/:id')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  async updateDeliverable(
+    @Res() res: Response,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateDeliverableDto,
+  ) {
+    try {
+      const result = await this.leadService.updateDeliverable(id, payload);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable updated successfully', data: result });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Delete('deliverables/:id')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  async deleteDeliverable(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+    try {
+      await this.leadService.deleteDeliverable(id);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable permanently deleted successfully' });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  // --- lead follow-up routes ----------------------------------------------------
   @Post(':id/followups')
   @UseGuards(TokenValidationGuard)
   async createLeadFollowUp(
@@ -656,13 +682,12 @@ export class LeadController {
     }
   }
 
-  @Post('leads/services/:serviceId/deliverables')
-  @UseGuards(TokenValidationGuard)
-  async createDeliverable(@Res() res: Response, @Param('serviceId', ParseIntPipe) serviceId: number, @Body() payload: CreateDeliverableDto) {
+  @Post('services/deliverables')
+  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
+  async createDeliverable(@Res() res: Response, @Body() payload: CreateDeliverableDto) {
     try {
-      payload.serviceId = serviceId;
       const deliverable = await this.leadService.createDeliverable(payload);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable created successfully', data: deliverable });
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Global deliverable created successfully', data: deliverable });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -670,21 +695,11 @@ export class LeadController {
 
   @Get('deliverables')
   @UseGuards(TokenValidationGuard)
-  async getAllDeliverables(@Res() res: Response, @Query('serviceId', ParseIntPipe) serviceId?: number) {
+  async getAllDeliverables(@Res() res: Response, @Query('serviceId', ParseIntPipe) serviceId?: number, @Query('subserviceId', ParseIntPipe) subserviceId?: number) {
     try {
-      const deliverables = await this.leadService.getDeliverables(serviceId);
+      const targetId = subserviceId || serviceId;
+      const deliverables = await this.leadService.getDeliverables(targetId);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverables fetched successfully', data: deliverables });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
-  @Get('leads/services/:serviceId/deliverables')
-  @UseGuards(TokenValidationGuard)
-  async getServiceDeliverables(@Res() res: Response, @Param('serviceId', ParseIntPipe) serviceId: number) {
-    try {
-      const deliverables = await this.leadService.getDeliverables(serviceId);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Service deliverables fetched successfully', data: deliverables });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
@@ -696,29 +711,6 @@ export class LeadController {
     try {
       const deliverable = await this.leadService.getDeliverableById(id);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable fetched successfully', data: deliverable });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
-  @Put('leads/deliverables/:id') 
-  @UseGuards(TokenValidationGuard)
-  async updateDeliverable(@Res() res: Response, @Param('id', ParseIntPipe) id: number, @Body() payload: UpdateDeliverableDto) {
-    try {
-      const deliverable = await this.leadService.updateDeliverable(id, payload);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable updated successfully', data: deliverable });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
-  @Delete('leads/deliverables/:id')
-  @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
-  async deleteDeliverable(@Res() res: Response, @Param('id', ParseIntPipe) id: number, @Body('hard') hard?: boolean) {
-    try {
-      await this.leadService.deleteDeliverable(id, hard);
-      const action = hard ? 'permanently deleted' : 'deactivated';
-      return this.responseHandler.sendSuccessResponse(res, { message: `Deliverable ${action} successfully` });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }

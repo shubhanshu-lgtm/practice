@@ -430,6 +430,10 @@ export class CreateDeliverableDto {
 
   @IsOptional()
   @IsNumber()
+  subserviceId?: number;
+
+  @IsOptional()
+  @IsNumber()
   sortOrder?: number;
 }
 
@@ -463,6 +467,10 @@ export class ServiceAssignmentDto {
   @IsNumber()
   @IsNotEmpty()
   serviceId: number;
+
+  @IsOptional()
+  @IsNumber()
+  subserviceId?: number;
 
   @IsOptional()
   @IsString()
