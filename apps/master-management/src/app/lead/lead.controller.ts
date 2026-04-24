@@ -246,6 +246,29 @@ export class LeadController {
     }
   }
 
+  @Get('deliverables')
+  @UseGuards(TokenValidationGuard)
+  async getAllDeliverables(@Res() res: Response, @Query('serviceId', ParseIntPipe) serviceId?: number, @Query('subserviceId', ParseIntPipe) subserviceId?: number) {
+    try {
+      const targetId = subserviceId || serviceId;
+      const deliverables = await this.leadService.getDeliverables(targetId);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverables fetched successfully', data: deliverables });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
+  @Get('deliverables/:id')
+  @UseGuards(TokenValidationGuard)
+  async getDeliverable(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
+    try {
+      const deliverable = await this.leadService.getDeliverableById(id);
+      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable fetched successfully', data: deliverable });
+    } catch (error) {
+      return this.responseHandler.sendErrorResponse(res, error);
+    }
+  }
+
   @Get(':id')
   async getLeadById(@Req() req: AuthenticatedRequest, @Res() res: Response, @Param('id') id: string) {
     try {
@@ -689,29 +712,6 @@ export class LeadController {
       const deliverable = await this.leadService.createDeliverable(payload);
       const message = ('services' in payload) ? 'Global deliverables created successfully' : 'Global deliverable created successfully';
       return this.responseHandler.sendSuccessResponse(res, { message, data: deliverable });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
-  @Get('deliverables')
-  @UseGuards(TokenValidationGuard)
-  async getAllDeliverables(@Res() res: Response, @Query('serviceId', ParseIntPipe) serviceId?: number, @Query('subserviceId', ParseIntPipe) subserviceId?: number) {
-    try {
-      const targetId = subserviceId || serviceId;
-      const deliverables = await this.leadService.getDeliverables(targetId);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverables fetched successfully', data: deliverables });
-    } catch (error) {
-      return this.responseHandler.sendErrorResponse(res, error);
-    }
-  }
-
-  @Get('deliverables/:id')
-  @UseGuards(TokenValidationGuard)
-  async getDeliverable(@Res() res: Response, @Param('id', ParseIntPipe) id: number) {
-    try {
-      const deliverable = await this.leadService.getDeliverableById(id);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverable fetched successfully', data: deliverable });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
