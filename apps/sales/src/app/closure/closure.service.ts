@@ -6,7 +6,7 @@ import { Proposal, PROPOSAL_STATUS } from '../../../../../libs/database/src/enti
 import { Lead } from '../../../../../libs/database/src/entities/lead.entity';
 import { Project } from '../../../../../libs/database/src/entities/project.entity';
 import { Department } from '../../../../../libs/database/src/entities/department.entity';
-import { LEAD_STATUS, PROJECT_STATUS } from '../../../../../libs/constants/salesConstants';
+import { LEAD_STATUS, PROJECT_STATUS, CLOSURE_STATUS } from '../../../../../libs/constants/salesConstants';
 import { AssignDepartmentsDto, AssignToAccountDto, CreateClosureDto, UpdateClosureDto } from '../../../../../libs/dtos/sales/create-closure.dto';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
 
@@ -134,6 +134,7 @@ export class ClosureService {
         raisedFromEntity: dto.raisedFromEntity,
         invoiceServices: dto.invoiceServices,
         department: dto.department,
+        closureStatus: CLOSURE_STATUS.PENDING,
         notes: dto.notes
       });
       const savedAcceptance = await manager.save(ProposalAcceptance, acceptance);
@@ -340,6 +341,11 @@ export class ClosureService {
 
       const saved = await this.projectRepo.save(project);
       created.push(saved);
+    }
+
+    if (created.length > 0) {
+      closure.closureStatus = CLOSURE_STATUS.ASSIGNED;
+      await this.acceptanceRepo.save(closure);
     }
 
     return { created, skipped };

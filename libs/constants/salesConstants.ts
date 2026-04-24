@@ -64,6 +64,11 @@ export enum PROJECT_STATUS {
     CANCELLED = 'Cancelled'
 }
 
+export enum CLOSURE_STATUS {
+    PENDING = 'Pending',
+    ASSIGNED = 'Assigned'
+}
+
 export enum INVOICE_STATUS {
     DRAFT = 'Draft',
     SENT = 'Sent',
