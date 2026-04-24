@@ -19,7 +19,7 @@ import { ProposalItem } from '../../../../../libs/database/src/entities/proposal
 import { Proposal } from '../../../../../libs/database/src/entities/proposal.entity';
 import { PROPOSAL_STATUS } from '../../../../../libs/constants/salesConstants';
 import { S3FileService } from '../../../../../libs/S3-Service/s3File.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto, CreateBulkDeliverablesDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LEAD_SOURCE, LEAD_STATUS } from '../../../../../libs/constants/salesConstants';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
 import { SERVICE_TYPE, SERVICE_ACCESS_LEVEL, CATEGORY_TYPE, SERVICE_STATUS } from '../../../../../libs/constants/serviceConstants';
@@ -2046,11 +2046,49 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
     }
   }
 
-  async createDeliverable(payload: CreateDeliverableDto): Promise<ServiceDeliverable> {
+  async createDeliverable(payload: CreateBulkDeliverablesDto | CreateDeliverableDto): Promise<any> {
     try {
-      // The deliverable belongs to the sub-service (global master data)
-      // Fallback to serviceId if subserviceId is not provided for backward compatibility
-      const targetServiceId = payload.subserviceId || payload.serviceId;
+      // Check if it's bulk creation
+      if ('services' in payload && Array.isArray(payload.services)) {
+        const results = [];
+        for (const serviceEntry of payload.services) {
+          const targetServiceId = serviceEntry.subserviceId || serviceEntry.serviceId;
+          
+          const service = await this.serviceRepository.findOne({ 
+            where: { id: targetServiceId },
+          });
+          
+          if (!service) {
+            console.warn(`Service/Sub-service with ID ${targetServiceId} not found, skipping`);
+            continue;
+          }
+
+          if (serviceEntry.deliverables && Array.isArray(serviceEntry.deliverables)) {
+            for (const delName of serviceEntry.deliverables) {
+              const existing = await this.deliverableRepository.findOne({
+                where: { serviceId: targetServiceId, name: delName },
+              });
+              
+              if (!existing) {
+                const deliverable = this.deliverableRepository.create({
+                  name: delName,
+                  serviceId: targetServiceId,
+                  service: service,
+                  isActive: true
+                });
+                results.push(await this.deliverableRepository.save(deliverable));
+              } else {
+                results.push(existing);
+              }
+            }
+          }
+        }
+        return results;
+      }
+
+      // Fallback to single deliverable creation (old format)
+      const singlePayload = payload as CreateDeliverableDto;
+      const targetServiceId = singlePayload.subserviceId || singlePayload.serviceId;
       
       const service = await this.serviceRepository.findOne({ 
         where: { id: targetServiceId },
@@ -2061,23 +2099,18 @@ async updateLeadService(leadId: string, serviceId: number, assignment: ServiceAs
         throw new NotFoundException(`Service/Sub-service with ID ${targetServiceId} not found`);
       }
 
-      // If both IDs are provided, ensure they have a parent-child relationship
-      if (payload.serviceId && payload.subserviceId && service.parentId !== payload.serviceId) {
-        console.warn(`Warning: Sub-service ${payload.subserviceId} parent ID ${service.parentId} does not match provided Category ID ${payload.serviceId}`);
-      }
-
       const existing = await this.deliverableRepository.findOne({
-        where: { serviceId: targetServiceId, name: payload.name },
+        where: { serviceId: targetServiceId, name: singlePayload.name },
       });
       if (existing) {
         return existing;
       }
 
       const deliverable = this.deliverableRepository.create({
-        ...payload,
+        ...singlePayload,
         service: service,
         serviceId: targetServiceId,
-        dueDate: payload.dueDate ? new Date(payload.dueDate) : null,
+        dueDate: singlePayload.dueDate ? new Date(singlePayload.dueDate) : null,
       });
 
       return await this.deliverableRepository.save(deliverable);
