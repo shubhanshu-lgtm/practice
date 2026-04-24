@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, In } from 'typeorm';
-import { User, SystemModule, Department, Team, PermissionManager } from '../../../../../libs/database/src';
+import { User, SystemModule, Department, Team, PermissionManager, LoginSession } from '../../../../../libs/database/src';
 import { UserRepository } from '../../../../../libs/database/src/repositories/user.repository';
 import { CreateUserDto, UpdateUserDto } from '../../../../../libs/dtos/master_management/user_management.dto';
 import { USER_ACCOUNT_STATUS, USER_GROUP, USER_LOGIN_SOURCE, USER_VERIFY_STATUS } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -187,6 +187,13 @@ export class UserManagementService {
     // Prevent self-deletion
     if (userId === deletedBy) {
       throw new BadRequestException('You cannot delete your own account');
+    }
+
+    // Delete associated login sessions first to avoid FK constraint error
+    try {
+      await this.userRepo.manager.getRepository(LoginSession).delete({ user: { id: userId } });
+    } catch (error) {
+      console.log(`[Delete User] Error deleting sessions for user ID ${userId}:`, error);
     }
     
     // Soft delete or hard delete based on your requirement

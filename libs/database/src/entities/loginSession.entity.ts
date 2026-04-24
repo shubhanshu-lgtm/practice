@@ -13,7 +13,7 @@ export class LoginSession {
   @Column({ type: 'timestamp', default: () => 'now()' })
   createdAt: Date
 
-  @ManyToOne(() => User, u => u.id)
+  @ManyToOne(() => User, u => u.id, { onDelete: 'CASCADE' })
   @JoinColumn({ name: "userId" })
   user: User
 
