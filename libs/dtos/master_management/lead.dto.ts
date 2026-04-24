@@ -424,10 +424,12 @@ export class CreateDeliverableDto {
   @IsBoolean()
   isCompleted?: boolean;
 
+  @Type(() => Number)
   @IsNumber()
   @IsNotEmpty()
   serviceId: number;
 
+  @Type(() => Number)
   @IsOptional()
   @IsNumber()
   subserviceId?: number;
@@ -435,6 +437,44 @@ export class CreateDeliverableDto {
   @IsOptional()
   @IsNumber()
   sortOrder?: number;
+}
+
+export class GlobalServiceDeliverableBulkDto {
+  @Type(() => Number)
+  @IsNumber()
+  @IsNotEmpty()
+  serviceId: number;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsNumber()
+  subserviceId?: number;
+
+  @IsArray()
+  @IsString({ each: true })
+  deliverables: string[];
+
+  @IsOptional()
+  @IsString()
+  timeline?: string;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsString()
+  remarks?: string;
+
+  @IsOptional()
+  status?: any;
+}
+
+export class CreateBulkDeliverablesDto {
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => GlobalServiceDeliverableBulkDto)
+  services: GlobalServiceDeliverableBulkDto[];
 }
 
 export class UpdateDeliverableDto {
@@ -464,10 +504,12 @@ export class UpdateDeliverableDto {
 }
 
 export class ServiceAssignmentDto {
+  @Type(() => Number)
   @IsNumber()
   @IsNotEmpty()
   serviceId: number;
 
+  @Type(() => Number)
   @IsOptional()
   @IsNumber()
   subserviceId?: number;

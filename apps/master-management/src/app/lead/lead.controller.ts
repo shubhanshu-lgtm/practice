@@ -5,7 +5,7 @@ import { Response } from 'express';
 // import { join, normalize } from 'path';
 import { imageFileFilter } from '../../../../../libs/utils/fileUpload';
 import { ResponseHandlerService } from '../../../../../libs/response-handler/response-handler.service';
-import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto } from '../../../../../libs/dtos/master_management/lead.dto';
+import { CreateLeadDto, UpdateLeadDto, CreateServiceDto, UpdateServiceDto, CreatePermissionDto, GetPermissionDto, CreateDeliverableDto, UpdateDeliverableDto, GetServicesFilterDto, AssignServicesToLeadDto, PaginationDto, CreateLeadFollowUpDto, UpdateLeadFollowUpDto, GetLeadFollowUpsDto, GetAssignedServicesFilterDto, DropLeadDto, RollbackLeadDto, CreateBulkDeliverablesDto } from '../../../../../libs/dtos/master_management/lead.dto';
 import { LeadService } from './lead.service';
 import { AuthenticatedRequest } from '../../../../../libs/interfaces/authenticated-request.interface';
 import { USER_GROUP } from '../../../../../libs/constants/autenticationConstants/userContants';
@@ -684,10 +684,11 @@ export class LeadController {
 
   @Post('services/deliverables')
   @UseGuards(TokenValidationGuard, CheckIfAdminGuard)
-  async createDeliverable(@Res() res: Response, @Body() payload: CreateDeliverableDto) {
+  async createDeliverable(@Res() res: Response, @Body() payload: CreateBulkDeliverablesDto | CreateDeliverableDto) {
     try {
       const deliverable = await this.leadService.createDeliverable(payload);
-      return this.responseHandler.sendSuccessResponse(res, { message: 'Global deliverable created successfully', data: deliverable });
+      const message = ('services' in payload) ? 'Global deliverables created successfully' : 'Global deliverable created successfully';
+      return this.responseHandler.sendSuccessResponse(res, { message, data: deliverable });
     } catch (error) {
       return this.responseHandler.sendErrorResponse(res, error);
     }
