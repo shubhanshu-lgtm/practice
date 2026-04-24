@@ -58,8 +58,8 @@ export class AuthController {
     try {
       const googleUser = req.user;
       console.log('Google user attempting login:', googleUser.email);
-      const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
-      //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
+      //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+      const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
 
       const result = await this.authService.validateGoogleUser(googleUser);
       console.log('[Google Auth] Successful login for:', googleUser.email, 'Role:', result.data.user.roleName);
@@ -67,8 +67,8 @@ export class AuthController {
 
     } catch (error) {
       console.error('Google login error:', error);
-      const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
-      //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
+      //const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+      const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'https://cms.intercert.com';
       const errorMessage = encodeURIComponent(ErrorMessages.NOT_AUTHORIZED || 'Login failed');
       return res.redirect(`${frontendUrl}/login?error=${errorMessage}`);
     }
