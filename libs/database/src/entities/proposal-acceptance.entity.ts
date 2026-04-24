@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToOne, ManyToOne, JoinColumn
 import { Proposal } from './proposal.entity';
 import { Lead } from './lead.entity';
 import { Department } from './department.entity';
+import { CLOSURE_STATUS } from '../../../constants/salesConstants';
 
 @Entity('proposal_acceptance')
 export class ProposalAcceptance {
@@ -81,6 +82,13 @@ export class ProposalAcceptance {
 
   @Column({ nullable: true })
   department: string;
+
+  @Column({
+    type: 'enum',
+    enum: CLOSURE_STATUS,
+    default: CLOSURE_STATUS.PENDING
+  })
+  closureStatus: CLOSURE_STATUS;
 
   @Column({ type: 'text', nullable: true })
   notes: string;
