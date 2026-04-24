@@ -248,9 +248,13 @@ export class LeadController {
 
   @Get('deliverables')
   @UseGuards(TokenValidationGuard)
-  async getAllDeliverables(@Res() res: Response, @Query('serviceId', ParseIntPipe) serviceId?: number, @Query('subserviceId', ParseIntPipe) subserviceId?: number) {
+  async getAllDeliverables(
+    @Res() res: Response,
+    @Query('serviceId') serviceId?: string,
+    @Query('subserviceId') subserviceId?: string,
+  ) {
     try {
-      const targetId = subserviceId || serviceId;
+      const targetId = subserviceId ? parseInt(subserviceId) : (serviceId ? parseInt(serviceId) : undefined);
       const deliverables = await this.leadService.getDeliverables(targetId);
       return this.responseHandler.sendSuccessResponse(res, { message: 'Deliverables fetched successfully', data: deliverables });
     } catch (error) {
