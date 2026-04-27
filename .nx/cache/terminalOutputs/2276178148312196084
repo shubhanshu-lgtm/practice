@@ -1,0 +1,185 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (86e78a4204d6954e)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:40276) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m20:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'save' does not exist on type 'SystemModuleRepository'.
+  [0m [90m 18 |[39m     [36mtry[39m {
+   [90m 19 |[39m       [36mconst[39m module [33m=[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 20 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39msave(module)[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 21 |[39m     } [36mcatch[39m (error) {
+   [90m 22 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 23 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m28:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'find' does not exist on type 'SystemModuleRepository'.
+  [0m [90m 26 |[39m   [36masync[39m getSystemModules()[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[][33m>[39m {
+   [90m 27 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 28 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     } [36mcatch[39m (error) {
+   [90m 30 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 31 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m36:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 34 |[39m   [36masync[39m getSystemModuleById(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 35 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 36 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 37 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 38 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 39 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m48:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 46 |[39m   [36masync[39m updateSystemModule(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateSystemModuleDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 47 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 48 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 49 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 50 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 51 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m52:48[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ id: number; }' is not assignable to parameter of type 'number'.
+  [0m [90m 50 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 51 |[39m       }
+  [31m[1m>[22m[39m[90m 52 |[39m       [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mupdate({ id }[33m,[39m payload)[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 53 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mgetSystemModuleById(id)[33m;[39m  
+   [90m 54 |[39m     } [36mcatch[39m (error) {
+   [90m 55 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m61:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 59 |[39m   [36masync[39m createMenu(payload[33m:[39m [33mCreateMenuDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mMenu[39m[33m>[39m {
+   [90m 60 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 61 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mmoduleId } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 62 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 63 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 64 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m118:66[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 116 |[39m
+   [90m 117 |[39m       [36mif[39m (payload[33m.[39mmoduleId) {
+  [31m[1m>[22m[39m[90m 118 |[39m         [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mmoduleId  } })[33m;[39m
+   [90m     |[39m                                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 119 |[39m         [36mif[39m ([33m![39mmodule) {
+   [90m 120 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 121 |[39m         }[0m
+
+webpack compiled with [1m[31m7 errors[39m[22m (03270491fd0a7b61)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m20:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'save' does not exist on type 'SystemModuleRepository'.
+  [0m [90m 18 |[39m     [36mtry[39m {
+   [90m 19 |[39m       [36mconst[39m module [33m=[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 20 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39msave(module)[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 21 |[39m     } [36mcatch[39m (error) {
+   [90m 22 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 23 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m28:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'find' does not exist on type 'SystemModuleRepository'.
+  [0m [90m 26 |[39m   [36masync[39m getSystemModules()[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[][33m>[39m {
+   [90m 27 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 28 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     } [36mcatch[39m (error) {
+   [90m 30 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 31 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m36:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 34 |[39m   [36masync[39m getSystemModuleById(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 35 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 36 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 37 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 38 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 39 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m48:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 46 |[39m   [36masync[39m updateSystemModule(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateSystemModuleDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 47 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 48 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 49 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 50 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 51 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m52:48[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ id: number; }' is not assignable to parameter of type 'number'.
+  [0m [90m 50 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 51 |[39m       }
+  [31m[1m>[22m[39m[90m 52 |[39m       [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mupdate({ id }[33m,[39m payload)[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 53 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mgetSystemModuleById(id)[33m;[39m  
+   [90m 54 |[39m     } [36mcatch[39m (error) {
+   [90m 55 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m61:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 59 |[39m   [36masync[39m createMenu(payload[33m:[39m [33mCreateMenuDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mMenu[39m[33m>[39m {
+   [90m 60 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 61 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mmoduleId } })[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 62 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 63 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 64 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:[32m[1m118:66[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ where: { id: number; }; }' is not assignable to parameter of type 'number'.
+  [0m [90m 116 |[39m
+   [90m 117 |[39m       [36mif[39m (payload[33m.[39mmoduleId) {
+  [31m[1m>[22m[39m[90m 118 |[39m         [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mmoduleId  } })[33m;[39m
+   [90m     |[39m                                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 119 |[39m         [36mif[39m ([33m![39mmodule) {
+   [90m 120 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 121 |[39m         }[0m
+
+webpack compiled with [1m[31m7 errors[39m[22m (5db5eb8ca34a2ab0)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2ef655980c48f652)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:50584) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (0398c3cb130c84e5)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 387 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1d9084112d6d8c08)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:51892) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

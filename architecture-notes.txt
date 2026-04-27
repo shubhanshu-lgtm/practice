@@ -1,0 +1,56 @@
+# Architecture Notes - Content Broadcasting System
+
+## Authentication & RBAC Flow
+- **JWT-based Authentication**: Secure authentication using JSON Web Tokens.
+- **RBAC (Role-Based Access Control)**: Strictly separated roles for `Principal` and `Teacher`.
+- **Middleware**: `protect` middleware verifies the JWT, and `authorize` middleware checks user roles for specific routes.
+
+## Subject-Based System Design
+- Content is categorized by `subject` (e.g., Maths, Science).
+- Each subject has its own independent rotation and scheduling.
+- The `ContentSlot` table manages unique subjects, while `ContentSchedule` manages the order within those subjects.
+
+## Upload Handling Approach
+- **Multer**: Used for handling `multipart/form-data`.
+- **Validation**: Files are restricted to `jpg`, `png`, and `gif` with a 10MB size limit.
+- **Storage**: Files are stored locally in the `uploads/` directory, with paths stored in the database.
+
+## Approval Workflow Design
+- **Lifecycle**: `uploaded` -> `pending` -> `approved` / `rejected`.
+- **Principal Control**: Only Principals can approve or reject content.
+- **Rejection Reason**: Mandatory for rejected content to provide feedback to teachers.
+- **Auto-Scheduling**: Upon approval, content is automatically added to the rotation schedule for its subject.
+
+## Scheduling/Rotation Logic (VERY IMPORTANT)
+- **Time Window**: Content is strictly only eligible for broadcast if the current time falls between its `startTime` and `endTime`.
+- **Rotation Calculation**:
+  - The system fetches all approved and active content for a teacher.
+  - It calculates the `totalDuration` of all items in a subject's rotation.
+  - It uses `(Current Time in Minutes) % (Total Duration)` to determine which item is currently "Live".
+  - This ensures a continuous, seamless loop without needing background jobs or cron tasks.
+
+## Database Design Decisions
+- **Sequelize ORM**: Used for database abstraction and easy modeling.
+- **MySQL**: Used for robust data management and compatibility with assignment requirements.
+- **Relationships**:
+  - `User` has many `Content`.
+  - `Content` has many `ContentSchedule`.
+  - `ContentSlot` has many `ContentSchedule`.
+
+## Folder Structure
+- `src/controllers/`: Business logic for each module.
+- `src/models/`: Database schemas and associations.
+- `src/routes/`: API endpoint definitions.
+- `src/middlewares/`: Authentication and upload validation.
+- `src/config/`: Database and environment configurations.
+
+## Middleware Usage
+- `helmet`: Security headers.
+- `cors`: Cross-Origin Resource Sharing.
+- `morgan`: Request logging.
+- `express.json`: Body parsing.
+
+## Scalability Approach
+- **Caching**: Future implementation of Redis could cache the `/content/live` endpoint results to reduce DB load.
+- **Cloud Storage**: Transitioning from local storage to AWS S3 for file persistence.
+- **Database Indexing**: Indexes on `subject`, `status`, and `uploadedBy` for faster querying.

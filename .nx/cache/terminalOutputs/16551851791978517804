@@ -1,0 +1,62 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3ca72f872d5956c7)
+[1m[31mDebugger listening on ws://localhost:9229/c7a181b5-d987-4bbd-92b6-add759689f54[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c7a181b5-d987-4bbd-92b6-add759689f54[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:21500) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2dddf914d66a06fd)
+[1m[31mDebugger listening on ws://localhost:9229/43ca1961-a619-4592-9acb-e9e1875d60dc[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/43ca1961-a619-4592-9acb-e9e1875d60dc[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:36748) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ee590fd1bb4761bb)
+[1m[31mDebugger listening on ws://localhost:9229/1b60c88f-8142-4464-8f11-d2e4b8b7a8b6[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1b60c88f-8142-4464-8f11-d2e4b8b7a8b6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:43852) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ee590fd1bb4761bb)
+[1m[31mDebugger listening on ws://localhost:9229/d9cb2ab0-c2e5-4234-8719-2376bb23780e[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/d9cb2ab0-c2e5-4234-8719-2376bb23780e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:13424) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

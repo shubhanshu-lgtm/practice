@@ -1,0 +1,145 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m44:38[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'USER_GROUP'.
+  [0m [90m 42 |[39m       password[33m:[39m hashedPassword[33m,[39m
+   [90m 43 |[39m       roleName[33m:[39m role [33m||[39m [32m'User'[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 44 |[39m       user_group[33m:[39m rest[33m.[39muser_group [33m||[39m [33mUSER_GROUP[39m[33m.[39m[33mUSER[39m[33m,[39m
+   [90m    |[39m                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 45 |[39m       status[33m:[39m [33mUSER_ACCOUNT_STATUS[39m[33m.[39m[33mACTIVE[39m[33m,[39m
+   [90m 46 |[39m       verifyStatus[33m:[39m [33mUSER_VERIFY_STATUS[39m[33m.[39m[33mVERIFIED[39m[33m,[39m
+   [90m 47 |[39m       loginSource[33m:[39m [33mUSER_LOGIN_SOURCE[39m[33m.[39m[33mLOCAL[39m[33m,[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (b0242d5516a06b35)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (cf4731b9833be402)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (cf4731b9833be402)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:33236) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 399 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.service.ts[39m[22m
+[1m./src/app/user_management/user-management.service.ts[39m[22m [1m[32m162:0[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.service.ts(162,1)[39m[22m
+[1m[31m      TS1005: '}' expected.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (6346db5e8a380ba5)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:25408) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 399 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts[39m[22m
+[1m./src/app/user_management/user-management.controller.ts[39m[22m [1m[32m71:0[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts(71,1)[39m[22m
+[1m[31m      TS1005: '}' expected.[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.service.ts[39m[22m
+[1m./src/app/user_management/user-management.service.ts[39m[22m [1m[32m162:0[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.service.ts(162,1)[39m[22m
+[1m[31m      TS1005: '}' expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (70699a0e2687ed8d)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 397 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts[39m[22m
+[1m./src/app/user_management/user-management.controller.ts[39m[22m [1m[32m71:0[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts(71,1)[39m[22m
+[1m[31m      TS1005: '}' expected.[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.controller.ts:[32m[1m69:21[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'assignSalesFullPermissionsToUsers' does not exist on type 'UserManagementService'.
+  [0m [90m 67 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mUSER_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m 68 |[39m   [36masync[39m assignSalesFullPermissions([33m@[39m[33mBody[39m() body[33m:[39m { emails[33m:[39m string[] }) {
+  [31m[1m>[22m[39m[90m 69 |[39m     [36mreturn[39m [36mthis[39m[33m.[39msvc[33m.[39massignSalesFullPermissionsToUsers(body[33m.[39memails)[33m;[39m
+   [90m    |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 70 |[39m   }
+   [90m 71 |[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (4f3978d808466d89)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 397 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts[39m[22m
+[1m./src/app/user_management/user-management.controller.ts[39m[22m [1m[32m71:0[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\user_management\user-management.controller.ts(71,1)[39m[22m
+[1m[31m      TS1005: '}' expected.[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.controller.ts:[32m[1m69:21[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'assignSalesFullPermissionsToUsers' does not exist on type 'UserManagementService'.
+  [0m [90m 67 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mUSER_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m 68 |[39m   [36masync[39m assignSalesFullPermissions([33m@[39m[33mBody[39m() body[33m:[39m { emails[33m:[39m string[] }) {
+  [31m[1m>[22m[39m[90m 69 |[39m     [36mreturn[39m [36mthis[39m[33m.[39msvc[33m.[39massignSalesFullPermissionsToUsers(body[33m.[39memails)[33m;[39m
+   [90m    |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 70 |[39m   }
+   [90m 71 |[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (4f3978d808466d89)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9b5b92f7443e1139)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 399 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2ecffebc4e2e3bd3)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 399 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2ecffebc4e2e3bd3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 400 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3b208c4a53908b46)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:10356) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 397 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.controller.ts:[32m[1m69:21[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'assignSalesFullPermissionsToUsers' does not exist on type 'UserManagementService'.
+  [0m [90m 67 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mUSER_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m 68 |[39m   [36masync[39m assignSalesFullPermissions([33m@[39m[33mBody[39m() body[33m:[39m { emails[33m:[39m string[] }) {
+  [31m[1m>[22m[39m[90m 69 |[39m     [36mreturn[39m [36mthis[39m[33m.[39msvc[33m.[39massignSalesFullPermissionsToUsers(body[33m.[39memails)[33m;[39m
+   [90m    |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 70 |[39m   }
+   [90m 71 |[39m
+   [90m 72 |[39m }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (0f19fb882bb63e6c)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:22248) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (4f350ad855c8ec50)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:26088) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

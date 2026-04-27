@@ -1,0 +1,22 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 249 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (740b6baee2a1c73f)
+[1m[31mDebugger listening on ws://localhost:9229/8802058e-9ca7-44b7-84f2-3352f3628e55[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8802058e-9ca7-44b7-84f2-3352f3628e55[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 250 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7152b3c15a938a46)
+[1m[31mDebugger listening on ws://localhost:9229/34dc99d6-f9a5-4364-bcc9-b52539d1ec6f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/34dc99d6-f9a5-4364-bcc9-b52539d1ec6f[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 250 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5b52ce5dc1a65132)
+[1m[31mDebugger listening on ws://localhost:9229/c5e556f0-339d-459a-91dd-d61773420cb6[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c5e556f0-339d-459a-91dd-d61773420cb6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 3221225786, waiting for changes to restart...[22m
+

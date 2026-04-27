@@ -1,0 +1,71 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6efb6fda1b70bd8b)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 380 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/templates/pdf-template.service.ts[39m[22m [1m[32m10:41-58[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'pizzip' in 'D:\INTERCERT_IC_ORG_OPMS_BKND\libs\templates'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/templates/pdf-template.service.ts:[32m[1m5:20[22m[39m[1m[39m[22m
+[90mTS2307: [39mCannot find module 'pizzip' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m fs [36mfrom[39m [32m'fs'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m path [36mfrom[39m [32m'path'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mPizZip[39m [36mfrom[39m [32m'pizzip'[39m[33m;[39m
+   [90m   |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m
+   [90m 7 |[39m [90m// Define proposal division enum[39m
+   [90m 8 |[39m [36mexport[39m [36menum[39m [33mPROPOSAL_DIVISION[39m {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c2bc51ddb8bcb8b4)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 380 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/templates/pdf-template.service.ts[39m[22m [1m[32m10:41-58[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'pizzip' in 'D:\INTERCERT_IC_ORG_OPMS_BKND\libs\templates'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/templates/pdf-template.service.ts:[32m[1m5:20[22m[39m[1m[39m[22m
+[90mTS2307: [39mCannot find module 'pizzip' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m fs [36mfrom[39m [32m'fs'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m path [36mfrom[39m [32m'path'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mPizZip[39m [36mfrom[39m [32m'pizzip'[39m[33m;[39m
+   [90m   |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m
+   [90m 7 |[39m [90m// Define proposal division enum[39m
+   [90m 8 |[39m [36mexport[39m [36menum[39m [33mPROPOSAL_DIVISION[39m {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c2bc51ddb8bcb8b4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 380 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/templates/pdf-template.service.ts[39m[22m [1m[32m10:41-58[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'pizzip' in 'D:\INTERCERT_IC_ORG_OPMS_BKND\libs\templates'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/templates/pdf-template.service.ts:[32m[1m5:20[22m[39m[1m[39m[22m
+[90mTS2307: [39mCannot find module 'pizzip' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m fs [36mfrom[39m [32m'fs'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m path [36mfrom[39m [32m'path'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mPizZip[39m [36mfrom[39m [32m'pizzip'[39m[33m;[39m
+   [90m   |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m
+   [90m 7 |[39m [90m// Define proposal division enum[39m
+   [90m 8 |[39m [36mexport[39m [36menum[39m [33mPROPOSAL_DIVISION[39m {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c2bc51ddb8bcb8b4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 380 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/templates/pdf-template.service.ts[39m[22m [1m[32m10:41-58[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'pizzip' in 'D:\INTERCERT_IC_ORG_OPMS_BKND\libs\templates'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/templates/pdf-template.service.ts:[32m[1m5:20[22m[39m[1m[39m[22m
+[90mTS2307: [39mCannot find module 'pizzip' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m fs [36mfrom[39m [32m'fs'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m path [36mfrom[39m [32m'path'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mPizZip[39m [36mfrom[39m [32m'pizzip'[39m[33m;[39m
+   [90m   |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m
+   [90m 7 |[39m [90m// Define proposal division enum[39m
+   [90m 8 |[39m [36mexport[39m [36menum[39m [33mPROPOSAL_DIVISION[39m {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c2bc51ddb8bcb8b4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

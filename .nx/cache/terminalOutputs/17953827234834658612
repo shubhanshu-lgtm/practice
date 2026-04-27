@@ -1,0 +1,1535 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6ab34d32399074c3)
+[1m[31mDebugger listening on ws://localhost:9229/b3fb4fdb-406f-4220-83cd-44574b107450[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/b3fb4fdb-406f-4220-83cd-44574b107450[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mD:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\typeorm\dist\common\typeorm.utils.js:19[39m[22m
+[1m[31m        throw new circular_dependency_exception_1.CircularDependencyException('@InjectRepository()');[39m[22m
+[1m[31m              ^[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: A circular dependency has been detected inside @InjectRepository(). Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()". Also, try to eliminate barrel files because they can lead to an unexpected behavior too.[39m[22m
+[1m[31m    at getRepositoryToken (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\typeorm\dist\common\typeorm.utils.js:19:15)[39m[22m
+[1m[31m    at InjectRepository (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\typeorm\dist\common\typeorm.decorators.js:7:157)[39m[22m
+[1m[31m    at Array.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\libs\database\src\repositories\lead.repository.ts:10:22)[39m[22m
+[1m[31m    at __webpack_require__ (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\webpack\bootstrap:19:1)[39m[22m
+[1m[31m    at Array.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\libs\database\src\repositories\index.ts:6:1)[39m[22m
+[1m[31m    at __webpack_require__ (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\webpack\bootstrap:19:1)[39m[22m
+[1m[31m    at Array.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\libs\database\src\index.ts:1:1)[39m[22m
+[1m[31m    at __webpack_require__ (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\webpack\bootstrap:19:1)[39m[22m
+[1m[31m    at Array.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\src\app\world_data\world_data.module.ts:2:1)[39m[22m
+[1m[31m    at __webpack_require__ (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\webpack\bootstrap:19:1)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (372264321f13825e)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:23940) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 23940  - [39m[31m06/02/2026, 2:57:17 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 23940  - [39m[31m06/02/2026, 2:57:17 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 23940  - [39m[31m06/02/2026, 2:57:17 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 23940  - [39m[31m06/02/2026, 2:57:17 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (572f9a91e6726917)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (d68dec1d0e125050)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (af3502df99782027)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (af3502df99782027)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (d9d55711a581c1a5)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (6f4581918a1982d2)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (20adf6f536bf2b1f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-acceptance.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m acceptance[33m:[39m [33mPartial[39m[33m<[39m[33mProposalAcceptance[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m proposal[33m:[39m [33mPartial[39m[33m<[39m[33mProposal[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (5be6d8156e388651)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/project.repository.ts:[32m[1m23:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProject[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m number[33m,[39m project[33m:[39m [33mPartial[39m[33m<[39m[33mProject[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m number[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (47a8a4b2a4d6a403)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (cba67871d8d894ef)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (cba67871d8d894ef)
+[1m[31mDebugger listening on ws://localhost:9229/061811c6-a3a4-4efa-be61-3213461741b1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/061811c6-a3a4-4efa-be61-3213461741b1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:7148) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (cba67871d8d894ef)
+[1m[31mDebugger listening on ws://localhost:9229/0637699b-d182-4063-a866-149e6b05c732[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/0637699b-d182-4063-a866-149e6b05c732[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29836) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:49 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5d2`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:49 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5ce`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:49 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5d1`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:49 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5d0`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:49 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5cf`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:53 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5d8`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:53 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5d9`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:53 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5da`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:53 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5dc`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:53 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5db`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:57 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5e2`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:57 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5e6`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:57 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5e3`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:58 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5e4`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:08:58 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5e5`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:01 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5ec`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:02 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5ed`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:02 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5ee`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:02 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5f0`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:02 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5ef`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:05 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5f6`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:06 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5f7`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:06 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5fa`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:06 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5f8`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:06 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_5f9`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:09 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_600`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:10 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_601`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:10 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_602`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:10 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_603`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:10 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_604`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:13 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_60a`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:14 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_60b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:14 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_60d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:14 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_60c`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:14 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_60e`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:17 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_611`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:18 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_615`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:18 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_616`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:18 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_618`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:18 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_617`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:21 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (9)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_61b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29836  - [39m[31m06/02/2026, 3:09:21 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mCannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_61b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[31m[39m[22m
+[1m[31mQueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_61b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'SessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m65:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m
+   [90m 68 |[39m [33m@[39m[33mModule[39m({})[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (a8575b4315f34746)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'SessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m65:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m
+   [90m 68 |[39m [33m@[39m[33mModule[39m({})[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (4ecf32a3963297be)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m
+   [90m 67 |[39m [33m@[39m[33mModule[39m({})[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (5ba1c7ffbc2835c8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m12:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 10 |[39m [36mimport[39m { [33mResponseHandlerModule[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.module'[39m[33m;[39m
+   [90m 11 |[39m [36mimport[39m { [33mDefaultUserService[39m } [36mfrom[39m [32m'./services/defaultUser.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 13 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [33m@[39m[33mModule[39m({[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m5:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m
+   [90m 67 |[39m [33m@[39m[33mModule[39m({})[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m8 errors[39m[22m (44feaaabb87947a7)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m12:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 10 |[39m [36mimport[39m { [33mResponseHandlerModule[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.module'[39m[33m;[39m
+   [90m 11 |[39m [36mimport[39m { [33mDefaultUserService[39m } [36mfrom[39m [32m'./services/defaultUser.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 13 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [33m@[39m[33mModule[39m({[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m13:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 11 |[39m [36mimport[39m { [33mDefaultUserService[39m } [36mfrom[39m [32m'./services/defaultUser.service'[39m[33m;[39m
+   [90m 12 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 13 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [33m@[39m[33mModule[39m({
+   [90m 16 |[39m   imports[33m:[39m [[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m5:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m8 errors[39m[22m (5cd19d894fc04949)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m12:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 10 |[39m [36mimport[39m { [33mResponseHandlerModule[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.module'[39m[33m;[39m
+   [90m 11 |[39m [36mimport[39m { [33mDefaultUserService[39m } [36mfrom[39m [32m'./services/defaultUser.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 13 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [33m@[39m[33mModule[39m({[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m13:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 11 |[39m [36mimport[39m { [33mDefaultUserService[39m } [36mfrom[39m [32m'./services/defaultUser.service'[39m[33m;[39m
+   [90m 12 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 13 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [33m@[39m[33mModule[39m({
+   [90m 16 |[39m   imports[33m:[39m [[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m5:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (0e71ea28c49b34b5)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m28:5[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 26 |[39m     [33mJwtAuthGuard[39m[33m,[39m
+   [90m 27 |[39m     [33mDefaultUserService[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 28 |[39m     [33mUserRepositoryService[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [33mPermissionManagerService[39m[33m,[39m
+   [90m 30 |[39m   ][33m,[39m
+   [90m 31 |[39m   exports[33m:[39m [[33mAuthService[39m[33m,[39m [33mJwtAuthGuard[39m][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.module.ts:[32m[1m29:5[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionManagerService'. Did you mean 'PermissionManager'?
+  [0m [90m 27 |[39m     [33mDefaultUserService[39m[33m,[39m
+   [90m 28 |[39m     [33mUserRepositoryService[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 29 |[39m     [33mPermissionManagerService[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 30 |[39m   ][33m,[39m
+   [90m 31 |[39m   exports[33m:[39m [[33mAuthService[39m[33m,[39m [33mJwtAuthGuard[39m][33m,[39m
+   [90m 32 |[39m })[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m5:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (714f50e85696dfe9)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m5:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (9194d4b84046dfb6)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:[32m[1m7:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (0398cd91edead5bc)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m3:10[22m[39m[1m[39m[22m
+[90mTS2724: [39m'"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c1ef3a2bf727f167)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m4:10[22m[39m[1m[39m[22m
+[90mTS2459: [39mModule '"../../../../../../libs/database/src/repositories/permissionManager.repository"' declares 'PermissionManager' locally, but it is not exported.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepository[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManager[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (a792ad9ae52796f0)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:[32m[1m17:93[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionManager'. Did you mean 'PermissionName'?
+  [0m [90m 15 |[39m [33m@[39m[33mInjectable[39m()
+   [90m 16 |[39m [36mexport[39m [36mclass[39m [33mDefaultUserService[39m {
+  [31m[1m>[22m[39m[90m 17 |[39m   constructor([36mprivate[39m readonly userModel[33m:[39m [33mUserRepository[39m[33m,[39m [36mprivate[39m readonly permissionModel[33m:[39m [33mPermissionManager[39m) { }
+   [90m    |[39m                                                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 18 |[39m
+   [90m 19 |[39m   [36masync[39m addDefaultUser()[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {
+   [90m 20 |[39m     [36mtry[39m {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (e98745009b2be198)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3ffb357b3a2dfd48)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

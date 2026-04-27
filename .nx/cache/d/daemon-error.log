@@ -1,0 +1,26 @@
+Daemon process terminated and closed the connection
+
+Messages from the log:
+    at d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\nx\src\daemon\server\server.js:279:20
+    at new Promise (<anonymous>)
+    at startServer (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\nx\src\daemon\server\server.js:277:12)
+    at async d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\nx\src\daemon\server\start.js:8:9
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '\\\\.\\pipe\\nx\\C:\\Users\\INTERC~1\\AppData\\Local\\Temp\\43e0406ab054eff1ebc3\\d.sock',
+  port: -1
+}
+
+Node.js v24.11.0
+[NX Daemon Server] - 2026-03-23T10:19:59.351Z - [WATCHER]: .nx/cache/d/server-process.json was modified
+[NX Daemon Server] - 2026-03-23T10:19:59.351Z - [WATCHER]: Stopping the watcher for d:\INTERCERT_IC_ORG_OPMS_BKND (sources)
+[NX Daemon Server] - 2026-03-23T10:19:59.351Z - [WATCHER]: Stopping the watcher for d:\INTERCERT_IC_ORG_OPMS_BKND (outputs)
+[NX Daemon Server] - 2026-03-23T10:19:59.351Z - Server stopped because: "this process is no longer the current daemon (native)"
+
+
+
+More information: d:\INTERCERT_IC_ORG_OPMS_BKND\.nx\cache\d\daemon.log

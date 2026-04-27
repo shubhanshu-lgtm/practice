@@ -1,0 +1,40 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e79d3e498176b663)
+[1m[31mDebugger listening on ws://localhost:9229/3e379843-05fb-4317-ad01-888ee97540f1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3e379843-05fb-4317-ad01-888ee97540f1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (fcb364b605f0d4d9)
+[1m[31mDebugger listening on ws://localhost:9229/a6215931-e97f-4722-aee6-bf8997fa7ff8[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a6215931-e97f-4722-aee6-bf8997fa7ff8[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/middlewares/authMiddleware.ts:[32m[1m241:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 239 |[39m         console[33m.[39mlog([32m"payload"[39m[33m,[39mreq[[32m'userPayload'[39m])
+   [90m 240 |[39m           [36mconst[39m payload[33m:[39m [33mJWTPayload[39m [33m=[39m req[[32m'userPayload'[39m][33m;[39m
+  [31m[1m>[22m[39m[90m 241 |[39m           [36mif[39m (payload[33m.[39muser_group [33m!=[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m) {
+   [90m     |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 242 |[39m             [36mthis[39m[33m.[39m[33mResponseHandler[39m[33m.[39msendErrorResponse(res[33m,[39m errorResponse)
+   [90m 243 |[39m           }
+   [90m 244 |[39m     next()[33m;[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (1cc5ac6b1dcd8934)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3808978e28001906)
+[1m[31mDebugger listening on ws://localhost:9229/b0598f99-fe72-4c87-8137-789c64cd678a[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/b0598f99-fe72-4c87-8137-789c64cd678a[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3808978e28001906)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 276 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e48388a6976ad051)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m

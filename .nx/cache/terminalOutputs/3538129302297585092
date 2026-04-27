@@ -1,0 +1,419 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (728ba64a6fe1ab53)
+[1m[31mDebugger listening on ws://localhost:9229/5b0eef52-c434-4c88-9570-5661d6bed17d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/5b0eef52-c434-4c88-9570-5661d6bed17d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:38200) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ba53eba5927f796a)
+[1m[31mDebugger listening on ws://localhost:9229/8eed10f1-0f5d-4da6-b67d-49f65014d72d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8eed10f1-0f5d-4da6-b67d-49f65014d72d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29664) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f98645f510711ba3)
+[1m[31mDebugger listening on ws://localhost:9229/459ca0a6-e2f0-418c-a93a-63c7634b2191[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/459ca0a6-e2f0-418c-a93a-63c7634b2191[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:32448) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Column 'leadId' cannot be null","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Column 'leadId' cannot be null","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (ef0bdf077f67806c)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m445:20[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'addressType' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadAddress>'.
+  [0m [90m 443 |[39m           [36mconst[39m leadAddresses [33m=[39m addresses[33m.[39mmap(addr [33m=>[39m {
+   [90m 444 |[39m             [36mconst[39m { addressType[33m,[39m [33m...[39mrest } [33m=[39m addr[33m;[39m
+  [31m[1m>[22m[39m[90m 445 |[39m             [36mreturn[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39mcreate({
+   [90m     |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 446 |[39m               [33m...[39mrest[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 447 |[39m               addressType[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 448 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 449 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 450 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 451 |[39m             })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 452 |[39m           })[33m;[39m
+   [90m 453 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39msave(leadAddresses)[33m;[39m
+   [90m 454 |[39m         }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (682daeb98df4388f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m445:20[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'addressType' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadAddress>'.
+  [0m [90m 443 |[39m           [36mconst[39m leadAddresses [33m=[39m addresses[33m.[39mmap(addr [33m=>[39m {
+   [90m 444 |[39m             [36mconst[39m { addressType[33m,[39m [33m...[39mrest } [33m=[39m addr[33m;[39m
+  [31m[1m>[22m[39m[90m 445 |[39m             [36mreturn[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39mcreate({
+   [90m     |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 446 |[39m               [33m...[39mrest[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 447 |[39m               addressType[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 448 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 449 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 450 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 451 |[39m             })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 452 |[39m           })[33m;[39m
+   [90m 453 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39msave(leadAddresses)[33m;[39m
+   [90m 454 |[39m         }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (682daeb98df4388f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m445:20[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'addressType' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadAddress>'.
+  [0m [90m 443 |[39m           [36mconst[39m leadAddresses [33m=[39m addresses[33m.[39mmap(addr [33m=>[39m {
+   [90m 444 |[39m             [36mconst[39m { addressType[33m,[39m [33m...[39mrest } [33m=[39m addr[33m;[39m
+  [31m[1m>[22m[39m[90m 445 |[39m             [36mreturn[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39mcreate({
+   [90m     |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 446 |[39m               [33m...[39mrest[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 447 |[39m               addressType[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 448 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 449 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 450 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 451 |[39m             })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 452 |[39m           })[33m;[39m
+   [90m 453 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39msave(leadAddresses)[33m;[39m
+   [90m 454 |[39m         }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (682daeb98df4388f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m445:20[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'addressType' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadAddress>'.
+  [0m [90m 443 |[39m           [36mconst[39m leadAddresses [33m=[39m addresses[33m.[39mmap(addr [33m=>[39m {
+   [90m 444 |[39m             [36mconst[39m { addressType[33m,[39m [33m...[39mrest } [33m=[39m addr[33m;[39m
+  [31m[1m>[22m[39m[90m 445 |[39m             [36mreturn[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39mcreate({
+   [90m     |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 446 |[39m               [33m...[39mrest[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 447 |[39m               addressType[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 448 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 449 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 450 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 451 |[39m             })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 452 |[39m           })[33m;[39m
+   [90m 453 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39msave(leadAddresses)[33m;[39m
+   [90m 454 |[39m         }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (682daeb98df4388f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m421:13[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadContact>[]): LeadContact[]', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>[]'.
+      Object literal may only specify known properties, and 'lead' does not exist in type 'DeepPartial<LeadContact>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadContact>): LeadContact', gave the following error.
+    Argument of type '{ lead: Lead; leadId: number; customer: Customer; name: string; designation?: string; email: string; phoneNo: string; countryCode: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadContact>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadContact>'.
+  [0m [90m 419 |[39m           [36mawait[39m [36mthis[39m[33m.[39mcontactRepository[33m.[39msave(customerContacts)[33m;[39m
+   [90m 420 |[39m           [36mconst[39m leadContacts [33m=[39m contacts[33m.[39mmap(contact [33m=>[39m
+  [31m[1m>[22m[39m[90m 421 |[39m             [36mthis[39m[33m.[39mleadContactRepository[33m.[39mcreate({
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 422 |[39m               [33m...[39mcontact[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 423 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 424 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 425 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 426 |[39m             })
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 427 |[39m           )[33m;[39m
+   [90m 428 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadContactRepository[33m.[39msave(leadContacts)[33m;[39m
+   [90m 429 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m445:20[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'addressType' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ addressType: ADDRESS_TYPE; lead: Lead; leadId: number; customer: Customer; addressLine1: string; addressLine2?: string; city: string; state?: string; country: string; postalCode?: string; isPrimary?: boolean; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Object literal may only specify known properties, and 'customer' does not exist in type 'DeepPartial<LeadAddress>'.
+  [0m [90m 443 |[39m           [36mconst[39m leadAddresses [33m=[39m addresses[33m.[39mmap(addr [33m=>[39m {
+   [90m 444 |[39m             [36mconst[39m { addressType[33m,[39m [33m...[39mrest } [33m=[39m addr[33m;[39m
+  [31m[1m>[22m[39m[90m 445 |[39m             [36mreturn[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39mcreate({
+   [90m     |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 446 |[39m               [33m...[39mrest[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 447 |[39m               addressType[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 448 |[39m               lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 449 |[39m               leadId[33m:[39m lead[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 450 |[39m               customer[33m:[39m lead[33m.[39mcustomer
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 451 |[39m             })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 452 |[39m           })[33m;[39m
+   [90m 453 |[39m           [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepository[33m.[39msave(leadAddresses)[33m;[39m
+   [90m 454 |[39m         }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (682daeb98df4388f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (54709d291f95d32f)
+[1m[31mDebugger listening on ws://localhost:9229/d4c5658e-24fd-490b-a47f-9b8df6da2d53[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/d4c5658e-24fd-490b-a47f-9b8df6da2d53[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:44312) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Column 'leadId' cannot be null","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Column 'leadId' cannot be null","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (54709d291f95d32f)
+[1m[31mDebugger listening on ws://localhost:9229/7d690a64-5012-4e17-ae9c-ffec21f75136[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/7d690a64-5012-4e17-ae9c-ffec21f75136[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:40168) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (54709d291f95d32f)
+[1m[31mDebugger listening on ws://localhost:9229/305555bc-cb5a-4aab-af58-5c152bace185[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/305555bc-cb5a-4aab-af58-5c152bace185[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:41940) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Column 'leadId' cannot be null","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Column 'leadId' cannot be null","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (4f01c54afaef8fe1)
+[1m[31mDebugger listening on ws://localhost:9229/c89614f9-c662-42fb-b02b-898c9a95f9a6[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c89614f9-c662-42fb-b02b-898c9a95f9a6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:41852) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m

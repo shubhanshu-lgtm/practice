@@ -1,0 +1,27 @@
+(Architecture Notes – Content Broadcasting System)
+Auth & Roles
+The system uses JWT for authentication with two roles: Principal and Teacher. The protect middleware checks if the user is logged in, and authorize ensures the correct role is used for access.
+
+Subject System
+Content is grouped by subjects like Maths and Science, and each subject has its own independent schedule.
+
+Uploads
+File uploads are handled using Multer. Only jpg, png, and gif files are allowed with a maximum size of 10MB, and they are stored in the uploads/ folder.
+
+Approval
+The content follows a flow of uploaded → pending → approved or rejected. Only the Principal can approve or reject content, and a rejection must include a reason. Approved content is automatically added to the schedule.
+
+Scheduling (Core)
+Content runs only between its startTime and endTime. The system uses (current time % total duration) to decide which content to show, creating a continuous loop without extra jobs.
+
+Database
+Sequelize with MySQL is used. A User can have multiple Content items, and each Content can have multiple Schedule entries.
+
+Structure
+The project is organized into controllers (logic), models (database), routes (APIs), middlewares (authentication), and config (settings).
+
+Middleware
+Helmet, CORS, Morgan, and express.json are used for security, logging, and request handling.
+
+Scalability
+For future improvements, Redis can be used for caching, AWS S3 for storage, and database indexing for better performance.

@@ -1,0 +1,248 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (944155d379d63a8e)
+[1m[31mDebugger listening on ws://localhost:9229/1cf0a34b-d555-4814-9a5d-88506ff6f8e3[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1cf0a34b-d555-4814-9a5d-88506ff6f8e3[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29540) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d3d4bf12c8566b16)
+[1m[31mDebugger listening on ws://localhost:9229/89c23e8f-281a-4226-a86e-c7f05a1d3faa[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/89c23e8f-281a-4226-a86e-c7f05a1d3faa[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:35180) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (447f763337e07a45)
+[1m[31mDebugger listening on ws://localhost:9229/f53919a5-8ad5-496c-8ef9-e096ffb101c6[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/f53919a5-8ad5-496c-8ef9-e096ffb101c6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:32296) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (0a5fc9c2f745fd7e)
+[1m[31mDebugger listening on ws://localhost:9229/242120f0-2e60-4afd-978f-bbe63797c18f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/242120f0-2e60-4afd-978f-bbe63797c18f[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m45:25[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (45:25)
+File was processed with these loaders:
+ * ../../node_modules/ts-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|                         req.user_group = payload.user_group;
+|                         req.modules = payload.modules || [];
+>                         ()(req).permissionId = payload.permissionId;
+|                         next();
+|                     }[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m51:15-16[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(51,16)[39m[22m
+[1m[31m      TS1109: Expression expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (27178419f7f9d04d)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/middlewares/authMiddleware.ts:[32m[1m51:16[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 're'.
+  [0m [90m 49 |[39m               (req [36mas[39m any)[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 50 |[39m               (req [36mas[39m any)[33m.[39mmodules [33m=[39m payload[33m.[39mmodules [33m||[39m [][33m;[39m
+  [31m[1m>[22m[39m[90m 51 |[39m               (re)
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m               (req [36mas[39m any)[33m.[39mpermissionId [33m=[39m payload[33m.[39mpermissionId[33m;[39m
+   [90m 53 |[39m               next()[33m;[39m
+   [90m 54 |[39m           } [36melse[39m [36mif[39m (loginSession [33m&&[39m loginSession[33m.[39mloginStatus [33m==[39m [33mSESSION_STATUS[39m[33m.[39m[33mBLOCKED[39m) [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (888e84d7eeff60ed)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/middlewares/authMiddleware.ts:[32m[1m51:23[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'an'.
+  [0m [90m 49 |[39m               (req [36mas[39m any)[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 50 |[39m               (req [36mas[39m any)[33m.[39mmodules [33m=[39m payload[33m.[39mmodules [33m||[39m [][33m;[39m
+  [31m[1m>[22m[39m[90m 51 |[39m               (req [36mas[39m an)
+   [90m    |[39m                       [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m               (req [36mas[39m any)[33m.[39mpermissionId [33m=[39m payload[33m.[39mpermissionId[33m;[39m
+   [90m 53 |[39m               next()[33m;[39m
+   [90m 54 |[39m           } [36melse[39m [36mif[39m (loginSession [33m&&[39m loginSession[33m.[39mloginStatus [33m==[39m [33mSESSION_STATUS[39m[33m.[39m[33mBLOCKED[39m) [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (6f33437a20281a73)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m46:24[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (46:24)
+File was processed with these loaders:
+ * ../../node_modules/ts-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|                         req.modules = payload.modules || [];
+|                         req.
+>                         (req).permissionId = payload.permissionId;
+|                         next();
+|                     }[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m52:14-15[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(52,15)[39m[22m
+[1m[31m      TS1003: Identifier expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (bf41b7e13d15cd03)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (390325214ccfc507)
+[1m[31mDebugger listening on ws://localhost:9229/3181b057-8a4a-4a38-9770-4b8b2317f808[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3181b057-8a4a-4a38-9770-4b8b2317f808[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:1500) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1b2959ab0a527fa6)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9f88f4a98f43f9c2)
+[1m[31mDebugger listening on ws://localhost:9229/4f28aa1d-aeed-46bc-8cf1-e05603f5bcc5[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/4f28aa1d-aeed-46bc-8cf1-e05603f5bcc5[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8c5e2a47-4b28-4a56-aacd-c67e5df5a0c7[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8c5e2a47-4b28-4a56-aacd-c67e5df5a0c7[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:8060) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d934f186fb45c706)
+[1m[31mDebugger listening on ws://localhost:9229/05f99f0a-708d-45c8-b3f3-f59d4efd2407[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/05f99f0a-708d-45c8-b3f3-f59d4efd2407[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:36512) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Lead not found","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Lead not found","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Lead not found","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Lead not found","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Lead not found","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Lead not found","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m52:40-41[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(52,41)[39m[22m
+[1m[31m      TS1005: ';' expected.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (c26ff8ad33cfcae5)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m52:40-41[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(52,41)[39m[22m
+[1m[31m      TS1005: ';' expected.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (8057b728520c9482)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m45:60[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (45:60)
+File was processed with these loaders:
+ * ../../node_modules/ts-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|                         req.user_group = payload.user_group;
+|                         req.modules = payload.modules || [];
+>                         req.department = payload.modules || ;
+|                         req.permissionId = payload.permissionId;
+|                         next();[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m51:58-59[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(51,59)[39m[22m
+[1m[31m      TS1109: Expression expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (1a55064638cd738f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m45:60[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (45:60)
+File was processed with these loaders:
+ * ../../node_modules/ts-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|                         req.user_group = payload.user_group;
+|                         req.modules = payload.modules || [];
+>                         req.department = payload.modules || ;
+|                         req.permissionId = payload.permissionId;
+|                         next();[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts[39m[22m
+[1m../../libs/middlewares/authMiddleware.ts[39m[22m [1m[32m51:58-59[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\middlewares\authMiddleware.ts(51,59)[39m[22m
+[1m[31m      TS1109: Expression expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (1a55064638cd738f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (578bc50d66c87509)
+[1m[31mDebugger listening on ws://localhost:9229/6d075779-65d5-40bd-ab3a-83124ae8d42e[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/6d075779-65d5-40bd-ab3a-83124ae8d42e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:47172) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 493 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (add0928f72397ee8)
+[1m[31mDebugger listening on ws://localhost:9229/ba3f7e1f-3be0-4b9d-97e8-e8887730deda[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/ba3f7e1f-3be0-4b9d-97e8-e8887730deda[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:42740) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

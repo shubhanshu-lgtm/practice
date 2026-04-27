@@ -1,0 +1,19 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 547 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (aa8fbd8f420a582a)
+[1m[31mDebugger listening on ws://localhost:9229/21bbf846-7df9-4984-bc18-01534a16a248[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/21bbf846-7df9-4984-bc18-01534a16a248[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:32488) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 547 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1f6b732fc2602317)
+[1m[31mDebugger listening on ws://localhost:9229/a591f7e7-8a26-42a2-bd0f-99e51c2eba3c[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a591f7e7-8a26-42a2-bd0f-99e51c2eba3c[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m

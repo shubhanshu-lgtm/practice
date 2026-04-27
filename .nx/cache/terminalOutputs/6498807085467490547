@@ -1,0 +1,14 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 382 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m40:64[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ email: string; firstName: string; lastName: string; picture: string; accessToken: string; }' is not assignable to parameter of type 'GoogleUser'.
+  Type '{ email: string; firstName: string; lastName: string; picture: string; accessToken: string; }' is missing the following properties from type 'GoogleUser': id, name, provider
+  [0m [90m 38 |[39m     [36mtry[39m {
+   [90m 39 |[39m       [36mconst[39m googleUser [33m=[39m req[33m.[39muser[33m;[39m
+  [31m[1m>[22m[39m[90m 40 |[39m       [36mconst[39m result [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mvalidateGoogleUser(googleUser)[33m;[39m
+   [90m    |[39m                                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 41 |[39m       [36mconst[39m frontendUrl [33m=[39m [36mthis[39m[33m.[39mconfigService[33m.[39m[36mget[39m()[33m.[39m[33mFRONTEND_BASE_URL[39m [33m||[39m [32m'http://localhost:4200'[39m[33m;[39m
+   [90m 42 |[39m       [36mreturn[39m res[33m.[39mredirect([32m`${frontendUrl}/auth-callback?token=${result.data.token}`[39m)[33m;[39m
+   [90m 43 |[39m     } [36mcatch[39m (error) {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (fec919129113f768)

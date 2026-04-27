@@ -1,0 +1,369 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6bcbe162b9cb57f8)
+[1m[31mDebugger listening on ws://localhost:9229/79162a58-649f-47b1-a638-1016642527e3[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/79162a58-649f-47b1-a638-1016642527e3[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:15072) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (a858d601687bec37)
+[1m[31mDebugger listening on ws://localhost:9229/2ea0d852-cb21-4cec-80ec-348aa279830d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/2ea0d852-cb21-4cec-80ec-348aa279830d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:22648) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (4b1112f751998960)
+[1m[31mDebugger listening on ws://localhost:9229/369ca9ec-7469-4156-953c-26a4ca81af20[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/369ca9ec-7469-4156-953c-26a4ca81af20[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:25692) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7379bb12c6ebddeb)
+[1m[31mDebugger listening on ws://localhost:9229/54476083-fe21-4d69-83e1-d9e69aa3302a[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/54476083-fe21-4d69-83e1-d9e69aa3302a[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (dd967c5e21e38330)
+[1m[31mDebugger listening on ws://localhost:9229/3ef63be9-c33f-47b4-88c4-965f154d26aa[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3ef63be9-c33f-47b4-88c4-965f154d26aa[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:1720) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (df0d9f8b5d12859f)
+[1m[31mDebugger listening on ws://localhost:9229/caaa8627-f4ae-4425-aa74-8b34b1d729d3[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/caaa8627-f4ae-4425-aa74-8b34b1d729d3[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:8228) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 409 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (64541c3630ca8e0b)
+[1m[31mDebugger listening on ws://localhost:9229/a47207c2-174a-4206-ae80-18474d4d91ee[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a47207c2-174a-4206-ae80-18474d4d91ee[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:18604) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 410 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (b4f27531264e24f3)
+[1m[31mDebugger listening on ws://localhost:9229/13a6a241-3eba-457e-85e3-6411abd82eb1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/13a6a241-3eba-457e-85e3-6411abd82eb1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 410 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (08bfe49f83bf7979)
+[1m[31m(node:25320) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/f44d6744-e1f6-43c1-81f4-a1b202ec7f88[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/f44d6744-e1f6-43c1-81f4-a1b202ec7f88[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:21876) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 410 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (909973d7e3a08bfc)
+[1m[31mDebugger listening on ws://localhost:9229/4e9400f3-5b0c-4d9c-9460-40643f705120[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/4e9400f3-5b0c-4d9c-9460-40643f705120[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:24944) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 411 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f9a1fe43fc479199)
+[1m[31mDebugger listening on ws://localhost:9229/94eeba83-7ee4-4772-9c26-b7de9ce2fe2d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/94eeba83-7ee4-4772-9c26-b7de9ce2fe2d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:19224) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 411 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/auth/src/permission-access.guard.ts:[32m[1m29:52[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PERMISSIONS'. Did you mean 'permissions'?
+  [0m [90m 27 |[39m         [90m// Fallback: If user has the module assigned but no granular permission record, [39m
+   [90m 28 |[39m         [90m// allow READ access if the requirement is READ.[39m
+  [31m[1m>[22m[39m[90m 29 |[39m         [36mif[39m (targetModule [33m&&[39m requirement[33m.[39maction [33m===[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m) {
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 30 |[39m             console[33m.[39mlog([32m`User ${user?.email} has module ${requirement.module} but no granular permissions. Allowing READ access.`[39m)[33m;[39m
+   [90m 31 |[39m             [36mreturn[39m [36mtrue[39m[33m;[39m
+   [90m 32 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/auth/src/permission-access.guard.ts:[32m[1m49:37[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PERMISSIONS'. Did you mean 'permissions'?
+  [0m [90m 47 |[39m          [90m// Fallback: If user has module but no specific record for this module in permission manager,[39m
+   [90m 48 |[39m          [90m// allow READ as default if they have the module assigned.[39m
+  [31m[1m>[22m[39m[90m 49 |[39m          [36mif[39m (requirement[33m.[39maction [33m===[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m) [36mreturn[39m [36mtrue[39m[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 50 |[39m          
+   [90m 51 |[39m          [36mthrow[39m [36mnew[39m [33mForbiddenException[39m([32m`No permission record for module ${requirement.module}`[39m)[33m;[39m
+   [90m 52 |[39m     }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (ed5414f26b836ed3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 412 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e6b7a411d2d67f12)
+[1m[31mDebugger listening on ws://localhost:9229/279d6ba0-ce95-44ea-94f4-8366d6529b2d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/279d6ba0-ce95-44ea-94f4-8366d6529b2d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:27120) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 412 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (70d35870b2ea9f11)
+[1m[31mDebugger listening on ws://localhost:9229/640cabfd-e921-4ac4-b158-be2725496f7e[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/640cabfd-e921-4ac4-b158-be2725496f7e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:27568) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 412 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (31952ae2d1330ca9)
+[1m[31mDebugger listening on ws://localhost:9229/2d5ff06f-c34c-407f-9caa-2caa4e72a11e[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/2d5ff06f-c34c-407f-9caa-2caa4e72a11e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:1644) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 413 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m266:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 264 |[39m       }
+   [90m 265 |[39m       
+  [31m[1m>[22m[39m[90m 266 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 267 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 268 |[39m       }
+   [90m 269 |[39m       [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (cd90ec82b19df2b8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 413 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Req'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:38[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'AuthenticatedRequest'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m134:75[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 2.
+  [0m [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+  [31m[1m>[22m[39m[90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m
+   [90m     |[39m                                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 135 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permission created successfully'[39m[33m,[39m data[33m:[39m permission })[33m;[39m
+   [90m 136 |[39m     } [36mcatch[39m (error) {
+   [90m 137 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m266:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 264 |[39m       }
+   [90m 265 |[39m       
+  [31m[1m>[22m[39m[90m 266 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 267 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 268 |[39m       }
+   [90m 269 |[39m       [0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (b8795c51ee5102b0)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 413 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Req'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:38[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'AuthenticatedRequest'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m271:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 269 |[39m       }
+   [90m 270 |[39m       
+  [31m[1m>[22m[39m[90m 271 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 272 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 273 |[39m       }
+   [90m 274 |[39m       [0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (ad22cc66104a2a12)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 413 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Req'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m131:38[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'AuthenticatedRequest'.
+  [0m [90m 129 |[39m   [33m@[39m[33mPost[39m([32m'permissions'[39m)
+   [90m 130 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+  [31m[1m>[22m[39m[90m 131 |[39m   [36masync[39m createPermission([33m@[39m[33mReq[39m() req[33m:[39m [33mAuthenticatedRequest[39m[33m,[39m [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreatePermissionDto[39m) {
+   [90m     |[39m                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 132 |[39m     [36mtry[39m {
+   [90m 133 |[39m       [36mconst[39m actor [33m=[39m req[33m.[39muser[33m;[39m
+   [90m 134 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload[33m,[39m actor[33m.[39mid)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m271:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 269 |[39m       }
+   [90m 270 |[39m       
+  [31m[1m>[22m[39m[90m 271 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 272 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 273 |[39m       }
+   [90m 274 |[39m       [0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (8bdd0c214c3d26bc)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 414 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m271:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 269 |[39m       }
+   [90m 270 |[39m       
+  [31m[1m>[22m[39m[90m 271 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 272 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 273 |[39m       }
+   [90m 274 |[39m       [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (a3adfd7030467f51)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 414 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m271:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 269 |[39m       }
+   [90m 270 |[39m       
+  [31m[1m>[22m[39m[90m 271 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 272 |[39m         where[33m.[39muser_group [33m=[39m payload[33m.[39muser_group[33m;[39m
+   [90m 273 |[39m       }
+   [90m 274 |[39m       [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (f3690ee442c469bd)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 414 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m272:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 270 |[39m       }
+   [90m 271 |[39m       
+  [31m[1m>[22m[39m[90m 272 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m [33m&&[39m payload[33m.[39muser_group[33m.[39mtrim() [33m!==[39m [32m''[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 273 |[39m         queryBuilder[33m.[39mandWhere([32m'permission.user_group = :user_group'[39m[33m,[39m { user_group[33m:[39m payload[33m.[39muser_group })[33m;[39m
+   [90m 274 |[39m       }
+   [90m 275 |[39m       [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (c2f3d19aca07e9f8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

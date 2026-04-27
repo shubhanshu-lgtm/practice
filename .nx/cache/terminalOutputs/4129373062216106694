@@ -1,0 +1,28 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (3f9ce0e34de1937d)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (8b7774b150f54a1e)
+[1m[31mDebugger listening on ws://localhost:9229/936ea5ad-8070-47fd-9556-734ef71ae0c9[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/936ea5ad-8070-47fd-9556-734ef71ae0c9[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:31860) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

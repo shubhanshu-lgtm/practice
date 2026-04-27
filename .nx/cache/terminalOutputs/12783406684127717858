@@ -1,0 +1,694 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:3:10[39m[22m
+TS2724: '"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:4:10[39m[22m
+TS2305: Module '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:7:10[39m[22m
+TS2724: '"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:5:10[39m[22m
+TS2724: '"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 3 |[39m [36mimport[39m { [33mRepository[39m[33m,[39m [33mIn[39m } [36mfrom[39m [32m'typeorm'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m } [36mfrom[39m [32m'../../../../../libs/database/src'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m { [33mCreateUserDto[39m[33m,[39m [33mUpdateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (618b868903e7b1dd)
+Build failed, waiting for changes to restart...
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:3:10[39m[22m
+TS2724: '"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:4:10[39m[22m
+TS2305: Module '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.module.ts:7:10[39m[22m
+TS2724: '"../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m  5 |[39m [36mimport[39m { [33mUserManagementController[39m } [36mfrom[39m [32m'./user-management.controller'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m { [33mUserManagementService[39m } [36mfrom[39m [32m'./user-management.service'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m
+   [90m  9 |[39m [33m@[39m[33mModule[39m({
+   [90m 10 |[39m   imports[33m:[39m [[33mTypeOrmModule[39m[33m.[39mforFeature([[33mUser[39m[33m,[39m [33mSystemModule[39m[33m,[39m [33mDepartment[39m[33m,[39m [33mTeam[39m[33m,[39m [33mLoginSession[39m])][33m,[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (cec492983c57046f)
+Build failed, waiting for changes to restart...
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:3:10[39m[22m
+TS2724: '"../../../../../../libs/database/src/repositories/user.repository"' has no exported member named 'UserRepositoryService'. Did you mean 'UserRepository'?
+  [0m [90m 1 |[39m [36mimport[39m { [33mInjectable[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+   [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:4:10[39m[22m
+TS2305: Module '"../../../../../../libs/database/src/repositories/permissionManager.repository"' has no exported member 'PermissionManagerService'.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepositoryService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManagerService[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (c43a7942d48d5511)
+Build failed, waiting for changes to restart...
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:4:10[39m[22m
+TS2459: Module '"../../../../../../libs/database/src/repositories/permissionManager.repository"' declares 'PermissionManager' locally, but it is not exported.
+  [0m [90m 2 |[39m [36mimport[39m { [33mUSER_ACCOUNT_STATUS[39m[33m,[39m [33mDEFAULT_USER_ROLES[39m[33m,[39m [33mUSER_VERIFY_STATUS[39m[33m,[39m [33mUSER_GROUP[39m[33m,[39m [33mUSER_LOGIN_SOURCE[39m } [36mfrom[39m [32m'../../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mUserRepository[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/user.repository'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mPermissionManager[39m } [36mfrom[39m [32m'../../../../../../libs/database/src/repositories/permissionManager.repository'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m { [33mUserI[39m } [36mfrom[39m [32m'../../../../../../libs/interfaces/authentication/user.interface'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m { generatePasswordHash } [36mfrom[39m [32m'../../../../../../libs/utils/bcryptUtil'[39m[33m;[39m
+   [90m 7 |[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (75d63f0c1430ad06)
+Build failed, waiting for changes to restart...
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/services/defaultUser.service.ts:17:93[39m[22m
+TS2552: Cannot find name 'PermissionManager'. Did you mean 'PermissionName'?
+  [0m [90m 15 |[39m [33m@[39m[33mInjectable[39m()
+   [90m 16 |[39m [36mexport[39m [36mclass[39m [33mDefaultUserService[39m {
+  [31m[1m>[22m[39m[90m 17 |[39m   constructor([36mprivate[39m readonly userModel[33m:[39m [33mUserRepository[39m[33m,[39m [36mprivate[39m readonly permissionModel[33m:[39m [33mPermissionManager[39m) { }
+   [90m    |[39m                                                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 18 |[39m
+   [90m 19 |[39m   [36masync[39m addDefaultUser()[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {
+   [90m 20 |[39m     [36mtry[39m {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (0d8c8a2c017a9b8c)
+Build failed, waiting for changes to restart...
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 375 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f393117549bbfca7)
+Debugger listening on ws://localhost:9229/d4db1de6-a915-4b00-898f-e56a8dd5f474
+Debugger listening on ws://localhost:9229/d4db1de6-a915-4b00-898f-e56a8dd5f474
+For help, see: https://nodejs.org/en/docs/inspector
+
+(node:16888) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:25 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_625`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:25 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_628`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:25 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_629`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:25 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_627`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:25 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_626`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:29 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62a`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:29 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:29 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62c`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:29 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62e`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:29 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:33 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_630`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:33 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_62f`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:33 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_633`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:33 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_631`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:33 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_632`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:37 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_634`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:37 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_636`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:37 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_638`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:37 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_637`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:37 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_635`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:41 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63a`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:41 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:41 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_639`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:41 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63c`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:41 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:45 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63e`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:45 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_63f`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:46 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_642`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:46 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_640`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:46 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_641`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:49 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_643`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:49 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_644`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:49 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_645`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:50 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_646`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:50 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_647`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:52 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_648`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:53 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_649`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:53 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64a`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:54 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64c`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:54 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64b`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:56 pm [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+[31m[Nest] 16888  - [39m06/02/2026, 3:27:56 pm [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mCannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)[39m
+QueryFailedError: Cannot add or update a child row: a foreign key constraint fails (`ic_org`.`#sql-3044_64d`, CONSTRAINT `FK_fc321a09dcd94008aa7f2fea79f` FOREIGN KEY (`proposalId`) REFERENCES `proposal` (`id`) ON DELETE CASCADE)
+    at Query.onResult (d:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)
+    at Query.execute (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)
+    at PoolConnection.handlePacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (d:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:508:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+
+
+>  NX  Process exited with code 1, waiting for changes to restart...
+

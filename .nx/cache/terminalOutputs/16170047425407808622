@@ -1,0 +1,191 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (0ad7a066290cad91)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:7956) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ba77ed26fa83341f)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:37136) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 37136  - [39m[31m28/02/2026, 12:52:25 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_48d5fe25c2452600fe7cf98524d'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (128606b20b5b6b03)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (128606b20b5b6b03)
+[1m[31mDebugger listening on ws://localhost:9229/d9b80172-299a-4ff1-a20b-bf2c9185967c[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:41532) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3e37d89f3d5cbfdd)
+[1m[31mDebugger listening on ws://localhost:9229/cc9667aa-ec61-4567-8cd6-868d2a8f3662[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:19200) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2157792e217be522)
+[1m[31mDebugger listening on ws://localhost:9229/fb74650b-f1f0-4e8a-95d0-4e9ce2d8a5a9[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:10108) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2157792e217be522)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 563 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2157792e217be522)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:51540) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m

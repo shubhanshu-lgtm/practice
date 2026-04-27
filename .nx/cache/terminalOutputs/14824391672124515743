@@ -1,0 +1,382 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (062a98a925270f35)
+[1m[31mDebugger listening on ws://localhost:9229/1b13e6da-1c45-4ca2-85c3-1bb2fd649981[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1b13e6da-1c45-4ca2-85c3-1bb2fd649981[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:25936) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:70[22m[39m[1m[39m[22m
+[90mTS2551: [39mProperty 'serviceIds' does not exist on type 'AssignServicesToLeadDto'. Did you mean 'services'?
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:90[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'description' does not exist on type 'AssignServicesToLeadDto'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:111[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'deliverables' does not exist on type 'AssignServicesToLeadDto'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (6be7ef3418ac002e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:70[22m[39m[1m[39m[22m
+[90mTS2551: [39mProperty 'serviceIds' does not exist on type 'AssignServicesToLeadDto'. Did you mean 'services'?
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:90[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'description' does not exist on type 'AssignServicesToLeadDto'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:103[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 2-3 arguments, but got 5.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                                       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:111[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'deliverables' does not exist on type 'AssignServicesToLeadDto'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdescription[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (c55e40b7a823af40)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (430b5649e1eca4ad)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (430b5649e1eca4ad)
+[1m[31mDebugger listening on ws://localhost:9229/a9d66b7b-0de8-423d-8953-3e36495faab0[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a9d66b7b-0de8-423d-8953-3e36495faab0[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/86cd2b29-adb7-4be9-8eb6-ca726f882f4f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/86cd2b29-adb7-4be9-8eb6-ca726f882f4f[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:27980) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6df2f33394ad5458)
+[1m[31mDebugger listening on ws://localhost:9229/5d4b4e44-7f90-4289-a024-7558ef352260[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/5d4b4e44-7f90-4289-a024-7558ef352260[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:14848) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"One or more service IDs are invalid","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"One or more service IDs are invalid","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Unknown column 'ServiceMaster__ServiceMaster_deliverables.deliverables' in 'field list'","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Unknown column 'ServiceMaster__ServiceMaster_deliverables.deliverables' in 'field list'","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e84dabd1549e0ac3)
+[1m[31mDebugger listening on ws://localhost:9229/93b8cb24-5ba4-43f0-bdc6-80de8322ce80[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/93b8cb24-5ba4-43f0-bdc6-80de8322ce80[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:48820) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48820  - [39m[31m23/02/2026, 3:11:24 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Unknown column 'description' in 'service_deliverable'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (390622c3fb8615e8)
+[1m[31mDebugger listening on ws://localhost:9229/a1052ab2-3e7c-49ce-ba38-5f5cee736a0c[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a1052ab2-3e7c-49ce-ba38-5f5cee736a0c[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:42392) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m576:30[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'length' does not exist on type 'Map<number, ServiceMaster>'.
+  [0m [90m 574 |[39m         })[33m;[39m
+   [90m 575 |[39m
+  [31m[1m>[22m[39m[90m 576 |[39m         [36mif[39m (servicesToUpdate[33m.[39mlength [33m>[39m [35m0[39m) {
+   [90m     |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 577 |[39m           [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39msave(servicesToUpdate)[33m;[39m
+   [90m 578 |[39m         }
+   [90m 579 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m577:45[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 4, '(entities: DeepPartial<ServiceMaster>[], options?: SaveOptions): Promise<(DeepPartial<ServiceMaster> & ServiceMaster)[]>', gave the following error.
+    Argument of type 'Map<number, ServiceMaster>' is not assignable to parameter of type 'DeepPartial<ServiceMaster>[]'.
+      Type 'Map<number, ServiceMaster>' is missing the following properties from type 'DeepPartial<ServiceMaster>[]': length, pop, push, concat, and 24 more.
+  Overload 2 of 4, '(entity: DeepPartial<ServiceMaster>, options?: SaveOptions): Promise<DeepPartial<ServiceMaster> & ServiceMaster>', gave the following error.
+    Argument of type 'Map<number, ServiceMaster>' is not assignable to parameter of type 'DeepPartial<ServiceMaster>'.
+  [0m [90m 575 |[39m
+   [90m 576 |[39m         [36mif[39m (servicesToUpdate[33m.[39mlength [33m>[39m [35m0[39m) {
+  [31m[1m>[22m[39m[90m 577 |[39m           [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39msave(servicesToUpdate)[33m;[39m
+   [90m     |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 578 |[39m         }
+   [90m 579 |[39m
+   [90m 580 |[39m         [36mconst[39m leadServices [33m=[39m services[33m.[39mmap(service [33m=>[39m [0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (62aba307c32e46bb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ee83da996613bcca)
+[1m[31mDebugger listening on ws://localhost:9229/df47ea19-a9ed-4bdd-b2a6-ca4f868a3649[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/df47ea19-a9ed-4bdd-b2a6-ca4f868a3649[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:45728) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m539:33[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'serviceIds'. Did you mean 'services'?
+  [0m [90m 537 |[39m         [36mconst[39m services [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { id[33m:[39m [33mIn[39m(uniqueServiceIds) } })[33m;[39m
+   [90m 538 |[39m         
+  [31m[1m>[22m[39m[90m 539 |[39m         [36mif[39m (services[33m.[39mlength [33m!==[39m serviceIds[33m.[39mlength) {
+   [90m     |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 540 |[39m           [36mthrow[39m [36mnew[39m [33mBadRequestException[39m([32m'One or more service IDs are invalid'[39m)[33m;[39m
+   [90m 541 |[39m         }
+   [90m 542 |[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (c5b50a8083525394)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e2c160902ed077d2)
+[1m[31mDebugger listening on ws://localhost:9229/e643695b-7639-418e-9bdc-03c40e37a73e[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/e643695b-7639-418e-9bdc-03c40e37a73e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:28356) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1a2aecfc1ed26341)
+[1m[31mDebugger listening on ws://localhost:9229/ec46ee72-39c6-49c4-a186-4afb43436f26[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/ec46ee72-39c6-49c4-a186-4afb43436f26[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:38928) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"response":{"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","error":"Bad Request","statusCode":400},"status":400,"options":{},"message":"Duplicate entry 'ISO 27001:2022 Certification' for key 'service_master.IDX_1435b90b6d1552b09000efd824'","name":"BadRequestException"}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (b54ad7d90f836bb6)
+[1m[31mDebugger listening on ws://localhost:9229/014adf32-c887-4490-840e-a156c858dd89[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/014adf32-c887-4490-840e-a156c858dd89[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:41856) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 499 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (506f3e4001cabb4a)
+[1m[31mDebugger listening on ws://localhost:9229/25556fbc-5095-4b71-bab6-5deeaf5917a5[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/25556fbc-5095-4b71-bab6-5deeaf5917a5[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:41116) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7520c7eec6e41c93)
+[1m[31mDebugger listening on ws://localhost:9229/c2c4519f-b6c6-4ab0-b8be-503ddcb3c7d8[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c2c4519f-b6c6-4ab0-b8be-503ddcb3c7d8[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:47924) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

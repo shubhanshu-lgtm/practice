@@ -1,0 +1,127 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 377 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.controller.ts:48:77[39m[22m
+TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+  [0m [90m 46 |[39m   [36masync[39m getSystemModuleById([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number) {
+   [90m 47 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 48 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mmoduleManagementService[33m.[39mgetSystemModuleById(id)[33m;[39m
+   [90m    |[39m                                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 49 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Module fetched successfully'[39m[33m,[39m data[33m:[39m module })[33m;[39m
+   [90m 50 |[39m     } [36mcatch[39m (error) {
+   [90m 51 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.controller.ts:63:76[39m[22m
+TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+  [0m [90m 61 |[39m   ) {
+   [90m 62 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 63 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mmoduleManagementService[33m.[39mupdateSystemModule(id[33m,[39m payload)[33m;[39m
+   [90m    |[39m                                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Module updated successfully'[39m[33m,[39m data[33m:[39m module })[33m;[39m
+   [90m 65 |[39m     } [36mcatch[39m (error) {
+   [90m 66 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:35:75[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 33 |[39m   [36masync[39m getSystemModuleById(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 34 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 35 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 36 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 37 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 38 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:47:75[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 45 |[39m   [36masync[39m updateSystemModule(id[33m:[39m string[33m,[39m payload[33m:[39m [33mUpdateSystemModuleDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+   [90m 46 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 47 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m    |[39m                                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 48 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 49 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 50 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:51:48[39m[22m
+TS2345: Argument of type '{ id: string; }' is not assignable to parameter of type 'string | number | Date | string[] | ObjectId | number[] | Date[] | ObjectId[] | FindOptionsWhere<SystemModule> | FindOptionsWhere<...>[]'.
+  Types of property 'id' are incompatible.
+    Type 'string' is not assignable to type 'number | Uint8Array | FindOperator<number>'.
+  [0m [90m 49 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 50 |[39m       }
+  [31m[1m>[22m[39m[90m 51 |[39m       [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mupdate({ id }[33m,[39m payload)[33m;[39m
+   [90m    |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mgetSystemModuleById(id)[33m;[39m  
+   [90m 53 |[39m     } [36mcatch[39m (error) {
+   [90m 54 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:60:75[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 58 |[39m   [36masync[39m createMenu(payload[33m:[39m [33mCreateMenuDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mMenu[39m[33m>[39m {
+   [90m 59 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 60 |[39m       [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mmoduleId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 61 |[39m       [36mif[39m ([33m![39mmodule) {
+   [90m 62 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 63 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/module_management/module_management.service.ts:117:77[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 115 |[39m
+   [90m 116 |[39m       [36mif[39m (payload[33m.[39mmoduleId) {
+  [31m[1m>[22m[39m[90m 117 |[39m         [36mconst[39m module [33m=[39m [36mawait[39m [36mthis[39m[33m.[39msystemModuleRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(payload[33m.[39mmoduleId)[33m.[39mtoString()  } })[33m;[39m
+   [90m     |[39m                                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 118 |[39m         [36mif[39m ([33m![39mmodule) {
+   [90m 119 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Module not found'[39m)[33m;[39m
+   [90m 120 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/team/team.service.ts:75:79[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 73 |[39m
+   [90m 74 |[39m       [36mif[39m (payload[33m.[39mdepartmentId) {
+  [31m[1m>[22m[39m[90m 75 |[39m         [36mconst[39m department [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mdepartmentRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mdepartmentId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                                               [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 76 |[39m         [36mif[39m ([33m![39mdepartment) {
+   [90m 77 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Department not found'[39m)[33m;[39m
+   [90m 78 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/team/team.service.ts:81:40[39m[22m
+TS2345: Argument of type '{ id: string; }' is not assignable to parameter of type 'string | number | Date | string[] | ObjectId | number[] | Date[] | ObjectId[] | FindOptionsWhere<Team> | FindOptionsWhere<Team>[]'.
+  Types of property 'id' are incompatible.
+    Type 'string' is not assignable to type 'number | Uint8Array | FindOperator<number>'.
+  [0m [90m 79 |[39m       }
+   [90m 80 |[39m
+  [31m[1m>[22m[39m[90m 81 |[39m       [36mawait[39m [36mthis[39m[33m.[39mteamRepository[33m.[39mupdate({ id[33m:[39m id[33m.[39mtoString() }[33m,[39m payload)[33m;[39m
+   [90m    |[39m                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 82 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mgetTeamById(id)[33m;[39m
+   [90m 83 |[39m     } [36mcatch[39m (error) {
+   [90m 84 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/department.repository.ts:23:41[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mDepartment[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m id[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m department[33m:[39m [33mPartial[39m[33m<[39m[33mDepartment[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/systemModule.repository.ts:23:41[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mSystemModule[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   }
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m systemModule[33m:[39m [33mPartial[39m[33m<[39m[33mSystemModule[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/team.repository.ts:23:41[39m[22m
+TS2322: Type 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 21 |[39m
+   [90m 22 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mTeam[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 23 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m id[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   } 
+   [90m 25 |[39m
+   [90m 26 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m team[33m:[39m [33mPartial[39m[33m<[39m[33mTeam[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m12 errors[39m[22m (489c39a56924f388)

@@ -1,0 +1,153 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 498 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m230:4[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionAccess'. Did you mean 'Permissions'?
+  [0m [90m 228 |[39m
+   [90m 229 |[39m   [33m@[39m[33mGet[39m([32m'deliverables'[39m)
+  [31m[1m>[22m[39m[90m 230 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m   [36masync[39m getAllDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mQuery[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m?[39m[33m:[39m number) {
+   [90m 232 |[39m     [36mtry[39m {
+   [90m 233 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m230:21[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'SYSTEM_MODULE_CODES'.
+  [0m [90m 228 |[39m
+   [90m 229 |[39m   [33m@[39m[33mGet[39m([32m'deliverables'[39m)
+  [31m[1m>[22m[39m[90m 230 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m   [36masync[39m getAllDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mQuery[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m?[39m[33m:[39m number) {
+   [90m 232 |[39m     [36mtry[39m {
+   [90m 233 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m230:59[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PERMISSIONS'. Did you mean 'Permissions'?
+  [0m [90m 228 |[39m
+   [90m 229 |[39m   [33m@[39m[33mGet[39m([32m'deliverables'[39m)
+  [31m[1m>[22m[39m[90m 230 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m   [36masync[39m getAllDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mQuery[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m?[39m[33m:[39m number) {
+   [90m 232 |[39m     [36mtry[39m {
+   [90m 233 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m241:4[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionAccess'. Did you mean 'Permissions'?
+  [0m [90m 239 |[39m
+   [90m 240 |[39m   [33m@[39m[33mGet[39m([32m'services/:serviceId/deliverables'[39m)
+  [31m[1m>[22m[39m[90m 241 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 242 |[39m   [36masync[39m getServiceDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m:[39m number) {
+   [90m 243 |[39m     [36mtry[39m {
+   [90m 244 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m241:21[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'SYSTEM_MODULE_CODES'.
+  [0m [90m 239 |[39m
+   [90m 240 |[39m   [33m@[39m[33mGet[39m([32m'services/:serviceId/deliverables'[39m)
+  [31m[1m>[22m[39m[90m 241 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 242 |[39m   [36masync[39m getServiceDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m:[39m number) {
+   [90m 243 |[39m     [36mtry[39m {
+   [90m 244 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m241:59[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PERMISSIONS'. Did you mean 'Permissions'?
+  [0m [90m 239 |[39m
+   [90m 240 |[39m   [33m@[39m[33mGet[39m([32m'services/:serviceId/deliverables'[39m)
+  [31m[1m>[22m[39m[90m 241 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 242 |[39m   [36masync[39m getServiceDeliverables([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'serviceId'[39m[33m,[39m [33mParseIntPipe[39m) serviceId[33m:[39m number) {
+   [90m 243 |[39m     [36mtry[39m {
+   [90m 244 |[39m       [36mconst[39m deliverables [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverables(serviceId)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m252:4[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionAccess'. Did you mean 'Permissions'?
+  [0m [90m 250 |[39m
+   [90m 251 |[39m   [33m@[39m[33mGet[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 252 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 253 |[39m   [36masync[39m getDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number) {
+   [90m 254 |[39m     [36mtry[39m {
+   [90m 255 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverableById(id)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m252:21[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'SYSTEM_MODULE_CODES'.
+  [0m [90m 250 |[39m
+   [90m 251 |[39m   [33m@[39m[33mGet[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 252 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 253 |[39m   [36masync[39m getDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number) {
+   [90m 254 |[39m     [36mtry[39m {
+   [90m 255 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverableById(id)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m252:59[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PERMISSIONS'. Did you mean 'Permissions'?
+  [0m [90m 250 |[39m
+   [90m 251 |[39m   [33m@[39m[33mGet[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 252 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mREAD[39m)
+   [90m     |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 253 |[39m   [36masync[39m getDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number) {
+   [90m 254 |[39m     [36mtry[39m {
+   [90m 255 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetDeliverableById(id)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m263:4[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'PermissionAccess'. Did you mean 'Permissions'?
+  [0m [90m 261 |[39m
+   [90m 262 |[39m   [33m@[39m[33mPatch[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 263 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 264 |[39m   [36masync[39m updateDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mUpdateDeliverableDto[39m) {
+   [90m 265 |[39m     [36mtry[39m {
+   [90m 266 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateDeliverable(id[33m,[39m payload)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m263:21[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'SYSTEM_MODULE_CODES'.
+  [0m [90m 261 |[39m
+   [90m 262 |[39m   [33m@[39m[33mPatch[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 263 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m     |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 264 |[39m   [36masync[39m updateDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mUpdateDeliverableDto[39m) {
+   [90m 265 |[39m     [36mtry[39m {
+   [90m 266 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateDeliverable(id[33m,[39m payload)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m263:59[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PERMISSIONS'.
+  [0m [90m 261 |[39m
+   [90m 262 |[39m   [33m@[39m[33mPatch[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 263 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mUPDATE[39m)
+   [90m     |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 264 |[39m   [36masync[39m updateDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mUpdateDeliverableDto[39m) {
+   [90m 265 |[39m     [36mtry[39m {
+   [90m 266 |[39m       [36mconst[39m deliverable [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateDeliverable(id[33m,[39m payload)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m274:4[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionAccess'.
+  [0m [90m 272 |[39m
+   [90m 273 |[39m   [33m@[39m[33mDelete[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 274 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mDELETE[39m)
+   [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 275 |[39m   [36masync[39m deleteDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m([32m'hard'[39m) hard[33m?[39m[33m:[39m boolean) {
+   [90m 276 |[39m     [36mtry[39m {
+   [90m 277 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mdeleteDeliverable(id[33m,[39m hard)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m274:21[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'SYSTEM_MODULE_CODES'.
+  [0m [90m 272 |[39m
+   [90m 273 |[39m   [33m@[39m[33mDelete[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 274 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mDELETE[39m)
+   [90m     |[39m                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 275 |[39m   [36masync[39m deleteDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m([32m'hard'[39m) hard[33m?[39m[33m:[39m boolean) {
+   [90m 276 |[39m     [36mtry[39m {
+   [90m 277 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mdeleteDeliverable(id[33m,[39m hard)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m274:59[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PERMISSIONS'.
+  [0m [90m 272 |[39m
+   [90m 273 |[39m   [33m@[39m[33mDelete[39m([32m'deliverables/:id'[39m)
+  [31m[1m>[22m[39m[90m 274 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mDELETE[39m)
+   [90m     |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 275 |[39m   [36masync[39m deleteDeliverable([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m number[33m,[39m [33m@[39m[33mBody[39m([32m'hard'[39m) hard[33m?[39m[33m:[39m boolean) {
+   [90m 276 |[39m     [36mtry[39m {
+   [90m 277 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mdeleteDeliverable(id[33m,[39m hard)[33m;[39m[0m
+
+webpack compiled with [1m[31m15 errors[39m[22m (8f9d50ce1fdd6f5a)

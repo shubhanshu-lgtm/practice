@@ -1,0 +1,13 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5352fcba1ccf3491)
+Debugger listening on ws://localhost:9229/b10a604e-935a-4a59-a1ca-40a6e33efc59
+Debugger listening on ws://localhost:9229/b10a604e-935a-4a59-a1ca-40a6e33efc59
+For help, see: https://nodejs.org/en/docs/inspector
+
+(node:32456) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+

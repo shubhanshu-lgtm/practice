@@ -1,0 +1,182 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 427 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e9163f55f22a979d)
+[1m[31mDebugger listening on ws://localhost:9229/c3cd19e3-67b9-488b-bd6d-db0fc375861a[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c3cd19e3-67b9-488b-bd6d-db0fc375861a[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:10548) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 10548  - [39m[31m17/02/2026, 9:55:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'designation'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 427 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (33b96994d3d51b1f)
+[1m[31mDebugger listening on ws://localhost:9229/3679ca00-a191-45ef-8598-295aeadfb3f1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3679ca00-a191-45ef-8598-295aeadfb3f1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:16856) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 427 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1e26945e488eea80)
+[1m[31mDebugger listening on ws://localhost:9229/ec1318b1-6be9-4e19-95af-85bd87c0e19b[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/ec1318b1-6be9-4e19-95af-85bd87c0e19b[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:31440) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 427 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5956c6786b949a29)
+[1m[31mDebugger listening on ws://localhost:9229/420205d7-dde4-412b-b931-1e193c5a9ae5[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/420205d7-dde4-412b-b931-1e193c5a9ae5[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:16372) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 427 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (582af459b52810bc)
+[1m[31mDebugger listening on ws://localhost:9229/7abff3aa-6846-4872-a7a8-35578ae9bfed[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/7abff3aa-6846-4872-a7a8-35578ae9bfed[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:32948) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7cf6b409fa6e882b)
+[1m[31mDebugger listening on ws://localhost:9229/37202e40-c76b-4c8b-b93f-2550d58ebc41[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/37202e40-c76b-4c8b-b93f-2550d58ebc41[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:12024) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3fa5abaa269b370e)
+[1m[31mDebugger listening on ws://localhost:9229/69153d90-530c-4ef9-b0b3-a2304b4f1ced[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/69153d90-530c-4ef9-b0b3-a2304b4f1ced[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:31636) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (785d0a6589ee4f73)
+[1m[31mDebugger listening on ws://localhost:9229/1e041cd1-ee6b-4493-be8a-9a97906ae3bb[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1e041cd1-ee6b-4493-be8a-9a97906ae3bb[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:27268) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

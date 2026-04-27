@@ -1,0 +1,7 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 234 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (bd88cde0e33256f1)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 3221225786, waiting for changes to restart...[22m
+

@@ -1,0 +1,23 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 406 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.service.ts:278:23[39m[22m
+TS2304: Cannot find name 'BadRequestException'.
+  [0m [90m 276 |[39m     [36masync[39m logout(token[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m{ message[33m:[39m string }[33m>[39m {
+   [90m 277 |[39m         [36mif[39m ([33m![39mtoken) {
+  [31m[1m>[22m[39m[90m 278 |[39m             [36mthrow[39m [36mnew[39m [33mBadRequestException[39m([32m'Token is required for logout'[39m)[33m;[39m
+   [90m     |[39m                       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 279 |[39m         }
+   [90m 280 |[39m
+   [90m 281 |[39m         [36mconst[39m decoded [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mjwtService[33m.[39mverifyJWTToken(token)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.service.ts:290:23[39m[22m
+TS2304: Cannot find name 'BadRequestException'.
+  [0m [90m 288 |[39m         
+   [90m 289 |[39m         [36mif[39m ([33m![39msessionId) {
+  [31m[1m>[22m[39m[90m 290 |[39m             [36mthrow[39m [36mnew[39m [33mBadRequestException[39m([32m'No session found in token'[39m)[33m;[39m
+   [90m     |[39m                       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 291 |[39m         }
+   [90m 292 |[39m
+   [90m 293 |[39m         console[33m.[39mlog([32m`[Logout] Deleting session: ${sessionId} for user: ${decoded.payload.referenceId}`[39m)[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (ede5535a62642f26)

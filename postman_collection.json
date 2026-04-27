@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "e2f8c6a0-1b2c-4d3e-8f4a-5b6c7d8e9f0a",
-		"name": "Intercert Master Management API",
-		"description": "Collection for testing Master Management API, including Auth and User Management.",
+		"_postman_id": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
+		"name": "Content Broadcasting System",
+		"description": "API collection for the Content Broadcasting System assignment.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -10,21 +10,72 @@
 			"name": "Authentication",
 			"item": [
 				{
-					"name": "Login (Admin)",
+					"name": "Register Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Teacher\",\n    \"email\": \"teacher@school.com\",\n    \"password\": \"password123\",\n    \"role\": \"teacher\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Principal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Principal Jane\",\n    \"email\": \"principal@school.com\",\n    \"password\": \"password123\",\n    \"role\": \"principal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var jsonData = pm.response.json();",
-									"if (jsonData.status === 'success') {",
-									"    pm.environment.set(\"accessToken\", jsonData.data.token);",
-									"    pm.environment.set(\"refreshToken\", jsonData.data.refreshToken);",
-									"    pm.test(\"Login Successful\", function () {",
-									"        pm.response.to.have.status(201);",
-									"    });",
-									"}",
-									""
+									"const response = pm.response.json();",
+									"if (response.data && response.data.token) {",
+									"    pm.environment.set(\"token\", response.data.token);",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -32,16 +83,10 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "devicetype",
-								"value": "WEB",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"identity\": \"shubhanshu@intercert.com\",\n    \"password\": \"Pass@123\"\n}",
+							"raw": "{\n    \"email\": \"teacher@school.com\",\n    \"password\": \"password123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -58,50 +103,169 @@
 								"auth",
 								"login"
 							]
-						},
-						"description": "Login with default admin credentials to get access token."
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Google Login (Start)",
+					"name": "Get Profile",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseUrl}}/api/auth/google",
+							"raw": "{{baseUrl}}/api/auth/me",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"auth",
-								"google"
+								"me"
 							]
-						},
-						"description": "Initiates Google OAuth flow. This should be opened in a browser."
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "User Management",
+			"name": "Content Management",
 			"item": [
 				{
-					"name": "Create User",
+					"name": "Upload Content (Teacher)",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{accessToken}}",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "title",
+									"value": "Mathematics Lesson 1",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "Math",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Introduction to Algebra",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "2026-04-26T00:00:00Z",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "2026-04-27T23:59:59Z",
+									"type": "text"
+								},
+								{
+									"key": "rotationDuration",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/content/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Content (Teacher)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/content/my-content",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"my-content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pending Content (Principal)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/content/pending",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"pending"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Content (Principal)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@gmail.com\",\n    \"mobileNumber\": \"1234567890\",\n    \"roleName\": \"User\",\n    \"user_group\": \"User\",\n    \"password\": \"User@123\"\n}",
+							"raw": "{\n    \"status\": \"approved\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -109,40 +273,51 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/user/add-user",
+							"raw": "{{baseUrl}}/api/content/approve/:contentId",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"user",
-								"add-user"
+								"content",
+								"approve",
+								":contentId"
+							],
+							"variable": [
+								{
+									"key": "contentId",
+									"value": "1"
+								}
 							]
-						},
-						"description": "Create a new user. The email should be a valid Google email if you want to test Google Sign-In for this user."
+						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Broadcasting (Public)",
+			"item": [
 				{
-					"name": "List Users",
+					"name": "Get Live Content",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{accessToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/user/users",
+							"raw": "{{baseUrl}}/content/live/:teacherId",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"api",
-								"user",
-								"users"
+								"content",
+								"live",
+								":teacherId"
+							],
+							"variable": [
+								{
+									"key": "teacherId",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -154,8 +329,11 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:8094",
-			"type": "string"
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }

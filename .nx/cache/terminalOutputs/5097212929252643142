@@ -1,0 +1,56 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 505 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m653:9[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'unknown[]' is not assignable to type 'string[]'.
+  Type 'unknown' is not assignable to type 'string'.
+  [0m [90m 651 |[39m           assignment[33m.[39mdeliverables[33m.[39mmap((d[33m:[39m string) [33m=>[39m d[33m.[39mtrim())[33m.[39mfilter((d[33m:[39m string) [33m=>[39m d)
+   [90m 652 |[39m         )][33m;[39m
+  [31m[1m>[22m[39m[90m 653 |[39m         leadService[33m.[39mdeliverables [33m=[39m uniqueDeliverables[33m.[39mlength [33m>[39m [35m0[39m [33m?[39m uniqueDeliverables [33m:[39m [36mnull[39m[33m;[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 654 |[39m       }
+   [90m 655 |[39m
+   [90m 656 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadServiceEntityRepository[33m.[39msave(leadService)[33m;[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (4d75e037070a89e4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 505 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (25a8d5e603b04f23)
+[1m[31mDebugger listening on ws://localhost:9229/d6a63f80-ba8e-4b5b-9e7d-556e6194b322[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/d6a63f80-ba8e-4b5b-9e7d-556e6194b322[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:11512) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":463,"message":"Session Expired","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 505 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (667c3c45f6628ac4)
+[1m[31mDebugger listening on ws://localhost:9229/35a9b9ae-a8a0-4141-81e7-439530894dd1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/35a9b9ae-a8a0-4141-81e7-439530894dd1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:2712) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 505 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (667c3c45f6628ac4)
+[1m[31mDebugger listening on ws://localhost:9229/dc719bd9-9183-4e16-aa68-4bd26978043f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/dc719bd9-9183-4e16-aa68-4bd26978043f[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:39180) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

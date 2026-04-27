@@ -1,0 +1,1001 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 388 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (970a42351c0d6d36)
+[1m[31mDebugger listening on ws://localhost:9229/c9d22291-9a78-4bbe-8a28-2b26e519d287[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c9d22291-9a78-4bbe-8a28-2b26e519d287[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:4300) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 388 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (77d6ed15877e818d)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 389 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (870f70b78492b90e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 390 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m91:44[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'getUsers' does not exist on type 'AuthService'.
+  [0m [90m 89 |[39m   [36masync[39m getUsers([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 90 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+   [90m    |[39m                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: any; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: any; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (218e4ea5331f8fa4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 390 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (d2433bd8a3e2f91a)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 392 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m118:49[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'createPermission' does not exist on type 'LeadService'.
+  [0m [90m 116 |[39m   [36masync[39m createPermission([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m any) {
+   [90m 117 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 118 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload)[33m;[39m
+   [90m     |[39m                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 119 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permission created successfully'[39m[33m,[39m data[33m:[39m permission })[33m;[39m
+   [90m 120 |[39m     } [36mcatch[39m (error) {
+   [90m 121 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m129:50[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'getPermissions' does not exist on type 'LeadService'.
+  [0m [90m 127 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 128 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 129 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 130 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 131 |[39m     } [36mcatch[39m (error) {
+   [90m 132 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (4300c7cbd28b0344)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 392 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m118:49[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'createPermission' does not exist on type 'LeadService'.
+  [0m [90m 116 |[39m   [36masync[39m createPermission([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m any) {
+   [90m 117 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 118 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload)[33m;[39m
+   [90m     |[39m                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 119 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permission created successfully'[39m[33m,[39m data[33m:[39m permission })[33m;[39m
+   [90m 120 |[39m     } [36mcatch[39m (error) {
+   [90m 121 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m129:50[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'getPermissions' does not exist on type 'LeadService'.
+  [0m [90m 127 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 128 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 129 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 130 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 131 |[39m     } [36mcatch[39m (error) {
+   [90m 132 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (0b2295ea0c7b3695)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 392 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m118:49[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'createPermission' does not exist on type 'LeadService'.
+  [0m [90m 116 |[39m   [36masync[39m createPermission([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m any) {
+   [90m 117 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 118 |[39m       [36mconst[39m permission [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreatePermission(payload)[33m;[39m
+   [90m     |[39m                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 119 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permission created successfully'[39m[33m,[39m data[33m:[39m permission })[33m;[39m
+   [90m 120 |[39m     } [36mcatch[39m (error) {
+   [90m 121 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m129:50[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'getPermissions' does not exist on type 'LeadService'.
+  [0m [90m 127 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 128 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 129 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 130 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 131 |[39m     } [36mcatch[39m (error) {
+   [90m 132 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (90d96fb3bcc89d55)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (a2054d2748ec4a5e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (17dd3df0e1405be7)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/user_management/user-management.service.ts:[32m[1m107:28[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'PermissionManager'.
+  [0m [90m 105 |[39m     [36mif[39m ([33m![39muser) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'User not found'[39m)[33m;[39m
+   [90m 106 |[39m     
+  [31m[1m>[22m[39m[90m 107 |[39m     [36mconst[39m permission [33m=[39m [36mnew[39m [33mPermissionManager[39m()[33m;[39m
+   [90m     |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 108 |[39m     permission[33m.[39mid [33m=[39m permissionId[33m;[39m
+   [90m 109 |[39m     user[33m.[39mpermission [33m=[39m permission[33m;[39m
+   [90m 110 |[39m     [0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (91aab4e29be165b6)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (153fcc4fb315f8dc)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'GetPermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:28[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'CreatePermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (5d90a7ce32b6e461)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'GetPermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m  
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:28[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'CreatePermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m  
+   [90m   |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (c213c8106a6d3258)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'GetPermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m 
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:28[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'CreatePermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m 
+   [90m   |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (02de066f88d206f0)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'GetPermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:28[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'CreatePermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m130:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 128 |[39m   }
+   [90m 129 |[39m
+  [31m[1m>[22m[39m[90m 130 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m     [36mtry[39m {
+   [90m 132 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ where[33m:[39m { isActive[33m:[39m [36mtrue[39m } })[33m;[39m
+   [90m 133 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:9[22m[39m[1m[39m[22m
+[90mTS2393: [39mDuplicate function implementation.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m getServices()[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[][33m>[39m {
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mfind({ order[33m:[39m { name[33m:[39m [32m'ASC'[39m } })[33m;[39m
+   [90m 217 |[39m     } [36mcatch[39m (error) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m225:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 223 |[39m     [36mtry[39m {
+   [90m 224 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 226 |[39m     } [36mcatch[39m (error) {
+   [90m 227 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 228 |[39m     }[0m
+
+webpack compiled with [1m[31m6 errors[39m[22m (dcaafd5c522e6cd3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 393 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'GetPermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m2:28[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'CreatePermissionDto'.
+  [0m [90m 1 |[39m [36mimport[39m { [33mBody[39m[33m,[39m [33mController[39m[33m,[39m [33mGet[39m[33m,[39m [33mParam[39m[33m,[39m [33mParseIntPipe[39m[33m,[39m [33mPatch[39m[33m,[39m [33mPost[39m[33m,[39m [33mQuery[39m[33m,[39m [33mRes[39m[33m,[39m [33mUsePipes[39m[33m,[39m [33mValidationPipe[39m[33m,[39m [33mUseGuards[39m } [36mfrom[39m [32m'@nestjs/common'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mGetPermissionDto[39m[33m,[39m [33mCreatePermissionDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m   |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 3 |[39m [36mimport[39m { [33mResponse[39m } [36mfrom[39m [32m'express'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m { [33mResponseHandlerService[39m } [36mfrom[39m [32m'../../../../../libs/response-handler/response-handler.service'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m130:50[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 0.
+  [0m [90m 128 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 129 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 130 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 132 |[39m     } [36mcatch[39m (error) {
+   [90m 133 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:35[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreatePermissionDto'.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m createPermission(payload[33m:[39m [33mCreatePermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[33m>[39m {
+   [90m     |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+   [90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m217:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 218 |[39m     } [36mcatch[39m (error) {
+   [90m 219 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 220 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m223:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'GetPermissionDto'.
+  [0m [90m 221 |[39m   }
+   [90m 222 |[39m
+  [31m[1m>[22m[39m[90m 223 |[39m   [36masync[39m getPermissions(payload[33m:[39m [33mGetPermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[][33m>[39m {
+   [90m     |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 224 |[39m     [36mtry[39m {
+   [90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mfind({ 
+   [90m 226 |[39m         where[33m:[39m {[0m
+
+webpack compiled with [1m[31m7 errors[39m[22m (1cf8ed0a29246149)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m130:50[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 0.
+  [0m [90m 128 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 129 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 130 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 131 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 132 |[39m     } [36mcatch[39m (error) {
+   [90m 133 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:35[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreatePermissionDto'.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m createPermission(payload[33m:[39m [33mCreatePermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[33m>[39m {
+   [90m     |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+   [90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m217:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 218 |[39m     } [36mcatch[39m (error) {
+   [90m 219 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 220 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m223:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'GetPermissionDto'.
+  [0m [90m 221 |[39m   }
+   [90m 222 |[39m
+  [31m[1m>[22m[39m[90m 223 |[39m   [36masync[39m getPermissions(payload[33m:[39m [33mGetPermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[][33m>[39m {
+   [90m     |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 224 |[39m     [36mtry[39m {
+   [90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mfind({ 
+   [90m 226 |[39m         where[33m:[39m {[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (affe1faa1dc71c02)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m129:50[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 0.
+  [0m [90m 127 |[39m   [36masync[39m getPermissions([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m) {
+   [90m 128 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 129 |[39m       [36mconst[39m permissions [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetPermissions()[33m;[39m
+   [90m     |[39m                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 130 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Permissions fetched successfully'[39m[33m,[39m data[33m:[39m permissions })[33m;[39m
+   [90m 131 |[39m     } [36mcatch[39m (error) {
+   [90m 132 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:35[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreatePermissionDto'.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m createPermission(payload[33m:[39m [33mCreatePermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[33m>[39m {
+   [90m     |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+   [90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m217:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 218 |[39m     } [36mcatch[39m (error) {
+   [90m 219 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 220 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m223:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'GetPermissionDto'.
+  [0m [90m 221 |[39m   }
+   [90m 222 |[39m
+  [31m[1m>[22m[39m[90m 223 |[39m   [36masync[39m getPermissions(payload[33m:[39m [33mGetPermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[][33m>[39m {
+   [90m     |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 224 |[39m     [36mtry[39m {
+   [90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mfind({ 
+   [90m 226 |[39m         where[33m:[39m {[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (282d8aa264916ecd)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m214:35[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreatePermissionDto'.
+  [0m [90m 212 |[39m   }
+   [90m 213 |[39m
+  [31m[1m>[22m[39m[90m 214 |[39m   [36masync[39m createPermission(payload[33m:[39m [33mCreatePermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[33m>[39m {
+   [90m     |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+   [90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m217:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'PermissionManager[]' is missing the following properties from type 'PermissionManager': id, createdAt, roleName, createdBy, and 3 more.
+  [0m [90m 215 |[39m     [36mtry[39m {
+   [90m 216 |[39m       [36mconst[39m permission [33m=[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 217 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39msave(permission)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 218 |[39m     } [36mcatch[39m (error) {
+   [90m 219 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 220 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m223:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'GetPermissionDto'.
+  [0m [90m 221 |[39m   }
+   [90m 222 |[39m
+  [31m[1m>[22m[39m[90m 223 |[39m   [36masync[39m getPermissions(payload[33m:[39m [33mGetPermissionDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mPermissionManager[39m[][33m>[39m {
+   [90m     |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 224 |[39m     [36mtry[39m {
+   [90m 225 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mpermissionRepository[33m.[39mfind({ 
+   [90m 226 |[39m         where[33m:[39m {[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (8dd4c9ac428e3ccc)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (b4c5410c1bac843e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (e77a396237fe381e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (e77a396237fe381e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (7dda2a79d30dbe88)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 396 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m92:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ data: User[]; }' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type '{ data: User[]; }' but required in type 'ApiOK'.
+  [0m [90m 90 |[39m     [36mtry[39m {
+   [90m 91 |[39m       [36mconst[39m users [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mgetUsers()[33m;[39m
+  [31m[1m>[22m[39m[90m 92 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { data[33m:[39m users })[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 93 |[39m     } [36mcatch[39m (error) {
+   [90m 94 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 95 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (139d8fb09a3b33e8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

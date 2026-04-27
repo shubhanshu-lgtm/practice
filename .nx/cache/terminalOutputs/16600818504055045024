@@ -1,0 +1,67 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 252 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (58b6d2978ffca6ee)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 265 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (853e4e919c6f3dc0)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 265 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9dcc44b51bcc7f30)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 253 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (895865f9b6e649b0)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 250 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (0a96bee6ea24ed02)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 250 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d5fe3410cf2fd4c5)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 228 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d54e900b6077ab09)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 228 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d54e900b6077ab09)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 228 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d54e900b6077ab09)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 228 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3ecc26f92edf7612)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 20676  - [39m[31m11/02/2026, 5:03:28 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'isPrimary'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m    at Socket.Readable.push (node:internal/streams/readable:390:5)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 20676  - [39m[31m11/02/2026, 5:03:28 pm [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Duplicate column name 'isPrimary'[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m    at Socket.Readable.push (node:internal/streams/readable:390:5)[39m[22m
+[1m[31m[39m[22m

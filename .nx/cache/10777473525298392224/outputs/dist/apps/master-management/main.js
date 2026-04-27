@@ -1,0 +1,9587 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/common");
+
+/***/ }),
+/* 2 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/core");
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AppModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const database_module_1 = __webpack_require__(5);
+const app_controller_1 = __webpack_require__(81);
+const app_service_1 = __webpack_require__(82);
+const config_module_1 = __webpack_require__(10);
+const response_handler_module_1 = __webpack_require__(83);
+const world_data_module_1 = __webpack_require__(85);
+const auth_module_1 = __webpack_require__(102);
+const department_module_1 = __webpack_require__(118);
+const module_management_module_1 = __webpack_require__(125);
+const lead_module_1 = __webpack_require__(129);
+const user_management_module_1 = __webpack_require__(133);
+const team_module_1 = __webpack_require__(136);
+let AppModule = class AppModule {
+};
+exports.AppModule = AppModule;
+exports.AppModule = AppModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            database_module_1.DBModule.forRoot(),
+            config_module_1.ConfigModule,
+            response_handler_module_1.ResponseHandlerModule,
+            world_data_module_1.WorldDataModule,
+            auth_module_1.AuthModule,
+            user_management_module_1.UserManagementModule,
+            department_module_1.DepartmentModule,
+            team_module_1.TeamModule,
+            module_management_module_1.ModuleManagementModule,
+            lead_module_1.LeadModule,
+        ],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService],
+    })
+], AppModule);
+
+
+/***/ }),
+/* 4 */
+/***/ ((module) => {
+
+module.exports = require("tslib");
+
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var DBModule_1;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DBModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_service_1 = __webpack_require__(6);
+const config_module_1 = __webpack_require__(10);
+const typeorm_1 = __webpack_require__(11);
+const entities_1 = __webpack_require__(12);
+const repositories_1 = __webpack_require__(64);
+let DBModule = DBModule_1 = class DBModule {
+    static getConnectionOptions(config) {
+        const dbData = config.get().db;
+        if (!dbData) {
+            throw new Error('Database configuration not found');
+        }
+        const connectionOptions = this.getConnectionOptionsPostgres(dbData);
+        return {
+            ...connectionOptions,
+            entities: [
+                entities_1.User,
+                entities_1.PermissionManager,
+                entities_1.Department,
+                entities_1.Team,
+                entities_1.Designation,
+                entities_1.StatusMaster,
+                entities_1.PriorityMaster,
+                entities_1.TaskTypeMaster,
+                entities_1.ActivityTypeMaster,
+                entities_1.DocumentTypeMaster,
+                entities_1.Countries,
+                entities_1.States,
+                entities_1.Cities,
+                entities_1.Nationalities,
+                entities_1.SystemModule,
+                entities_1.LeadEnquiry,
+                entities_1.LeadContact,
+                entities_1.LeadAddress,
+                entities_1.LoginSession,
+                entities_1.Session,
+                entities_1.Menu,
+                entities_1.Company,
+                entities_1.Branch,
+                entities_1.WorkRequest,
+                entities_1.WorkRequestType,
+                entities_1.SlaRule,
+                entities_1.NotificationRule,
+                entities_1.EscalationRule,
+                entities_1.Lead,
+                entities_1.Customer,
+                entities_1.CustomerAddress,
+                entities_1.CustomerContact,
+                entities_1.ServiceMaster,
+                entities_1.RoutingRule,
+                entities_1.ApprovalLevel,
+                entities_1.ApprovalStatus,
+                entities_1.AuditLog,
+                entities_1.DocumentClassification,
+                entities_1.LeadService,
+                entities_1.Proposal,
+                entities_1.ProposalItem,
+                entities_1.ProposalPaymentTerm,
+                entities_1.ProposalAcceptance,
+                entities_1.Project,
+                entities_1.ServiceMaster
+            ],
+            synchronize: true,
+            //dropSchema: true,
+            logging: false,
+            migrationsRun: false
+        };
+    }
+    static getConnectionOptionsPostgres(dbData) {
+        const { database, entities, host, logging, password, port, synchronize, username } = dbData;
+        return {
+            database,
+            entities,
+            host,
+            logging,
+            password,
+            port,
+            synchronize,
+            type: 'mysql',
+            username,
+        };
+    }
+    static forRoot() {
+        return {
+            module: DBModule_1,
+            imports: [
+                typeorm_1.TypeOrmModule.forRootAsync({
+                    imports: [config_module_1.ConfigModule],
+                    useFactory: (configService) => {
+                        return DBModule_1.getConnectionOptions(configService);
+                    },
+                    inject: [config_service_1.ConfigService],
+                }),
+                typeorm_1.TypeOrmModule.forFeature([
+                    entities_1.User,
+                    entities_1.PermissionManager,
+                    entities_1.Department,
+                    entities_1.Team,
+                    entities_1.Designation,
+                    entities_1.StatusMaster,
+                    entities_1.PriorityMaster,
+                    entities_1.TaskTypeMaster,
+                    entities_1.ActivityTypeMaster,
+                    entities_1.DocumentTypeMaster,
+                    entities_1.Countries,
+                    entities_1.States,
+                    entities_1.Cities,
+                    entities_1.Nationalities,
+                    entities_1.SystemModule,
+                    entities_1.LeadEnquiry,
+                    entities_1.LeadContact,
+                    entities_1.LeadAddress,
+                    entities_1.LoginSession,
+                    entities_1.Session,
+                    entities_1.Menu,
+                    entities_1.Company,
+                    entities_1.Branch,
+                    entities_1.WorkRequest,
+                    entities_1.WorkRequestType,
+                    entities_1.SlaRule,
+                    entities_1.NotificationRule,
+                    entities_1.EscalationRule,
+                    entities_1.Lead,
+                    entities_1.Customer,
+                    entities_1.CustomerAddress,
+                    entities_1.CustomerContact,
+                    entities_1.ServiceMaster,
+                    entities_1.RoutingRule,
+                    entities_1.ApprovalLevel,
+                    entities_1.ApprovalStatus,
+                    entities_1.AuditLog,
+                    entities_1.DocumentClassification,
+                    entities_1.LeadService,
+                    entities_1.Proposal,
+                    entities_1.ProposalItem,
+                    entities_1.ProposalPaymentTerm,
+                    entities_1.ProposalAcceptance,
+                    entities_1.Project,
+                    entities_1.ServiceMaster,
+                ]),
+            ],
+            controllers: [],
+            providers: [
+                repositories_1.UserRepository,
+                repositories_1.DepartmentRepository,
+                repositories_1.TeamRepository,
+                repositories_1.SystemModuleRepository,
+                repositories_1.LeadRepository,
+                repositories_1.ProposalRepository,
+                repositories_1.ProposalItemRepository,
+                repositories_1.ProposalPaymentTermRepository,
+                repositories_1.ProposalAcceptanceRepository,
+                repositories_1.ProjectRepository,
+                repositories_1.SessionRepository,
+                repositories_1.LoginSessionRepository,
+                repositories_1.PermissionManagerRepository,
+                repositories_1.LeadServiceRepository,
+                typeorm_1.TypeOrmModule
+            ],
+            exports: [
+                repositories_1.UserRepository,
+                repositories_1.DepartmentRepository,
+                repositories_1.TeamRepository,
+                repositories_1.SystemModuleRepository,
+                repositories_1.LeadRepository,
+                repositories_1.ProposalRepository,
+                repositories_1.ProposalItemRepository,
+                repositories_1.ProposalPaymentTermRepository,
+                repositories_1.ProposalAcceptanceRepository,
+                repositories_1.ProjectRepository,
+                repositories_1.SessionRepository,
+                repositories_1.LoginSessionRepository,
+                repositories_1.LeadServiceRepository,
+                repositories_1.PermissionManagerRepository,
+                typeorm_1.TypeOrmModule
+            ],
+        };
+    }
+};
+exports.DBModule = DBModule;
+exports.DBModule = DBModule = DBModule_1 = tslib_1.__decorate([
+    (0, common_1.Module)({})
+], DBModule);
+
+
+/***/ }),
+/* 6 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ConfigService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_interface_1 = __webpack_require__(7);
+const config_default_1 = __webpack_require__(8);
+const dotenv_1 = __webpack_require__(9);
+(0, dotenv_1.config)();
+let ConfigService = class ConfigService {
+    constructor(data = config_default_1.DEFAULT_CONFIG) {
+        this.config = data;
+    }
+    loadFromEnv() {
+        this.config = this.parseConfigFromEnv(process.env);
+    }
+    parseConfigFromEnv(env) {
+        return {
+            env: env.NODE_ENV || config_default_1.DEFAULT_CONFIG.env,
+            servicePorts: this.parseServicePorts(env, config_default_1.DEFAULT_CONFIG.servicePorts),
+            db: this.parseDBConfig(env, config_default_1.DEFAULT_CONFIG.db),
+            JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
+            JWT_EXPIRY_TIME: Number.parseInt(process.env.JWT_EXPIRY_TIME, 10),
+            logLevel: env.LOG_LEVEL || config_default_1.DEFAULT_CONFIG.logLevel,
+            AUTH_KEY: process.env.AUTH_KEY,
+            S3_bucket: this.parseS3Config(env),
+            SMTP: this.parseSMTPConfig(env, config_default_1.DEFAULT_CONFIG.SMTP),
+            VIN_SECRET: process.env.VIN_SECRET,
+            GoogleAuth: this.parseGoogleAuthConfig(env),
+            FRONTEND_BASE_URL: process.env.FRONTEND_BASE_URL,
+            TWILIO_SECRET: this.parseTwilioConfig(env),
+            FIREBASE_SERVICE_ACCOUNT: env.FIREBASE_SERVICE_ACCOUNT,
+            PaypalCredentials: this.parsePaypalConfig(env),
+            SERVER_BASE_PATH: process.env.SERVER_BASE_PATH,
+            CORS_ORIGINS: process.env.CORS_ORIGINS || ''
+        };
+    }
+    parseDBConfig(env, defaultConfig) {
+        return {
+            host: process.env.DB_HOST || "",
+            port: Number(process.env.DB_PORT) || 0,
+            username: process.env.DB_USERNAME || "",
+            password: process.env.DB_PASSWORD || "",
+            database: process.env.DB_DATABASE || "",
+            type: 'mysql',
+            synchronize: true,
+            logging: false,
+            entities: []
+        };
+    }
+    parseS3Config(env) {
+        return {
+            access_key_id: env.S3_ACCESS_KEY_ID,
+            secret_access_key: env.S3_SECRET_ACCESS_KEY,
+            bucket_name: env.S3_BUCKET_NAME,
+            region: env.S3_REGION,
+        };
+    }
+    parseServicePorts(env, defaultConfig) {
+        return {
+            authentication: Number.parseInt(env.AUTHENTICATION_PORT, 10) || defaultConfig.authentication,
+            product: Number.parseInt(env.PRODUCT_PORT, 10) || defaultConfig.product,
+            // userManagement: parseInt(env.USER_MANAGEMENT) || defaultConfig.userManagement,
+            userManagement: Number.parseInt(env.USER_MANAGEMENT || '') || defaultConfig.userManagement,
+            auditManagement: Number.parseInt(env.AUDIT_MANAGEMENT || '') || defaultConfig.auditManagement,
+            auditorManagement: Number.parseInt(env.AUDITOR_MANAGEMENT || '') || defaultConfig.auditorManagement,
+            masterManagement: Number.parseInt(env.MASTER_MANAGEMENT || '') || defaultConfig.masterManagement,
+            sales: Number.parseInt(env.SALES_PORT || '') || defaultConfig.sales,
+        };
+    }
+    parseSMTPConfig(env, defaultConfig) {
+        return {
+            SERVICE: "gmail",
+            HOST: env.SMTP_HOST || "",
+            PORT: Number.parseInt(env.SMTP_PORT || "587"),
+            USERNAME: env.SMTP_USERNAME,
+            PASSWORD: env.SMTP_PASSWORD,
+            SENDER: env.SMTP_SENDER,
+            SMTP_TLS: env.SMTP_TLS
+        };
+    }
+    parseGoogleAuthConfig(env) {
+        return {
+            GOOGLE_CLIENT_ID: env.GOOGLE_CLIENT_ID,
+            GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET,
+            GOOGLE_REDIRECT_URI: env.GOOGLE_REDIRECT_URI,
+            GOOGLE_CALLBACK_URL: env.GOOGLE_CALLBACK_URL
+        };
+    }
+    parsePaypalConfig(env) {
+        return {
+            PAYPAL_MODE: env.PAYPAL_MODE,
+            PAYPAL_CLIENT_ID: env.PAYPAL_CLIENT_ID,
+            PAYPAL_CLIENT_SECRET: env.PAYPAL_CLIENT_SECRET
+        };
+    }
+    parseTwilioConfig(env) {
+        return {
+            SERVICE_ID: env.SERVICE_ID,
+            TWILIO_ACCOUNT_SID: env.TWILIO_ACCOUNT_SID,
+            TWILIO_AUTH_TOKEN: env.TWILIO_AUTH_TOKEN,
+            TWILIO_PHONE_NUMBER: env.TWILIO_PHONE_NUMBER
+        };
+    }
+    getEnvOrThrow(key) {
+        const value = process.env[key];
+        if (!value) {
+            throw new Error(`Missing required environment variable: ${key}`);
+        }
+        return value;
+    }
+    get() {
+        return this.config;
+    }
+};
+exports.ConfigService = ConfigService;
+exports.ConfigService = ConfigService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof config_interface_1.ConfigData !== "undefined" && config_interface_1.ConfigData) === "function" ? _a : Object])
+], ConfigService);
+
+
+/***/ }),
+/* 7 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+/* 8 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DEFAULT_CONFIG = void 0;
+exports.DEFAULT_CONFIG = {
+    env: 'production',
+    db: {
+        host: '',
+        port: 0,
+        username: '',
+        password: '',
+        database: '',
+        type: 'mysql',
+        synchronize: true,
+        logging: false,
+        entities: [],
+    },
+    logLevel: 'info',
+    JWT_SECRET_KEY: '',
+    JWT_EXPIRY_TIME: 0,
+    AUTH_KEY: '',
+    servicePorts: {
+        authentication: 8085,
+        product: 8087,
+        userManagement: 8086,
+        auditManagement: 8088,
+        auditorManagement: 8089,
+        masterManagement: 8090,
+        sales: 8091,
+    },
+    S3_bucket: { access_key_id: '', bucket_name: '', region: '', secret_access_key: '' },
+    SMTP: { HOST: '', PASSWORD: '', PORT: 587, SENDER: '', SERVICE: 'gmail', SMTP_TLS: '', USERNAME: '' },
+    GoogleAuth: { GOOGLE_CLIENT_ID: '', GOOGLE_CLIENT_SECRET: '', GOOGLE_REDIRECT_URI: '', GOOGLE_CALLBACK_URL: '' },
+    VIN_SECRET: '',
+    FRONTEND_BASE_URL: '',
+    SERVER_BASE_PATH: '',
+    TWILIO_SECRET: {
+        TWILIO_ACCOUNT_SID: '',
+        TWILIO_AUTH_TOKEN: '',
+        SERVICE_ID: '',
+        TWILIO_PHONE_NUMBER: ''
+    },
+    FIREBASE_SERVICE_ACCOUNT: '',
+    PaypalCredentials: { PAYPAL_MODE: '', PAYPAL_CLIENT_ID: '', PAYPAL_CLIENT_SECRET: '' },
+    CORS_ORIGINS: ''
+};
+
+
+/***/ }),
+/* 9 */
+/***/ ((module) => {
+
+module.exports = require("dotenv");
+
+/***/ }),
+/* 10 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ConfigModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_service_1 = __webpack_require__(6);
+const configFactory = {
+    provide: config_service_1.ConfigService,
+    useFactory: () => {
+        const config = new config_service_1.ConfigService();
+        config.loadFromEnv();
+        return config;
+    },
+};
+let ConfigModule = class ConfigModule {
+};
+exports.ConfigModule = ConfigModule;
+exports.ConfigModule = ConfigModule = tslib_1.__decorate([
+    (0, common_1.Global)(),
+    (0, common_1.Module)({
+        imports: [],
+        controllers: [],
+        providers: [configFactory],
+        exports: [configFactory],
+    })
+], ConfigModule);
+
+
+/***/ }),
+/* 11 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/typeorm");
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(4);
+tslib_1.__exportStar(__webpack_require__(13), exports);
+tslib_1.__exportStar(__webpack_require__(19), exports);
+tslib_1.__exportStar(__webpack_require__(24), exports);
+tslib_1.__exportStar(__webpack_require__(25), exports);
+tslib_1.__exportStar(__webpack_require__(21), exports);
+tslib_1.__exportStar(__webpack_require__(26), exports);
+tslib_1.__exportStar(__webpack_require__(27), exports);
+tslib_1.__exportStar(__webpack_require__(28), exports);
+tslib_1.__exportStar(__webpack_require__(29), exports);
+tslib_1.__exportStar(__webpack_require__(30), exports);
+tslib_1.__exportStar(__webpack_require__(31), exports);
+tslib_1.__exportStar(__webpack_require__(32), exports);
+tslib_1.__exportStar(__webpack_require__(22), exports);
+tslib_1.__exportStar(__webpack_require__(33), exports);
+tslib_1.__exportStar(__webpack_require__(23), exports);
+tslib_1.__exportStar(__webpack_require__(34), exports);
+tslib_1.__exportStar(__webpack_require__(35), exports);
+tslib_1.__exportStar(__webpack_require__(36), exports);
+tslib_1.__exportStar(__webpack_require__(37), exports);
+tslib_1.__exportStar(__webpack_require__(43), exports);
+tslib_1.__exportStar(__webpack_require__(44), exports);
+tslib_1.__exportStar(__webpack_require__(45), exports);
+tslib_1.__exportStar(__webpack_require__(24), exports);
+tslib_1.__exportStar(__webpack_require__(25), exports);
+tslib_1.__exportStar(__webpack_require__(46), exports);
+tslib_1.__exportStar(__webpack_require__(47), exports);
+tslib_1.__exportStar(__webpack_require__(48), exports);
+tslib_1.__exportStar(__webpack_require__(49), exports);
+tslib_1.__exportStar(__webpack_require__(50), exports);
+tslib_1.__exportStar(__webpack_require__(51), exports);
+tslib_1.__exportStar(__webpack_require__(52), exports);
+tslib_1.__exportStar(__webpack_require__(53), exports);
+tslib_1.__exportStar(__webpack_require__(54), exports);
+tslib_1.__exportStar(__webpack_require__(55), exports);
+tslib_1.__exportStar(__webpack_require__(56), exports);
+tslib_1.__exportStar(__webpack_require__(57), exports);
+tslib_1.__exportStar(__webpack_require__(58), exports);
+tslib_1.__exportStar(__webpack_require__(59), exports);
+tslib_1.__exportStar(__webpack_require__(60), exports);
+tslib_1.__exportStar(__webpack_require__(61), exports);
+tslib_1.__exportStar(__webpack_require__(38), exports);
+tslib_1.__exportStar(__webpack_require__(39), exports);
+tslib_1.__exportStar(__webpack_require__(40), exports);
+tslib_1.__exportStar(__webpack_require__(41), exports);
+tslib_1.__exportStar(__webpack_require__(62), exports);
+tslib_1.__exportStar(__webpack_require__(63), exports);
+
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.User = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+const class_validator_1 = __webpack_require__(17);
+const commonConstants_1 = __webpack_require__(18);
+const permissionManager_entity_1 = __webpack_require__(19);
+const department_entity_1 = __webpack_require__(21);
+const systemModule_entity_1 = __webpack_require__(22);
+let User = class User {
+};
+exports.User = User;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], User.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], User.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true, unique: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true, unique: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "avatar", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_ACCOUNT_STATUS,
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], User.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_VERIFY_STATUS,
+    }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.USER_VERIFY_STATUS !== "undefined" && userContants_1.USER_VERIFY_STATUS) === "function" ? _c : Object)
+], User.prototype, "verifyStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => User, user => user.id, { nullable: true })
+    // @IsDefined()
+    ,
+    (0, typeorm_1.JoinColumn)({ name: "addedBy" }),
+    tslib_1.__metadata("design:type", User)
+], User.prototype, "addedBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => permissionManager_entity_1.PermissionManager, (p) => p.users),
+    (0, typeorm_1.JoinColumn)({ name: "permission" }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof permissionManager_entity_1.PermissionManager !== "undefined" && permissionManager_entity_1.PermissionManager) === "function" ? _d : Object)
+], User.prototype, "permission", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", String)
+], User.prototype, "roleName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_GROUP,
+        nullable: true
+    }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", typeof (_e = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _e : Object)
+], User.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToMany)(() => department_entity_1.Department, { nullable: true }),
+    (0, typeorm_1.JoinTable)({
+        name: 'user_departments',
+        joinColumn: { name: 'userId', referencedColumnName: 'id' },
+        inverseJoinColumn: { name: 'departmentId', referencedColumnName: 'id' },
+    }),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "departments", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToMany)(() => systemModule_entity_1.SystemModule, { nullable: true }),
+    (0, typeorm_1.JoinTable)({
+        name: 'user_modules',
+        joinColumn: { name: 'userId', referencedColumnName: 'id' },
+        inverseJoinColumn: { name: 'moduleId', referencedColumnName: 'id' },
+    }),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "modules", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_LOGIN_SOURCE,
+        nullable: true
+    }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", typeof (_f = typeof userContants_1.USER_LOGIN_SOURCE !== "undefined" && userContants_1.USER_LOGIN_SOURCE) === "function" ? _f : Object)
+], User.prototype, "loginSource", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: commonConstants_1.PLATFORM,
+        nullable: true
+    }),
+    (0, class_validator_1.IsDefined)(),
+    tslib_1.__metadata("design:type", typeof (_g = typeof commonConstants_1.PLATFORM !== "undefined" && commonConstants_1.PLATFORM) === "function" ? _g : Object)
+], User.prototype, "platform", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => permissionManager_entity_1.PermissionManager, (p) => p.createdBy)
+    // @JoinColumn({ name: "permissionManager" })
+    ,
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "permissionManagers", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)('Team', (team) => team.teamLead),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "teamsLed", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToMany)('Team', (team) => team.members),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "teams", void 0);
+exports.User = User = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('user')
+], User);
+
+
+/***/ }),
+/* 14 */
+/***/ ((module) => {
+
+module.exports = require("typeorm");
+
+/***/ }),
+/* 15 */
+/***/ ((module) => {
+
+module.exports = require("reflect-metadata");
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PHONE_TYPE = exports.ADDRESS_TYPE = exports.INVITE_STATUS = exports.INVITE_MEMBER = exports.USER_LOGIN_SOURCE = exports.ADD_UPDATE_EMAIL_TYPE = exports.ADD_UPDATE_EMAIL_STATUS = exports.OTP_REQUEST_LIMITS = exports.LOGIN_BY = exports.OTP_SEND_ON = exports.OTP_TYPE = exports.SESSION_STATUS = exports.USER_CASTE_CATEGORY = exports.USER_GROUP = exports.DEFAULT_USER_ROLES = exports.USER_DEPARTMENTS = exports.USER_VERIFY_STATUS = exports.USER_ACCOUNT_STATUS = void 0;
+var USER_ACCOUNT_STATUS;
+(function (USER_ACCOUNT_STATUS) {
+    USER_ACCOUNT_STATUS["ACTIVE"] = "ACTIVE";
+    USER_ACCOUNT_STATUS["INACTIVE"] = "INACTIVE";
+    USER_ACCOUNT_STATUS["BLOCKED"] = "BLOCKED";
+    USER_ACCOUNT_STATUS["DELETED"] = "DELETED";
+})(USER_ACCOUNT_STATUS || (exports.USER_ACCOUNT_STATUS = USER_ACCOUNT_STATUS = {}));
+var USER_VERIFY_STATUS;
+(function (USER_VERIFY_STATUS) {
+    USER_VERIFY_STATUS["UNVERIFIED"] = "UNVERIFIED";
+    USER_VERIFY_STATUS["VERIFIED"] = "VERIFIED";
+})(USER_VERIFY_STATUS || (exports.USER_VERIFY_STATUS = USER_VERIFY_STATUS = {}));
+var USER_DEPARTMENTS;
+(function (USER_DEPARTMENTS) {
+    USER_DEPARTMENTS["SUPER_ADMIN"] = "SUPER_ADMIN";
+    USER_DEPARTMENTS["ADMINISTRATION"] = "ADMINISTRATION";
+    USER_DEPARTMENTS["SALES_BUSINESS_DEVELOPMENT"] = "SALES_BUSINESS_DEVELOPMENT";
+    USER_DEPARTMENTS["MARKETING"] = "MARKETING";
+    USER_DEPARTMENTS["ACCOUNTS_FINANCE"] = "ACCOUNTS_FINANCE";
+    USER_DEPARTMENTS["VAPT_SECURITY_DELIVERY"] = "VAPT_SECURITY_DELIVERY";
+    USER_DEPARTMENTS["GRC_COMPLIANCE"] = "GRC_COMPLIANCE";
+    USER_DEPARTMENTS["AUDIT_OPERATIONS"] = "AUDIT_OPERATIONS";
+    USER_DEPARTMENTS["CERTIFICATE_MANAGEMENT"] = "CERTIFICATE_MANAGEMENT";
+    USER_DEPARTMENTS["MANAGEMENT_LEADERSHIP"] = "MANAGEMENT_LEADERSHIP";
+    USER_DEPARTMENTS["IT_SUPPORT"] = "IT_SUPPORT";
+})(USER_DEPARTMENTS || (exports.USER_DEPARTMENTS = USER_DEPARTMENTS = {}));
+var DEFAULT_USER_ROLES;
+(function (DEFAULT_USER_ROLES) {
+    DEFAULT_USER_ROLES["SUPER_ADMIN"] = "SUPER_ADMIN";
+    DEFAULT_USER_ROLES["ADMIN"] = "ADMINISTRATOR";
+    DEFAULT_USER_ROLES["MANAGER"] = "MANAGER";
+    DEFAULT_USER_ROLES["TEAM_LEAD"] = "TEAM_LEAD";
+    DEFAULT_USER_ROLES["USER"] = "USER";
+    DEFAULT_USER_ROLES["ACCOUNT"] = "ACCOUNT";
+    DEFAULT_USER_ROLES["SALES"] = "SALES";
+    DEFAULT_USER_ROLES["GRC"] = "GRC";
+    DEFAULT_USER_ROLES["VAPT"] = "VAPT";
+})(DEFAULT_USER_ROLES || (exports.DEFAULT_USER_ROLES = DEFAULT_USER_ROLES = {}));
+var USER_GROUP;
+(function (USER_GROUP) {
+    USER_GROUP["SUPER_ADMIN"] = "SUPER_ADMIN";
+    USER_GROUP["ADMIN"] = "ADMINISTRATOR";
+    USER_GROUP["SALES_TEAM"] = "SALES_TEAM";
+    USER_GROUP["USER"] = "USER";
+    USER_GROUP["MANAGER"] = "MANAGER";
+    // SELLER = "SELLER",
+})(USER_GROUP || (exports.USER_GROUP = USER_GROUP = {}));
+var USER_CASTE_CATEGORY;
+(function (USER_CASTE_CATEGORY) {
+    USER_CASTE_CATEGORY["GENERAL"] = "GENERAL";
+    USER_CASTE_CATEGORY["OBC"] = "OBC";
+    USER_CASTE_CATEGORY["SC_ST"] = "SC/ST";
+    USER_CASTE_CATEGORY["OTHER"] = "OTHER";
+})(USER_CASTE_CATEGORY || (exports.USER_CASTE_CATEGORY = USER_CASTE_CATEGORY = {}));
+var SESSION_STATUS;
+(function (SESSION_STATUS) {
+    SESSION_STATUS["LOGGED_IN"] = "LOGGED_IN";
+    SESSION_STATUS["LOGGED_OUT"] = "LOGGED_OUT";
+    SESSION_STATUS["BLOCKED"] = "BLOCKED";
+})(SESSION_STATUS || (exports.SESSION_STATUS = SESSION_STATUS = {}));
+var OTP_TYPE;
+(function (OTP_TYPE) {
+    OTP_TYPE["REGISTER_OTP"] = "REGISTER_OTP";
+    OTP_TYPE["LOGIN_OTP"] = "LOGIN_OTP";
+    OTP_TYPE["FORGOT_PASSWORD_OTP"] = "FORGOT_PASSWORD_OTP";
+    OTP_TYPE["ADD_EMAIL"] = "ADD_EMAIL";
+    OTP_TYPE["ADD_PHONE_NO"] = "ADD_PHONE_NO";
+    OTP_TYPE["CUSTOM_LOGIN"] = "CUSTOM_LOGIN";
+})(OTP_TYPE || (exports.OTP_TYPE = OTP_TYPE = {}));
+var OTP_SEND_ON;
+(function (OTP_SEND_ON) {
+    OTP_SEND_ON["PHONE"] = "PHONE";
+    OTP_SEND_ON["EMAIL"] = "EMAIL";
+})(OTP_SEND_ON || (exports.OTP_SEND_ON = OTP_SEND_ON = {}));
+var LOGIN_BY;
+(function (LOGIN_BY) {
+    LOGIN_BY["PHONE"] = "PHONE";
+    LOGIN_BY["EMAIL"] = "EMAIL";
+})(LOGIN_BY || (exports.LOGIN_BY = LOGIN_BY = {}));
+var OTP_REQUEST_LIMITS;
+(function (OTP_REQUEST_LIMITS) {
+    OTP_REQUEST_LIMITS[OTP_REQUEST_LIMITS["RESEND_OTP"] = 200] = "RESEND_OTP";
+})(OTP_REQUEST_LIMITS || (exports.OTP_REQUEST_LIMITS = OTP_REQUEST_LIMITS = {}));
+var ADD_UPDATE_EMAIL_STATUS;
+(function (ADD_UPDATE_EMAIL_STATUS) {
+    ADD_UPDATE_EMAIL_STATUS[ADD_UPDATE_EMAIL_STATUS["PENDING"] = 0] = "PENDING";
+    ADD_UPDATE_EMAIL_STATUS[ADD_UPDATE_EMAIL_STATUS["VERIFIED"] = 1] = "VERIFIED";
+})(ADD_UPDATE_EMAIL_STATUS || (exports.ADD_UPDATE_EMAIL_STATUS = ADD_UPDATE_EMAIL_STATUS = {}));
+var ADD_UPDATE_EMAIL_TYPE;
+(function (ADD_UPDATE_EMAIL_TYPE) {
+    ADD_UPDATE_EMAIL_TYPE[ADD_UPDATE_EMAIL_TYPE["ADD"] = 0] = "ADD";
+    ADD_UPDATE_EMAIL_TYPE[ADD_UPDATE_EMAIL_TYPE["UPDATE"] = 1] = "UPDATE";
+})(ADD_UPDATE_EMAIL_TYPE || (exports.ADD_UPDATE_EMAIL_TYPE = ADD_UPDATE_EMAIL_TYPE = {}));
+var USER_LOGIN_SOURCE;
+(function (USER_LOGIN_SOURCE) {
+    USER_LOGIN_SOURCE["LOCAL"] = "LOCAL";
+    USER_LOGIN_SOURCE["GOOGLE"] = "GOOGLE";
+})(USER_LOGIN_SOURCE || (exports.USER_LOGIN_SOURCE = USER_LOGIN_SOURCE = {}));
+;
+var INVITE_MEMBER;
+(function (INVITE_MEMBER) {
+    // BUYER = "BUYER",
+    // SELLER = "SELLER",
+})(INVITE_MEMBER || (exports.INVITE_MEMBER = INVITE_MEMBER = {}));
+var INVITE_STATUS;
+(function (INVITE_STATUS) {
+    INVITE_STATUS["PENDING"] = "PENDING";
+    INVITE_STATUS["VERIFIED"] = "VERIFIED";
+    INVITE_STATUS["REJECTED"] = "REJECTED";
+})(INVITE_STATUS || (exports.INVITE_STATUS = INVITE_STATUS = {}));
+var ADDRESS_TYPE;
+(function (ADDRESS_TYPE) {
+    ADDRESS_TYPE["OFFICE"] = "OFFICE";
+    ADDRESS_TYPE["HOME"] = "HOME";
+    ADDRESS_TYPE["OTHERS"] = "OTHERS";
+})(ADDRESS_TYPE || (exports.ADDRESS_TYPE = ADDRESS_TYPE = {}));
+var PHONE_TYPE;
+(function (PHONE_TYPE) {
+    PHONE_TYPE["OFFICE"] = "OFFICE";
+    PHONE_TYPE["MOBILE"] = "MOBILE";
+    PHONE_TYPE["RESIDENTIAL"] = "RESIDENTIAL";
+    PHONE_TYPE["FAX"] = "FAX";
+})(PHONE_TYPE || (exports.PHONE_TYPE = PHONE_TYPE = {}));
+
+
+/***/ }),
+/* 17 */
+/***/ ((module) => {
+
+module.exports = require("class-validator");
+
+/***/ }),
+/* 18 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LOGO_WHITTEBG = exports.LOGO = exports.FILE_SIZE_IN_BYTES = exports.DEVICE_TYPE = exports.PLATFORM = exports.TOKEN_TYPE = exports.S3_FOLDER = exports.ExpressRequestParams = exports.ErrorMessages = exports.ERROR_CODES = void 0;
+var ERROR_CODES;
+(function (ERROR_CODES) {
+    ERROR_CODES[ERROR_CODES["UNEXPECTED_ERROR"] = 501] = "UNEXPECTED_ERROR";
+    ERROR_CODES[ERROR_CODES["OUTGOING_API_ERROR"] = 777] = "OUTGOING_API_ERROR";
+    ERROR_CODES[ERROR_CODES["ERROR_UNKNOWN_SHOW_TO_USER"] = 408] = "ERROR_UNKNOWN_SHOW_TO_USER";
+    ERROR_CODES[ERROR_CODES["ERROR_UNKNOWN"] = 409] = "ERROR_UNKNOWN";
+    ERROR_CODES[ERROR_CODES["ERROR_CANNOT_FULLFILL_REQUEST"] = 417] = "ERROR_CANNOT_FULLFILL_REQUEST";
+    ERROR_CODES[ERROR_CODES["DATABASE_ERROR"] = 461] = "DATABASE_ERROR";
+    ERROR_CODES[ERROR_CODES["DATABASE_DUPLICATE_ERROR_CODE"] = 465] = "DATABASE_DUPLICATE_ERROR_CODE";
+    ERROR_CODES[ERROR_CODES["ACCESS_DENIED"] = 403] = "ACCESS_DENIED";
+    ERROR_CODES[ERROR_CODES["INVALID_ROUTE_URL"] = 608] = "INVALID_ROUTE_URL";
+    ERROR_CODES[ERROR_CODES["INVALID_BASE_URL"] = 609] = "INVALID_BASE_URL";
+    ERROR_CODES[ERROR_CODES["JWT_TOKEN_INVALID"] = 498] = "JWT_TOKEN_INVALID";
+    ERROR_CODES[ERROR_CODES["JWT_TOKEN_EXPIRED"] = 463] = "JWT_TOKEN_EXPIRED";
+    ERROR_CODES[ERROR_CODES["NOT_AUTHORIZED"] = 401] = "NOT_AUTHORIZED";
+    ERROR_CODES[ERROR_CODES["NOT_FOUND"] = 404] = "NOT_FOUND";
+    ERROR_CODES[ERROR_CODES["BAD_REQUEST"] = 400] = "BAD_REQUEST";
+    ERROR_CODES[ERROR_CODES["UNSUPPORTED_MEDIA_TYPE"] = 415] = "UNSUPPORTED_MEDIA_TYPE";
+    ERROR_CODES[ERROR_CODES["UNVERIFIED_ACCOUNT"] = 466] = "UNVERIFIED_ACCOUNT";
+    ERROR_CODES[ERROR_CODES["BLOCKED_USER"] = 468] = "BLOCKED_USER";
+    ERROR_CODES[ERROR_CODES["TEST_DRIVE_TAKEN"] = 470] = "TEST_DRIVE_TAKEN";
+})(ERROR_CODES || (exports.ERROR_CODES = ERROR_CODES = {}));
+var ErrorMessages;
+(function (ErrorMessages) {
+    ErrorMessages["UNEXPECTED_ERROR"] = "Unexpected Error";
+    ErrorMessages["SOMETHING_WENT_WRONG"] = "Something Went Wrong";
+    ErrorMessages["JWT_TOKEN_INVALID"] = "Invalid Token";
+    ErrorMessages["JWT_TOKEN_EXPIRED"] = "Session Expired";
+    ErrorMessages["NOT_AUTHORIZED"] = "NOT_AUTHORIZED";
+    ErrorMessages["ACCESS_DENIED"] = "ACCESS_DENIED";
+})(ErrorMessages || (exports.ErrorMessages = ErrorMessages = {}));
+exports.ExpressRequestParams = {
+    IP_ADDRESS: "ip_address",
+    AUTH_PAYLOAD: "auth_payload"
+};
+exports.S3_FOLDER = {
+    PROFILE: 'profile',
+    products: 'products'
+};
+var TOKEN_TYPE;
+(function (TOKEN_TYPE) {
+    TOKEN_TYPE["GUEST_LOGIN"] = "GUEST_LOGIN";
+    TOKEN_TYPE["USER_LOGIN"] = "USER_LOGIN";
+})(TOKEN_TYPE || (exports.TOKEN_TYPE = TOKEN_TYPE = {}));
+var PLATFORM;
+(function (PLATFORM) {
+    PLATFORM["WEB"] = "WEB";
+    PLATFORM["ANDROID"] = "ANDROID";
+    PLATFORM["IOS"] = "IOS";
+})(PLATFORM || (exports.PLATFORM = PLATFORM = {}));
+var DEVICE_TYPE;
+(function (DEVICE_TYPE) {
+    DEVICE_TYPE["WEB"] = "WEB";
+    DEVICE_TYPE["ANDROID"] = "ANDROID";
+    DEVICE_TYPE["IOS"] = "IOS";
+})(DEVICE_TYPE || (exports.DEVICE_TYPE = DEVICE_TYPE = {}));
+exports.FILE_SIZE_IN_BYTES = 50 * 1024 * 1024; //50mb
+exports.LOGO = "";
+exports.LOGO_WHITTEBG = "";
+
+
+/***/ }),
+/* 19 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PermissionManager = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+const permissionManagerConstants_1 = __webpack_require__(20);
+const user_entity_1 = __webpack_require__(13);
+let PermissionManager = class PermissionManager {
+};
+exports.PermissionManager = PermissionManager;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], PermissionManager.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], PermissionManager.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], PermissionManager.prototype, "roleName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, u => u.permissionManagers),
+    (0, typeorm_1.JoinColumn)({ name: "createdBy" }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _b : Object)
+], PermissionManager.prototype, "createdBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)('json', { nullable: true }),
+    tslib_1.__metadata("design:type", Array)
+], PermissionManager.prototype, "permissions", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_GROUP,
+    }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _c : Object)
+], PermissionManager.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => user_entity_1.User, u => u.permission),
+    (0, typeorm_1.JoinColumn)({ name: "user" }),
+    tslib_1.__metadata("design:type", Array)
+], PermissionManager.prototype, "users", void 0);
+exports.PermissionManager = PermissionManager = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('permissionmanager')
+], PermissionManager);
+
+
+/***/ }),
+/* 20 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MODULES = exports.PERMISSIONS = void 0;
+var PERMISSIONS;
+(function (PERMISSIONS) {
+    // NONE = "NONE", 
+    PERMISSIONS["READ"] = "READ";
+    PERMISSIONS["UPDATE"] = "UPDATE";
+    PERMISSIONS["DELETE"] = "DELETE";
+    PERMISSIONS["ADD"] = "ADD";
+})(PERMISSIONS || (exports.PERMISSIONS = PERMISSIONS = {}));
+// implementation pending
+// export const PERMISSIONS =
+// {
+//     NONE : 0,
+//     READ : 1,
+//     ADD : 2,
+//     UPDATE : 4,
+//     DELETE : 8,
+// }
+exports.MODULES = {
+    "Buyer": 1,
+    "Seller": 2,
+    "Role Management": 3,
+    "User": 4,
+    "Manager": 5
+};
+
+
+/***/ }),
+/* 21 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Department = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+let Department = class Department {
+};
+exports.Department = Department;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Department.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Department.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Department.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Department.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_ACCOUNT_STATUS,
+        default: userContants_1.USER_ACCOUNT_STATUS.ACTIVE
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], Department.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)('Team', (team) => team.department),
+    tslib_1.__metadata("design:type", Array)
+], Department.prototype, "teams", void 0);
+exports.Department = Department = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('department')
+], Department);
+
+
+/***/ }),
+/* 22 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SystemModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+const menu_entity_1 = __webpack_require__(23);
+let SystemModule = class SystemModule {
+};
+exports.SystemModule = SystemModule;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], SystemModule.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], SystemModule.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], SystemModule.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], SystemModule.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_ACCOUNT_STATUS,
+        default: userContants_1.USER_ACCOUNT_STATUS.ACTIVE
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], SystemModule.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => menu_entity_1.Menu, (menu) => menu.module),
+    tslib_1.__metadata("design:type", Array)
+], SystemModule.prototype, "menus", void 0);
+exports.SystemModule = SystemModule = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('systemmodule')
+], SystemModule);
+
+
+/***/ }),
+/* 23 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Menu = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+const systemModule_entity_1 = __webpack_require__(22);
+let Menu = class Menu {
+};
+exports.Menu = Menu;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Menu.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Menu.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Menu.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Menu.prototype, "path", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int', default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], Menu.prototype, "sortOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.USER_ACCOUNT_STATUS,
+        default: userContants_1.USER_ACCOUNT_STATUS.ACTIVE
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], Menu.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => systemModule_entity_1.SystemModule, (module) => module.menus),
+    (0, typeorm_1.JoinColumn)({ name: 'moduleId' }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof systemModule_entity_1.SystemModule !== "undefined" && systemModule_entity_1.SystemModule) === "function" ? _c : Object)
+], Menu.prototype, "module", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => Menu, (menu) => menu.children, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'parentId' }),
+    tslib_1.__metadata("design:type", Menu)
+], Menu.prototype, "parent", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => Menu, (menu) => menu.parent),
+    tslib_1.__metadata("design:type", Array)
+], Menu.prototype, "children", void 0);
+exports.Menu = Menu = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('menu')
+], Menu);
+
+
+/***/ }),
+/* 24 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoginSession = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const userContants_1 = __webpack_require__(16);
+const user_entity_1 = __webpack_require__(13);
+const commonConstants_1 = __webpack_require__(18);
+let LoginSession = class LoginSession {
+};
+exports.LoginSession = LoginSession;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], LoginSession.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], LoginSession.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, u => u.id),
+    (0, typeorm_1.JoinColumn)({ name: "userId" }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _b : Object)
+], LoginSession.prototype, "user", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.LOGIN_BY,
+    }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.LOGIN_BY !== "undefined" && userContants_1.LOGIN_BY) === "function" ? _c : Object)
+], LoginSession.prototype, "loginBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], LoginSession.prototype, "loginIdentity", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LoginSession.prototype, "fcmToken", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+        type: 'enum',
+        enum: commonConstants_1.DEVICE_TYPE
+    }),
+    tslib_1.__metadata("design:type", typeof (_d = typeof commonConstants_1.DEVICE_TYPE !== "undefined" && commonConstants_1.DEVICE_TYPE) === "function" ? _d : Object)
+], LoginSession.prototype, "deviceType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], LoginSession.prototype, "refreshToken", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: userContants_1.SESSION_STATUS,
+    }),
+    tslib_1.__metadata("design:type", typeof (_e = typeof userContants_1.SESSION_STATUS !== "undefined" && userContants_1.SESSION_STATUS) === "function" ? _e : Object)
+], LoginSession.prototype, "loginStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'bigint' }),
+    tslib_1.__metadata("design:type", Number)
+], LoginSession.prototype, "refreshTokenExpiry", void 0);
+exports.LoginSession = LoginSession = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('loginsession')
+], LoginSession);
+
+
+/***/ }),
+/* 25 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Session = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+let Session = class Session {
+};
+exports.Session = Session;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid', { name: 'session_id' }),
+    tslib_1.__metadata("design:type", String)
+], Session.prototype, "sessionId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'user_id' }),
+    tslib_1.__metadata("design:type", String)
+], Session.prototype, "userId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'user_email' }),
+    tslib_1.__metadata("design:type", String)
+], Session.prototype, "userEmail", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text' }),
+    tslib_1.__metadata("design:type", String)
+], Session.prototype, "token", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'json', nullable: true, name: 'google_callback_data' }),
+    tslib_1.__metadata("design:type", Object)
+], Session.prototype, "googleCallbackData", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', name: 'expires_at' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Session.prototype, "expiresAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)({ name: 'created_at' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Session.prototype, "createdAt", void 0);
+exports.Session = Session = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('session')
+], Session);
+
+
+/***/ }),
+/* 26 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Team = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const department_entity_1 = __webpack_require__(21);
+const user_entity_1 = __webpack_require__(13);
+let Team = class Team {
+};
+exports.Team = Team;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Team.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], Team.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Team.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department, (dept) => dept.teams),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _a : Object)
+], Team.prototype, "department", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], Team.prototype, "departmentId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.teamsLed, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'teamLeadId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _b : Object)
+], Team.prototype, "teamLead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], Team.prototype, "teamLeadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToMany)(() => user_entity_1.User, (user) => user.teams),
+    (0, typeorm_1.JoinTable)({
+        name: 'team_members',
+        joinColumn: { name: 'teamId', referencedColumnName: 'id' },
+        inverseJoinColumn: { name: 'userId', referencedColumnName: 'id' }
+    }),
+    tslib_1.__metadata("design:type", Array)
+], Team.prototype, "members", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], Team.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], Team.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof Date !== "undefined" && Date) === "function" ? _d : Object)
+], Team.prototype, "updatedAt", void 0);
+exports.Team = Team = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('team')
+], Team);
+
+
+/***/ }),
+/* 27 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Designation = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let Designation = class Designation {
+};
+exports.Designation = Designation;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Designation.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Designation.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Designation.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], Designation.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Designation.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Designation.prototype, "updatedAt", void 0);
+exports.Designation = Designation = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('designation')
+], Designation);
+
+
+/***/ }),
+/* 28 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StatusMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let StatusMaster = class StatusMaster {
+};
+exports.StatusMaster = StatusMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], StatusMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], StatusMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], StatusMaster.prototype, "module", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], StatusMaster.prototype, "color", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], StatusMaster.prototype, "displayOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], StatusMaster.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], StatusMaster.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], StatusMaster.prototype, "updatedAt", void 0);
+exports.StatusMaster = StatusMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('status_master')
+], StatusMaster);
+
+
+/***/ }),
+/* 29 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PriorityMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let PriorityMaster = class PriorityMaster {
+};
+exports.PriorityMaster = PriorityMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], PriorityMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], PriorityMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int' }),
+    tslib_1.__metadata("design:type", Number)
+], PriorityMaster.prototype, "level", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], PriorityMaster.prototype, "color", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int', default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], PriorityMaster.prototype, "displayOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], PriorityMaster.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], PriorityMaster.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], PriorityMaster.prototype, "updatedAt", void 0);
+exports.PriorityMaster = PriorityMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('priority_master')
+], PriorityMaster);
+
+
+/***/ }),
+/* 30 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskTypeMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let TaskTypeMaster = class TaskTypeMaster {
+};
+exports.TaskTypeMaster = TaskTypeMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], TaskTypeMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], TaskTypeMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], TaskTypeMaster.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int', default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], TaskTypeMaster.prototype, "displayOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], TaskTypeMaster.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], TaskTypeMaster.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], TaskTypeMaster.prototype, "updatedAt", void 0);
+exports.TaskTypeMaster = TaskTypeMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('task_type_master')
+], TaskTypeMaster);
+
+
+/***/ }),
+/* 31 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ActivityTypeMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let ActivityTypeMaster = class ActivityTypeMaster {
+};
+exports.ActivityTypeMaster = ActivityTypeMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ActivityTypeMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ActivityTypeMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ActivityTypeMaster.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int', default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], ActivityTypeMaster.prototype, "displayOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], ActivityTypeMaster.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], ActivityTypeMaster.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], ActivityTypeMaster.prototype, "updatedAt", void 0);
+exports.ActivityTypeMaster = ActivityTypeMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('activity_type_master')
+], ActivityTypeMaster);
+
+
+/***/ }),
+/* 32 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DocumentTypeMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let DocumentTypeMaster = class DocumentTypeMaster {
+};
+exports.DocumentTypeMaster = DocumentTypeMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], DocumentTypeMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], DocumentTypeMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], DocumentTypeMaster.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'int', default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], DocumentTypeMaster.prototype, "displayOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], DocumentTypeMaster.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], DocumentTypeMaster.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], DocumentTypeMaster.prototype, "updatedAt", void 0);
+exports.DocumentTypeMaster = DocumentTypeMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('document_type_master')
+], DocumentTypeMaster);
+
+
+/***/ }),
+/* 33 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ServiceMaster = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const department_entity_1 = __webpack_require__(21);
+let ServiceMaster = class ServiceMaster {
+};
+exports.ServiceMaster = ServiceMaster;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ServiceMaster.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ServiceMaster.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ServiceMaster.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ServiceMaster.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], ServiceMaster.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _a : Object)
+], ServiceMaster.prototype, "department", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], ServiceMaster.prototype, "departmentId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], ServiceMaster.prototype, "createdAt", void 0);
+exports.ServiceMaster = ServiceMaster = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('service_master')
+], ServiceMaster);
+
+
+/***/ }),
+/* 34 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Customer = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const customerAddress_entity_1 = __webpack_require__(35);
+const customerContact_entity_1 = __webpack_require__(36);
+const lead_entity_1 = __webpack_require__(37);
+const service_master_entity_1 = __webpack_require__(33);
+let Customer = class Customer {
+};
+exports.Customer = Customer;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Customer.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Customer.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "businessActivities", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "headcount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => customerAddress_entity_1.CustomerAddress, (address) => address.customer),
+    tslib_1.__metadata("design:type", Array)
+], Customer.prototype, "addresses", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => customerContact_entity_1.CustomerContact, (contact) => contact.customer),
+    tslib_1.__metadata("design:type", Array)
+], Customer.prototype, "contacts", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => lead_entity_1.Lead, (lead) => lead.customer),
+    tslib_1.__metadata("design:type", Array)
+], Customer.prototype, "leads", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToMany)(() => service_master_entity_1.ServiceMaster),
+    (0, typeorm_1.JoinTable)({
+        name: 'customer_services',
+        joinColumn: { name: 'customerId', referencedColumnName: 'id' },
+        inverseJoinColumn: { name: 'serviceId', referencedColumnName: 'id' }
+    }),
+    tslib_1.__metadata("design:type", Array)
+], Customer.prototype, "services", void 0);
+exports.Customer = Customer = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('customer')
+], Customer);
+
+
+/***/ }),
+/* 35 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CustomerAddress = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const customer_entity_1 = __webpack_require__(34);
+let CustomerAddress = class CustomerAddress {
+};
+exports.CustomerAddress = CustomerAddress;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], CustomerAddress.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], CustomerAddress.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "addressLine1", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "addressLine2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "city", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "state", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "country", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "postalCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], CustomerAddress.prototype, "addressType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => customer_entity_1.Customer, (customer) => customer.addresses),
+    (0, typeorm_1.JoinColumn)({ name: 'customerId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof customer_entity_1.Customer !== "undefined" && customer_entity_1.Customer) === "function" ? _b : Object)
+], CustomerAddress.prototype, "customer", void 0);
+exports.CustomerAddress = CustomerAddress = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('customeraddress')
+], CustomerAddress);
+
+
+/***/ }),
+/* 36 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CustomerContact = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const customer_entity_1 = __webpack_require__(34);
+let CustomerContact = class CustomerContact {
+};
+exports.CustomerContact = CustomerContact;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], CustomerContact.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], CustomerContact.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerContact.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], CustomerContact.prototype, "designation", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerContact.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerContact.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], CustomerContact.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: false }),
+    tslib_1.__metadata("design:type", Boolean)
+], CustomerContact.prototype, "isPrimary", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => customer_entity_1.Customer, (customer) => customer.contacts),
+    (0, typeorm_1.JoinColumn)({ name: 'customerId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof customer_entity_1.Customer !== "undefined" && customer_entity_1.Customer) === "function" ? _b : Object)
+], CustomerContact.prototype, "customer", void 0);
+exports.CustomerContact = CustomerContact = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('customercontact')
+], CustomerContact);
+
+
+/***/ }),
+/* 37 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Lead = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const customer_entity_1 = __webpack_require__(34);
+const user_entity_1 = __webpack_require__(13);
+const lead_service_entity_1 = __webpack_require__(38);
+const proposal_entity_1 = __webpack_require__(39);
+const salesConstants_1 = __webpack_require__(42);
+let Lead = class Lead {
+};
+exports.Lead = Lead;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Lead.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Lead.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Lead.prototype, "enquiryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Lead.prototype, "enquiryReference", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: salesConstants_1.LEAD_SOURCE,
+        default: salesConstants_1.LEAD_SOURCE.WEBSITE
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof salesConstants_1.LEAD_SOURCE !== "undefined" && salesConstants_1.LEAD_SOURCE) === "function" ? _b : Object)
+], Lead.prototype, "source", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Lead.prototype, "sourceDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: salesConstants_1.LEAD_STATUS,
+        default: salesConstants_1.LEAD_STATUS.NEW
+    }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof salesConstants_1.LEAD_STATUS !== "undefined" && salesConstants_1.LEAD_STATUS) === "function" ? _c : Object)
+], Lead.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: salesConstants_1.LEAD_QUALITY,
+        default: salesConstants_1.LEAD_QUALITY.WARM
+    }),
+    tslib_1.__metadata("design:type", typeof (_d = typeof salesConstants_1.LEAD_QUALITY !== "undefined" && salesConstants_1.LEAD_QUALITY) === "function" ? _d : Object)
+], Lead.prototype, "quality", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Lead.prototype, "notes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: false }),
+    tslib_1.__metadata("design:type", Boolean)
+], Lead.prototype, "isDraft", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => customer_entity_1.Customer, (customer) => customer.leads),
+    (0, typeorm_1.JoinColumn)({ name: 'customerId' }),
+    tslib_1.__metadata("design:type", typeof (_e = typeof customer_entity_1.Customer !== "undefined" && customer_entity_1.Customer) === "function" ? _e : Object)
+], Lead.prototype, "customer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.id, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'createdBy' }),
+    tslib_1.__metadata("design:type", typeof (_f = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _f : Object)
+], Lead.prototype, "createdBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => lead_service_entity_1.LeadService, (leadService) => leadService.lead),
+    tslib_1.__metadata("design:type", Array)
+], Lead.prototype, "leadServices", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => proposal_entity_1.Proposal, (proposal) => proposal.lead),
+    tslib_1.__metadata("design:type", Array)
+], Lead.prototype, "proposals", void 0);
+exports.Lead = Lead = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('lead')
+], Lead);
+
+
+/***/ }),
+/* 38 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadService = exports.SERVICE_STATUS = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const lead_entity_1 = __webpack_require__(37);
+const service_master_entity_1 = __webpack_require__(33);
+const user_entity_1 = __webpack_require__(13);
+const department_entity_1 = __webpack_require__(21);
+var SERVICE_STATUS;
+(function (SERVICE_STATUS) {
+    SERVICE_STATUS["REQUIREMENT_CONFIRMED"] = "Requirement Confirmed";
+    SERVICE_STATUS["IN_PROGRESS"] = "In Progress";
+    SERVICE_STATUS["ON_HOLD"] = "On Hold";
+    SERVICE_STATUS["DROPPED"] = "Dropped";
+})(SERVICE_STATUS || (exports.SERVICE_STATUS = SERVICE_STATUS = {}));
+let LeadService = class LeadService {
+};
+exports.LeadService = LeadService;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], LeadService.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_entity_1.Lead, (lead) => lead.leadServices),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof lead_entity_1.Lead !== "undefined" && lead_entity_1.Lead) === "function" ? _a : Object)
+], LeadService.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => service_master_entity_1.ServiceMaster),
+    (0, typeorm_1.JoinColumn)({ name: 'serviceId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof service_master_entity_1.ServiceMaster !== "undefined" && service_master_entity_1.ServiceMaster) === "function" ? _b : Object)
+], LeadService.prototype, "service", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _c : Object)
+], LeadService.prototype, "department", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User),
+    (0, typeorm_1.JoinColumn)({ name: 'ownerId' }),
+    tslib_1.__metadata("design:type", typeof (_d = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _d : Object)
+], LeadService.prototype, "owner", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: SERVICE_STATUS,
+        default: SERVICE_STATUS.REQUIREMENT_CONFIRMED
+    }),
+    tslib_1.__metadata("design:type", String)
+], LeadService.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_e = typeof Date !== "undefined" && Date) === "function" ? _e : Object)
+], LeadService.prototype, "startDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_f = typeof Date !== "undefined" && Date) === "function" ? _f : Object)
+], LeadService.prototype, "endDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'json', nullable: true }),
+    tslib_1.__metadata("design:type", Array)
+], LeadService.prototype, "deliverables", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadService.prototype, "remarks", void 0);
+exports.LeadService = LeadService = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('lead_service')
+], LeadService);
+
+
+/***/ }),
+/* 39 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Proposal = exports.PROPOSAL_STATUS = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+const lead_entity_1 = __webpack_require__(37);
+const proposal_item_entity_1 = __webpack_require__(40);
+var PROPOSAL_STATUS;
+(function (PROPOSAL_STATUS) {
+    PROPOSAL_STATUS["DRAFT"] = "Draft";
+    PROPOSAL_STATUS["SUBMITTED"] = "Submitted";
+    PROPOSAL_STATUS["APPROVED"] = "Approved";
+    PROPOSAL_STATUS["REJECTED"] = "Rejected";
+    PROPOSAL_STATUS["REVISED"] = "Revised";
+})(PROPOSAL_STATUS || (exports.PROPOSAL_STATUS = PROPOSAL_STATUS = {}));
+let Proposal = class Proposal {
+};
+exports.Proposal = Proposal;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Proposal.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "proposalReference", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Proposal.prototype, "proposalDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Proposal.prototype, "validUntil", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: PROPOSAL_STATUS,
+        default: PROPOSAL_STATUS.DRAFT
+    }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "submittedBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "subject", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "introduction", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "termsAndConditions", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], Proposal.prototype, "totalAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], Proposal.prototype, "taxAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], Proposal.prototype, "grandTotal", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ length: 3, default: 'USD' }),
+    tslib_1.__metadata("design:type", String)
+], Proposal.prototype, "currency", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_entity_1.Lead, (lead) => lead.proposals),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof lead_entity_1.Lead !== "undefined" && lead_entity_1.Lead) === "function" ? _c : Object)
+], Proposal.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], Proposal.prototype, "leadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => proposal_item_entity_1.ProposalItem, (item) => item.proposal, { cascade: true }),
+    tslib_1.__metadata("design:type", Array)
+], Proposal.prototype, "items", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof Date !== "undefined" && Date) === "function" ? _d : Object)
+], Proposal.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_e = typeof Date !== "undefined" && Date) === "function" ? _e : Object)
+], Proposal.prototype, "updatedAt", void 0);
+exports.Proposal = Proposal = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('proposal')
+], Proposal);
+
+
+/***/ }),
+/* 40 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalItem = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+const proposal_entity_1 = __webpack_require__(39);
+const lead_service_entity_1 = __webpack_require__(38);
+const proposal_payment_term_entity_1 = __webpack_require__(41);
+let ProposalItem = class ProposalItem {
+};
+exports.ProposalItem = ProposalItem;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => proposal_entity_1.Proposal, (proposal) => proposal.items, { onDelete: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'proposalId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof proposal_entity_1.Proposal !== "undefined" && proposal_entity_1.Proposal) === "function" ? _a : Object)
+], ProposalItem.prototype, "proposal", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "proposalId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_service_entity_1.LeadService),
+    (0, typeorm_1.JoinColumn)({ name: 'leadServiceId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof lead_service_entity_1.LeadService !== "undefined" && lead_service_entity_1.LeadService) === "function" ? _b : Object)
+], ProposalItem.prototype, "leadService", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "leadServiceId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalItem.prototype, "serviceName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalItem.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "amount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ length: 3 }),
+    tslib_1.__metadata("design:type", String)
+], ProposalItem.prototype, "currency", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 5, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "discount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 5, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "taxPercentage", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalItem.prototype, "netAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => proposal_payment_term_entity_1.ProposalPaymentTerm, (term) => term.proposalItem, { cascade: true }),
+    tslib_1.__metadata("design:type", Array)
+], ProposalItem.prototype, "paymentTerms", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], ProposalItem.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof Date !== "undefined" && Date) === "function" ? _d : Object)
+], ProposalItem.prototype, "updatedAt", void 0);
+exports.ProposalItem = ProposalItem = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('proposal_item')
+], ProposalItem);
+
+
+/***/ }),
+/* 41 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalPaymentTerm = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+const proposal_item_entity_1 = __webpack_require__(40);
+let ProposalPaymentTerm = class ProposalPaymentTerm {
+};
+exports.ProposalPaymentTerm = ProposalPaymentTerm;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalPaymentTerm.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => proposal_item_entity_1.ProposalItem, (item) => item.paymentTerms, { onDelete: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'proposalItemId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof proposal_item_entity_1.ProposalItem !== "undefined" && proposal_item_entity_1.ProposalItem) === "function" ? _a : Object)
+], ProposalPaymentTerm.prototype, "proposalItem", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalPaymentTerm.prototype, "proposalItemId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], ProposalPaymentTerm.prototype, "milestoneName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 5, scale: 2 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalPaymentTerm.prototype, "percentage", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalPaymentTerm.prototype, "triggerEvent", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2, default: 0 }),
+    tslib_1.__metadata("design:type", Number)
+], ProposalPaymentTerm.prototype, "amount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], ProposalPaymentTerm.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], ProposalPaymentTerm.prototype, "updatedAt", void 0);
+exports.ProposalPaymentTerm = ProposalPaymentTerm = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('proposal_payment_term')
+], ProposalPaymentTerm);
+
+
+/***/ }),
+/* 42 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PROJECT_STATUS = exports.PROPOSAL_STATUS = exports.LEAD_QUALITY = exports.LEAD_STATUS = exports.LEAD_SOURCE = void 0;
+var LEAD_SOURCE;
+(function (LEAD_SOURCE) {
+    LEAD_SOURCE["GOOGLE_ADS"] = "Google Ads";
+    LEAD_SOURCE["LINKEDIN"] = "LinkedIn";
+    LEAD_SOURCE["CAMPAIGNS"] = "Campaigns";
+    LEAD_SOURCE["EMAIL"] = "Email";
+    LEAD_SOURCE["WEBSITE"] = "Website";
+    LEAD_SOURCE["VERBAL"] = "Verbal";
+    LEAD_SOURCE["EVENTS"] = "Events";
+    LEAD_SOURCE["REFERENCE"] = "Reference";
+    LEAD_SOURCE["REPEAT_CLIENT"] = "Repeat Client";
+    LEAD_SOURCE["B2B"] = "B2B";
+    LEAD_SOURCE["SPRINTO"] = "Sprinto";
+    LEAD_SOURCE["SCYTALE"] = "Scytale";
+    LEAD_SOURCE["OTHERS"] = "Others";
+})(LEAD_SOURCE || (exports.LEAD_SOURCE = LEAD_SOURCE = {}));
+var LEAD_STATUS;
+(function (LEAD_STATUS) {
+    LEAD_STATUS["NEW"] = "New";
+    LEAD_STATUS["CONTACTED"] = "Contacted";
+    LEAD_STATUS["SERVICES"] = "Services";
+    LEAD_STATUS["PROPOSAL"] = "Proposal";
+    LEAD_STATUS["AWARDED"] = "Awarded";
+    LEAD_STATUS["LOST"] = "Lost";
+})(LEAD_STATUS || (exports.LEAD_STATUS = LEAD_STATUS = {}));
+var LEAD_QUALITY;
+(function (LEAD_QUALITY) {
+    LEAD_QUALITY["COLD"] = "Cold";
+    LEAD_QUALITY["WARM"] = "Warm";
+    LEAD_QUALITY["HOT"] = "Hot";
+})(LEAD_QUALITY || (exports.LEAD_QUALITY = LEAD_QUALITY = {}));
+var PROPOSAL_STATUS;
+(function (PROPOSAL_STATUS) {
+    PROPOSAL_STATUS["DRAFT"] = "Draft";
+    PROPOSAL_STATUS["SENT"] = "Sent";
+    PROPOSAL_STATUS["APPROVED"] = "Approved";
+    PROPOSAL_STATUS["REJECTED"] = "Rejected";
+    PROPOSAL_STATUS["EXPIRED"] = "Expired";
+})(PROPOSAL_STATUS || (exports.PROPOSAL_STATUS = PROPOSAL_STATUS = {}));
+var PROJECT_STATUS;
+(function (PROJECT_STATUS) {
+    PROJECT_STATUS["PENDING"] = "Pending";
+    PROJECT_STATUS["IN_PROGRESS"] = "In Progress";
+    PROJECT_STATUS["ON_HOLD"] = "On Hold";
+    PROJECT_STATUS["COMPLETED"] = "Completed";
+    PROJECT_STATUS["CANCELLED"] = "Cancelled";
+})(PROJECT_STATUS || (exports.PROJECT_STATUS = PROJECT_STATUS = {}));
+
+
+/***/ }),
+/* 43 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadEnquiry = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const user_entity_1 = __webpack_require__(13);
+const lead_contact_entity_1 = __webpack_require__(44);
+// @ts-ignore - Circular dependency resolution
+const lead_address_entity_1 = __webpack_require__(45);
+let LeadEnquiry = class LeadEnquiry {
+};
+exports.LeadEnquiry = LeadEnquiry;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "enquiryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "enquiryReference", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "companyName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, unique: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50 }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "leadSource", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "sourceDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "businessActivities", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "headcount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, default: 'New' }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "leadStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadEnquiry.prototype, "notes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'createdById' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _a : Object)
+], LeadEnquiry.prototype, "createdBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], LeadEnquiry.prototype, "createdById", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'updatedById' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _b : Object)
+], LeadEnquiry.prototype, "updatedBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], LeadEnquiry.prototype, "updatedById", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => lead_contact_entity_1.LeadContact, (contact) => contact.lead, { cascade: true, eager: true }),
+    tslib_1.__metadata("design:type", Array)
+], LeadEnquiry.prototype, "contacts", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => lead_address_entity_1.LeadAddress, (address) => address.lead, { cascade: true, eager: true }),
+    tslib_1.__metadata("design:type", Array)
+], LeadEnquiry.prototype, "addresses", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], LeadEnquiry.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof Date !== "undefined" && Date) === "function" ? _d : Object)
+], LeadEnquiry.prototype, "updatedAt", void 0);
+exports.LeadEnquiry = LeadEnquiry = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('lead_enquiry')
+], LeadEnquiry);
+
+
+/***/ }),
+/* 44 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadContact = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const lead_enquiry_entity_1 = __webpack_require__(43);
+let LeadContact = class LeadContact {
+};
+exports.LeadContact = LeadContact;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], LeadContact.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_enquiry_entity_1.LeadEnquiry, (lead) => lead.contacts, { onDelete: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof lead_enquiry_entity_1.LeadEnquiry !== "undefined" && lead_enquiry_entity_1.LeadEnquiry) === "function" ? _a : Object)
+], LeadContact.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], LeadContact.prototype, "leadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], LeadContact.prototype, "contactName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadContact.prototype, "designation", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], LeadContact.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 20 }),
+    tslib_1.__metadata("design:type", String)
+], LeadContact.prototype, "phone", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: false }),
+    tslib_1.__metadata("design:type", Boolean)
+], LeadContact.prototype, "isPrimary", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], LeadContact.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], LeadContact.prototype, "updatedAt", void 0);
+exports.LeadContact = LeadContact = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('lead_contact')
+], LeadContact);
+
+
+/***/ }),
+/* 45 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadAddress = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const lead_enquiry_entity_1 = __webpack_require__(43);
+let LeadAddress = class LeadAddress {
+};
+exports.LeadAddress = LeadAddress;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], LeadAddress.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_enquiry_entity_1.LeadEnquiry, (lead) => lead.addresses, { onDelete: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof lead_enquiry_entity_1.LeadEnquiry !== "undefined" && lead_enquiry_entity_1.LeadEnquiry) === "function" ? _a : Object)
+], LeadAddress.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], LeadAddress.prototype, "leadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "addressLine1", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "addressLine2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "city", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "state", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "country", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 20, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "postalCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], LeadAddress.prototype, "addressType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], LeadAddress.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], LeadAddress.prototype, "updatedAt", void 0);
+exports.LeadAddress = LeadAddress = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('lead_address')
+], LeadAddress);
+
+
+/***/ }),
+/* 46 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Countries = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+let Countries = class Countries {
+};
+exports.Countries = Countries;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "id", unsigned: true }),
+    tslib_1.__metadata("design:type", Number)
+], Countries.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "name", length: 100 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("char", { name: "iso3", nullable: true, length: 3 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "iso3", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("char", { name: "numeric_code", nullable: true, length: 3 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "numericCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("char", { name: "iso2", nullable: true, length: 2 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "iso2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "phonecode", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "phonecode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "capital", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "capital", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "currency", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "currency", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "currency_name", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "currencyName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "currency_symbol", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "currencySymbol", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "tld", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "tld", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "native", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "native", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "region", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "region", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "subregion", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "subregion", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("text", { name: "timezones", nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "timezones", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("text", { name: "translations", nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "translations", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", {
+        name: "latitude",
+        nullable: true,
+        precision: 10,
+        scale: 8,
+    }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "latitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", {
+        name: "longitude",
+        nullable: true,
+        precision: 11,
+        scale: 8,
+    }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "longitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "emoji", nullable: true, length: 191 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "emoji", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "emojiU", nullable: true, length: 191 }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "emojiU", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", { name: "created_at", nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Countries.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", {
+        name: "updated_at",
+        default: () => "CURRENT_TIMESTAMP",
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Countries.prototype, "updatedAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("tinyint", { name: "flag", width: 1, default: () => "'1'" }),
+    tslib_1.__metadata("design:type", Boolean)
+], Countries.prototype, "flag", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", {
+        name: "wikiDataId",
+        nullable: true,
+        comment: "Rapid API GeoDB Cities",
+        length: 255,
+    }),
+    tslib_1.__metadata("design:type", String)
+], Countries.prototype, "wikiDataId", void 0);
+exports.Countries = Countries = tslib_1.__decorate([
+    (0, typeorm_1.Entity)("countries")
+], Countries);
+
+
+/***/ }),
+/* 47 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.States = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+let States = class States {
+};
+exports.States = States;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "id", unsigned: true }),
+    tslib_1.__metadata("design:type", Number)
+], States.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "name", length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("mediumint", { name: "country_id", unsigned: true }),
+    tslib_1.__metadata("design:type", Number)
+], States.prototype, "countryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("char", { name: "country_code", length: 2 }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "fips_code", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "fipsCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "iso2", nullable: true, length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "iso2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "type", nullable: true, length: 191 }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "type", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", {
+        name: "latitude",
+        nullable: true,
+        precision: 10,
+        scale: 8,
+    }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "latitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", {
+        name: "longitude",
+        nullable: true,
+        precision: 11,
+        scale: 8,
+    }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "longitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", { name: "created_at", nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], States.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", {
+        name: "updated_at",
+        default: () => "CURRENT_TIMESTAMP",
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], States.prototype, "updatedAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("tinyint", { name: "flag", width: 1, default: () => "'1'" }),
+    tslib_1.__metadata("design:type", Boolean)
+], States.prototype, "flag", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", {
+        name: "wikiDataId",
+        nullable: true,
+        comment: "Rapid API GeoDB Cities",
+        length: 255,
+    }),
+    tslib_1.__metadata("design:type", String)
+], States.prototype, "wikiDataId", void 0);
+exports.States = States = tslib_1.__decorate([
+    (0, typeorm_1.Entity)("states")
+], States);
+
+
+/***/ }),
+/* 48 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Cities = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+let Cities = class Cities {
+};
+exports.Cities = Cities;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "id" }),
+    tslib_1.__metadata("design:type", Number)
+], Cities.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "name", length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("mediumint", { name: "state_id", unsigned: true }),
+    tslib_1.__metadata("design:type", Number)
+], Cities.prototype, "stateId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "state_code", length: 255 }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "stateCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("mediumint", { name: "country_id", unsigned: true }),
+    tslib_1.__metadata("design:type", Number)
+], Cities.prototype, "countryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("char", { name: "country_code", length: 2 }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", { name: "latitude", precision: 10, scale: 8 }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "latitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("decimal", { name: "longitude", precision: 11, scale: 8 }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "longitude", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", {
+        name: "created_at",
+        default: () => "'2014-01-01 01:01:01'",
+    }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Cities.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("timestamp", {
+        name: "updated_at",
+        default: () => "CURRENT_TIMESTAMP",
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Cities.prototype, "updatedAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("tinyint", { name: "flag", width: 1, default: () => "'1'" }),
+    tslib_1.__metadata("design:type", Boolean)
+], Cities.prototype, "flag", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", {
+        name: "wikiDataId",
+        nullable: true,
+        comment: "Rapid API GeoDB Cities",
+        length: 255,
+    }),
+    tslib_1.__metadata("design:type", String)
+], Cities.prototype, "wikiDataId", void 0);
+exports.Cities = Cities = tslib_1.__decorate([
+    (0, typeorm_1.Entity)("cities")
+], Cities);
+
+
+/***/ }),
+/* 49 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Nationalities = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+let Nationalities = class Nationalities {
+};
+exports.Nationalities = Nationalities;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "num_code" }),
+    tslib_1.__metadata("design:type", Number)
+], Nationalities.prototype, "numCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "alpha_2_code", nullable: true, length: 2 }),
+    tslib_1.__metadata("design:type", String)
+], Nationalities.prototype, "alpha_2Code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "alpha_3_code", nullable: true, length: 3 }),
+    tslib_1.__metadata("design:type", String)
+], Nationalities.prototype, "alpha_3Code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "en_short_name", nullable: true, length: 52 }),
+    tslib_1.__metadata("design:type", String)
+], Nationalities.prototype, "enShortName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)("varchar", { name: "nationality", nullable: true, length: 39 }),
+    tslib_1.__metadata("design:type", String)
+], Nationalities.prototype, "nationality", void 0);
+exports.Nationalities = Nationalities = tslib_1.__decorate([
+    (0, typeorm_1.Entity)("nationalities")
+], Nationalities);
+
+
+/***/ }),
+/* 50 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Company = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const branch_entity_1 = __webpack_require__(51);
+let Company = class Company {
+};
+exports.Company = Company;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Company.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Company.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Company.prototype, "registrationNumber", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Company.prototype, "taxId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Company.prototype, "website", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Company.prototype, "logoUrl", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => branch_entity_1.Branch, (branch) => branch.company),
+    tslib_1.__metadata("design:type", Array)
+], Company.prototype, "branches", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Company.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', onUpdate: 'CURRENT_TIMESTAMP', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Company.prototype, "updatedAt", void 0);
+exports.Company = Company = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('company')
+], Company);
+
+
+/***/ }),
+/* 51 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Branch = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const company_entity_1 = __webpack_require__(50);
+let Branch = class Branch {
+};
+exports.Branch = Branch;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Branch.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "addressLine1", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "addressLine2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "city", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "state", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "country", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], Branch.prototype, "postalCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], Branch.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => company_entity_1.Company, (company) => company.branches),
+    (0, typeorm_1.JoinColumn)({ name: 'companyId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof company_entity_1.Company !== "undefined" && company_entity_1.Company) === "function" ? _a : Object)
+], Branch.prototype, "company", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], Branch.prototype, "createdAt", void 0);
+exports.Branch = Branch = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('branch')
+], Branch);
+
+
+/***/ }),
+/* 52 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorkRequest = exports.WORK_REQUEST_PRIORITY = exports.WORK_REQUEST_STATUS = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const work_request_type_entity_1 = __webpack_require__(53);
+const customer_entity_1 = __webpack_require__(34);
+const user_entity_1 = __webpack_require__(13);
+const department_entity_1 = __webpack_require__(21);
+var WORK_REQUEST_STATUS;
+(function (WORK_REQUEST_STATUS) {
+    WORK_REQUEST_STATUS["NEW"] = "New";
+    WORK_REQUEST_STATUS["ACCEPTED"] = "Accepted";
+    WORK_REQUEST_STATUS["REJECTED"] = "Rejected";
+    WORK_REQUEST_STATUS["CLARIFICATION"] = "Clarification";
+    WORK_REQUEST_STATUS["IN_PROGRESS"] = "In Progress";
+    WORK_REQUEST_STATUS["COMPLETED"] = "Completed";
+})(WORK_REQUEST_STATUS || (exports.WORK_REQUEST_STATUS = WORK_REQUEST_STATUS = {}));
+var WORK_REQUEST_PRIORITY;
+(function (WORK_REQUEST_PRIORITY) {
+    WORK_REQUEST_PRIORITY["LOW"] = "Low";
+    WORK_REQUEST_PRIORITY["MEDIUM"] = "Medium";
+    WORK_REQUEST_PRIORITY["HIGH"] = "High";
+    WORK_REQUEST_PRIORITY["CRITICAL"] = "Critical";
+})(WORK_REQUEST_PRIORITY || (exports.WORK_REQUEST_PRIORITY = WORK_REQUEST_PRIORITY = {}));
+let WorkRequest = class WorkRequest {
+};
+exports.WorkRequest = WorkRequest;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], WorkRequest.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequest.prototype, "requestId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => work_request_type_entity_1.WorkRequestType),
+    (0, typeorm_1.JoinColumn)({ name: 'requestTypeId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof work_request_type_entity_1.WorkRequestType !== "undefined" && work_request_type_entity_1.WorkRequestType) === "function" ? _a : Object)
+], WorkRequest.prototype, "requestType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => customer_entity_1.Customer),
+    (0, typeorm_1.JoinColumn)({ name: 'customerId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof customer_entity_1.Customer !== "undefined" && customer_entity_1.Customer) === "function" ? _b : Object)
+], WorkRequest.prototype, "customer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: WORK_REQUEST_PRIORITY,
+        default: WORK_REQUEST_PRIORITY.MEDIUM
+    }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequest.prototype, "priority", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], WorkRequest.prototype, "targetDeliveryDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: WORK_REQUEST_STATUS,
+        default: WORK_REQUEST_STATUS.NEW
+    }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequest.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequest.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User),
+    (0, typeorm_1.JoinColumn)({ name: 'requestedBy' }),
+    tslib_1.__metadata("design:type", typeof (_d = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _d : Object)
+], WorkRequest.prototype, "requestedBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_e = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _e : Object)
+], WorkRequest.prototype, "targetDepartment", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, { nullable: true }),
+    (0, typeorm_1.JoinColumn)({ name: 'assignedTo' }),
+    tslib_1.__metadata("design:type", typeof (_f = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _f : Object)
+], WorkRequest.prototype, "assignedTo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_g = typeof Date !== "undefined" && Date) === "function" ? _g : Object)
+], WorkRequest.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', onUpdate: 'CURRENT_TIMESTAMP', nullable: true }),
+    tslib_1.__metadata("design:type", typeof (_h = typeof Date !== "undefined" && Date) === "function" ? _h : Object)
+], WorkRequest.prototype, "updatedAt", void 0);
+exports.WorkRequest = WorkRequest = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('work_request')
+], WorkRequest);
+
+
+/***/ }),
+/* 53 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorkRequestType = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let WorkRequestType = class WorkRequestType {
+};
+exports.WorkRequestType = WorkRequestType;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], WorkRequestType.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequestType.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequestType.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], WorkRequestType.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], WorkRequestType.prototype, "isActive", void 0);
+exports.WorkRequestType = WorkRequestType = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('work_request_type')
+], WorkRequestType);
+
+
+/***/ }),
+/* 54 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SlaRule = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let SlaRule = class SlaRule {
+};
+exports.SlaRule = SlaRule;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], SlaRule.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], SlaRule.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], SlaRule.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], SlaRule.prototype, "entityType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], SlaRule.prototype, "priority", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], SlaRule.prototype, "resolutionTimeHours", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], SlaRule.prototype, "responseTimeHours", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], SlaRule.prototype, "isActive", void 0);
+exports.SlaRule = SlaRule = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('sla_rule')
+], SlaRule);
+
+
+/***/ }),
+/* 55 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.NotificationRule = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let NotificationRule = class NotificationRule {
+};
+exports.NotificationRule = NotificationRule;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], NotificationRule.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], NotificationRule.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], NotificationRule.prototype, "event", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], NotificationRule.prototype, "channel", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text' }),
+    tslib_1.__metadata("design:type", String)
+], NotificationRule.prototype, "template", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], NotificationRule.prototype, "isActive", void 0);
+exports.NotificationRule = NotificationRule = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('notification_rule')
+], NotificationRule);
+
+
+/***/ }),
+/* 56 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.EscalationRule = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let EscalationRule = class EscalationRule {
+};
+exports.EscalationRule = EscalationRule;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], EscalationRule.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], EscalationRule.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], EscalationRule.prototype, "slaRuleId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], EscalationRule.prototype, "level", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], EscalationRule.prototype, "escalateToRole", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], EscalationRule.prototype, "triggerAfterHours", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], EscalationRule.prototype, "isActive", void 0);
+exports.EscalationRule = EscalationRule = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('escalation_rule')
+], EscalationRule);
+
+
+/***/ }),
+/* 57 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RoutingRule = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const work_request_type_entity_1 = __webpack_require__(53);
+const department_entity_1 = __webpack_require__(21);
+let RoutingRule = class RoutingRule {
+};
+exports.RoutingRule = RoutingRule;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], RoutingRule.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => work_request_type_entity_1.WorkRequestType),
+    (0, typeorm_1.JoinColumn)({ name: 'requestTypeId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof work_request_type_entity_1.WorkRequestType !== "undefined" && work_request_type_entity_1.WorkRequestType) === "function" ? _a : Object)
+], RoutingRule.prototype, "requestType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _b : Object)
+], RoutingRule.prototype, "targetDepartment", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], RoutingRule.prototype, "isActive", void 0);
+exports.RoutingRule = RoutingRule = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('routing_rule')
+], RoutingRule);
+
+
+/***/ }),
+/* 58 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ApprovalLevel = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let ApprovalLevel = class ApprovalLevel {
+};
+exports.ApprovalLevel = ApprovalLevel;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ApprovalLevel.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ApprovalLevel.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: 1 }),
+    tslib_1.__metadata("design:type", Number)
+], ApprovalLevel.prototype, "sequence", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ApprovalLevel.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], ApprovalLevel.prototype, "isActive", void 0);
+exports.ApprovalLevel = ApprovalLevel = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('approval_level')
+], ApprovalLevel);
+
+
+/***/ }),
+/* 59 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ApprovalStatus = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let ApprovalStatus = class ApprovalStatus {
+};
+exports.ApprovalStatus = ApprovalStatus;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ApprovalStatus.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ApprovalStatus.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], ApprovalStatus.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], ApprovalStatus.prototype, "isActive", void 0);
+exports.ApprovalStatus = ApprovalStatus = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('approval_status')
+], ApprovalStatus);
+
+
+/***/ }),
+/* 60 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuditLog = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const user_entity_1 = __webpack_require__(13);
+let AuditLog = class AuditLog {
+};
+exports.AuditLog = AuditLog;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], AuditLog.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "action", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "module", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "entityId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "details", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "ipAddress", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User),
+    (0, typeorm_1.JoinColumn)({ name: 'performedBy' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof user_entity_1.User !== "undefined" && user_entity_1.User) === "function" ? _a : Object)
+], AuditLog.prototype, "performedBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+], AuditLog.prototype, "performedAt", void 0);
+exports.AuditLog = AuditLog = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('audit_log')
+], AuditLog);
+
+
+/***/ }),
+/* 61 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DocumentClassification = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+let DocumentClassification = class DocumentClassification {
+};
+exports.DocumentClassification = DocumentClassification;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], DocumentClassification.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], DocumentClassification.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], DocumentClassification.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], DocumentClassification.prototype, "isActive", void 0);
+exports.DocumentClassification = DocumentClassification = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('document_classification')
+], DocumentClassification);
+
+
+/***/ }),
+/* 62 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalAcceptance = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+const proposal_entity_1 = __webpack_require__(39);
+const lead_entity_1 = __webpack_require__(37);
+let ProposalAcceptance = class ProposalAcceptance {
+};
+exports.ProposalAcceptance = ProposalAcceptance;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalAcceptance.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToOne)(() => proposal_entity_1.Proposal),
+    (0, typeorm_1.JoinColumn)({ name: 'proposalId' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof proposal_entity_1.Proposal !== "undefined" && proposal_entity_1.Proposal) === "function" ? _a : Object)
+], ProposalAcceptance.prototype, "proposal", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalAcceptance.prototype, "proposalId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToOne)(() => lead_entity_1.Lead),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof lead_entity_1.Lead !== "undefined" && lead_entity_1.Lead) === "function" ? _b : Object)
+], ProposalAcceptance.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], ProposalAcceptance.prototype, "leadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date' }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+], ProposalAcceptance.prototype, "awardDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "poNumber", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "poFileUrl", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    tslib_1.__metadata("design:type", Boolean)
+], ProposalAcceptance.prototype, "billingNameSameAsCustomer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "billToCompanyName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'json', nullable: true }),
+    tslib_1.__metadata("design:type", Object)
+], ProposalAcceptance.prototype, "billToAddress", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "gstNumber", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "gstType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'simple-array', nullable: true }),
+    tslib_1.__metadata("design:type", Array)
+], ProposalAcceptance.prototype, "billingEmailIds", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'json', nullable: true }),
+    tslib_1.__metadata("design:type", Object)
+], ProposalAcceptance.prototype, "billingContactPerson", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "raisedFromEntity", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'simple-array', nullable: true }),
+    tslib_1.__metadata("design:type", Array)
+], ProposalAcceptance.prototype, "invoiceServices", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "department", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], ProposalAcceptance.prototype, "notes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof Date !== "undefined" && Date) === "function" ? _d : Object)
+], ProposalAcceptance.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    tslib_1.__metadata("design:type", typeof (_e = typeof Date !== "undefined" && Date) === "function" ? _e : Object)
+], ProposalAcceptance.prototype, "updatedAt", void 0);
+exports.ProposalAcceptance = ProposalAcceptance = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('proposal_acceptance')
+], ProposalAcceptance);
+
+
+/***/ }),
+/* 63 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Project = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(14);
+__webpack_require__(15);
+const department_entity_1 = __webpack_require__(21);
+const lead_entity_1 = __webpack_require__(37);
+const proposal_entity_1 = __webpack_require__(39);
+const salesConstants_1 = __webpack_require__(42);
+let Project = class Project {
+};
+exports.Project = Project;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Project.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    tslib_1.__metadata("design:type", String)
+], Project.prototype, "projectCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", String)
+], Project.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'date' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+], Project.prototype, "startDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: salesConstants_1.PROJECT_STATUS,
+        default: salesConstants_1.PROJECT_STATUS.PENDING
+    }),
+    tslib_1.__metadata("design:type", typeof (_b = typeof salesConstants_1.PROJECT_STATUS !== "undefined" && salesConstants_1.PROJECT_STATUS) === "function" ? _b : Object)
+], Project.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => department_entity_1.Department),
+    (0, typeorm_1.JoinColumn)({ name: 'departmentId' }),
+    tslib_1.__metadata("design:type", typeof (_c = typeof department_entity_1.Department !== "undefined" && department_entity_1.Department) === "function" ? _c : Object)
+], Project.prototype, "department", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], Project.prototype, "departmentId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => lead_entity_1.Lead),
+    (0, typeorm_1.JoinColumn)({ name: 'leadId' }),
+    tslib_1.__metadata("design:type", typeof (_d = typeof lead_entity_1.Lead !== "undefined" && lead_entity_1.Lead) === "function" ? _d : Object)
+], Project.prototype, "lead", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)(),
+    tslib_1.__metadata("design:type", Number)
+], Project.prototype, "leadId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => proposal_entity_1.Proposal),
+    (0, typeorm_1.JoinColumn)({ name: 'proposalId' }),
+    tslib_1.__metadata("design:type", typeof (_e = typeof proposal_entity_1.Proposal !== "undefined" && proposal_entity_1.Proposal) === "function" ? _e : Object)
+], Project.prototype, "proposal", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    tslib_1.__metadata("design:type", Number)
+], Project.prototype, "proposalId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'now()' }),
+    tslib_1.__metadata("design:type", typeof (_f = typeof Date !== "undefined" && Date) === "function" ? _f : Object)
+], Project.prototype, "createdAt", void 0);
+exports.Project = Project = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('project')
+], Project);
+
+
+/***/ }),
+/* 64 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(4);
+tslib_1.__exportStar(__webpack_require__(65), exports);
+tslib_1.__exportStar(__webpack_require__(66), exports);
+// export * from './role.repository'; // Removed as Role entity does not exist
+tslib_1.__exportStar(__webpack_require__(67), exports);
+tslib_1.__exportStar(__webpack_require__(68), exports);
+tslib_1.__exportStar(__webpack_require__(69), exports);
+tslib_1.__exportStar(__webpack_require__(70), exports);
+tslib_1.__exportStar(__webpack_require__(73), exports);
+tslib_1.__exportStar(__webpack_require__(74), exports);
+tslib_1.__exportStar(__webpack_require__(75), exports);
+tslib_1.__exportStar(__webpack_require__(76), exports);
+tslib_1.__exportStar(__webpack_require__(77), exports);
+tslib_1.__exportStar(__webpack_require__(78), exports);
+tslib_1.__exportStar(__webpack_require__(79), exports);
+tslib_1.__exportStar(__webpack_require__(80), exports);
+
+
+/***/ }),
+/* 65 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SessionRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const entities_1 = __webpack_require__(12);
+let SessionRepository = class SessionRepository {
+    constructor(sessionRepository) {
+        this.sessionRepository = sessionRepository;
+    }
+    async createOrUpdateSession(userId, email, token, user, expiresAt) {
+        try {
+            // Try to find an existing session by userId (primary key for session management)
+            let session = await this.sessionRepository.findOne({
+                where: { userId },
+            });
+            if (session) {
+                // Update existing session
+                session.token = token;
+                session.googleCallbackData = user;
+                session.expiresAt = expiresAt;
+            }
+            else {
+                // Create a new session
+                session = this.sessionRepository.create({
+                    userId,
+                    userEmail: email,
+                    token,
+                    googleCallbackData: user,
+                    expiresAt,
+                });
+            }
+            // Using save will insert or update accordingly
+            return await this.sessionRepository.save(session);
+        }
+        catch (error) {
+            console.error("Error in Session: ", error);
+            throw error;
+        }
+    }
+    async findSessionByUserId(userId) {
+        try {
+            const session = await this.sessionRepository.findOne({
+                where: { userId },
+            });
+            return session;
+        }
+        catch (error) {
+            console.error("Error in findSessionByUserId: ", error);
+            throw error;
+        }
+    }
+    async deleteSession(userId) {
+        try {
+            await this.sessionRepository.delete({ userId });
+        }
+        catch (error) {
+            console.error("Error in deleteSession: ", error);
+            throw error;
+        }
+    }
+    async deleteAllSessions(userId) {
+        try {
+            await this.sessionRepository.delete({ userId });
+        }
+        catch (error) {
+            console.error("Error in deleteAllSessions: ", error);
+            throw error;
+        }
+    }
+};
+exports.SessionRepository = SessionRepository;
+exports.SessionRepository = SessionRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(entities_1.Session)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], SessionRepository);
+
+
+/***/ }),
+/* 66 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DepartmentRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const department_entity_1 = __webpack_require__(21);
+let DepartmentRepository = class DepartmentRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(department) {
+        const newDepartment = this.repo.create(department);
+        return this.repo.save(newDepartment);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, department) {
+        await this.repo.update(id, department);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.DepartmentRepository = DepartmentRepository;
+exports.DepartmentRepository = DepartmentRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(department_entity_1.Department)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], DepartmentRepository);
+
+
+/***/ }),
+/* 67 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TeamRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const team_entity_1 = __webpack_require__(26);
+let TeamRepository = class TeamRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(team) {
+        const newTeam = this.repo.create(team);
+        return this.repo.save(newTeam);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, team) {
+        await this.repo.update(id, team);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.TeamRepository = TeamRepository;
+exports.TeamRepository = TeamRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(team_entity_1.Team)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], TeamRepository);
+
+
+/***/ }),
+/* 68 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SystemModuleRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const systemModule_entity_1 = __webpack_require__(22);
+let SystemModuleRepository = class SystemModuleRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(systemModule) {
+        const newSystemModule = this.repo.create(systemModule);
+        return this.repo.save(newSystemModule);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, systemModule) {
+        await this.repo.update(id, systemModule);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.SystemModuleRepository = SystemModuleRepository;
+exports.SystemModuleRepository = SystemModuleRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(systemModule_entity_1.SystemModule)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], SystemModuleRepository);
+// Repository for System Modules
+
+
+/***/ }),
+/* 69 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const lead_enquiry_entity_1 = __webpack_require__(43);
+const lead_contact_entity_1 = __webpack_require__(44);
+const lead_address_entity_1 = __webpack_require__(45);
+let LeadRepository = class LeadRepository {
+    constructor(leadEnquiryRepo, leadContactRepo, leadAddressRepo) {
+        this.leadEnquiryRepo = leadEnquiryRepo;
+        this.leadContactRepo = leadContactRepo;
+        this.leadAddressRepo = leadAddressRepo;
+    }
+    /**
+     * Generate enquiry ID: IS/YY/MM/DD/Sequence
+     */
+    async generateEnquiryId() {
+        const today = new Date();
+        const yy = today.getFullYear().toString().slice(-2);
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        // Count leads created today
+        const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const todayEnd = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        const count = await this.leadEnquiryRepo.count({
+            where: {
+                createdAt: {
+                    $gte: todayStart,
+                    $lt: todayEnd,
+                },
+            },
+        });
+        const sequence = String(count + 1).padStart(2, '0');
+        return `IS/${yy}/${mm}/${dd}/${sequence}`;
+    }
+    /**
+     * Generate customer ID: IS/COMP/CNT
+     * COMP = First 4 letters of company name
+     * CNT = First 3 letters of country
+     */
+    generateCustomerId(companyName, country) {
+        const comp = companyName.substring(0, 4).toUpperCase();
+        const cnt = country.substring(0, 3).toUpperCase();
+        return `IS/${comp}/${cnt}`;
+    }
+    /**
+     * Create new lead enquiry
+     */
+    async createLead(dto, createdById) {
+        const enquiryId = await this.generateEnquiryId();
+        const customerId = this.generateCustomerId(dto.companyName, dto.addresses[0]?.country || 'IND');
+        const lead = this.leadEnquiryRepo.create({
+            enquiryId,
+            customerId,
+            companyName: dto.companyName,
+            enquiryReference: dto.enquiryReference,
+            leadSource: dto.leadSource,
+            sourceDescription: dto.sourceDescription,
+            businessActivities: dto.businessActivities,
+            headcount: dto.headcount,
+            leadStatus: 'New',
+            notes: dto.notes,
+            createdById,
+        });
+        const savedLead = await this.leadEnquiryRepo.save(lead);
+        // Create contacts
+        if (dto.contacts && dto.contacts.length > 0) {
+            const contacts = dto.contacts.map((contact) => this.leadContactRepo.create({
+                ...contact,
+                leadId: Number(savedLead.id),
+            }));
+            await this.leadContactRepo.save(contacts);
+        }
+        // Create addresses
+        if (dto.addresses && dto.addresses.length > 0) {
+            const addresses = dto.addresses.map((address) => this.leadAddressRepo.create({
+                ...address,
+                leadId: Number(savedLead.id),
+            }));
+            await this.leadAddressRepo.save(addresses);
+        }
+        return this.getLeadById(savedLead.id);
+    }
+    /**
+     * Get lead by ID with all relations
+     */
+    async getLeadById(id) {
+        return this.leadEnquiryRepo.findOne({
+            where: { id },
+            relations: ['contacts', 'addresses', 'createdBy', 'updatedBy'],
+        });
+    }
+    /**
+     * Get lead by enquiry ID
+     */
+    async getLeadByEnquiryId(enquiryId) {
+        return this.leadEnquiryRepo.findOne({
+            where: { enquiryId },
+            relations: ['contacts', 'addresses', 'createdBy', 'updatedBy'],
+        });
+    }
+    /**
+     * Get all leads (paginated)
+     */
+    async getAllLeads(skip = 0, take = 10) {
+        const [data, total] = await this.leadEnquiryRepo.findAndCount({
+            skip,
+            take,
+            relations: ['contacts', 'addresses', 'createdBy'],
+            order: { createdAt: 'DESC' },
+        });
+        return { data, total };
+    }
+    /**
+     * Get leads by status
+     */
+    async getLeadsByStatus(status, skip = 0, take = 10) {
+        const [data, total] = await this.leadEnquiryRepo.findAndCount({
+            where: { leadStatus: status },
+            skip,
+            take,
+            relations: ['contacts', 'addresses', 'createdBy'],
+            order: { createdAt: 'DESC' },
+        });
+        return { data, total };
+    }
+    /**
+     * Update lead enquiry
+     */
+    async updateLead(id, dto, updatedById) {
+        await this.leadEnquiryRepo.update(id, {
+            ...dto,
+            updatedById,
+        });
+        // Update contacts if provided
+        if (dto.contacts && dto.contacts.length > 0) {
+            await this.leadContactRepo.delete({ leadId: Number(id) });
+            const contacts = dto.contacts.map((contact) => this.leadContactRepo.create({
+                ...contact,
+                leadId: Number(id),
+            }));
+            await this.leadContactRepo.save(contacts);
+        }
+        // Update addresses if provided
+        if (dto.addresses && dto.addresses.length > 0) {
+            await this.leadAddressRepo.delete({ leadId: Number(id) });
+            const addresses = dto.addresses.map((address) => this.leadAddressRepo.create({
+                ...address,
+                leadId: Number(id),
+            }));
+            await this.leadAddressRepo.save(addresses);
+        }
+        return this.getLeadById(id);
+    }
+    /**
+     * Delete lead
+     */
+    async deleteLead(id) {
+        await this.leadEnquiryRepo.delete(Number(id));
+    }
+    /**
+     * Check duplicate company name
+     */
+    async checkDuplicateCompany(companyName, excludeId) {
+        const query = this.leadEnquiryRepo.createQueryBuilder('lead').where('LOWER(lead.companyName) = LOWER(:companyName)', {
+            companyName,
+        });
+        if (excludeId) {
+            query.andWhere('lead.id != :excludeId', { excludeId });
+        }
+        return query.getOne();
+    }
+};
+exports.LeadRepository = LeadRepository;
+exports.LeadRepository = LeadRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(lead_enquiry_entity_1.LeadEnquiry)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(lead_contact_entity_1.LeadContact)),
+    tslib_1.__param(2, (0, typeorm_1.InjectRepository)(lead_address_entity_1.LeadAddress)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _c : Object])
+], LeadRepository);
+
+
+/***/ }),
+/* 70 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const user_entity_1 = __webpack_require__(13);
+const userContants_1 = __webpack_require__(16);
+const permissionManager_entity_1 = __webpack_require__(19);
+const basicUtils_1 = __webpack_require__(71);
+let UserRepository = class UserRepository {
+    constructor(userRepository) {
+        this.userRepository = userRepository;
+    }
+    mapObject(obj) {
+        let resObj = {};
+        for (const key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                if (key === 'id' && obj[key] !== undefined && obj[key] !== null)
+                    resObj[key] = obj[key].toString();
+                else if (key === 'user_group' && obj[key] !== undefined && obj[key] !== null)
+                    resObj[key] = obj[key];
+                else if (obj[key] !== undefined && obj[key] !== null)
+                    resObj[key] = obj[key];
+            }
+        }
+        return resObj;
+    }
+    async checkUserEmailExist(email) {
+        try {
+            const count = await this.userRepository.count({ where: { email } });
+            return count > 0;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async insertDefaultUser(input) {
+        try {
+            const { email, verifyStatus, password, status, user_group, loginSource, name } = input;
+            const insertVal = { email, verifyStatus, password, status, user_group, loginSource, name };
+            const user = await this.userRepository.save(this.userRepository.create(insertVal));
+            return user;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async findOneByEmail(email) {
+        try {
+            return await this.userRepository.findOne({
+                where: { email }
+            });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async insertUser(input) {
+        try {
+            const { phoneNo, status, verifyStatus, permission, roleName, user_group, email, password, name } = input;
+            const insertVal = { phoneNo, status, verifyStatus, permission, roleName, user_group, email, password, name };
+            const fields = this.mapObject(insertVal);
+            if (permission) {
+                let pRef = new permissionManager_entity_1.PermissionManager();
+                pRef.id = permission;
+                fields.permission = pRef;
+            }
+            const user = await this.userRepository.save(this.userRepository.create(fields));
+            return user;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async addOrUpdateUser(input) {
+        try {
+            const { phoneNo, avatar, status, verifyStatus, id, permission, roleName, user_group, email, name, addedBy, password } = input;
+            const insertVal = { phoneNo, status, avatar, verifyStatus, permission, roleName, user_group, email, name, password };
+            const fields = this.mapObject(insertVal);
+            if (permission) {
+                let pRef = new permissionManager_entity_1.PermissionManager();
+                pRef.id = permission;
+                fields.permission = pRef;
+            }
+            if (addedBy) {
+                let addedByRef = new user_entity_1.User();
+                addedByRef.id = addedBy;
+                fields.addedBy = addedByRef;
+            }
+            let userId = null;
+            if (id) {
+                const r = await this.userRepository.update({ id }, fields);
+                if (r.affected && r.affected > 0) {
+                    userId = id;
+                }
+            }
+            else {
+                const user = await this.userRepository.insert(this.userRepository.create(fields));
+                const userJson = JSON.parse(JSON.stringify(user));
+                if (userJson.identifiers && userJson.identifiers.length > 0 && userJson.identifiers[0].id) {
+                    userId = userJson.identifiers[0].id;
+                }
+            }
+            return userId;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async updateRoleAndPermission(input) {
+        try {
+            const { permission, roleName, userId } = input;
+            let permissionRef = new permissionManager_entity_1.PermissionManager();
+            permissionRef.id = permission;
+            await this.userRepository.update(userId, {
+                permission: permissionRef,
+                roleName,
+            });
+            return;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUserIdByPhoneNo(phoneNo) {
+        try {
+            const doc = await this.userRepository.findOne({ where: { phoneNo }, select: { id: true, status: true, verifyStatus: true, user_group: true } });
+            return doc || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async updateUserStatus(input) {
+        try {
+            const { userId, status, verifyStatus, password } = input;
+            const updateFields = this.mapObject({ status, verifyStatus, password });
+            await this.userRepository.update(userId.toString(), updateFields);
+            return;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUserByEmail(email) {
+        try {
+            const selectFields = {
+                id: true,
+                name: true,
+                email: true,
+                phoneNo: true,
+                verifyStatus: true,
+                password: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+                status: true,
+                createdAt: true,
+            };
+            const user = await this.userRepository.findOne({
+                where: { email },
+                select: selectFields,
+                relations: ['modules', 'departments', 'teams']
+            });
+            return user || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUnverifiedUserByPhone(phoneNo, getPassword = false) {
+        try {
+            const selectFields = {
+                name: true,
+                email: true,
+                phoneNo: true,
+                verifyStatus: true,
+                password: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+                status: true,
+                id: true,
+            };
+            const user = await this.userRepository.findOne({ where: { phoneNo }, select: selectFields, loadRelationIds: true });
+            if (user && user.password && !getPassword) {
+                user.password = '';
+            }
+            return user || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUserByUserId(userId, showPassword = false) {
+        try {
+            const selectFields = {
+                id: true,
+                name: true,
+                email: true,
+                phoneNo: true,
+                addedBy: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+                status: true,
+                createdAt: true,
+            };
+            if (showPassword)
+                selectFields.password = true;
+            const user = await this.userRepository.findOne({ where: { id: userId, verifyStatus: userContants_1.USER_VERIFY_STATUS.VERIFIED }, loadRelationIds: true });
+            if (!user) {
+                return null;
+            }
+            let result = {};
+            for (const key in selectFields) {
+                if (Object.prototype.hasOwnProperty.call(selectFields, key)) {
+                    if (user[key])
+                        result[key] = user[key];
+                }
+            }
+            return result || null;
+        }
+        catch (error) {
+            console.log("Error get userById db", error);
+            throw error;
+        }
+    }
+    async getUserByGroup(user_group) {
+        try {
+            const selectFields = {
+                id: true,
+                name: true,
+                email: true,
+                phoneNo: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+                status: true
+            };
+            const user = await this.userRepository.find({ where: { user_group, verifyStatus: userContants_1.USER_VERIFY_STATUS.VERIFIED }, select: selectFields });
+            return user || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUserByRoleAndGroup(user_group, roleName) {
+        try {
+            const selectFields = {
+                id: true,
+                name: true,
+                email: true,
+                phoneNo: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+            };
+            const user = await this.userRepository.findOne({ where: { user_group, verifyStatus: userContants_1.USER_VERIFY_STATUS.VERIFIED, roleName: roleName }, select: selectFields });
+            return user || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async updateUserAccountStatus(input) {
+        try {
+            const { status, userId } = input;
+            await this.userRepository.update(userId.toString(), { status });
+            return;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUsersByFilter(input) {
+        try {
+            const { user_group, page, pageSize, status, search } = input;
+            const { currentPage, limit, offset } = (0, basicUtils_1.paginate)(page, pageSize);
+            const selectFields = {
+                id: true,
+                name: true,
+                email: true,
+                phoneNo: true,
+                avatar: true,
+                roleName: true,
+                user_group: true,
+                status: true,
+            };
+            const fields = this.mapObject({ user_group, status });
+            fields.verifyStatus = userContants_1.USER_VERIFY_STATUS.VERIFIED;
+            let searches = [];
+            if (search) {
+                searches.push({ email: (0, typeorm_2.ILike)(`${search}%`) });
+                searches.push({ name: (0, typeorm_2.ILike)(`${search}%`) });
+                searches.push({ phoneNo: (0, typeorm_2.ILike)(`${search}%`) });
+            }
+            const queryBuilder = this.userRepository
+                .createQueryBuilder('user')
+                .select([])
+                .where(fields)
+                .andWhere(searches)
+                .skip(offset)
+                .take(limit);
+            queryBuilder.addOrderBy('user.createdAt', `DESC`);
+            for (const key in selectFields) {
+                if (selectFields[key]) {
+                    queryBuilder.addSelect(`user.${key}`);
+                }
+            }
+            const [userList, count] = await queryBuilder.getManyAndCount();
+            const totalPages = Math.ceil(count / limit);
+            const paginateObject = {
+                docs: userList,
+                hasNextPage: input.page < totalPages,
+                hasPrevPage: input.page > 1,
+                limit: limit,
+                page: currentPage,
+                totalDocs: count,
+                totalPages,
+            };
+            return paginateObject;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getUserCounts(input) {
+        try {
+            const { groups } = input;
+            const groupIN = groups.map(() => `?`).join(', ');
+            let whereF = `verifyStatus = 'VERIFIED'`;
+            if (groupIN) {
+                whereF += ` and user_group IN(${groupIN})`;
+            }
+            const query = `SELECT count(id) AS userCount, user_group FROM user 
+            WHERE ${whereF}
+            GROUP BY user_group;`;
+            const result = await this.userRepository.query(query, groups);
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+};
+exports.UserRepository = UserRepository;
+exports.UserRepository = UserRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], UserRepository);
+
+
+/***/ }),
+/* 71 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isValidVIN = exports.getOTP = exports.getRandomInt = exports.validPhoneNo = exports.paginate = exports.removeSpecialCharacter = exports.isValidEmail = exports.validateEmail = exports.isNumber = exports.getRandomNumber = exports.getRandomString = void 0;
+const tslib_1 = __webpack_require__(4);
+const mobile_1 = tslib_1.__importDefault(__webpack_require__(72));
+function getRandomString(length, withSpecialChar, isUpperCaseOnly) {
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charset = "@#$&*0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$&*0123456789abcdefghijklmnopqrstuvwxyz";
+    let charactersLength = withSpecialChar ? charset.length : characters.length;
+    for (let i = 0; i < length; i++) {
+        if (withSpecialChar) {
+            result += charset.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        else {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+    }
+    if (isUpperCaseOnly) {
+        return result.toUpperCase();
+    }
+    return result;
+}
+exports.getRandomString = getRandomString;
+function getRandomNumber(length) {
+    let result = '';
+    let numbers = '0123456789';
+    let numbersLength = numbers.length;
+    for (let i = 0; i < length; i++) {
+        result += numbers.charAt(Math.floor(Math.random() * numbersLength));
+    }
+    return result;
+}
+exports.getRandomNumber = getRandomNumber;
+function isNumber(str) {
+    return /^\d+$/.test(str);
+}
+exports.isNumber = isNumber;
+const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.toLowerCase());
+};
+exports.validateEmail = validateEmail;
+function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
+exports.isValidEmail = isValidEmail;
+// Utility function to provide replaceAll functionality for older TypeScript targets
+function replaceAllPolyfill(str, search, replacement) {
+    if (typeof search === 'string') {
+        return str.split(search).join(replacement);
+    }
+    return str.replace(search, replacement);
+}
+function removeSpecialCharacter(str) {
+    const rgx = /[^a-zA-Z\d-._]+|\.(?![a-zA-Z\d]+\b)/g;
+    return replaceAllPolyfill(str, rgx, '');
+}
+exports.removeSpecialCharacter = removeSpecialCharacter;
+function paginate(page, pageSize) {
+    const currentPage = (page && page > 0) ? page : 1;
+    pageSize = (pageSize && pageSize > 0) ? pageSize : 20;
+    const offset = (pageSize * currentPage) - pageSize;
+    const limit = pageSize;
+    return {
+        offset,
+        limit,
+        currentPage
+    };
+}
+exports.paginate = paginate;
+;
+function validPhoneNo(phoneNo) {
+    if (!phoneNo) {
+        return false;
+    }
+    let parseNo = (0, mobile_1.default)(phoneNo);
+    return (parseNo?.isPossible());
+}
+exports.validPhoneNo = validPhoneNo;
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+exports.getRandomInt = getRandomInt;
+function getOTP() {
+    return `${Math.floor(100000 + Math.random() * 900000)}`;
+}
+exports.getOTP = getOTP;
+function isValidVIN(vin) {
+    return /^[A-HJ-NPR-Z\d]{17}$/i.test(vin);
+}
+exports.isValidVIN = isValidVIN;
+
+
+/***/ }),
+/* 72 */
+/***/ ((module) => {
+
+module.exports = require("libphonenumber-js/mobile");
+
+/***/ }),
+/* 73 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PermissionManagerRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const permissionManager_entity_1 = __webpack_require__(19);
+const user_entity_1 = __webpack_require__(13);
+let PermissionManagerRepository = class PermissionManagerRepository {
+    constructor(permissionRepository, userRepository) {
+        this.permissionRepository = permissionRepository;
+        this.userRepository = userRepository;
+    }
+    async addOrUpdatebulkPermission(input) {
+        try {
+            for (const item of input) {
+                const exists = await this.permissionRepository.findOne({ where: { roleName: item.roleName, user_group: item.user_group } });
+                if (exists) {
+                    await this.permissionRepository.update({ roleName: item.roleName, user_group: item.user_group }, item);
+                }
+                else {
+                    await this.permissionRepository.save(this.permissionRepository.create(item));
+                }
+            }
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async addOrUpdatePermission(input) {
+        try {
+            const { permissions, roleName, user_group, createdBy } = input;
+            const user = await this.userRepository.findOne({ where: { id: createdBy } });
+            const updateVal = { createdBy: user, roleName, user_group, permissions };
+            await this.permissionRepository.save(this.permissionRepository.create(updateVal));
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getPermissionByRoleName(input) {
+        try {
+            const { roleName, createdBy, user_group, id } = input;
+            const query = {};
+            if (roleName)
+                query.roleName = roleName;
+            if (createdBy)
+                query.createdBy = createdBy;
+            if (user_group)
+                query.user_group = user_group;
+            if (id)
+                query.id = id;
+            const permission = await this.permissionRepository.findOne({ where: query });
+            return permission || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getPermissionByRoleNameAndGroup(input) {
+        try {
+            const { roleName, user_group } = input;
+            const filters = {};
+            if (roleName)
+                filters.roleName = roleName;
+            if (user_group)
+                filters.user_group = user_group;
+            if (Object.values(filters).length === 0) {
+                return null;
+            }
+            const permission = await this.permissionRepository.findOne({ where: { roleName, user_group } });
+            return permission || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getPermissionById(id) {
+        try {
+            const permission = await this.permissionRepository.findOne({ where: { id } });
+            return permission || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+};
+exports.PermissionManagerRepository = PermissionManagerRepository;
+exports.PermissionManagerRepository = PermissionManagerRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(permissionManager_entity_1.PermissionManager)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object])
+], PermissionManagerRepository);
+
+
+/***/ }),
+/* 74 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoginSessionRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const loginSession_entity_1 = __webpack_require__(24);
+const user_entity_1 = __webpack_require__(13);
+const userContants_1 = __webpack_require__(16);
+let LoginSessionRepository = class LoginSessionRepository {
+    constructor(sessionRepository, userRepository) {
+        this.sessionRepository = sessionRepository;
+        this.userRepository = userRepository;
+    }
+    async insertLoginSession(input) {
+        try {
+            const { loginStatus, refreshToken, refreshTokenExpiry, userId, loginIdentity, loginBy, fcmToken, deviceType } = input;
+            const user = await this.userRepository.findOne({ where: { id: userId } });
+            const newSession = this.sessionRepository.create({
+                loginStatus,
+                refreshToken,
+                refreshTokenExpiry,
+                user,
+                loginIdentity,
+                loginBy,
+                fcmToken,
+                deviceType
+            });
+            const res = await this.sessionRepository.save(newSession);
+            return res;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getLoginSession(sessionId) {
+        try {
+            const session = await this.sessionRepository.findOne({ where: { id: sessionId } });
+            return session || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async logoutCurrentSession(sessionId) {
+        try {
+            // await this.sessionRepository.update(sessionId, { loginStatus: SESSION_STATUS.LOGGED_OUT , fcmToken: null });
+            await this.sessionRepository.delete(sessionId);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async logoutAllSessionDb(userId) {
+        try {
+            // await this.sessionRepository.update({ user: { id: userId } }, { loginStatus: SESSION_STATUS.LOGGED_OUT });
+            await this.sessionRepository.delete({ user: { id: userId } });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async logoutAllEmailSessionDb(userId, email) {
+        try {
+            // await this.sessionRepository.update({ user: { id: userId }, loginBy: LOGIN_BY.EMAIL, loginIdentity: email }, { loginStatus: SESSION_STATUS.LOGGED_OUT });
+            await this.sessionRepository.delete({ user: { id: userId }, loginBy: userContants_1.LOGIN_BY.EMAIL, loginIdentity: email });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async logoutAllPhoneSessionDb(userId, phoneNo) {
+        try {
+            await this.sessionRepository.update({ user: { id: userId }, loginBy: userContants_1.LOGIN_BY.PHONE, loginIdentity: phoneNo }, { loginStatus: userContants_1.SESSION_STATUS.LOGGED_OUT });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getLoginSessionByRefreshToken(refreshToken, sessionId) {
+        try {
+            const session = await this.sessionRepository.findOne({ where: { refreshToken, id: sessionId } });
+            return session || null;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async checkLoginSession(sessionId) {
+        let success = false;
+        if (!sessionId) {
+            return true;
+        }
+        const session = await this.getLoginSession(sessionId);
+        if (session && session.loginStatus == userContants_1.SESSION_STATUS.LOGGED_IN) {
+            success = true;
+        }
+        return success;
+    }
+    async blockAllSessionDb(userId) {
+        try {
+            await this.sessionRepository.update({ user: { id: userId } }, { loginStatus: userContants_1.SESSION_STATUS.BLOCKED });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async getAllSessionByUserId(userId) {
+        try {
+            const session = await this.sessionRepository.find({ where: { user: { id: userId }, loginStatus: userContants_1.SESSION_STATUS.LOGGED_IN } });
+            return session;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+};
+exports.LoginSessionRepository = LoginSessionRepository;
+exports.LoginSessionRepository = LoginSessionRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(loginSession_entity_1.LoginSession)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object])
+], LoginSessionRepository);
+
+
+/***/ }),
+/* 75 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadServiceRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const lead_service_entity_1 = __webpack_require__(38);
+let LeadServiceRepository = class LeadServiceRepository {
+    constructor(leadServiceRepository) {
+        this.leadServiceRepository = leadServiceRepository;
+    }
+    async create(leadService) {
+        try {
+            const newLeadService = this.leadServiceRepository.create(leadService);
+            return await this.leadServiceRepository.save(newLeadService);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async findAll() {
+        try {
+            return await this.leadServiceRepository.find({
+                relations: ['lead', 'service', 'department', 'owner']
+            });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async findOne(id) {
+        try {
+            return await this.leadServiceRepository.findOne({
+                where: { id },
+                relations: ['lead', 'service', 'department', 'owner']
+            });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async findByLeadId(leadId) {
+        try {
+            return await this.leadServiceRepository.find({
+                where: { lead: { id: leadId } },
+                relations: ['service', 'department', 'owner']
+            });
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async update(id, leadService) {
+        try {
+            await this.leadServiceRepository.update(id, leadService);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async remove(id) {
+        try {
+            await this.leadServiceRepository.delete(id);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+};
+exports.LeadServiceRepository = LeadServiceRepository;
+exports.LeadServiceRepository = LeadServiceRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(lead_service_entity_1.LeadService)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], LeadServiceRepository);
+
+
+/***/ }),
+/* 76 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const proposal_entity_1 = __webpack_require__(39);
+let ProposalRepository = class ProposalRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    // Repository for Proposals
+    async create(proposal) {
+        const newProposal = this.repo.create(proposal);
+        return this.repo.save(newProposal);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, proposal) {
+        await this.repo.update(id, proposal);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.ProposalRepository = ProposalRepository;
+exports.ProposalRepository = ProposalRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(proposal_entity_1.Proposal)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], ProposalRepository);
+
+
+/***/ }),
+/* 77 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalItemRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const proposal_item_entity_1 = __webpack_require__(40);
+// Repository for Proposal Items
+let ProposalItemRepository = class ProposalItemRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(item) {
+        const newItem = this.repo.create(item);
+        return this.repo.save(newItem);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, item) {
+        await this.repo.update(id, item);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.ProposalItemRepository = ProposalItemRepository;
+exports.ProposalItemRepository = ProposalItemRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(proposal_item_entity_1.ProposalItem)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], ProposalItemRepository);
+// Repository for Proposal Items
+
+
+/***/ }),
+/* 78 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalPaymentTermRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const proposal_payment_term_entity_1 = __webpack_require__(41);
+let ProposalPaymentTermRepository = class ProposalPaymentTermRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(term) {
+        const newTerm = this.repo.create(term);
+        return this.repo.save(newTerm);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, term) {
+        await this.repo.update(id, term);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.ProposalPaymentTermRepository = ProposalPaymentTermRepository;
+exports.ProposalPaymentTermRepository = ProposalPaymentTermRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(proposal_payment_term_entity_1.ProposalPaymentTerm)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], ProposalPaymentTermRepository);
+
+
+/***/ }),
+/* 79 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProposalAcceptanceRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const proposal_acceptance_entity_1 = __webpack_require__(62);
+let ProposalAcceptanceRepository = class ProposalAcceptanceRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(acceptance) {
+        const newAcceptance = this.repo.create(acceptance);
+        return this.repo.save(newAcceptance);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, acceptance) {
+        await this.repo.update(id, acceptance);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.ProposalAcceptanceRepository = ProposalAcceptanceRepository;
+exports.ProposalAcceptanceRepository = ProposalAcceptanceRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(proposal_acceptance_entity_1.ProposalAcceptance)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], ProposalAcceptanceRepository);
+
+
+/***/ }),
+/* 80 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProjectRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const project_entity_1 = __webpack_require__(63);
+let ProjectRepository = class ProjectRepository {
+    constructor(repo) {
+        this.repo = repo;
+    }
+    async create(project) {
+        const newProject = this.repo.create(project);
+        return this.repo.save(newProject);
+    }
+    async findAll() {
+        return this.repo.find();
+    }
+    async findOne(id) {
+        return this.repo.findOne({ where: { id } });
+    }
+    async update(id, project) {
+        await this.repo.update(id, project);
+    }
+    async remove(id) {
+        await this.repo.delete(id);
+    }
+};
+exports.ProjectRepository = ProjectRepository;
+exports.ProjectRepository = ProjectRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(project_entity_1.Project)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], ProjectRepository);
+
+
+/***/ }),
+/* 81 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AppController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const app_service_1 = __webpack_require__(82);
+let AppController = class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    getData() {
+        return this.appService.getData();
+    }
+};
+exports.AppController = AppController;
+tslib_1.__decorate([
+    (0, common_1.Get)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", void 0)
+], AppController.prototype, "getData", null);
+exports.AppController = AppController = tslib_1.__decorate([
+    (0, common_1.Controller)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof app_service_1.AppService !== "undefined" && app_service_1.AppService) === "function" ? _a : Object])
+], AppController);
+
+
+/***/ }),
+/* 82 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AppService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+let AppService = class AppService {
+    getData() {
+        return { message: 'Hello API' };
+    }
+};
+exports.AppService = AppService;
+exports.AppService = AppService = tslib_1.__decorate([
+    (0, common_1.Injectable)()
+], AppService);
+
+
+/***/ }),
+/* 83 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ResponseHandlerModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const response_handler_service_1 = __webpack_require__(84);
+let ResponseHandlerModule = class ResponseHandlerModule {
+};
+exports.ResponseHandlerModule = ResponseHandlerModule;
+exports.ResponseHandlerModule = ResponseHandlerModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        providers: [response_handler_service_1.ResponseHandlerService],
+        exports: [response_handler_service_1.ResponseHandlerService]
+    })
+], ResponseHandlerModule);
+
+
+/***/ }),
+/* 84 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ResponseHandlerService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const commonConstants_1 = __webpack_require__(18);
+let ResponseHandlerService = class ResponseHandlerService {
+    sendSuccessResponse(res, response) {
+        res.status(200).json(response);
+    }
+    sendErrorResponse(res, errorBody) {
+        console.error('Error Response: ', JSON.stringify(errorBody));
+        if (!errorBody.statusCode || !errorBody.message) {
+            errorBody.statusCode = commonConstants_1.ERROR_CODES.UNEXPECTED_ERROR;
+            errorBody.message = commonConstants_1.ErrorMessages.UNEXPECTED_ERROR;
+        }
+        const body = {
+            statusCode: errorBody.statusCode,
+            message: errorBody.message,
+            data: undefined,
+            extraError: errorBody.extraError,
+            success: false
+        };
+        res.status(errorBody.statusCode).json(body);
+    }
+};
+exports.ResponseHandlerService = ResponseHandlerService;
+exports.ResponseHandlerService = ResponseHandlerService = tslib_1.__decorate([
+    (0, common_1.Injectable)()
+], ResponseHandlerService);
+
+
+/***/ }),
+/* 85 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorldDataModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const src_1 = __webpack_require__(86);
+const config_module_1 = __webpack_require__(10);
+const response_handler_module_1 = __webpack_require__(83);
+const typeorm_1 = __webpack_require__(11);
+const s3_module_1 = __webpack_require__(88);
+const world_data_controller_1 = __webpack_require__(92);
+const world_data_services_1 = __webpack_require__(94);
+const world_data_repository_1 = __webpack_require__(95);
+let WorldDataModule = class WorldDataModule {
+};
+exports.WorldDataModule = WorldDataModule;
+exports.WorldDataModule = WorldDataModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            src_1.DBModule.forRoot(),
+            config_module_1.ConfigModule,
+            s3_module_1.S3Module,
+            response_handler_module_1.ResponseHandlerModule,
+            typeorm_1.TypeOrmModule.forFeature([
+                src_1.Countries,
+                src_1.States,
+                src_1.Cities,
+                src_1.Nationalities,
+                src_1.User,
+                src_1.LoginSession,
+            ]),
+        ],
+        controllers: [
+            world_data_controller_1.WorldDataController,
+        ],
+        providers: [
+            world_data_services_1.WorldDataService,
+            world_data_repository_1.WorldDataRepository
+        ],
+    })
+], WorldDataModule);
+
+
+/***/ }),
+/* 86 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(4);
+tslib_1.__exportStar(__webpack_require__(64), exports);
+tslib_1.__exportStar(__webpack_require__(5), exports);
+tslib_1.__exportStar(__webpack_require__(87), exports);
+tslib_1.__exportStar(__webpack_require__(12), exports);
+
+
+/***/ }),
+/* 87 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DatabaseService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+let DatabaseService = class DatabaseService {
+};
+exports.DatabaseService = DatabaseService;
+exports.DatabaseService = DatabaseService = tslib_1.__decorate([
+    (0, common_1.Injectable)()
+], DatabaseService);
+
+
+/***/ }),
+/* 88 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var S3Module_1;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.S3Module = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_module_1 = __webpack_require__(10);
+const config_service_1 = __webpack_require__(6);
+const aws_sdk_1 = __webpack_require__(89);
+const s3File_service_1 = __webpack_require__(90);
+let S3Module = S3Module_1 = class S3Module {
+    static s3Configure(configData) {
+        const { access_key_id, region, secret_access_key } = configData;
+        aws_sdk_1.config.update({
+            accessKeyId: access_key_id,
+            secretAccessKey: secret_access_key,
+            region: region,
+        });
+    }
+    static forRoot() {
+        return {
+            module: S3Module_1,
+            imports: [config_module_1.ConfigModule],
+            providers: [
+                {
+                    // imports: [ConfigModule],
+                    provide: s3File_service_1.S3FileService,
+                    useFactory: (configService1) => {
+                        const config = new config_service_1.ConfigService();
+                        config.loadFromEnv();
+                        return S3Module_1.s3Configure(config.get().S3_bucket);
+                    },
+                    Inject: [],
+                },
+            ],
+            controllers: [],
+            exports: [s3File_service_1.S3FileService],
+        };
+    }
+};
+exports.S3Module = S3Module;
+exports.S3Module = S3Module = S3Module_1 = tslib_1.__decorate([
+    (0, common_1.Module)({
+    // imports: [ConfigModule],
+    })
+], S3Module);
+
+
+/***/ }),
+/* 89 */
+/***/ ((module) => {
+
+module.exports = require("aws-sdk");
+
+/***/ }),
+/* 90 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.S3FileService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_service_1 = __webpack_require__(6);
+const aws_sdk_1 = __webpack_require__(89);
+const node_crypto_1 = __webpack_require__(91);
+let S3FileService = class S3FileService {
+    constructor(configService) {
+        this.configService = configService;
+    }
+    async s3FileUpload(dataBuffer, s3FilePath, originalName) {
+        try {
+            const s3Config = this.configService.get().S3_bucket;
+            console.log('Loaded S3 Config:', s3Config);
+            if (!s3Config.access_key_id || !s3Config.secret_access_key || !s3Config.bucket_name || !s3Config.region) {
+                throw new Error('Missing required S3 configuration!');
+            }
+            const s3 = new aws_sdk_1.S3({
+                region: s3Config.region,
+                credentials: {
+                    accessKeyId: s3Config.access_key_id,
+                    secretAccessKey: s3Config.secret_access_key,
+                },
+                // Add timeout and retry configuration
+                // maxRetries: 3,
+                // retryDelayOptions: {
+                //     customBackoff: function(retryCount) {
+                //         return Math.pow(2, retryCount) * 100; // exponential backoff
+                //     }
+                // },
+                // httpOptions: {
+                //     timeout: 30000, // 30 seconds timeout
+                //     connectTimeout: 10000, // 10 seconds connect timeout
+                // }
+            });
+            // Get file extension to determine content type
+            const fileExt = originalName?.split('.').pop()?.toLowerCase() || '';
+            const contentTypes = {
+                'jpg': 'image/jpeg',
+                'jpeg': 'image/jpeg',
+                'png': 'image/png',
+                'gif': 'image/gif',
+                'pdf': 'application/pdf',
+                'txt': 'text/plain',
+                'html': 'text/html',
+                'css': 'text/css',
+                'js': 'application/javascript',
+                'json': 'application/json',
+                'xml': 'application/xml',
+                'csv': 'text/csv',
+                'doc': 'application/msword',
+                'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'xls': 'application/vnd.ms-excel',
+                'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'ppt': 'application/vnd.ms-powerpoint',
+                'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                'zip': 'application/zip',
+                'rar': 'application/x-rar-compressed',
+                'mp3': 'audio/mpeg',
+                'wav': 'audio/wav',
+                'mp4': 'video/mp4',
+                'webm': 'video/webm',
+                'ogg': 'video/ogg'
+                // Add more content types as needed
+            };
+            // Default to octet-stream if type is not recognized
+            const contentType = contentTypes[fileExt] || 'application/octet-stream';
+            // Upload the file with content type
+            await s3.upload({
+                Bucket: s3Config.bucket_name,
+                Body: dataBuffer,
+                Key: s3FilePath,
+                ACL: 'private',
+                ContentType: contentType,
+                // Remove ContentDisposition from here
+            }).promise();
+            // Generate pre-signed URL with forced download disabled
+            //         const url = s3.getSignedUrl('getObject', {
+            //             Bucket: s3Config.bucket_name,
+            //             Key: s3FilePath,
+            //             Expires: 3600, // 1 hour
+            //             // Remove ResponseContentDisposition to allow browser to handle the file
+            //             ResponseContentType: contentType
+            //         });
+            //         console.log('S3 Upload successful. File URL:', url);
+            //         return url;
+            //     } catch (error) {
+            //         console.error('Error in s3 Upload function:', error);
+            //         throw error;
+            //     }
+            // }
+            const viewUrl = s3.getSignedUrl('getObject', {
+                Bucket: s3Config.bucket_name,
+                Key: s3FilePath,
+                Expires: 3600,
+                ResponseContentType: contentType
+            });
+            // Generate download URL (forces download)
+            const downloadUrl = s3.getSignedUrl('getObject', {
+                Bucket: s3Config.bucket_name,
+                Key: s3FilePath,
+                Expires: 3600,
+                ResponseContentDisposition: `attachment; filename="${encodeURIComponent(originalName)}"`,
+                ResponseContentType: contentType
+            });
+            console.log('S3 Upload successful');
+            return {
+                viewUrl,
+                downloadUrl,
+                filename: originalName,
+                mimetype: contentType,
+                size: dataBuffer.length
+            };
+        }
+        catch (error) {
+            console.error('Error in s3 Upload function:', error);
+            throw error;
+        }
+    }
+    getS3Path(fileName) {
+        const s3Config = this.configService.get().S3_bucket;
+        return `https://${s3Config.bucket_name}.s3.${s3Config.region}.amazonaws.com/${fileName}`;
+    }
+    async s3MultipleFileUpload(files, folderPath) {
+        try {
+            // Convert single file to array for consistent processing
+            const filesArray = Array.isArray(files) ? files : [files];
+            const uploadPromises = filesArray.map((file) => {
+                const s3FilePath = `${folderPath}/${file.originalname}`;
+                return this.s3FileUpload(file.buffer, s3FilePath, file.originalname);
+            });
+            const uploadResults = await Promise.all(uploadPromises);
+            return uploadResults;
+        }
+        catch (error) {
+            console.error('Error in multiple S3 file upload:', error);
+            throw error;
+        }
+    }
+    generateFileName(originalName) {
+        const ext = originalName.split('.').pop();
+        return `${Date.now()}-${(0, node_crypto_1.randomUUID)()}.${ext}`;
+    }
+    certificatePath(fileName) {
+        return `OPMS/certificates/${fileName}`;
+    }
+    pdfPath(fileName) {
+        return `OPMS/pdfs/${fileName}`;
+    }
+    imagePath(fileName) {
+        return `OPMS/images/${fileName}`;
+    }
+    videoPath(fileName) {
+        return `OPMS/videos/${fileName}`;
+    }
+    customPath(folder, fileName) {
+        return `OPMS/${folder}/${fileName}`;
+    }
+    /** ---------- UPLOAD HELPERS --------------- **/
+    async uploadCertificate(buffer, originalName) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.certificatePath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+    async uploadPdf(buffer, originalName) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.pdfPath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+    async uploadImage(buffer, originalName) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.imagePath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+    async uploadVideo(buffer, originalName) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.videoPath(fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+    async uploadToFolder(folder, buffer, originalName) {
+        const fileName = this.generateFileName(originalName);
+        const path = this.customPath(folder, fileName);
+        return this.s3FileUpload(buffer, path, originalName);
+    }
+};
+exports.S3FileService = S3FileService;
+exports.S3FileService = S3FileService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof config_service_1.ConfigService !== "undefined" && config_service_1.ConfigService) === "function" ? _a : Object])
+], S3FileService);
+
+
+/***/ }),
+/* 91 */
+/***/ ((module) => {
+
+module.exports = require("node:crypto");
+
+/***/ }),
+/* 92 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorldDataController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+// import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+const response_handler_service_1 = __webpack_require__(84);
+const express_1 = __webpack_require__(93);
+const world_data_services_1 = __webpack_require__(94);
+const src_1 = __webpack_require__(96);
+let WorldDataController = class WorldDataController {
+    constructor(worldDataService, responseHandler) {
+        this.worldDataService = worldDataService;
+        this.responseHandler = responseHandler;
+    }
+    async getCountries(res) {
+        try {
+            const countries = await this.worldDataService.getCountries();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'All Countries List Fetched Successfully', data: countries });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getStates(res, countryId) {
+        try {
+            const states = await this.worldDataService.getStates(countryId);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'All States List of Particular Countries.', data: states });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getCities(res, stateId) {
+        try {
+            const cities = await this.worldDataService.getCities(stateId);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'All Cities List of this State Fetched Successfully', data: cities });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.WorldDataController = WorldDataController;
+tslib_1.__decorate([
+    (0, common_1.Get)('countries'),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_c = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _c : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WorldDataController.prototype, "getCountries", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('countries/:countryId/states'),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('countryId', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_d = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _d : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WorldDataController.prototype, "getStates", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('states/:stateId/cities'),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('stateId', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _e : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WorldDataController.prototype, "getCities", null);
+exports.WorldDataController = WorldDataController = tslib_1.__decorate([
+    (0, common_1.Controller)('world-data'),
+    (0, common_1.UseGuards)(src_1.JwtAuthGuard),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true })),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof world_data_services_1.WorldDataService !== "undefined" && world_data_services_1.WorldDataService) === "function" ? _a : Object, typeof (_b = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _b : Object])
+], WorldDataController);
+
+
+/***/ }),
+/* 93 */
+/***/ ((module) => {
+
+module.exports = require("express");
+
+/***/ }),
+/* 94 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorldDataService = void 0;
+const tslib_1 = __webpack_require__(4);
+// world-data.service.ts
+const common_1 = __webpack_require__(1);
+const world_data_repository_1 = __webpack_require__(95);
+let WorldDataService = class WorldDataService {
+    constructor(worldDataRepo) {
+        this.worldDataRepo = worldDataRepo;
+    }
+    async getCountries() {
+        try {
+            return await this.worldDataRepo.getCountries();
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getStates(countryId) {
+        if (!countryId) {
+            throw new common_1.BadRequestException('Country ID is required');
+        }
+        try {
+            return await this.worldDataRepo.getStates(countryId);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getCities(stateId) {
+        if (!stateId) {
+            throw new common_1.BadRequestException('State ID is required');
+        }
+        try {
+            return await this.worldDataRepo.getCities(stateId);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+};
+exports.WorldDataService = WorldDataService;
+exports.WorldDataService = WorldDataService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof world_data_repository_1.WorldDataRepository !== "undefined" && world_data_repository_1.WorldDataRepository) === "function" ? _a : Object])
+], WorldDataService);
+
+
+/***/ }),
+/* 95 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WorldDataRepository = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(14);
+const entities_1 = __webpack_require__(12);
+let WorldDataRepository = class WorldDataRepository {
+    constructor(dataSource) {
+        this.dataSource = dataSource;
+        this.countriesRepo = this.dataSource.getRepository(entities_1.Countries);
+        this.statesRepo = this.dataSource.getRepository(entities_1.States);
+        this.citiesRepo = this.dataSource.getRepository(entities_1.Cities);
+        this.nationalitiesRepo = this.dataSource.getRepository(entities_1.Nationalities);
+    }
+    async getCountries() {
+        try {
+            // Get all countries
+            const countries = await this.countriesRepo
+                .createQueryBuilder('country')
+                .select([
+                'country.id',
+                'country.name',
+                'country.iso2',
+                'country.phonecode',
+                'country.latitude',
+                'country.longitude',
+                'country.capital',
+                'country.currency',
+            ])
+                .orderBy('country.name', 'ASC')
+                .getMany();
+            // Get all nationalities
+            const nationalities = await this.nationalitiesRepo
+                .createQueryBuilder('nationality')
+                .select([
+                'nationality.alpha_2Code',
+                'nationality.nationality',
+                'nationality.enShortName',
+            ])
+                .getMany();
+            // Create nationality map for quick lookup
+            const nationalityMap = new Map();
+            nationalities.forEach(nat => {
+                if (nat.alpha_2Code) {
+                    nationalityMap.set(nat.alpha_2Code, {
+                        nationality: nat.nationality,
+                        enShortName: nat.enShortName,
+                    });
+                }
+            });
+            // Map nationalities to countries
+            return countries.map(country => {
+                const nationality = nationalityMap.get(country.iso2);
+                return {
+                    ...country,
+                    nationality: nationality?.nationality || null,
+                    nationality_en_short_name: nationality?.enShortName || null,
+                };
+            });
+        }
+        catch (error) {
+            throw new Error(`Failed to fetch countries: ${error.message}`);
+        }
+    }
+    // Repository for World Data
+    async getStates(countryId) {
+        try {
+            return await this.statesRepo
+                .createQueryBuilder('state')
+                .select([
+                'state.id',
+                'state.name',
+                'state.countryId',
+                'state.countryCode',
+                'state.latitude',
+                'state.longitude'
+            ])
+                .where('state.countryId = :countryId', { countryId })
+                .orderBy('state.name', 'ASC')
+                .getMany();
+        }
+        catch (error) {
+            throw new Error(`Failed to fetch states: ${error.message}`);
+        }
+    }
+    async getCities(stateId) {
+        try {
+            return await this.citiesRepo
+                .createQueryBuilder('city')
+                .select([
+                'city.id',
+                'city.name',
+                'city.stateId',
+                'city.stateCode',
+                'city.countryId',
+                'city.countryCode',
+                'city.latitude',
+                'city.longitude'
+            ])
+                .where('city.stateId = :stateId', { stateId })
+                .orderBy('city.name', 'ASC')
+                .getMany();
+        }
+        catch (error) {
+            throw new Error(`Failed to fetch cities: ${error.message}`);
+        }
+    }
+};
+exports.WorldDataRepository = WorldDataRepository;
+exports.WorldDataRepository = WorldDataRepository = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_1.DataSource !== "undefined" && typeorm_1.DataSource) === "function" ? _a : Object])
+], WorldDataRepository);
+
+
+/***/ }),
+/* 96 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(4);
+tslib_1.__exportStar(__webpack_require__(97), exports);
+tslib_1.__exportStar(__webpack_require__(98), exports);
+tslib_1.__exportStar(__webpack_require__(101), exports);
+tslib_1.__exportStar(__webpack_require__(100), exports);
+
+
+/***/ }),
+/* 97 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const jwt_auth_guard_1 = __webpack_require__(98);
+const module_access_guard_1 = __webpack_require__(100);
+const src_1 = __webpack_require__(86);
+let AuthModule = class AuthModule {
+};
+exports.AuthModule = AuthModule;
+exports.AuthModule = AuthModule = tslib_1.__decorate([
+    (0, common_1.Global)(),
+    (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([src_1.User, src_1.LoginSession])],
+        providers: [jwt_auth_guard_1.JwtAuthGuard, module_access_guard_1.ModuleAccessGuard],
+        exports: [jwt_auth_guard_1.JwtAuthGuard, module_access_guard_1.ModuleAccessGuard],
+    })
+], AuthModule);
+
+
+/***/ }),
+/* 98 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JwtAuthGuard = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const jwt = tslib_1.__importStar(__webpack_require__(99));
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+const config_service_1 = __webpack_require__(6);
+let JwtAuthGuard = class JwtAuthGuard {
+    constructor(userRepository, loginSessionRepository, configService) {
+        this.userRepository = userRepository;
+        this.loginSessionRepository = loginSessionRepository;
+        this.configService = configService;
+    }
+    async canActivate(context) {
+        const request = context.switchToHttp().getRequest();
+        const authHeader = request.headers['authorization'] || request.headers['authorisation'];
+        if (!authHeader?.startsWith('Bearer ')) {
+            throw new common_1.UnauthorizedException('authorisation token missing');
+        }
+        const token = authHeader.split(' ')[1];
+        const secret = this.configService.get().JWT_SECRET_KEY;
+        if (!secret) {
+            throw new common_1.UnauthorizedException('JWT secret not configured');
+        }
+        try {
+            const decoded = jwt.verify(token, secret);
+            const user = await this.userRepository.findOne({ where: { id: decoded.referenceId }, relations: ['permission', 'modules', 'departments'] });
+            if (!user)
+                throw new common_1.UnauthorizedException('User not found');
+            const loginSession = await this.loginSessionRepository.findOne({ where: { id: decoded.sessionId }, relations: ['user'] });
+            if (loginSession)
+                request.session = loginSession;
+            request.user = user;
+            request.user_group = decoded.user_group;
+            request.department = user.departments;
+            request.permissionId = decoded.permissionId;
+            request.permission = user.permission;
+            // expose modules for downstream guards
+            try {
+                request.modules = (user.modules || []).map((m) => (m.code ? m.code : m.id));
+            }
+            catch (e) {
+                request.modules = [];
+            }
+            return true;
+        }
+        catch (error) {
+            throw new common_1.UnauthorizedException('Invalid or expired token');
+        }
+    }
+};
+exports.JwtAuthGuard = JwtAuthGuard;
+exports.JwtAuthGuard = JwtAuthGuard = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.User)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.LoginSession)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof config_service_1.ConfigService !== "undefined" && config_service_1.ConfigService) === "function" ? _c : Object])
+], JwtAuthGuard);
+
+
+/***/ }),
+/* 99 */
+/***/ ((module) => {
+
+module.exports = require("jsonwebtoken");
+
+/***/ }),
+/* 100 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ModuleAccessGuard = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const core_1 = __webpack_require__(2);
+const module_access_decorator_1 = __webpack_require__(101);
+let ModuleAccessGuard = class ModuleAccessGuard {
+    constructor(reflector) {
+        this.reflector = reflector;
+    }
+    canActivate(context) {
+        const requiredModule = this.reflector.getAllAndOverride(module_access_decorator_1.MODULE_ACCESS_KEY, [
+            context.getHandler(),
+            context.getClass(),
+        ]);
+        if (!requiredModule)
+            return true;
+        const req = context.switchToHttp().getRequest();
+        const modules = req.modules || [];
+        if (!modules || modules.length === 0) {
+            throw new common_1.ForbiddenException('Module access denied');
+        }
+        const ok = modules.some((m) => {
+            if (typeof m === 'string')
+                return m === requiredModule;
+            return (m.code && m.code === requiredModule) || (m.id && String(m.id) === String(requiredModule));
+        });
+        if (!ok)
+            throw new common_1.ForbiddenException('Module access denied');
+        return true;
+    }
+};
+exports.ModuleAccessGuard = ModuleAccessGuard;
+exports.ModuleAccessGuard = ModuleAccessGuard = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof core_1.Reflector !== "undefined" && core_1.Reflector) === "function" ? _a : Object])
+], ModuleAccessGuard);
+
+
+/***/ }),
+/* 101 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ModuleAccess = exports.MODULE_ACCESS_KEY = void 0;
+const common_1 = __webpack_require__(1);
+exports.MODULE_ACCESS_KEY = 'module_access';
+const ModuleAccess = (moduleCode) => (0, common_1.SetMetadata)(exports.MODULE_ACCESS_KEY, moduleCode);
+exports.ModuleAccess = ModuleAccess;
+
+
+/***/ }),
+/* 102 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const passport_1 = __webpack_require__(103);
+const src_1 = __webpack_require__(86);
+const auth_service_1 = __webpack_require__(104);
+const auth_controller_1 = __webpack_require__(109);
+const google_strategy_1 = __webpack_require__(115);
+const jwt_service_1 = __webpack_require__(105);
+const jwt_auth_guard_1 = __webpack_require__(111);
+const response_handler_module_1 = __webpack_require__(83);
+const defaultUser_service_1 = __webpack_require__(117);
+const user_repository_1 = __webpack_require__(70);
+const permissionManager_repository_1 = __webpack_require__(73);
+let AuthModule = class AuthModule {
+    constructor(defaultUserService) {
+        this.defaultUserService = defaultUserService;
+    }
+    async onModuleInit() {
+        if (process.env.CREATE_DEFAULT_SUPER_ADMIN === 'true') {
+            await this.defaultUserService.addDefaultUser();
+        }
+    }
+};
+exports.AuthModule = AuthModule;
+exports.AuthModule = AuthModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([src_1.User, src_1.LoginSession, src_1.PermissionManager, src_1.Department, src_1.SystemModule]),
+            passport_1.PassportModule.register({ defaultStrategy: 'google' }),
+            response_handler_module_1.ResponseHandlerModule,
+        ],
+        controllers: [auth_controller_1.AuthController],
+        providers: [
+            auth_service_1.AuthService,
+            google_strategy_1.GoogleStrategy,
+            jwt_service_1.JwtService,
+            jwt_auth_guard_1.JwtAuthGuard,
+            defaultUser_service_1.DefaultUserService,
+            user_repository_1.UserRepository,
+            permissionManager_repository_1.PermissionManagerRepository,
+        ],
+        exports: [auth_service_1.AuthService, jwt_auth_guard_1.JwtAuthGuard],
+    }),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof defaultUser_service_1.DefaultUserService !== "undefined" && defaultUser_service_1.DefaultUserService) === "function" ? _a : Object])
+], AuthModule);
+
+
+/***/ }),
+/* 103 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/passport");
+
+/***/ }),
+/* 104 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+const jwt_service_1 = __webpack_require__(105);
+const commonConstants_1 = __webpack_require__(18);
+const userContants_1 = __webpack_require__(16);
+const bcryptUtil_1 = __webpack_require__(106);
+const messageConstants_1 = __webpack_require__(108);
+const bcrypt = tslib_1.__importStar(__webpack_require__(107));
+let AuthService = class AuthService {
+    constructor(userRepository, loginSessionRepository, departmentRepository, systemModuleRepository, jwtService) {
+        this.userRepository = userRepository;
+        this.loginSessionRepository = loginSessionRepository;
+        this.departmentRepository = departmentRepository;
+        this.systemModuleRepository = systemModuleRepository;
+        this.jwtService = jwtService;
+    }
+    async loginWithEmailOrPhonePassword(input, deviceType = commonConstants_1.DEVICE_TYPE.WEB) {
+        try {
+            const { identity, password } = input;
+            const user = await this.userRepository.findOne({
+                where: { email: identity.toLowerCase() },
+                relations: ['permission', 'modules', 'departments']
+            });
+            if (!user) {
+                throw { message: messageConstants_1.LOGIN_MSG.INVALID_CREDENTIALS, statusCode: commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER };
+            }
+            if (user.status !== userContants_1.USER_ACCOUNT_STATUS.ACTIVE) {
+                throw { message: messageConstants_1.LOGIN_MSG.INACTIVE_ACCOUNT, statusCode: commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER };
+            }
+            const isMatch = await (0, bcryptUtil_1.checkPasswordHash)(password, user.password);
+            if (!isMatch) {
+                throw { message: messageConstants_1.LOGIN_MSG.INVALID_CREDENTIALS, statusCode: commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER };
+            }
+            return this.generateAuthResponse(user, deviceType);
+        }
+        catch (error) {
+            console.log("Error login", error);
+            throw error;
+        }
+    }
+    async createUser(createUser, user) {
+        try {
+            const defaultPassword = "Intercert@OPMS123";
+            const passwordToHash = createUser.password || defaultPassword;
+            const hashedPassword = await bcrypt.hash(passwordToHash, 10);
+            const newUser = await this.userRepository.save({
+                name: createUser.name,
+                email: createUser.email.toLowerCase().trim(),
+                password: hashedPassword,
+                roleName: createUser.role,
+                user_group: createUser.user_group || userContants_1.USER_GROUP.USER,
+                status: userContants_1.USER_ACCOUNT_STATUS.ACTIVE,
+                verifyStatus: userContants_1.USER_VERIFY_STATUS.VERIFIED,
+                loginSource: userContants_1.USER_LOGIN_SOURCE.LOCAL,
+                addedBy: user,
+            });
+            return {
+                message: "User registered successfully",
+                data: newUser,
+                tempPassword: createUser.password ? undefined : defaultPassword
+            };
+        }
+        catch (error) {
+            console.log("Error in createUser Service: ", error);
+            throw error;
+        }
+    }
+    async validateGoogleUser(googleUser) {
+        const { email, picture } = googleUser;
+        const user = await this.userRepository.findOne({
+            where: { email },
+            relations: ['permission', 'modules', 'departments']
+        });
+        if (!user) {
+            throw new common_1.UnauthorizedException('User not found in our records. Please contact admin for pre-registration.');
+        }
+        // Update user profile from Google if needed
+        if (!user.avatar && picture) {
+            user.avatar = picture;
+            await this.userRepository.save(user);
+        }
+        return this.generateAuthResponse(user, commonConstants_1.DEVICE_TYPE.WEB);
+    }
+    async generateAuthResponse(user, deviceType = commonConstants_1.DEVICE_TYPE.WEB) {
+        // Generate refresh token for session
+        const refreshToken = await this.jwtService.generateRefreshToken({ referenceId: user.id });
+        const refreshTokenExpiry = Date.now() + (30 * 24 * 60 * 60 * 1000); // 30 days
+        // Create login session
+        const session = this.loginSessionRepository.create({
+            user: user,
+            loginBy: userContants_1.LOGIN_BY.EMAIL,
+            loginIdentity: user.email,
+            loginStatus: userContants_1.SESSION_STATUS.LOGGED_IN,
+            refreshToken: refreshToken,
+            refreshTokenExpiry: refreshTokenExpiry,
+            deviceType: deviceType,
+        });
+        const savedSession = await this.loginSessionRepository.save(session);
+        const payload = {
+            referenceId: user.id,
+            userRole: user.roleName,
+            user_group: user.user_group,
+            sessionId: savedSession.id,
+            permissionId: user.permission?.id,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            modules: (user.modules || []).map(m => m.code || m.id),
+            tokenType: commonConstants_1.TOKEN_TYPE.USER_LOGIN,
+        };
+        const token = await this.jwtService.generateJWTToken(payload);
+        const isSuperAdmin = user.user_group === userContants_1.USER_GROUP.SUPER_ADMIN;
+        const modules = isSuperAdmin ? await this.systemModuleRepository.find() : (user.modules || []);
+        const departments = isSuperAdmin ? await this.departmentRepository.find() : (user.departments || []);
+        const moduleNames = modules.map(m => m.name).filter(Boolean);
+        const departmentNames = departments.map(d => d.name).filter(Boolean);
+        return {
+            message: 'Login successful',
+            data: {
+                user: {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name,
+                    user_group: user.user_group,
+                    roleName: user.roleName,
+                    departments: departmentNames,
+                    modules: moduleNames,
+                },
+                token
+            }
+        };
+    }
+};
+exports.AuthService = AuthService;
+exports.AuthService = AuthService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.User)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.LoginSession)),
+    tslib_1.__param(2, (0, typeorm_1.InjectRepository)(src_1.Department)),
+    tslib_1.__param(3, (0, typeorm_1.InjectRepository)(src_1.SystemModule)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _c : Object, typeof (_d = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _d : Object, typeof (_e = typeof jwt_service_1.JwtService !== "undefined" && jwt_service_1.JwtService) === "function" ? _e : Object])
+], AuthService);
+
+
+/***/ }),
+/* 105 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JwtService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const jwt = tslib_1.__importStar(__webpack_require__(99));
+const config_service_1 = __webpack_require__(6);
+const commonConstants_1 = __webpack_require__(18);
+let JwtService = class JwtService {
+    constructor(configService) {
+        this.configService = configService;
+    }
+    getJWTTokenInfo() {
+        const expiryTimeInSecs = this.configService.get().JWT_EXPIRY_TIME;
+        const JWTSecretKey = this.configService.get().JWT_SECRET_KEY;
+        if (!JWTSecretKey) {
+            throw new Error('JWT secret-key not provided');
+        }
+        return { expiryTimeInSecs, JWTSecretKey };
+    }
+    generateJWTToken(payload) {
+        const { expiryTimeInSecs, JWTSecretKey } = this.getJWTTokenInfo();
+        return new Promise((resolve, reject) => {
+            jwt.sign(payload, JWTSecretKey, { expiresIn: expiryTimeInSecs, algorithm: 'HS512' }, (err, token) => {
+                if (err || !token) {
+                    const error = new Error('Error while creating JWT token');
+                    error.statusCode = commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER;
+                    error.extraError = err;
+                    reject(error);
+                }
+                else {
+                    resolve(token);
+                }
+            });
+        });
+    }
+    generateRefreshToken(payload) {
+        const { JWTSecretKey } = this.getJWTTokenInfo();
+        return new Promise((resolve, reject) => {
+            jwt.sign(payload, JWTSecretKey, { expiresIn: '30d', algorithm: 'HS512' }, (err, token) => {
+                if (err || !token) {
+                    const error = new Error('Error while creating Refresh token');
+                    reject(error);
+                }
+                else {
+                    resolve(token);
+                }
+            });
+        });
+    }
+    generateGuestJWTToken(payload) {
+        const { expiryTimeInSecs, JWTSecretKey } = this.getJWTTokenInfo();
+        return new Promise((resolve, reject) => {
+            jwt.sign(payload, JWTSecretKey, { expiresIn: expiryTimeInSecs, algorithm: 'HS512' }, (err, token) => {
+                if (err || !token) {
+                    const error = new Error('Error while creating JWT token');
+                    error.statusCode = commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER;
+                    error.extraError = err;
+                    reject(error);
+                }
+                else {
+                    resolve(token);
+                }
+            });
+        });
+    }
+    generateJWTNeverExpToken(payload) {
+        const { JWTSecretKey } = this.getJWTTokenInfo();
+        return new Promise((resolve, reject) => {
+            jwt.sign(payload, JWTSecretKey, { algorithm: 'HS512' }, (err, token) => {
+                if (err || !token) {
+                    const error = new Error('Error while creating JWT token');
+                    error.statusCode = commonConstants_1.ERROR_CODES.ERROR_UNKNOWN_SHOW_TO_USER;
+                    error.extraError = err;
+                    reject(error);
+                }
+                else {
+                    resolve(token);
+                }
+            });
+        });
+    }
+    verifyJWTToken(token) {
+        return new Promise((resolve) => {
+            if (!token) {
+                resolve({ verified: false, errorMessage: commonConstants_1.ErrorMessages.NOT_AUTHORIZED, errorCode: commonConstants_1.ERROR_CODES.NOT_AUTHORIZED, payload: null });
+                return;
+            }
+            const { JWTSecretKey } = this.getJWTTokenInfo();
+            jwt.verify(token, JWTSecretKey, { algorithms: ['HS512'] }, (err, decoded) => {
+                if (err || !decoded) {
+                    if (err instanceof jwt.TokenExpiredError) {
+                        resolve({ verified: false, errorMessage: commonConstants_1.ErrorMessages.JWT_TOKEN_EXPIRED, errorCode: commonConstants_1.ERROR_CODES.JWT_TOKEN_EXPIRED, payload: null });
+                    }
+                    else {
+                        resolve({ verified: false, errorMessage: commonConstants_1.ErrorMessages.JWT_TOKEN_INVALID, errorCode: commonConstants_1.ERROR_CODES.JWT_TOKEN_INVALID, payload: null });
+                    }
+                }
+                else {
+                    resolve({ verified: true, errorMessage: null, errorCode: 0, payload: decoded });
+                }
+            });
+        });
+    }
+    getJWTTokenPayload(token) {
+        if (!token) {
+            return null;
+        }
+        return jwt.decode(token);
+    }
+};
+exports.JwtService = JwtService;
+exports.JwtService = JwtService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof config_service_1.ConfigService !== "undefined" && config_service_1.ConfigService) === "function" ? _a : Object])
+], JwtService);
+
+
+/***/ }),
+/* 106 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.checkPasswordHash = exports.generatePasswordHash = void 0;
+const tslib_1 = __webpack_require__(4);
+const bcrypt = tslib_1.__importStar(__webpack_require__(107));
+const generatePasswordHash = async (password) => {
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const salt = await bcrypt.genSalt(12);
+        return await bcrypt.hash(password, salt);
+    }
+    catch (err) {
+        throw err;
+    }
+};
+exports.generatePasswordHash = generatePasswordHash;
+const checkPasswordHash = async (password, hash) => {
+    try {
+        return await bcrypt.compare(password, hash);
+    }
+    catch (err) {
+        console.log(" becrypt error check password error", err);
+        return false;
+    }
+};
+exports.checkPasswordHash = checkPasswordHash;
+
+
+/***/ }),
+/* 107 */
+/***/ ((module) => {
+
+module.exports = require("bcrypt");
+
+/***/ }),
+/* 108 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LOGOUT_MSG = exports.SIGNUP_MSG = exports.LOGIN_MSG = exports.OTP_VERIFY_MSG = exports.COMMON_MSG = void 0;
+exports.COMMON_MSG = {
+    USER_NOT_EXIST: "User doesn't exist",
+    INVALID_EMAIL: "Please provide a valid Email",
+    INVALID_PHONE: "Please provide a valid phone number",
+    REQUEST_NOT_FOUND: "Request not found",
+    INVALID_REQUEST: "Invalid Request",
+    EMAIL_ALREADY_EXIST: "An account with this Email already exists.",
+    PHONE_ALREADY_EXIST: "An account with this phone number already exists.",
+    PHONE_WTH_COUNTRY_CODE: "Please provide phone no with country code",
+    BLOCKED_USER: "You have been blocked by administrator, please contact the administrator for further assistance"
+};
+exports.OTP_VERIFY_MSG = {
+    INVALID_REQUEST: "Invalid Request",
+    OTP_EXPIRE: "Your OTP has expired.",
+    INCORRECT_OTP: "Incorrect OTP",
+    OTP_VERIFY_SUCCESS: "Verification successful",
+    OTP_SEND: "OTP has been sent to",
+    PASSWORD_RESET: "Password reset successful",
+};
+exports.LOGIN_MSG = {
+    INVALID_EMAIL_PASSWORD: "Invalid email or password",
+    INACTIVE_ACCOUNT: "Inactive account",
+    LOGIN_SUCCESS: "Login Successful",
+    INVALID_EMAIL_PHONE: "Please provide a valid Email or Phone Number",
+    INVALID_CREDENTIALS: "Invalid credentials",
+    INVALID_PHONE_PASSWORD: "Invalid phone number or password" // Added new message
+};
+exports.SIGNUP_MSG = {
+    INVALID_ROLE: "Invalid user roles",
+    LINK_SEND: "Verification link has been sent to ",
+    PROFILE_UPDATE: "Profile updated",
+    EMAIL_VERIFIED: "Verification successful",
+    PHONE_VERIFIED: "Verification successful",
+    PERMISSION_NOT_FOUND: "Invalid permission"
+};
+exports.LOGOUT_MSG = {
+    LOGOUT_CURRENT: "Logout successful",
+    LOGOUT_ALL: "Successfully logged out from all devices."
+};
+
+
+/***/ }),
+/* 109 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const passport_1 = __webpack_require__(103);
+const express_1 = __webpack_require__(93);
+const auth_service_1 = __webpack_require__(104);
+const config_service_1 = __webpack_require__(6);
+const response_handler_service_1 = __webpack_require__(84);
+const user_dto_1 = __webpack_require__(110);
+const jwt_auth_guard_1 = __webpack_require__(111);
+const user_management_dto_1 = __webpack_require__(112);
+const authenticated_request_interface_1 = __webpack_require__(114);
+const userContants_1 = __webpack_require__(16);
+let AuthController = class AuthController {
+    constructor(authService, configService, responseHandler) {
+        this.authService = authService;
+        this.configService = configService;
+        this.responseHandler = responseHandler;
+    }
+    async login(res, req, body) {
+        try {
+            const deviceType = req.headers['devicetype'];
+            const result = await this.authService.loginWithEmailOrPhonePassword(body, deviceType);
+            return this.responseHandler.sendSuccessResponse(res, result);
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async googleAuth() {
+        // Initiates Google OAuth2 login flow
+    }
+    // @Get('google/callback')
+    // @UseGuards(AuthGuard('google'))
+    // async googleAuthRedirect(@Req() req: GoogleUserRequest, @Res() res: Response) {
+    //   try {
+    //     const user = req.user;
+    //     const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+    //     return res.redirect(`${frontendUrl}/auth-callback?token=${user}`);
+    //   } catch (error) {
+    //     console.error('Google login error:', error);
+    //     const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+    //     const errorMessage = encodeURIComponent(error.message || 'Login failed');
+    //     return res.redirect(`${frontendUrl}/login?error=${errorMessage}`);
+    //   }
+    // }
+    async googleAuthRedirect(req, res) {
+        try {
+            const googleUser = req.user;
+            console.log('Google user info: >>>>>>>>>>>>kkkk', googleUser);
+            const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+            if (!googleUser.email || !googleUser.email.endsWith('@intercert.com')) {
+                return res.redirect(`${frontendUrl}/login?error=unauthorized_email`);
+            }
+            const result = await this.authService.validateGoogleUser(googleUser);
+            return res.redirect(`${frontendUrl}/auth-callback?token=${result.data.token}`);
+            // Set httpOnly cookie
+            // res.cookie('jwt', jwtToken, {
+            //   httpOnly: false,
+            //   secure: true,
+        }
+        catch (err) {
+            const frontendUrl = this.configService.get().FRONTEND_BASE_URL || 'http://localhost:4200';
+            return res.redirect(`${frontendUrl}/login?error=login_failed`);
+        }
+    }
+    async createUser(createUser, req, res) {
+        try {
+            const user = req.user;
+            if (![userContants_1.USER_GROUP.SUPER_ADMIN, userContants_1.USER_GROUP.ADMIN].includes(user.user_group)) {
+                throw new Error('Access denied. Only SUPER_ADMIN and ADMIN can create users.');
+            }
+            const response = await this.authService.createUser(createUser, user);
+            return this.responseHandler.sendSuccessResponse(res, response);
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.AuthController = AuthController;
+tslib_1.__decorate([
+    (0, common_1.Post)('login'),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Req)()),
+    tslib_1.__param(2, (0, common_1.Body)(new common_1.ValidationPipe())),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_d = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _d : Object, typeof (_e = typeof express_1.Request !== "undefined" && express_1.Request) === "function" ? _e : Object, typeof (_f = typeof user_dto_1.LoginDto !== "undefined" && user_dto_1.LoginDto) === "function" ? _f : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AuthController.prototype, "login", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('google'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuth", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('google/callback'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    tslib_1.__param(0, (0, common_1.Req)()),
+    tslib_1.__param(1, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_g = typeof authenticated_request_interface_1.GoogleUserRequest !== "undefined" && authenticated_request_interface_1.GoogleUserRequest) === "function" ? _g : Object, typeof (_h = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _h : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuthRedirect", null);
+tslib_1.__decorate([
+    (0, common_1.Post)('create-user'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    tslib_1.__param(0, (0, common_1.Body)()),
+    tslib_1.__param(1, (0, common_1.Req)()),
+    tslib_1.__param(2, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_j = typeof user_management_dto_1.CreateUserDto !== "undefined" && user_management_dto_1.CreateUserDto) === "function" ? _j : Object, typeof (_k = typeof authenticated_request_interface_1.AuthenticatedRequest !== "undefined" && authenticated_request_interface_1.AuthenticatedRequest) === "function" ? _k : Object, typeof (_l = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _l : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AuthController.prototype, "createUser", null);
+exports.AuthController = AuthController = tslib_1.__decorate([
+    (0, common_1.Controller)('auth'),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" ? _a : Object, typeof (_b = typeof config_service_1.ConfigService !== "undefined" && config_service_1.ConfigService) === "function" ? _b : Object, typeof (_c = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _c : Object])
+], AuthController);
+
+
+/***/ }),
+/* 110 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SimpleEmployeeDto = exports.EmployeeRegisterDto = exports.ArtisanRegisterDto = exports.CustomLoginDto = exports.RegisterDto = exports.RegisterWithEmailPasswordDto = exports.ChangePasswordDto = exports.RenewTokenDto = exports.UpdatePersonalDetailDto = exports.VerifyPhoneNoDto = exports.AddPhoneDto = exports.AddEmailDto = exports.VerifyDto = exports.AddUpdateRolesAndPermissions = exports.LoginOrRegisterDto = exports.notificationData = exports.UserFilterDto = exports.PaginationDto = exports.UserQueryDto = exports.LoginDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_validator_1 = __webpack_require__(17);
+const userContants_1 = __webpack_require__(16);
+const commonConstants_1 = __webpack_require__(18);
+class LoginDto {
+}
+exports.LoginDto = LoginDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], LoginDto.prototype, "identity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], LoginDto.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], LoginDto.prototype, "countryCode", void 0);
+class UserQueryDto {
+}
+exports.UserQueryDto = UserQueryDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _a : Object)
+], UserQueryDto.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UserQueryDto.prototype, "page", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UserQueryDto.prototype, "limit", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UserQueryDto.prototype, "search", void 0);
+class PaginationDto {
+}
+exports.PaginationDto = PaginationDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.Min)(1),
+    tslib_1.__metadata("design:type", Number)
+], PaginationDto.prototype, "page", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.Min)(1),
+    tslib_1.__metadata("design:type", Number)
+], PaginationDto.prototype, "limit", void 0);
+class UserFilterDto {
+}
+exports.UserFilterDto = UserFilterDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _b : Object)
+], UserFilterDto.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UserFilterDto.prototype, "search", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _c : Object)
+], UserFilterDto.prototype, "status", void 0);
+class notificationData {
+}
+exports.notificationData = notificationData;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", String)
+], notificationData.prototype, "fcmToken", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", typeof (_d = typeof commonConstants_1.DEVICE_TYPE !== "undefined" && commonConstants_1.DEVICE_TYPE) === "function" ? _d : Object)
+], notificationData.prototype, "deviceType", void 0);
+// loginOrRegister.dto.ts
+class LoginOrRegisterDto {
+}
+exports.LoginOrRegisterDto = LoginOrRegisterDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], LoginOrRegisterDto.prototype, "identity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], LoginOrRegisterDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_e = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _e : Object)
+], LoginOrRegisterDto.prototype, "user_group", void 0);
+class AddUpdateRolesAndPermissions {
+}
+exports.AddUpdateRolesAndPermissions = AddUpdateRolesAndPermissions;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.DEFAULT_USER_ROLES),
+    tslib_1.__metadata("design:type", typeof (_f = typeof userContants_1.DEFAULT_USER_ROLES !== "undefined" && userContants_1.DEFAULT_USER_ROLES) === "function" ? _f : Object)
+], AddUpdateRolesAndPermissions.prototype, "roleName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_g = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _g : Object)
+], AddUpdateRolesAndPermissions.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], AddUpdateRolesAndPermissions.prototype, "isUpdate", void 0);
+// verify.dto.ts
+class VerifyDto {
+}
+exports.VerifyDto = VerifyDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.MinLength)(6, { message: 'OTP must be at least 6 characters long' }),
+    tslib_1.__metadata("design:type", String)
+], VerifyDto.prototype, "otp", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], VerifyDto.prototype, "referenceId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", typeof (_h = typeof commonConstants_1.DEVICE_TYPE !== "undefined" && commonConstants_1.DEVICE_TYPE) === "function" ? _h : Object)
+], VerifyDto.prototype, "deviceType", void 0);
+// addEmail.dto.ts
+class AddEmailDto {
+}
+exports.AddEmailDto = AddEmailDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], AddEmailDto.prototype, "email", void 0);
+// addPhone.dto.ts
+class AddPhoneDto {
+}
+exports.AddPhoneDto = AddPhoneDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], AddPhoneDto.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], AddPhoneDto.prototype, "countryCode", void 0);
+// verifyPhoneNo.dto.ts
+class VerifyPhoneNoDto {
+}
+exports.VerifyPhoneNoDto = VerifyPhoneNoDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], VerifyPhoneNoDto.prototype, "referenceId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Matches)(/^\d{6}$/),
+    tslib_1.__metadata("design:type", String)
+], VerifyPhoneNoDto.prototype, "otp", void 0);
+// updatePersonalDetail.dto.ts
+class UpdatePersonalDetailDto {
+}
+exports.UpdatePersonalDetailDto = UpdatePersonalDetailDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdatePersonalDetailDto.prototype, "avatar", void 0);
+// renewToken.dto.ts
+class RenewTokenDto {
+}
+exports.RenewTokenDto = RenewTokenDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], RenewTokenDto.prototype, "accessToken", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], RenewTokenDto.prototype, "refreshToken", void 0);
+// changePassword.dto.ts
+class ChangePasswordDto {
+}
+exports.ChangePasswordDto = ChangePasswordDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)({ message: 'Old password is required' }),
+    tslib_1.__metadata("design:type", String)
+], ChangePasswordDto.prototype, "oldPassword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)({ message: 'New password is required' }),
+    tslib_1.__metadata("design:type", String)
+], ChangePasswordDto.prototype, "newPassword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], ChangePasswordDto.prototype, "otp", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], ChangePasswordDto.prototype, "referenceId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", typeof (_j = typeof commonConstants_1.DEVICE_TYPE !== "undefined" && commonConstants_1.DEVICE_TYPE) === "function" ? _j : Object)
+], ChangePasswordDto.prototype, "deviceType", void 0);
+// registerWithEmailPassword.dto.ts
+class RegisterWithEmailPasswordDto {
+}
+exports.RegisterWithEmailPasswordDto = RegisterWithEmailPasswordDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], RegisterWithEmailPasswordDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Matches)(/^.{4,16}$/),
+    tslib_1.__metadata("design:type", String)
+], RegisterWithEmailPasswordDto.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Matches)(/^.{2,50}$/),
+    tslib_1.__metadata("design:type", String)
+], RegisterWithEmailPasswordDto.prototype, "name", void 0);
+class RegisterDto {
+}
+exports.RegisterDto = RegisterDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], RegisterDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], RegisterDto.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], RegisterDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", typeof (_k = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _k : Object)
+], RegisterDto.prototype, "user_group", void 0);
+class CustomLoginDto {
+}
+exports.CustomLoginDto = CustomLoginDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)()
+    // @Matches(/^.{2,50}$/)
+    ,
+    tslib_1.__metadata("design:type", String)
+], CustomLoginDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], CustomLoginDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CustomLoginDto.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CustomLoginDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", typeof (_l = typeof userContants_1.LOGIN_BY !== "undefined" && userContants_1.LOGIN_BY) === "function" ? _l : Object)
+], CustomLoginDto.prototype, "verifyBy", void 0);
+class ArtisanRegisterDto {
+}
+exports.ArtisanRegisterDto = ArtisanRegisterDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", String)
+], ArtisanRegisterDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], ArtisanRegisterDto.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], ArtisanRegisterDto.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], ArtisanRegisterDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: 'Phone number is required' }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(10, 10, { message: 'Phone number must be exactly 10 digits long' }),
+    (0, class_validator_1.Matches)(/^[0-9]+$/, { message: 'Phone number must contain only digits' }),
+    tslib_1.__metadata("design:type", String)
+], ArtisanRegisterDto.prototype, "phoneNo", void 0);
+class EmployeeRegisterDto {
+}
+exports.EmployeeRegisterDto = EmployeeRegisterDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", String)
+], EmployeeRegisterDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], EmployeeRegisterDto.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], EmployeeRegisterDto.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], EmployeeRegisterDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: 'Phone number is required' }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(10, 10, { message: 'Phone number must be exactly 10 digits long' }),
+    (0, class_validator_1.Matches)(/^[0-9]+$/, { message: 'Phone number must contain only digits' }),
+    tslib_1.__metadata("design:type", String)
+], EmployeeRegisterDto.prototype, "phoneNo", void 0);
+class SimpleEmployeeDto {
+}
+exports.SimpleEmployeeDto = SimpleEmployeeDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], SimpleEmployeeDto.prototype, "identity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], SimpleEmployeeDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: 'Phone number is required' }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(10, 10, { message: 'Phone number must be exactly 10 digits long' }),
+    (0, class_validator_1.Matches)(/^[0-9]+$/, { message: 'Phone number must contain only digits' }),
+    tslib_1.__metadata("design:type", String)
+], SimpleEmployeeDto.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_m = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _m : Object)
+], SimpleEmployeeDto.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], SimpleEmployeeDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], SimpleEmployeeDto.prototype, "name", void 0);
+
+
+/***/ }),
+/* 111 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JwtAuthGuard = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const jwt = tslib_1.__importStar(__webpack_require__(99));
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+let JwtAuthGuard = class JwtAuthGuard {
+    constructor(userRepository, loginSessionRepository) {
+        this.userRepository = userRepository;
+        this.loginSessionRepository = loginSessionRepository;
+    }
+    async canActivate(context) {
+        const request = context.switchToHttp().getRequest();
+        const authHeader = request.headers['accessToken'];
+        if (!authHeader?.startsWith('Bearer ')) {
+            throw new common_1.UnauthorizedException('authorisation token missing');
+        }
+        const token = authHeader.split(' ')[1];
+        const secret = process.env.JWT_SECRET_KEY;
+        if (!secret) {
+            throw new common_1.UnauthorizedException('JWT secret not configured');
+        }
+        try {
+            // Verify token and extract payload
+            console.log("Verifying token...");
+            const decoded = jwt.verify(token, secret);
+            console.log("Decoded JWT Token: ", decoded);
+            // Look up user in database using referenceId (userId) from JWT payload
+            console.log("Looking for user with ID:", decoded.referenceId);
+            const user = await this.userRepository.findOne({
+                where: { id: decoded.referenceId },
+                relations: ['permission', 'modules', 'departments'],
+            });
+            console.log("Authenticated User from DB: ", user);
+            if (!user) {
+                console.log("User not found with ID:", decoded.referenceId);
+                throw new common_1.UnauthorizedException('User not found');
+            }
+            // Verify session exists and is active
+            console.log("Looking for login session with ID:", decoded.sessionId);
+            const loginSession = await this.loginSessionRepository.findOne({
+                where: { id: decoded.sessionId },
+                relations: ['user'],
+            });
+            if (loginSession) {
+                console.log("Valid login session found:", loginSession.id);
+                request.session = loginSession;
+            }
+            else {
+                console.warn('Login session not found in DB, but JWT is valid. Proceeding for Postman/Dev compatibility.');
+            }
+            // Attach user, user_group, department, and permission to request object
+            request.userEmail = user.email;
+            request.userRole = decoded.userRole;
+            request.user = user;
+            request.user_group = decoded.user_group;
+            request.department = user.departments;
+            request.modules = user.modules;
+            request.permissionId = decoded.permissionId;
+            request.permission = user.permission;
+            // Allow request to proceed
+            return true;
+        }
+        catch (error) {
+            console.error('JWT verification failed:', error.message);
+            throw new common_1.UnauthorizedException('Invalid or expired token');
+        }
+    }
+};
+exports.JwtAuthGuard = JwtAuthGuard;
+exports.JwtAuthGuard = JwtAuthGuard = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.User)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.LoginSession)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object])
+], JwtAuthGuard);
+
+
+/***/ }),
+/* 112 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoginUserDto = exports.UpdateUserDto = exports.CreateUserDto = exports.MasterUserListRequestDto = exports.DataTableSearchDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_transformer_1 = __webpack_require__(113);
+const class_validator_1 = __webpack_require__(17);
+const userContants_1 = __webpack_require__(16);
+class DataTableSearchDto {
+}
+exports.DataTableSearchDto = DataTableSearchDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], DataTableSearchDto.prototype, "value", void 0);
+class MasterUserListRequestDto {
+}
+exports.MasterUserListRequestDto = MasterUserListRequestDto;
+tslib_1.__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], MasterUserListRequestDto.prototype, "draw", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], MasterUserListRequestDto.prototype, "start", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], MasterUserListRequestDto.prototype, "length", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.ValidateNested)(),
+    (0, class_transformer_1.Type)(() => DataTableSearchDto),
+    tslib_1.__metadata("design:type", DataTableSearchDto)
+], MasterUserListRequestDto.prototype, "search", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], MasterUserListRequestDto.prototype, "searchname", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], MasterUserListRequestDto.prototype, "username", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], MasterUserListRequestDto.prototype, "user_type", void 0);
+class CreateUserDto {
+}
+exports.CreateUserDto = CreateUserDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateUserDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], CreateUserDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.MinLength)(8),
+    tslib_1.__metadata("design:type", String)
+], CreateUserDto.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateUserDto.prototype, "role", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_a = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _a : Object)
+], CreateUserDto.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateUserDto.prototype, "modules", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateUserDto.prototype, "departments", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateUserDto.prototype, "teams", void 0);
+class UpdateUserDto {
+}
+exports.UpdateUserDto = UpdateUserDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateUserDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateUserDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.MinLength)(8),
+    tslib_1.__metadata("design:type", String)
+], UpdateUserDto.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateUserDto.prototype, "role", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_GROUP),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_GROUP !== "undefined" && userContants_1.USER_GROUP) === "function" ? _b : Object)
+], UpdateUserDto.prototype, "user_group", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], UpdateUserDto.prototype, "modules", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], UpdateUserDto.prototype, "departments", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], UpdateUserDto.prototype, "teams", void 0);
+class LoginUserDto {
+}
+exports.LoginUserDto = LoginUserDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], LoginUserDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], LoginUserDto.prototype, "password", void 0);
+
+
+/***/ }),
+/* 113 */
+/***/ ((module) => {
+
+module.exports = require("class-transformer");
+
+/***/ }),
+/* 114 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+/* 115 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.GoogleStrategy = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const passport_1 = __webpack_require__(103);
+const passport_google_oauth20_1 = __webpack_require__(116);
+const config_service_1 = __webpack_require__(6);
+let GoogleStrategy = class GoogleStrategy extends (0, passport_1.PassportStrategy)(passport_google_oauth20_1.Strategy, 'google') {
+    constructor(configService) {
+        super({
+            clientID: configService.get().GoogleAuth.GOOGLE_CLIENT_ID,
+            clientSecret: configService.get().GoogleAuth.GOOGLE_CLIENT_SECRET,
+            callbackURL: configService.get().GoogleAuth.GOOGLE_CALLBACK_URL || `${configService.get().FRONTEND_BASE_URL}/api/auth/google/callback`,
+            scope: ['email', 'profile'],
+            prompt: 'select_account',
+        });
+    }
+    async validate(accessToken, refreshToken, profile, done) {
+        const { emails, photos, provider } = profile;
+        const user = {
+            email: emails[0].value,
+            name: profile.displayName,
+            picture: photos[0].value,
+            provider,
+            accessToken,
+        };
+        done(null, user);
+    }
+};
+exports.GoogleStrategy = GoogleStrategy;
+exports.GoogleStrategy = GoogleStrategy = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof config_service_1.ConfigService !== "undefined" && config_service_1.ConfigService) === "function" ? _a : Object])
+], GoogleStrategy);
+
+
+/***/ }),
+/* 116 */
+/***/ ((module) => {
+
+module.exports = require("passport-google-oauth20");
+
+/***/ }),
+/* 117 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DefaultUserService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const userContants_1 = __webpack_require__(16);
+const user_repository_1 = __webpack_require__(70);
+const permissionManager_repository_1 = __webpack_require__(73);
+const bcryptUtil_1 = __webpack_require__(106);
+const defaultUser = {
+    email: 'shubhanshu@intercert.com',
+    password: 'Pass@123',
+    userRole: userContants_1.DEFAULT_USER_ROLES.SUPER_ADMIN,
+    name: 'Shubhanshu Kumar',
+};
+let DefaultUserService = class DefaultUserService {
+    constructor(userModel, permissionModel) {
+        this.userModel = userModel;
+        this.permissionModel = permissionModel;
+    }
+    async addDefaultUser() {
+        try {
+            const checkIfExist = await this.userModel.checkUserEmailExist(defaultUser.email);
+            if (checkIfExist) {
+                console.log('Default user already exists.');
+                return;
+            }
+            console.log('Creating default user...');
+            const passwordHash = await (0, bcryptUtil_1.generatePasswordHash)(defaultUser.password);
+            const userObj = {
+                password: passwordHash,
+                email: defaultUser.email.toLowerCase().trim(),
+                verifyStatus: userContants_1.USER_VERIFY_STATUS.VERIFIED,
+                status: userContants_1.USER_ACCOUNT_STATUS.ACTIVE,
+                user_group: userContants_1.USER_GROUP.SUPER_ADMIN,
+                loginSource: userContants_1.USER_LOGIN_SOURCE.LOCAL,
+                name: defaultUser.name,
+            };
+            const user = await this.userModel.insertDefaultUser(userObj);
+            console.log('Default user created with ID:', user.id);
+            return;
+        }
+        catch (error) {
+            console.log("Error adding admin user", error);
+            throw error;
+        }
+    }
+};
+exports.DefaultUserService = DefaultUserService;
+exports.DefaultUserService = DefaultUserService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof user_repository_1.UserRepository !== "undefined" && user_repository_1.UserRepository) === "function" ? _a : Object, typeof (_b = typeof permissionManager_repository_1.PermissionManagerRepository !== "undefined" && permissionManager_repository_1.PermissionManagerRepository) === "function" ? _b : Object])
+], DefaultUserService);
+
+
+/***/ }),
+/* 118 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DepartmentModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const database_module_1 = __webpack_require__(5);
+const src_1 = __webpack_require__(86);
+const response_handler_module_1 = __webpack_require__(83);
+const department_controller_1 = __webpack_require__(119);
+const department_service_1 = __webpack_require__(121);
+let DepartmentModule = class DepartmentModule {
+};
+exports.DepartmentModule = DepartmentModule;
+exports.DepartmentModule = DepartmentModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            database_module_1.DBModule.forRoot(),
+            response_handler_module_1.ResponseHandlerModule,
+            typeorm_1.TypeOrmModule.forFeature([src_1.Department, src_1.User, src_1.LoginSession]),
+        ],
+        controllers: [department_controller_1.DepartmentController],
+        providers: [department_service_1.DepartmentService],
+    })
+], DepartmentModule);
+
+
+/***/ }),
+/* 119 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DepartmentController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const express_1 = __webpack_require__(93);
+const response_handler_service_1 = __webpack_require__(84);
+const department_dto_1 = __webpack_require__(120);
+const department_service_1 = __webpack_require__(121);
+const src_1 = __webpack_require__(96);
+const permission_access_guard_1 = __webpack_require__(122);
+const permission_access_decorator_1 = __webpack_require__(123);
+const moduleConstants_1 = __webpack_require__(124);
+const permissionManagerConstants_1 = __webpack_require__(20);
+let DepartmentController = class DepartmentController {
+    constructor(departmentService, responseHandler) {
+        this.departmentService = departmentService;
+        this.responseHandler = responseHandler;
+    }
+    async createDepartment(res, payload) {
+        try {
+            const department = await this.departmentService.createDepartment(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Department created successfully', data: department });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getDepartments(res) {
+        try {
+            const departments = await this.departmentService.getDepartments();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Departments fetched successfully', data: departments });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getDepartmentById(res, id) {
+        try {
+            const department = await this.departmentService.getDepartmentById(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Department fetched successfully', data: department });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateDepartment(res, id, payload) {
+        try {
+            const department = await this.departmentService.updateDepartment(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Department updated successfully', data: department });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateDepartmentStatus(res, id, payload) {
+        try {
+            const department = await this.departmentService.updateDepartmentStatus(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Department status updated successfully', data: department });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.DepartmentController = DepartmentController;
+tslib_1.__decorate([
+    (0, common_1.Post)('create_department'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_c = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _c : Object, typeof (_d = typeof department_dto_1.CreateDepartmentDto !== "undefined" && department_dto_1.CreateDepartmentDto) === "function" ? _d : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], DepartmentController.prototype, "createDepartment", null);
+tslib_1.__decorate([
+    (0, common_1.Get)("/list"),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _e : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], DepartmentController.prototype, "getDepartments", null);
+tslib_1.__decorate([
+    (0, common_1.Get)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_f = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _f : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], DepartmentController.prototype, "getDepartmentById", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_g = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _g : Object, Number, typeof (_h = typeof department_dto_1.UpdateDepartmentDto !== "undefined" && department_dto_1.UpdateDepartmentDto) === "function" ? _h : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], DepartmentController.prototype, "updateDepartment", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)(':id/status'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_j = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _j : Object, Number, typeof (_k = typeof department_dto_1.UpdateDepartmentStatusDto !== "undefined" && department_dto_1.UpdateDepartmentStatusDto) === "function" ? _k : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], DepartmentController.prototype, "updateDepartmentStatus", null);
+exports.DepartmentController = DepartmentController = tslib_1.__decorate([
+    (0, common_1.Controller)('departments'),
+    (0, common_1.UseGuards)(src_1.JwtAuthGuard, src_1.ModuleAccessGuard, permission_access_guard_1.PermissionAccessGuard),
+    (0, src_1.ModuleAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true })),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof department_service_1.DepartmentService !== "undefined" && department_service_1.DepartmentService) === "function" ? _a : Object, typeof (_b = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _b : Object])
+], DepartmentController);
+
+
+/***/ }),
+/* 120 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateDepartmentStatusDto = exports.UpdateDepartmentDto = exports.CreateDepartmentDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_validator_1 = __webpack_require__(17);
+const userContants_1 = __webpack_require__(16);
+class CreateDepartmentDto {
+}
+exports.CreateDepartmentDto = CreateDepartmentDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDepartmentDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDepartmentDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_a = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _a : Object)
+], CreateDepartmentDto.prototype, "status", void 0);
+class UpdateDepartmentDto {
+}
+exports.UpdateDepartmentDto = UpdateDepartmentDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateDepartmentDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateDepartmentDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], UpdateDepartmentDto.prototype, "status", void 0);
+class UpdateDepartmentStatusDto {
+}
+exports.UpdateDepartmentStatusDto = UpdateDepartmentStatusDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _c : Object)
+], UpdateDepartmentStatusDto.prototype, "status", void 0);
+
+
+/***/ }),
+/* 121 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DepartmentService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+let DepartmentService = class DepartmentService {
+    constructor(departmentRepository) {
+        this.departmentRepository = departmentRepository;
+    }
+    async createDepartment(payload) {
+        try {
+            const department = this.departmentRepository.create(payload);
+            return await this.departmentRepository.save(department);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getDepartments() {
+        try {
+            return await this.departmentRepository.find({ order: { name: 'ASC' } });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getDepartmentById(id) {
+        try {
+            const department = await this.departmentRepository.findOne({ where: { id } });
+            if (!department) {
+                throw new common_1.NotFoundException('Department not found');
+            }
+            return department;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateDepartment(id, payload) {
+        try {
+            const existing = await this.departmentRepository.findOne({ where: { id } });
+            if (!existing) {
+                throw new common_1.NotFoundException('Department not found');
+            }
+            await this.departmentRepository.update({ id }, payload);
+            return await this.getDepartmentById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateDepartmentStatus(id, payload) {
+        try {
+            const existing = await this.departmentRepository.findOne({ where: { id } });
+            if (!existing) {
+                throw new common_1.NotFoundException('Department not found');
+            }
+            await this.departmentRepository.update({ id }, payload);
+            return await this.getDepartmentById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+};
+exports.DepartmentService = DepartmentService;
+exports.DepartmentService = DepartmentService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.Department)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+], DepartmentService);
+
+
+/***/ }),
+/* 122 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PermissionAccessGuard = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const core_1 = __webpack_require__(2);
+const permission_access_decorator_1 = __webpack_require__(123);
+let PermissionAccessGuard = class PermissionAccessGuard {
+    constructor(reflector) {
+        this.reflector = reflector;
+    }
+    canActivate(context) {
+        const requirement = this.reflector.getAllAndOverride(permission_access_decorator_1.PERMISSION_ACCESS_KEY, [
+            context.getHandler(),
+            context.getClass(),
+        ]);
+        if (!requirement)
+            return true;
+        const req = context.switchToHttp().getRequest();
+        const user = req.user;
+        // Check if user has permission object
+        if (!user || !user.permission) {
+            // If user is Super Admin, maybe allow? 
+            // But better to stick to permission logic if requested.
+            // Assuming user must have permissions.
+            throw new common_1.ForbiddenException('No permissions assigned');
+        }
+        // Find module ID from user.modules (which are loaded in JwtAuthGuard)
+        const targetModule = (user.modules || []).find(m => m.code === requirement.module);
+        if (!targetModule) {
+            throw new common_1.ForbiddenException(`Access to module ${requirement.module} denied`);
+        }
+        // Check granular permission
+        // user.permission.permissions is stored as JSON
+        const permissions = user.permission.permissions || [];
+        const permissionRecord = permissions.find(p => String(p.module) === String(targetModule.id));
+        if (!permissionRecord) {
+            // Default deny if no record found
+            throw new common_1.ForbiddenException(`No permission record for module ${requirement.module}`);
+        }
+        if (!permissionRecord.action[requirement.action]) {
+            throw new common_1.ForbiddenException(`Action ${requirement.action} denied on module ${requirement.module}`);
+        }
+        return true;
+    }
+};
+exports.PermissionAccessGuard = PermissionAccessGuard;
+exports.PermissionAccessGuard = PermissionAccessGuard = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof core_1.Reflector !== "undefined" && core_1.Reflector) === "function" ? _a : Object])
+], PermissionAccessGuard);
+
+
+/***/ }),
+/* 123 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PermissionAccess = exports.PERMISSION_ACCESS_KEY = void 0;
+const common_1 = __webpack_require__(1);
+exports.PERMISSION_ACCESS_KEY = 'permission_access';
+const PermissionAccess = (module, action) => (0, common_1.SetMetadata)(exports.PERMISSION_ACCESS_KEY, { module, action });
+exports.PermissionAccess = PermissionAccess;
+
+
+/***/ }),
+/* 124 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SYSTEM_MODULE_CODES = void 0;
+var SYSTEM_MODULE_CODES;
+(function (SYSTEM_MODULE_CODES) {
+    SYSTEM_MODULE_CODES["USER_MANAGEMENT"] = "USER_MANAGEMENT";
+    SYSTEM_MODULE_CODES["SALES_MANAGEMENT"] = "SALES_MANAGEMENT";
+    SYSTEM_MODULE_CODES["SYSTEM_CONFIGURATION"] = "SYSTEM_CONFIGURATION";
+    SYSTEM_MODULE_CODES["ACCOUNT_MANAGEMENT"] = "ACCOUNT_MANAGEMENT";
+})(SYSTEM_MODULE_CODES || (exports.SYSTEM_MODULE_CODES = SYSTEM_MODULE_CODES = {}));
+
+
+/***/ }),
+/* 125 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ModuleManagementModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const database_module_1 = __webpack_require__(5);
+const src_1 = __webpack_require__(86);
+const response_handler_module_1 = __webpack_require__(83);
+const module_management_controller_1 = __webpack_require__(126);
+const module_management_service_1 = __webpack_require__(128);
+let ModuleManagementModule = class ModuleManagementModule {
+};
+exports.ModuleManagementModule = ModuleManagementModule;
+exports.ModuleManagementModule = ModuleManagementModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            database_module_1.DBModule.forRoot(),
+            response_handler_module_1.ResponseHandlerModule,
+            typeorm_1.TypeOrmModule.forFeature([src_1.SystemModule, src_1.Menu, src_1.User, src_1.LoginSession]),
+        ],
+        controllers: [module_management_controller_1.ModuleManagementController],
+        providers: [module_management_service_1.ModuleManagementService],
+    })
+], ModuleManagementModule);
+
+
+/***/ }),
+/* 126 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ModuleManagementController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const express_1 = __webpack_require__(93);
+const response_handler_service_1 = __webpack_require__(84);
+const module_management_dto_1 = __webpack_require__(127);
+const module_management_service_1 = __webpack_require__(128);
+const src_1 = __webpack_require__(96);
+const permission_access_guard_1 = __webpack_require__(122);
+const permission_access_decorator_1 = __webpack_require__(123);
+const moduleConstants_1 = __webpack_require__(124);
+const permissionManagerConstants_1 = __webpack_require__(20);
+let ModuleManagementController = class ModuleManagementController {
+    constructor(moduleManagementService, responseHandler) {
+        this.moduleManagementService = moduleManagementService;
+        this.responseHandler = responseHandler;
+    }
+    async createSystemModule(res, payload) {
+        try {
+            const module = await this.moduleManagementService.createSystemModule(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Module created successfully', data: module });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getSystemModules(res) {
+        try {
+            const modules = await this.moduleManagementService.getSystemModules();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Modules fetched successfully', data: modules });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getSystemModuleById(res, id) {
+        try {
+            const module = await this.moduleManagementService.getSystemModuleById(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Module fetched successfully', data: module });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateSystemModule(res, id, payload) {
+        try {
+            const module = await this.moduleManagementService.updateSystemModule(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Module updated successfully', data: module });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async createMenu(res, payload) {
+        try {
+            const menu = await this.moduleManagementService.createMenu(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Menu created successfully', data: menu });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getMenus(res) {
+        try {
+            const menus = await this.moduleManagementService.getMenus();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Menus fetched successfully', data: menus });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getMenuById(res, id) {
+        try {
+            const menu = await this.moduleManagementService.getMenuById(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Menu fetched successfully', data: menu });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateMenu(res, id, payload) {
+        try {
+            const menu = await this.moduleManagementService.updateMenu(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Menu updated successfully', data: menu });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateMenuStatus(res, id, payload) {
+        try {
+            const menu = await this.moduleManagementService.updateMenuStatus(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Menu status updated successfully', data: menu });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.ModuleManagementController = ModuleManagementController;
+tslib_1.__decorate([
+    (0, common_1.Post)('modules'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_c = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _c : Object, typeof (_d = typeof module_management_dto_1.CreateSystemModuleDto !== "undefined" && module_management_dto_1.CreateSystemModuleDto) === "function" ? _d : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "createSystemModule", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('modules'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _e : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "getSystemModules", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('modules/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_f = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _f : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "getSystemModuleById", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)('modules/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_g = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _g : Object, Number, typeof (_h = typeof module_management_dto_1.UpdateSystemModuleDto !== "undefined" && module_management_dto_1.UpdateSystemModuleDto) === "function" ? _h : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "updateSystemModule", null);
+tslib_1.__decorate([
+    (0, common_1.Post)('menus'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_j = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _j : Object, typeof (_k = typeof module_management_dto_1.CreateMenuDto !== "undefined" && module_management_dto_1.CreateMenuDto) === "function" ? _k : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "createMenu", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('menus'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_l = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _l : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "getMenus", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('menus/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_m = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _m : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "getMenuById", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)('menus/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_o = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _o : Object, Number, typeof (_p = typeof module_management_dto_1.UpdateMenuDto !== "undefined" && module_management_dto_1.UpdateMenuDto) === "function" ? _p : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "updateMenu", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)('menus/:id/status'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_q = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _q : Object, Number, typeof (_r = typeof module_management_dto_1.UpdateMenuStatusDto !== "undefined" && module_management_dto_1.UpdateMenuStatusDto) === "function" ? _r : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ModuleManagementController.prototype, "updateMenuStatus", null);
+exports.ModuleManagementController = ModuleManagementController = tslib_1.__decorate([
+    (0, common_1.Controller)(),
+    (0, common_1.UseGuards)(src_1.JwtAuthGuard, src_1.ModuleAccessGuard, permission_access_guard_1.PermissionAccessGuard),
+    (0, src_1.ModuleAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true })),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof module_management_service_1.ModuleManagementService !== "undefined" && module_management_service_1.ModuleManagementService) === "function" ? _a : Object, typeof (_b = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _b : Object])
+], ModuleManagementController);
+
+
+/***/ }),
+/* 127 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateMenuStatusDto = exports.UpdateMenuDto = exports.CreateMenuDto = exports.UpdateSystemModuleDto = exports.CreateSystemModuleDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_validator_1 = __webpack_require__(17);
+const userContants_1 = __webpack_require__(16);
+class CreateSystemModuleDto {
+}
+exports.CreateSystemModuleDto = CreateSystemModuleDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateSystemModuleDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateSystemModuleDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_a = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _a : Object)
+], CreateSystemModuleDto.prototype, "status", void 0);
+class UpdateSystemModuleDto {
+}
+exports.UpdateSystemModuleDto = UpdateSystemModuleDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateSystemModuleDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateSystemModuleDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_b = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _b : Object)
+], UpdateSystemModuleDto.prototype, "status", void 0);
+class CreateMenuDto {
+}
+exports.CreateMenuDto = CreateMenuDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateMenuDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateMenuDto.prototype, "moduleId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateMenuDto.prototype, "path", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateMenuDto.prototype, "parentId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateMenuDto.prototype, "sortOrder", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_c = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _c : Object)
+], CreateMenuDto.prototype, "status", void 0);
+class UpdateMenuDto {
+}
+exports.UpdateMenuDto = UpdateMenuDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateMenuDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateMenuDto.prototype, "moduleId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateMenuDto.prototype, "path", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateMenuDto.prototype, "parentId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateMenuDto.prototype, "sortOrder", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_d = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _d : Object)
+], UpdateMenuDto.prototype, "status", void 0);
+class UpdateMenuStatusDto {
+}
+exports.UpdateMenuStatusDto = UpdateMenuStatusDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(userContants_1.USER_ACCOUNT_STATUS),
+    tslib_1.__metadata("design:type", typeof (_e = typeof userContants_1.USER_ACCOUNT_STATUS !== "undefined" && userContants_1.USER_ACCOUNT_STATUS) === "function" ? _e : Object)
+], UpdateMenuStatusDto.prototype, "status", void 0);
+
+
+/***/ }),
+/* 128 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ModuleManagementService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+let ModuleManagementService = class ModuleManagementService {
+    constructor(systemModuleRepository, menuRepository) {
+        this.systemModuleRepository = systemModuleRepository;
+        this.menuRepository = menuRepository;
+    }
+    async createSystemModule(payload) {
+        try {
+            const module = this.systemModuleRepository.create(payload);
+            return await this.systemModuleRepository.save(module);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getSystemModules() {
+        try {
+            return await this.systemModuleRepository.find({ order: { name: 'ASC' } });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getSystemModuleById(id) {
+        try {
+            const module = await this.systemModuleRepository.findOne({ where: { id } });
+            if (!module) {
+                throw new common_1.NotFoundException('Module not found');
+            }
+            return module;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateSystemModule(id, payload) {
+        try {
+            const module = await this.systemModuleRepository.findOne({ where: { id } });
+            if (!module) {
+                throw new common_1.NotFoundException('Module not found');
+            }
+            await this.systemModuleRepository.update({ id }, payload);
+            return await this.getSystemModuleById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async createMenu(payload) {
+        try {
+            const module = await this.systemModuleRepository.findOne({ where: { id: payload.moduleId } });
+            if (!module) {
+                throw new common_1.NotFoundException('Module not found');
+            }
+            const menu = this.menuRepository.create({
+                name: payload.name,
+                path: payload.path,
+                sortOrder: payload.sortOrder,
+                status: payload.status,
+                module,
+            });
+            if (payload.parentId) {
+                const parent = await this.menuRepository.findOne({ where: { id: payload.parentId } });
+                if (!parent) {
+                    throw new common_1.NotFoundException('Parent menu not found');
+                }
+                menu.parent = parent;
+            }
+            return await this.menuRepository.save(menu);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getMenus() {
+        try {
+            return await this.menuRepository.find({
+                relations: ['module', 'parent'],
+                order: { sortOrder: 'ASC' },
+            });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getMenuById(id) {
+        try {
+            const menu = await this.menuRepository.findOne({ where: { id }, relations: ['module', 'parent'] });
+            if (!menu) {
+                throw new common_1.NotFoundException('Menu not found');
+            }
+            return menu;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateMenu(id, payload) {
+        try {
+            const menu = await this.menuRepository.findOne({ where: { id }, relations: ['module', 'parent'] });
+            if (!menu) {
+                throw new common_1.NotFoundException('Menu not found');
+            }
+            if (payload.moduleId) {
+                const module = await this.systemModuleRepository.findOne({ where: { id: payload.moduleId } });
+                if (!module) {
+                    throw new common_1.NotFoundException('Module not found');
+                }
+                menu.module = module;
+            }
+            if (payload.parentId) {
+                const parent = await this.menuRepository.findOne({ where: { id: payload.parentId } });
+                if (!parent) {
+                    throw new common_1.NotFoundException('Parent menu not found');
+                }
+                menu.parent = parent;
+            }
+            menu.name = payload.name ?? menu.name;
+            menu.path = payload.path ?? menu.path;
+            menu.sortOrder = payload.sortOrder ?? menu.sortOrder;
+            menu.status = payload.status ?? menu.status;
+            await this.menuRepository.save(menu);
+            return await this.getMenuById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateMenuStatus(id, payload) {
+        try {
+            const menu = await this.menuRepository.findOne({ where: { id }, relations: ['module', 'parent'] });
+            if (!menu) {
+                throw new common_1.NotFoundException('Menu not found');
+            }
+            await this.menuRepository.update({ id }, payload);
+            return await this.getMenuById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+};
+exports.ModuleManagementService = ModuleManagementService;
+exports.ModuleManagementService = ModuleManagementService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.SystemModule)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.Menu)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object])
+], ModuleManagementService);
+
+
+/***/ }),
+/* 129 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const database_module_1 = __webpack_require__(5);
+const customer_entity_1 = __webpack_require__(34);
+const customerAddress_entity_1 = __webpack_require__(35);
+const customerContact_entity_1 = __webpack_require__(36);
+const lead_entity_1 = __webpack_require__(37);
+const lead_service_entity_1 = __webpack_require__(38);
+const user_entity_1 = __webpack_require__(13);
+const src_1 = __webpack_require__(86);
+const service_master_entity_1 = __webpack_require__(33);
+const response_handler_module_1 = __webpack_require__(83);
+const lead_controller_1 = __webpack_require__(130);
+const lead_service_1 = __webpack_require__(132);
+let LeadModule = class LeadModule {
+};
+exports.LeadModule = LeadModule;
+exports.LeadModule = LeadModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            database_module_1.DBModule.forRoot(),
+            response_handler_module_1.ResponseHandlerModule,
+            typeorm_1.TypeOrmModule.forFeature([lead_entity_1.Lead, customer_entity_1.Customer, customerAddress_entity_1.CustomerAddress, customerContact_entity_1.CustomerContact, user_entity_1.User, src_1.LoginSession, service_master_entity_1.ServiceMaster, lead_service_entity_1.LeadService]),
+        ],
+        controllers: [lead_controller_1.LeadController],
+        providers: [lead_service_1.LeadService, lead_service_entity_1.LeadService, src_1.LeadServiceRepository],
+    })
+], LeadModule);
+
+
+/***/ }),
+/* 130 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const express_1 = __webpack_require__(93);
+const response_handler_service_1 = __webpack_require__(84);
+const lead_dto_1 = __webpack_require__(131);
+const lead_service_1 = __webpack_require__(132);
+const src_1 = __webpack_require__(96);
+const permission_access_guard_1 = __webpack_require__(122);
+const permission_access_decorator_1 = __webpack_require__(123);
+const moduleConstants_1 = __webpack_require__(124);
+const permissionManagerConstants_1 = __webpack_require__(20);
+let LeadController = class LeadController {
+    constructor(leadService, responseHandler) {
+        this.leadService = leadService;
+        this.responseHandler = responseHandler;
+    }
+    async createService(res, payload) {
+        try {
+            const service = await this.leadService.createService(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Service created successfully', data: service });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateService(res, id, payload) {
+        try {
+            const service = await this.leadService.updateService(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Service updated successfully', data: service });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async createLead(res, payload) {
+        try {
+            const lead = await this.leadService.createLead(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Lead created successfully', data: lead });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getLeads(res) {
+        try {
+            const leads = await this.leadService.getLeads();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Leads fetched successfully', data: leads });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getServices(res) {
+        try {
+            const services = await this.leadService.getServices();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Services fetched successfully', data: services });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async searchCustomers(res, name) {
+        try {
+            const customers = await this.leadService.searchCustomers(name);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Customers fetched successfully', data: customers });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getLeadById(res, id) {
+        try {
+            const lead = await this.leadService.getLeadById(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Lead fetched successfully', data: lead });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateLead(res, id, payload) {
+        try {
+            const lead = await this.leadService.updateLead(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Lead updated successfully', data: lead });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.LeadController = LeadController;
+tslib_1.__decorate([
+    (0, common_1.Post)('services'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_c = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _c : Object, typeof (_d = typeof lead_dto_1.CreateServiceDto !== "undefined" && lead_dto_1.CreateServiceDto) === "function" ? _d : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "createService", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)('services/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _e : Object, Number, typeof (_f = typeof lead_dto_1.UpdateServiceDto !== "undefined" && lead_dto_1.UpdateServiceDto) === "function" ? _f : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "updateService", null);
+tslib_1.__decorate([
+    (0, common_1.Post)(),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_g = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _g : Object, typeof (_h = typeof lead_dto_1.CreateLeadDto !== "undefined" && lead_dto_1.CreateLeadDto) === "function" ? _h : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "createLead", null);
+tslib_1.__decorate([
+    (0, common_1.Get)(),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_j = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _j : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "getLeads", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('services'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_k = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _k : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "getServices", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('/customers/search'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Query)('name')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_l = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _l : Object, String]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "searchCustomers", null);
+tslib_1.__decorate([
+    (0, common_1.Get)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_m = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _m : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "getLeadById", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_o = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _o : Object, Number, typeof (_p = typeof lead_dto_1.UpdateLeadDto !== "undefined" && lead_dto_1.UpdateLeadDto) === "function" ? _p : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], LeadController.prototype, "updateLead", null);
+exports.LeadController = LeadController = tslib_1.__decorate([
+    (0, common_1.Controller)('leads'),
+    (0, common_1.UseGuards)(src_1.JwtAuthGuard, src_1.ModuleAccessGuard, permission_access_guard_1.PermissionAccessGuard),
+    (0, src_1.ModuleAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SALES_MANAGEMENT),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true })),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof lead_service_1.LeadService !== "undefined" && lead_service_1.LeadService) === "function" ? _a : Object, typeof (_b = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _b : Object])
+], LeadController);
+
+
+/***/ }),
+/* 131 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateServiceDto = exports.CreateServiceDto = exports.UpdateLeadDto = exports.CreateLeadDto = exports.CreateCustomerContactDto = exports.CreateCustomerAddressDto = exports.CreateCustomerDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_transformer_1 = __webpack_require__(113);
+const class_validator_1 = __webpack_require__(17);
+const salesConstants_1 = __webpack_require__(42);
+class CreateCustomerDto {
+}
+exports.CreateCustomerDto = CreateCustomerDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerDto.prototype, "businessActivities", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerDto.prototype, "headcount", void 0);
+class CreateCustomerAddressDto {
+}
+exports.CreateCustomerAddressDto = CreateCustomerAddressDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "addressLine1", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "addressLine2", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "city", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "state", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "country", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "postalCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerAddressDto.prototype, "addressType", void 0);
+class CreateCustomerContactDto {
+}
+exports.CreateCustomerContactDto = CreateCustomerContactDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerContactDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerContactDto.prototype, "designation", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerContactDto.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerContactDto.prototype, "phoneNo", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerContactDto.prototype, "countryCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], CreateCustomerContactDto.prototype, "isPrimary", void 0);
+class CreateLeadDto {
+}
+exports.CreateLeadDto = CreateLeadDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateLeadDto.prototype, "enquiryReference", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEnum)(salesConstants_1.LEAD_SOURCE),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", typeof (_a = typeof salesConstants_1.LEAD_SOURCE !== "undefined" && salesConstants_1.LEAD_SOURCE) === "function" ? _a : Object)
+], CreateLeadDto.prototype, "source", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateLeadDto.prototype, "sourceDescription", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(salesConstants_1.LEAD_STATUS),
+    tslib_1.__metadata("design:type", typeof (_b = typeof salesConstants_1.LEAD_STATUS !== "undefined" && salesConstants_1.LEAD_STATUS) === "function" ? _b : Object)
+], CreateLeadDto.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateLeadDto.prototype, "notes", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], CreateLeadDto.prototype, "isDraft", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateLeadDto.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateLeadDto.prototype, "serviceIds", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.ValidateNested)(),
+    (0, class_transformer_1.Type)(() => CreateCustomerDto),
+    tslib_1.__metadata("design:type", CreateCustomerDto)
+], CreateLeadDto.prototype, "customer", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ArrayMinSize)(1),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => CreateCustomerAddressDto),
+    tslib_1.__metadata("design:type", Array)
+], CreateLeadDto.prototype, "addresses", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ArrayMinSize)(1),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => CreateCustomerContactDto),
+    tslib_1.__metadata("design:type", Array)
+], CreateLeadDto.prototype, "contacts", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateLeadDto.prototype, "createdBy", void 0);
+class UpdateLeadDto {
+}
+exports.UpdateLeadDto = UpdateLeadDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateLeadDto.prototype, "enquiryReference", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(salesConstants_1.LEAD_SOURCE),
+    tslib_1.__metadata("design:type", typeof (_c = typeof salesConstants_1.LEAD_SOURCE !== "undefined" && salesConstants_1.LEAD_SOURCE) === "function" ? _c : Object)
+], UpdateLeadDto.prototype, "source", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateLeadDto.prototype, "sourceDescription", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(salesConstants_1.LEAD_STATUS),
+    tslib_1.__metadata("design:type", typeof (_d = typeof salesConstants_1.LEAD_STATUS !== "undefined" && salesConstants_1.LEAD_STATUS) === "function" ? _d : Object)
+], UpdateLeadDto.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateLeadDto.prototype, "notes", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], UpdateLeadDto.prototype, "isDraft", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], UpdateLeadDto.prototype, "serviceIds", void 0);
+class CreateServiceDto {
+}
+exports.CreateServiceDto = CreateServiceDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateServiceDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateServiceDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateServiceDto.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], CreateServiceDto.prototype, "isActive", void 0);
+class UpdateServiceDto {
+}
+exports.UpdateServiceDto = UpdateServiceDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateServiceDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateServiceDto.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateServiceDto.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], UpdateServiceDto.prototype, "isActive", void 0);
+
+
+/***/ }),
+/* 132 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LeadService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const customer_entity_1 = __webpack_require__(34);
+const customerAddress_entity_1 = __webpack_require__(35);
+const customerContact_entity_1 = __webpack_require__(36);
+const lead_entity_1 = __webpack_require__(37);
+const lead_service_entity_1 = __webpack_require__(38);
+const user_entity_1 = __webpack_require__(13);
+const service_master_entity_1 = __webpack_require__(33);
+const salesConstants_1 = __webpack_require__(42);
+let LeadService = class LeadService {
+    constructor(leadRepository, customerRepository, addressRepository, contactRepository, userRepository, serviceRepository, leadServiceEntityRepository) {
+        this.leadRepository = leadRepository;
+        this.customerRepository = customerRepository;
+        this.addressRepository = addressRepository;
+        this.contactRepository = contactRepository;
+        this.userRepository = userRepository;
+        this.serviceRepository = serviceRepository;
+        this.leadServiceEntityRepository = leadServiceEntityRepository;
+    }
+    async createLead(payload) {
+        try {
+            const enquiryId = `ENQ-${Date.now()}`;
+            let customer = null;
+            if (payload.customerId) {
+                customer = await this.customerRepository.findOne({ where: { id: payload.customerId } });
+            }
+            else if (payload.customer) {
+                customer = this.customerRepository.create(payload.customer);
+                customer = await this.customerRepository.save(customer);
+                if (payload.addresses && payload.addresses.length > 0) {
+                    const addresses = payload.addresses.map(addr => this.addressRepository.create({ ...addr, customer }));
+                    await this.addressRepository.save(addresses);
+                }
+            }
+            const contacts = payload.contacts.map((contact) => this.contactRepository.create({
+                ...contact,
+                customer,
+            }));
+            await this.contactRepository.save(contacts);
+            let createdBy = null;
+            if (payload.createdBy) {
+                createdBy = await this.userRepository.findOne({ where: { id: payload.createdBy } });
+            }
+            let services = [];
+            if (payload.serviceIds && payload.serviceIds.length > 0) {
+                services = await this.serviceRepository.find({ where: { id: (0, typeorm_2.In)(payload.serviceIds) } });
+            }
+            const lead = this.leadRepository.create({
+                enquiryId,
+                enquiryReference: payload.enquiryReference,
+                source: payload.source,
+                sourceDescription: payload.sourceDescription,
+                status: payload.status || salesConstants_1.LEAD_STATUS.NEW,
+                notes: payload.notes,
+                isDraft: payload.isDraft || false,
+                customer,
+                createdBy,
+            });
+            const savedLead = await this.leadRepository.save(lead);
+            if (services.length > 0) {
+                const leadServices = services.map(service => this.leadServiceEntityRepository.create({
+                    lead: savedLead,
+                    service: service
+                }));
+                await this.leadServiceEntityRepository.save(leadServices);
+            }
+            return savedLead;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getLeads() {
+        try {
+            return await this.leadRepository.find({ relations: ['customer', 'leadServices', 'leadServices.service'] });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getServices() {
+        try {
+            return await this.serviceRepository.find({ where: { isActive: true } });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getLeadById(id) {
+        try {
+            const lead = await this.leadRepository.findOne({ where: { id }, relations: ['customer', 'leadServices', 'leadServices.service'] });
+            if (!lead) {
+                throw new common_1.NotFoundException('Lead not found');
+            }
+            return lead;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateLead(id, payload) {
+        try {
+            const lead = await this.leadRepository.findOne({ where: { id }, relations: ['leadServices'] });
+            if (!lead) {
+                throw new common_1.NotFoundException('Lead not found');
+            }
+            const { serviceIds, ...updateData } = payload;
+            if (serviceIds) {
+                // Remove existing lead services - strategy: delete all and recreate
+                await this.leadServiceEntityRepository.delete({ lead: { id: lead.id } });
+                const services = await this.serviceRepository.find({ where: { id: (0, typeorm_2.In)(serviceIds) } });
+                const leadServices = services.map(service => this.leadServiceEntityRepository.create({
+                    lead: lead,
+                    service: service
+                }));
+                await this.leadServiceEntityRepository.save(leadServices);
+            }
+            Object.assign(lead, updateData);
+            return await this.leadRepository.save(lead);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async searchCustomers(name) {
+        try {
+            if (!name) {
+                return [];
+            }
+            return await this.customerRepository.find({ where: { name: (0, typeorm_2.Like)(`%${name}%`) }, order: { name: 'ASC' } });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async createService(payload) {
+        try {
+            const service = this.serviceRepository.create(payload);
+            return await this.serviceRepository.save(service);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateService(id, payload) {
+        try {
+            const service = await this.serviceRepository.findOne({ where: { id } });
+            if (!service) {
+                throw new common_1.NotFoundException('Service not found');
+            }
+            Object.assign(service, payload);
+            return await this.serviceRepository.save(service);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+};
+exports.LeadService = LeadService;
+exports.LeadService = LeadService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(lead_entity_1.Lead)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(customer_entity_1.Customer)),
+    tslib_1.__param(2, (0, typeorm_1.InjectRepository)(customerAddress_entity_1.CustomerAddress)),
+    tslib_1.__param(3, (0, typeorm_1.InjectRepository)(customerContact_entity_1.CustomerContact)),
+    tslib_1.__param(4, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
+    tslib_1.__param(5, (0, typeorm_1.InjectRepository)(service_master_entity_1.ServiceMaster)),
+    tslib_1.__param(6, (0, typeorm_1.InjectRepository)(lead_service_entity_1.LeadService)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _c : Object, typeof (_d = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _d : Object, typeof (_e = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _e : Object, typeof (_f = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _f : Object, typeof (_g = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _g : Object])
+], LeadService);
+
+
+/***/ }),
+/* 133 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserManagementModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const src_1 = __webpack_require__(86);
+const systemModule_entity_1 = __webpack_require__(22);
+const user_management_controller_1 = __webpack_require__(134);
+const user_management_service_1 = __webpack_require__(135);
+const user_repository_1 = __webpack_require__(70);
+let UserManagementModule = class UserManagementModule {
+};
+exports.UserManagementModule = UserManagementModule;
+exports.UserManagementModule = UserManagementModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([src_1.User, systemModule_entity_1.SystemModule, src_1.Department, src_1.Team, src_1.LoginSession])],
+        controllers: [user_management_controller_1.UserManagementController],
+        providers: [user_management_service_1.UserManagementService, user_repository_1.UserRepository],
+    })
+], UserManagementModule);
+
+
+/***/ }),
+/* 134 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserManagementController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const authenticated_request_interface_1 = __webpack_require__(114);
+const user_management_service_1 = __webpack_require__(135);
+const jwt_auth_guard_1 = __webpack_require__(98);
+const module_access_guard_1 = __webpack_require__(100);
+const permission_access_guard_1 = __webpack_require__(122);
+const module_access_decorator_1 = __webpack_require__(101);
+const permission_access_decorator_1 = __webpack_require__(123);
+const moduleConstants_1 = __webpack_require__(124);
+const userContants_1 = __webpack_require__(16);
+const permissionManagerConstants_1 = __webpack_require__(20);
+const user_management_dto_1 = __webpack_require__(112);
+let UserManagementController = class UserManagementController {
+    constructor(svc) {
+        this.svc = svc;
+    }
+    async listUsers() {
+        return this.svc.listUsers();
+    }
+    async getUser(id) {
+        return this.svc.getUser(Number(id));
+    }
+    async createUser(req, body) {
+        const actor = req.user;
+        // Keep Super Admin / Admin check if it's a hard requirement, or rely on permissions. 
+        // Usually Super Admin has all permissions, but explicit check is safer if permissions aren't set up for SA.
+        if (![userContants_1.USER_GROUP.SUPER_ADMIN, userContants_1.USER_GROUP.ADMIN].includes(actor.user_group)) {
+            // If we want to rely solely on permissions, we might remove this. 
+            // But let's keep it as an additional safeguard or for legacy reasons if permissions are empty.
+            // However, PermissionAccessGuard will throw if no permission record found.
+        }
+        return this.svc.createUser(body, actor.id);
+    }
+    async updateUser(req, id, body) {
+        const actor = req.user;
+        return this.svc.updateUser(Number(id), body, actor.id);
+    }
+    async assignModules(req, id, body) {
+        // const actor = req.user;
+        return this.svc.assignModules(Number(id), body.modules);
+    }
+};
+exports.UserManagementController = UserManagementController;
+tslib_1.__decorate([
+    (0, common_1.Get)('users'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserManagementController.prototype, "listUsers", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('users/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Param)('id')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserManagementController.prototype, "getUser", null);
+tslib_1.__decorate([
+    (0, common_1.Post)('add-user'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Req)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_b = typeof authenticated_request_interface_1.AuthenticatedRequest !== "undefined" && authenticated_request_interface_1.AuthenticatedRequest) === "function" ? _b : Object, typeof (_c = typeof user_management_dto_1.CreateUserDto !== "undefined" && user_management_dto_1.CreateUserDto) === "function" ? _c : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserManagementController.prototype, "createUser", null);
+tslib_1.__decorate([
+    (0, common_1.Put)('users/:id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Req)()),
+    tslib_1.__param(1, (0, common_1.Param)('id')),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_d = typeof authenticated_request_interface_1.AuthenticatedRequest !== "undefined" && authenticated_request_interface_1.AuthenticatedRequest) === "function" ? _d : Object, Number, typeof (_e = typeof user_management_dto_1.UpdateUserDto !== "undefined" && user_management_dto_1.UpdateUserDto) === "function" ? _e : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserManagementController.prototype, "updateUser", null);
+tslib_1.__decorate([
+    (0, common_1.Post)('users/:id/modules'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Req)()),
+    tslib_1.__param(1, (0, common_1.Param)('id')),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_f = typeof authenticated_request_interface_1.AuthenticatedRequest !== "undefined" && authenticated_request_interface_1.AuthenticatedRequest) === "function" ? _f : Object, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserManagementController.prototype, "assignModules", null);
+exports.UserManagementController = UserManagementController = tslib_1.__decorate([
+    (0, common_1.Controller)('user'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, module_access_guard_1.ModuleAccessGuard, permission_access_guard_1.PermissionAccessGuard),
+    (0, module_access_decorator_1.ModuleAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.USER_MANAGEMENT),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof user_management_service_1.UserManagementService !== "undefined" && user_management_service_1.UserManagementService) === "function" ? _a : Object])
+], UserManagementController);
+
+
+/***/ }),
+/* 135 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserManagementService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+const user_repository_1 = __webpack_require__(70);
+const userContants_1 = __webpack_require__(16);
+const bcryptUtil_1 = __webpack_require__(106);
+let UserManagementService = class UserManagementService {
+    constructor(userRepo, moduleRepo, deptRepo, teamRepo, userService) {
+        this.userRepo = userRepo;
+        this.moduleRepo = moduleRepo;
+        this.deptRepo = deptRepo;
+        this.teamRepo = teamRepo;
+        this.userService = userService;
+    }
+    async listUsers() {
+        return this.userRepo.find({ relations: ['permission', 'modules', 'departments'] });
+    }
+    async getUser(id) {
+        const u = await this.userRepo.findOne({ where: { id }, relations: ['permission', 'modules', 'departments'] });
+        if (!u)
+            throw new common_1.NotFoundException('User not found');
+        return u;
+    }
+    async createUser(payload, addedBy) {
+        const { modules, departments, teams, role, password, ...rest } = payload;
+        let hashedPassword = undefined;
+        if (password) {
+            hashedPassword = await (0, bcryptUtil_1.generatePasswordHash)(password);
+        }
+        // basic create user
+        const id = await this.userService.addOrUpdateUser({
+            ...rest,
+            password: hashedPassword,
+            roleName: role || 'User',
+            user_group: rest.user_group || userContants_1.USER_GROUP.USER,
+            addedBy,
+        });
+        if (!id)
+            throw new Error('Unable to create user');
+        // Assign relations if provided
+        if (modules && modules.length > 0)
+            await this.assignModules(id, modules);
+        if (departments && departments.length > 0)
+            await this.assignDepartments(id, departments);
+        if (teams && teams.length > 0)
+            await this.assignTeams(id, teams);
+        return this.getUser(id);
+    }
+    async updateUser(id, payload, updatedBy) {
+        const { modules, departments, teams, role, ...rest } = payload;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const updateData = { ...rest, id, addedBy: updatedBy };
+        if (role)
+            updateData.roleName = role;
+        await this.userService.addOrUpdateUser(updateData);
+        if (modules)
+            await this.assignModules(id, modules);
+        if (departments)
+            await this.assignDepartments(id, departments);
+        if (teams)
+            await this.assignTeams(id, teams);
+        return this.getUser(id);
+    }
+    async assignModules(userId, moduleIds) {
+        const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['modules'] });
+        if (!user)
+            throw new common_1.NotFoundException('User not found');
+        const modules = await this.moduleRepo.find({ where: { id: (0, typeorm_2.In)(moduleIds || []) } });
+        user.modules = modules;
+        await this.userRepo.save(user);
+        return { success: true };
+    }
+    async assignDepartments(userId, deptIds) {
+        const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['departments'] });
+        if (!user)
+            throw new common_1.NotFoundException('User not found');
+        const depts = await this.deptRepo.find({ where: { id: (0, typeorm_2.In)(deptIds || []) } });
+        user.departments = depts;
+        await this.userRepo.save(user);
+        return { success: true };
+    }
+    async assignTeams(userId, teamIds) {
+        const user = await this.userRepo.findOne({ where: { id: userId }, relations: ['teams'] });
+        if (!user)
+            throw new common_1.NotFoundException('User not found');
+        const teams = await this.teamRepo.find({ where: { id: (0, typeorm_2.In)(teamIds || []) } });
+        user.teams = teams;
+        await this.userRepo.save(user);
+        return { success: true };
+    }
+};
+exports.UserManagementService = UserManagementService;
+exports.UserManagementService = UserManagementService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.User)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.SystemModule)),
+    tslib_1.__param(2, (0, typeorm_1.InjectRepository)(src_1.Department)),
+    tslib_1.__param(3, (0, typeorm_1.InjectRepository)(src_1.Team)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _c : Object, typeof (_d = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _d : Object, typeof (_e = typeof user_repository_1.UserRepository !== "undefined" && user_repository_1.UserRepository) === "function" ? _e : Object])
+], UserManagementService);
+
+
+/***/ }),
+/* 136 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TeamModule = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const team_service_1 = __webpack_require__(137);
+const team_controller_1 = __webpack_require__(138);
+const src_1 = __webpack_require__(86);
+const response_handler_module_1 = __webpack_require__(83);
+let TeamModule = class TeamModule {
+};
+exports.TeamModule = TeamModule;
+exports.TeamModule = TeamModule = tslib_1.__decorate([
+    (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([src_1.Team, src_1.Department, src_1.User, src_1.LoginSession]),
+            src_1.DBModule,
+            response_handler_module_1.ResponseHandlerModule
+        ],
+        controllers: [team_controller_1.TeamController],
+        providers: [team_service_1.TeamService],
+        exports: [team_service_1.TeamService],
+    })
+], TeamModule);
+
+
+/***/ }),
+/* 137 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TeamService = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const typeorm_1 = __webpack_require__(11);
+const typeorm_2 = __webpack_require__(14);
+const src_1 = __webpack_require__(86);
+let TeamService = class TeamService {
+    constructor(teamRepository, departmentRepository, userRepository) {
+        this.teamRepository = teamRepository;
+        this.departmentRepository = departmentRepository;
+        this.userRepository = userRepository;
+    }
+    async createTeam(payload) {
+        try {
+            // Validate Department
+            const department = await this.departmentRepository.findOne({ where: { id: Number(payload.departmentId) } });
+            if (!department) {
+                throw new common_1.NotFoundException('Department not found');
+            }
+            // Validate Team Lead if provided
+            if (payload.teamLeadId) {
+                const lead = await this.userRepository.findOne({ where: { id: Number(payload.teamLeadId) } });
+                if (!lead) {
+                    throw new common_1.NotFoundException('Team Lead user not found');
+                }
+            }
+            const team = this.teamRepository.create(payload);
+            return await this.teamRepository.save(team);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getTeams() {
+        try {
+            return await this.teamRepository.find({
+                relations: ['department', 'teamLead', 'members'],
+                order: { name: 'ASC' }
+            });
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async getTeamById(id) {
+        try {
+            const team = await this.teamRepository.findOne({
+                where: { id },
+                relations: ['department', 'teamLead', 'members']
+            });
+            if (!team) {
+                throw new common_1.NotFoundException('Team not found');
+            }
+            return team;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async updateTeam(id, payload) {
+        try {
+            const existing = await this.teamRepository.findOne({ where: { id } });
+            if (!existing) {
+                throw new common_1.NotFoundException('Team not found');
+            }
+            if (payload.departmentId) {
+                const department = await this.departmentRepository.findOne({ where: { id: Number(payload.departmentId) } });
+                if (!department) {
+                    throw new common_1.NotFoundException('Department not found');
+                }
+            }
+            await this.teamRepository.update({ id }, payload);
+            return await this.getTeamById(id);
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+    async deleteTeam(id) {
+        try {
+            const result = await this.teamRepository.delete(id);
+            if (result.affected === 0) {
+                throw new common_1.NotFoundException('Team not found');
+            }
+            return { success: true };
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error.message);
+        }
+    }
+};
+exports.TeamService = TeamService;
+exports.TeamService = TeamService = tslib_1.__decorate([
+    (0, common_1.Injectable)(),
+    tslib_1.__param(0, (0, typeorm_1.InjectRepository)(src_1.Team)),
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(src_1.Department)),
+    tslib_1.__param(2, (0, typeorm_1.InjectRepository)(src_1.User)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _c : Object])
+], TeamService);
+
+
+/***/ }),
+/* 138 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TeamController = void 0;
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const express_1 = __webpack_require__(93);
+const response_handler_service_1 = __webpack_require__(84);
+const team_dto_1 = __webpack_require__(139);
+const team_service_1 = __webpack_require__(137);
+const src_1 = __webpack_require__(96);
+const permission_access_guard_1 = __webpack_require__(122);
+const permission_access_decorator_1 = __webpack_require__(123);
+const moduleConstants_1 = __webpack_require__(124);
+const permissionManagerConstants_1 = __webpack_require__(20);
+let TeamController = class TeamController {
+    constructor(teamService, responseHandler) {
+        this.teamService = teamService;
+        this.responseHandler = responseHandler;
+    }
+    async createTeam(res, payload) {
+        try {
+            const team = await this.teamService.createTeam(payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Team created successfully', data: team });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getTeams(res) {
+        try {
+            const teams = await this.teamService.getTeams();
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Teams fetched successfully', data: teams });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async getTeamById(res, id) {
+        try {
+            const team = await this.teamService.getTeamById(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Team fetched successfully', data: team });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async updateTeam(res, id, payload) {
+        try {
+            const team = await this.teamService.updateTeam(id, payload);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Team updated successfully', data: team });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+    async deleteTeam(res, id) {
+        try {
+            const result = await this.teamService.deleteTeam(id);
+            return this.responseHandler.sendSuccessResponse(res, { message: 'Team deleted successfully', data: result });
+        }
+        catch (error) {
+            return this.responseHandler.sendErrorResponse(res, error);
+        }
+    }
+};
+exports.TeamController = TeamController;
+tslib_1.__decorate([
+    (0, common_1.Post)('/create'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.ADD),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_c = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _c : Object, typeof (_d = typeof team_dto_1.CreateTeamDto !== "undefined" && team_dto_1.CreateTeamDto) === "function" ? _d : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TeamController.prototype, "createTeam", null);
+tslib_1.__decorate([
+    (0, common_1.Get)('/list'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _e : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TeamController.prototype, "getTeams", null);
+tslib_1.__decorate([
+    (0, common_1.Get)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.READ),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_f = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _f : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TeamController.prototype, "getTeamById", null);
+tslib_1.__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.UPDATE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__param(2, (0, common_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_g = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _g : Object, Number, typeof (_h = typeof team_dto_1.UpdateTeamDto !== "undefined" && team_dto_1.UpdateTeamDto) === "function" ? _h : Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TeamController.prototype, "updateTeam", null);
+tslib_1.__decorate([
+    (0, common_1.Delete)(':id'),
+    (0, permission_access_decorator_1.PermissionAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION, permissionManagerConstants_1.PERMISSIONS.DELETE),
+    tslib_1.__param(0, (0, common_1.Res)()),
+    tslib_1.__param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [typeof (_j = typeof express_1.Response !== "undefined" && express_1.Response) === "function" ? _j : Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TeamController.prototype, "deleteTeam", null);
+exports.TeamController = TeamController = tslib_1.__decorate([
+    (0, common_1.Controller)('teams'),
+    (0, common_1.UseGuards)(src_1.JwtAuthGuard, src_1.ModuleAccessGuard, permission_access_guard_1.PermissionAccessGuard),
+    (0, src_1.ModuleAccess)(moduleConstants_1.SYSTEM_MODULE_CODES.SYSTEM_CONFIGURATION),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true })),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof team_service_1.TeamService !== "undefined" && team_service_1.TeamService) === "function" ? _a : Object, typeof (_b = typeof response_handler_service_1.ResponseHandlerService !== "undefined" && response_handler_service_1.ResponseHandlerService) === "function" ? _b : Object])
+], TeamController);
+
+
+/***/ }),
+/* 139 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateTeamDto = exports.CreateTeamDto = void 0;
+const tslib_1 = __webpack_require__(4);
+const class_validator_1 = __webpack_require__(17);
+class CreateTeamDto {
+}
+exports.CreateTeamDto = CreateTeamDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateTeamDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], CreateTeamDto.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateTeamDto.prototype, "departmentId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateTeamDto.prototype, "teamLeadId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], CreateTeamDto.prototype, "active", void 0);
+class UpdateTeamDto {
+}
+exports.UpdateTeamDto = UpdateTeamDto;
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateTeamDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateTeamDto.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateTeamDto.prototype, "departmentId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateTeamDto.prototype, "teamLeadId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    tslib_1.__metadata("design:type", Boolean)
+], UpdateTeamDto.prototype, "active", void 0);
+
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+var exports = __webpack_exports__;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const common_1 = __webpack_require__(1);
+const core_1 = __webpack_require__(2);
+const app_module_1 = __webpack_require__(3);
+const config_service_1 = __webpack_require__(6);
+async function bootstrap() {
+    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    // Load environment configuration
+    const config = new config_service_1.ConfigService();
+    config.loadFromEnv();
+    // const corsOrigins = (process.env.CORS_ORIGINS || '').split(',');
+    // app.enableCors({
+    //   origin: corsOrigins.length > 0 ? corsOrigins : true, // Default to true if no CORS_ORIGINS are defined
+    //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    //   allowedHeaders: ['Content-Type', 'authorisation', 'ngrok-skip-browser-warning'],
+    //   credentials: true,
+    // });
+    const corsOrigins = process.env.CORS_ORIGINS
+        ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+        : [];
+    console.log('CORS Origins Inside Master Management Module:', corsOrigins);
+    // NEW:
+    app.enableCors({
+        origin: (origin, callback) => {
+            // Allow non-browser requests (Postman, server-to-server)
+            if (!origin)
+                return callback(null, true);
+            // If no origins defined in .env, allow all (useful for local development)
+            if (corsOrigins.length === 0) {
+                return callback(null, true);
+            }
+            if (corsOrigins.includes(origin) || origin.startsWith('http://localhost')) {
+                return callback(null, true);
+            }
+            return callback(new Error(`CORS blocked for origin: ${origin}`), false);
+        },
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+        allowedHeaders: [
+            'Content-Type',
+            'Authorization',
+            'authorization',
+            'authorisation',
+            'Accept',
+            'ngrok-skip-browser-warning',
+        ],
+        credentials: true,
+    });
+    const globalPrefix = 'api';
+    app.setGlobalPrefix(globalPrefix);
+    app.useGlobalPipes(new common_1.ValidationPipe({
+        whitelist: true,
+        transform: true,
+        transformOptions: {
+            enableImplicitConversion: true,
+        },
+        exceptionFactory: (validationErrors = []) => {
+            let msg = '';
+            for (const error of validationErrors) {
+                msg += `Invalid ${error.property} - ${Object.values(error.constraints || {}).join(', ')}, `;
+            }
+            return new common_1.BadRequestException(msg.trim());
+        },
+    }));
+    const port = parseInt(process.env.MASTER_MANAGEMENT_PORT || '8085', 10);
+    await app.listen(port);
+    // Log application status
+    common_1.Logger.log(`🚀 Application is running at http://localhost:${port}/${globalPrefix}`);
+}
+bootstrap();
+
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=main.js.map

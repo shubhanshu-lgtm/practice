@@ -1,0 +1,339 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 490 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (aeaa9f289353e6c6)
+[1m[31mDebugger listening on ws://localhost:9229/dd29f85e-8c4b-4325-8dc6-79c5d74585dd[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/dd29f85e-8c4b-4325-8dc6-79c5d74585dd[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 14536  - [39m[31m19/02/2026, 10:17:17 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationGuard (?). Please make sure that the argument TokenValidationMiddleware at index [0] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If TokenValidationMiddleware is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If TokenValidationMiddleware is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing TokenValidationMiddleware */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationGuard (?). Please make sure that the argument TokenValidationMiddleware at index [0] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If TokenValidationMiddleware is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If TokenValidationMiddleware is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing TokenValidationMiddleware */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 4)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 490 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9d4e4024fd0f6ab2)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 36848  - [39m[31m19/02/2026, 10:38:01 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 490 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7b63359299c885c5)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 32044  - [39m[31m19/02/2026, 10:38:17 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 491 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (adca377f8778ae63)
+[1m[31mDebugger listening on ws://localhost:9229/6967c50a-3370-479d-9d19-0f2cdf22b170[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/6967c50a-3370-479d-9d19-0f2cdf22b170[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 38536  - [39m[31m19/02/2026, 10:38:33 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 491 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (76f3833b65047bbd)
+[1m[31mDebugger listening on ws://localhost:9229/1e258848-a2a4-40a8-b5c7-c5a253f0ad37[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1e258848-a2a4-40a8-b5c7-c5a253f0ad37[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 48680  - [39m[31m19/02/2026, 10:40:52 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 491 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d80c2d96f5475dae)
+[1m[31mDebugger listening on ws://localhost:9229/fd8ada5a-8534-4d66-a5c5-dc93f31523cf[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/fd8ada5a-8534-4d66-a5c5-dc93f31523cf[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 46924  - [39m[31m19/02/2026, 10:46:09 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 491 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d65c4703011684d6)
+[1m[31mDebugger listening on ws://localhost:9229/8f091b86-72a2-4679-95d7-5f347a69e242[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 43176  - [39m[31m19/02/2026, 10:46:17 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationMiddleware (JwtService, ?, ResponseHandlerService). Please make sure that the argument LoginSessionRepository at index [1] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If LoginSessionRepository is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If LoginSessionRepository is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing LoginSessionRepository */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 1)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (050571292b1a3667)
+[1m[31mDebugger listening on ws://localhost:9229/7320e7df-0944-43cc-9608-ad1411dff30c[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/7320e7df-0944-43cc-9608-ad1411dff30c[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:21956) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ccbdd7667f198b99)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:35424) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ccbdd7667f198b99)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ccbdd7667f198b99)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:22148) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 22148  - [39m[31m19/02/2026, 11:39:05 am [31m  ERROR[39m[31m [38;5;3m[NestApplication] [39m[31m[31mError: listen EADDRINUSE: address already in use :::8094[39m[31m[38;5;3m +10ms[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: listen EADDRINUSE: address already in use :::8094[39m[22m
+[1m[31m    at Server.setupListenHandle [as _listen2] (node:net:1940:16)[39m[22m
+[1m[31m    at listenInCluster (node:net:1997:12)[39m[22m
+[1m[31m    at Server.listen (node:net:2102:7)[39m[22m
+[1m[31m    at ExpressAdapter.listen (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\platform-express\adapters\express-adapter.js:95:32)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\nest-application.js:183:30[39m[22m
+[1m[31m    at new Promise (<anonymous>)[39m[22m
+[1m[31m    at NestApplication.listen (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\nest-application.js:173:16)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at bootstrap (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\master-management\webpack:\src\main.ts:91:3)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 492 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ccbdd7667f198b99)

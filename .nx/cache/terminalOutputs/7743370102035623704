@@ -1,0 +1,88 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 497 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (40a246bb9938430f)
+[1m[31mDebugger listening on ws://localhost:9229/1f70ff24-7938-4f55-a829-9d8b52cc0f26[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1f70ff24-7938-4f55-a829-9d8b52cc0f26[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:48640) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:82[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'ServiceDeliverableDto[]'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m15:181[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/dtos/master_management/lead.dto"' has no exported member 'ServiceDeliverableDto'.
+  [0m [90m 13 |[39m [36mimport[39m { [33mServiceDeliverable[39m } [36mfrom[39m [32m'../../../../../libs/database/src/entities/service-deliverable.entity'[39m[33m;[39m
+   [90m 14 |[39m [36mimport[39m { [33mPermissionManager[39m } [36mfrom[39m [32m'../../../../../libs/database/src/entities/permissionManager.entity'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 15 |[39m [36mimport[39m { [33mCreateLeadDto[39m[33m,[39m [33mUpdateLeadDto[39m[33m,[39m [33mCreateServiceDto[39m[33m,[39m [33mUpdateServiceDto[39m[33m,[39m [33mCreatePermissionDto[39m[33m,[39m [33mGetPermissionDto[39m[33m,[39m [33mCreateDeliverableDto[39m[33m,[39m [33mUpdateDeliverableDto[39m[33m,[39m [33mGetServicesFilterDto[39m[33m,[39m [33mServiceDeliverableDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/lead.dto'[39m[33m;[39m
+   [90m    |[39m                                                                                                                                                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 16 |[39m [36mimport[39m { [33mLEAD_SOURCE[39m[33m,[39m [33mLEAD_STATUS[39m } [36mfrom[39m [32m'../../../../../libs/constants/salesConstants'[39m[33m;[39m
+   [90m 17 |[39m [36mimport[39m { [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m 18 |[39m [36mimport[39m { [33mSERVICE_TYPE[39m[33m,[39m [33mSERVICE_ACCESS_LEVEL[39m } [36mfrom[39m [32m'../../../../../libs/constants/serviceConstants'[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (4d2a0c5e614bc10b)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:82[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'ServiceDeliverableDto[]'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m515:81[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'ServiceDeliverableDto'. Did you mean 'ServiceDeliverable'?
+  [0m [90m 513 |[39m   }
+   [90m 514 |[39m
+  [31m[1m>[22m[39m[90m 515 |[39m   [36masync[39m assignServices(leadId[33m:[39m number[33m,[39m serviceIds[33m:[39m number[][33m,[39m deliverablesData[33m?[39m[33m:[39m [33mServiceDeliverableDto[39m[][33m,[39m actor[33m?[39m[33m:[39m [33mUser[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m     |[39m                                                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 516 |[39m     [36mtry[39m {
+   [90m 517 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m leadId }[33m,[39m relations[33m:[39m [[32m'leadServices'[39m[33m,[39m [32m'createdBy'[39m] })[33m;[39m
+   [90m 518 |[39m       [36mif[39m ([33m![39mlead [33m||[39m [33m![39mlead[33m.[39misActive) {[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (f4eefca233326f24)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m199:104[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'User' is not assignable to parameter of type 'string'.
+  [0m [90m 197 |[39m   ) {
+   [90m 198 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 199 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39massignServices(id[33m,[39m payload[33m.[39mserviceIds[33m,[39m payload[33m.[39mdeliverables[33m,[39m req[33m.[39muser)[33m;[39m
+   [90m     |[39m                                                                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 200 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Services assigned to lead successfully'[39m[33m,[39m data[33m:[39m lead })[33m;[39m
+   [90m 201 |[39m     } [36mcatch[39m (error) {
+   [90m 202 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (3091f924a93ef2d1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 496 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3da481b2d1526816)
+[1m[31mDebugger listening on ws://localhost:9229/68696850-5a40-47bf-be6f-15aaf6142c4d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/68696850-5a40-47bf-be6f-15aaf6142c4d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29664) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

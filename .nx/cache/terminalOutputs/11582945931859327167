@@ -1,0 +1,945 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (72fb447d1b0b459b)
+[1m[31mDebugger listening on ws://localhost:9229/10a0cbd8-b7ab-4da9-9ccd-f4846830d6f1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/10a0cbd8-b7ab-4da9-9ccd-f4846830d6f1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 20208  - [39m[31m06/02/2026, 9:49:05 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 4)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f32cabb1d3fef1ce)
+[1m[31mDebugger listening on ws://localhost:9229/cc8f41ab-944f-4a41-8613-756291cde48e[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/cc8f41ab-944f-4a41-8613-756291cde48e[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2d4e56f25b760207)
+[1m[31m[31m[Nest] 29516  - [39m[31m06/02/2026, 10:01:55 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 4)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+[1m[31mDebugger listening on ws://localhost:9229/9d34cff5-0424-4e82-80b1-fc1f47246418[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/9d34cff5-0424-4e82-80b1-fc1f47246418[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 43696  - [39m[31m06/02/2026, 10:01:57 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProposalItemRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 4)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m89:27[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Project>, plainObject?: DeepPartial<Project>): Project', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Project>, plainObjects?: DeepPartial<Project>[]): Project[]', gave the following error.
+    Argument of type '{ projectCode: string; name: string; department: Department; departmentId: string; lead: Lead; proposal: Proposal; startDate: Date; status: PROJECT_STATUS; }' is not assignable to parameter of type 'DeepPartial<Project>[]'.
+      Object literal may only specify known properties, and 'projectCode' does not exist in type 'DeepPartial<Project>[]'.
+  [0m [90m  87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m  88 |[39m           
+  [31m[1m>[22m[39m[90m  89 |[39m           [36mconst[39m project [33m=[39m manager[33m.[39mcreate([33mProject[39m[33m,[39m {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  90 |[39m             projectCode[33m:[39m projectCode[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  91 |[39m             name[33m:[39m [32m`${service.name} Project - ${lead.enquiryReference || lead.id}`[39m[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  92 |[39m             department[33m:[39m department[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  93 |[39m             departmentId[33m:[39m department[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  94 |[39m             lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  95 |[39m             proposal[33m:[39m proposal[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m             startDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m             status[33m:[39m [33mPROJECT_STATUS[39m[33m.[39m[33mPENDING[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m           })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m
+   [90m 100 |[39m           [36mconst[39m savedProject [33m=[39m [36mawait[39m manager[33m.[39msave([33mProject[39m[33m,[39m project)[33m;[39m
+   [90m 101 |[39m           createdProjects[33m.[39mpush(savedProject)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (c560299a44114bee)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m49:26[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: string; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 47 |[39m
+   [90m 48 |[39m       [90m// Create Acceptance[39m
+  [31m[1m>[22m[39m[90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+   [90m    |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 51 |[39m         leadId[33m:[39m proposal[33m.[39mleadId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 54 |[39m         poFileUrl[33m:[39m dto[33m.[39mpoFileUrl[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 55 |[39m         billingNameSameAsCustomer[33m:[39m dto[33m.[39mbillingNameSameAsCustomer[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         billToCompanyName[33m:[39m dto[33m.[39mbillToCompanyName[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 57 |[39m         billToAddress[33m:[39m dto[33m.[39mbillToAddress[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 58 |[39m         gstNumber[33m:[39m dto[33m.[39mgstNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 59 |[39m         billingEmailIds[33m:[39m dto[33m.[39mbillingEmailIds[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 60 |[39m         billingContactPerson[33m:[39m dto[33m.[39mbillingContactPerson[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 61 |[39m         raisedFromEntity[33m:[39m dto[33m.[39mraisedFromEntity
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 62 |[39m       })[33m;[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 63 |[39m       [36mconst[39m savedAcceptance [33m=[39m [36mawait[39m manager[33m.[39msave([33mProposalAcceptance[39m[33m,[39m acceptance)[33m;[39m
+   [90m 64 |[39m
+   [90m 65 |[39m       [90m// Update Proposal Status[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m89:27[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Project>, plainObject?: DeepPartial<Project>): Project', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Project>, plainObjects?: DeepPartial<Project>[]): Project[]', gave the following error.
+    Argument of type '{ projectCode: string; name: string; department: Department; departmentId: string; lead: Lead; proposal: Proposal; startDate: Date; status: PROJECT_STATUS; }' is not assignable to parameter of type 'DeepPartial<Project>[]'.
+      Object literal may only specify known properties, and 'projectCode' does not exist in type 'DeepPartial<Project>[]'.
+  [0m [90m  87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m  88 |[39m           
+  [31m[1m>[22m[39m[90m  89 |[39m           [36mconst[39m project [33m=[39m manager[33m.[39mcreate([33mProject[39m[33m,[39m {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  90 |[39m             projectCode[33m:[39m projectCode[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  91 |[39m             name[33m:[39m [32m`${service.name} Project - ${lead.enquiryReference || lead.id}`[39m[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  92 |[39m             department[33m:[39m department[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  93 |[39m             departmentId[33m:[39m department[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  94 |[39m             lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  95 |[39m             proposal[33m:[39m proposal[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m             startDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m             status[33m:[39m [33mPROJECT_STATUS[39m[33m.[39m[33mPENDING[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m           })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m
+   [90m 100 |[39m           [36mconst[39m savedProject [33m=[39m [36mawait[39m manager[33m.[39msave([33mProject[39m[33m,[39m project)[33m;[39m
+   [90m 101 |[39m           createdProjects[33m.[39mpush(savedProject)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: number; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (5b6764077daaf8cf)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m49:26[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: string; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 47 |[39m
+   [90m 48 |[39m       [90m// Create Acceptance[39m
+  [31m[1m>[22m[39m[90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+   [90m    |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 51 |[39m         leadId[33m:[39m proposal[33m.[39mleadId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 54 |[39m         poFileUrl[33m:[39m dto[33m.[39mpoFileUrl[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 55 |[39m         billingNameSameAsCustomer[33m:[39m dto[33m.[39mbillingNameSameAsCustomer[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         billToCompanyName[33m:[39m dto[33m.[39mbillToCompanyName[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 57 |[39m         billToAddress[33m:[39m dto[33m.[39mbillToAddress[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 58 |[39m         gstNumber[33m:[39m dto[33m.[39mgstNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 59 |[39m         billingEmailIds[33m:[39m dto[33m.[39mbillingEmailIds[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 60 |[39m         billingContactPerson[33m:[39m dto[33m.[39mbillingContactPerson[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 61 |[39m         raisedFromEntity[33m:[39m dto[33m.[39mraisedFromEntity
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 62 |[39m       })[33m;[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 63 |[39m       [36mconst[39m savedAcceptance [33m=[39m [36mawait[39m manager[33m.[39msave([33mProposalAcceptance[39m[33m,[39m acceptance)[33m;[39m
+   [90m 64 |[39m
+   [90m 65 |[39m       [90m// Update Proposal Status[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m89:27[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Project>, plainObject?: DeepPartial<Project>): Project', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Project>, plainObjects?: DeepPartial<Project>[]): Project[]', gave the following error.
+    Argument of type '{ projectCode: string; name: string; department: Department; departmentId: string; lead: Lead; proposal: Proposal; startDate: Date; status: PROJECT_STATUS; }' is not assignable to parameter of type 'DeepPartial<Project>[]'.
+      Object literal may only specify known properties, and 'projectCode' does not exist in type 'DeepPartial<Project>[]'.
+  [0m [90m  87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m  88 |[39m           
+  [31m[1m>[22m[39m[90m  89 |[39m           [36mconst[39m project [33m=[39m manager[33m.[39mcreate([33mProject[39m[33m,[39m {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  90 |[39m             projectCode[33m:[39m projectCode[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  91 |[39m             name[33m:[39m [32m`${service.name} Project - ${lead.enquiryReference || lead.id}`[39m[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  92 |[39m             department[33m:[39m department[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  93 |[39m             departmentId[33m:[39m department[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  94 |[39m             lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  95 |[39m             proposal[33m:[39m proposal[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m             startDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m             status[33m:[39m [33mPROJECT_STATUS[39m[33m.[39m[33mPENDING[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m           })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m
+   [90m 100 |[39m           [36mconst[39m savedProject [33m=[39m [36mawait[39m manager[33m.[39msave([33mProject[39m[33m,[39m project)[33m;[39m
+   [90m 101 |[39m           createdProjects[33m.[39mpush(savedProject)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: number; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m11 errors[39m[22m (a90777189c635ad4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m49:26[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: string; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 47 |[39m
+   [90m 48 |[39m       [90m// Create Acceptance[39m
+  [31m[1m>[22m[39m[90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+   [90m    |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 51 |[39m         leadId[33m:[39m proposal[33m.[39mleadId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 54 |[39m         poFileUrl[33m:[39m dto[33m.[39mpoFileUrl[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 55 |[39m         billingNameSameAsCustomer[33m:[39m dto[33m.[39mbillingNameSameAsCustomer[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         billToCompanyName[33m:[39m dto[33m.[39mbillToCompanyName[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 57 |[39m         billToAddress[33m:[39m dto[33m.[39mbillToAddress[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 58 |[39m         gstNumber[33m:[39m dto[33m.[39mgstNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 59 |[39m         billingEmailIds[33m:[39m dto[33m.[39mbillingEmailIds[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 60 |[39m         billingContactPerson[33m:[39m dto[33m.[39mbillingContactPerson[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 61 |[39m         raisedFromEntity[33m:[39m dto[33m.[39mraisedFromEntity
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 62 |[39m       })[33m;[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 63 |[39m       [36mconst[39m savedAcceptance [33m=[39m [36mawait[39m manager[33m.[39msave([33mProposalAcceptance[39m[33m,[39m acceptance)[33m;[39m
+   [90m 64 |[39m
+   [90m 65 |[39m       [90m// Update Proposal Status[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: number; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m10 errors[39m[22m (e174172fba3c0dd3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 198 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m49:26[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: string; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 47 |[39m
+   [90m 48 |[39m       [90m// Create Acceptance[39m
+  [31m[1m>[22m[39m[90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+   [90m    |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 51 |[39m         leadId[33m:[39m proposal[33m.[39mleadId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 54 |[39m         poFileUrl[33m:[39m dto[33m.[39mpoFileUrl[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 55 |[39m         billingNameSameAsCustomer[33m:[39m dto[33m.[39mbillingNameSameAsCustomer[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         billToCompanyName[33m:[39m dto[33m.[39mbillToCompanyName[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 57 |[39m         billToAddress[33m:[39m dto[33m.[39mbillToAddress[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 58 |[39m         gstNumber[33m:[39m dto[33m.[39mgstNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 59 |[39m         billingEmailIds[33m:[39m dto[33m.[39mbillingEmailIds[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 60 |[39m         billingContactPerson[33m:[39m dto[33m.[39mbillingContactPerson[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 61 |[39m         raisedFromEntity[33m:[39m dto[33m.[39mraisedFromEntity
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 62 |[39m       })[33m;[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 63 |[39m       [36mconst[39m savedAcceptance [33m=[39m [36mawait[39m manager[33m.[39msave([33mProposalAcceptance[39m[33m,[39m acceptance)[33m;[39m
+   [90m 64 |[39m
+   [90m 65 |[39m       [90m// Update Proposal Status[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: number; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m10 errors[39m[22m (f23364c11c9f41eb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 200 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m49:26[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: string; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 47 |[39m
+   [90m 48 |[39m       [90m// Create Acceptance[39m
+  [31m[1m>[22m[39m[90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+   [90m    |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 51 |[39m         leadId[33m:[39m proposal[33m.[39mleadId[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 54 |[39m         poFileUrl[33m:[39m dto[33m.[39mpoFileUrl[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 55 |[39m         billingNameSameAsCustomer[33m:[39m dto[33m.[39mbillingNameSameAsCustomer[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         billToCompanyName[33m:[39m dto[33m.[39mbillToCompanyName[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 57 |[39m         billToAddress[33m:[39m dto[33m.[39mbillToAddress[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 58 |[39m         gstNumber[33m:[39m dto[33m.[39mgstNumber[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 59 |[39m         billingEmailIds[33m:[39m dto[33m.[39mbillingEmailIds[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 60 |[39m         billingContactPerson[33m:[39m dto[33m.[39mbillingContactPerson[33m,[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 61 |[39m         raisedFromEntity[33m:[39m dto[33m.[39mraisedFromEntity
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 62 |[39m       })[33m;[39m
+   [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 63 |[39m       [36mconst[39m savedAcceptance [33m=[39m [36mawait[39m manager[33m.[39msave([33mProposalAcceptance[39m[33m,[39m acceptance)[33m;[39m
+   [90m 64 |[39m
+   [90m 65 |[39m       [90m// Update Proposal Status[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m84:46[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 82 |[39m         [36mconst[39m department [33m=[39m service[33m?[39m[33m.[39mdepartment[33m;[39m
+   [90m 83 |[39m
+  [31m[1m>[22m[39m[90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+   [90m    |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m85:29[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 83 |[39m
+   [90m 84 |[39m         [36mif[39m (department [33m&&[39m [33m![39mdepartmentIds[33m.[39mhas(department[33m.[39mid)) {
+  [31m[1m>[22m[39m[90m 85 |[39m           departmentIds[33m.[39madd(department[33m.[39mid)[33m;[39m
+   [90m    |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 86 |[39m
+   [90m 87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m 88 |[39m           [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m41:56[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 39 |[39m     [90m// From direct Department assignment[39m
+   [90m 40 |[39m     [36mif[39m (user[33m.[39mdepartments) {
+  [31m[1m>[22m[39m[90m 41 |[39m       user[33m.[39mdepartments[33m.[39mforEach(d [33m=>[39m allowedDeptIds[33m.[39madd(d[33m.[39mid))[33m;[39m
+   [90m    |[39m                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 42 |[39m     }
+   [90m 43 |[39m
+   [90m 44 |[39m     [90m// From Team membership[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/project/project.service.ts:[32m[1m51:30[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 49 |[39m       userTeams[33m.[39mforEach(t [33m=>[39m {
+   [90m 50 |[39m         [36mif[39m (t[33m.[39mdepartment) {
+  [31m[1m>[22m[39m[90m 51 |[39m           allowedDeptIds[33m.[39madd(t[33m.[39mdepartment[33m.[39mid)[33m;[39m
+   [90m    |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 52 |[39m         }
+   [90m 53 |[39m       })[33m;[39m
+   [90m 54 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: number; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'string | FindOperator<string>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m10 errors[39m[22m (241d5240b3e3acf9)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

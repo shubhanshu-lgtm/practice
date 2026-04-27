@@ -1,0 +1,1777 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.3.2",
+  "deps": {
+    "@aws-sdk/client-s3": "^3.864.0",
+    "@aws-sdk/s3-request-presigner": "^3.864.0",
+    "@nestjs/common": "^10.4.20",
+    "@nestjs/config": "^3.1.1",
+    "@nestjs/core": "^10.4.20",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mapped-types": "^2.1.0",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^10.4.20",
+    "@nestjs/typeorm": "^10.0.2",
+    "@types/aws-sdk": "^2.7.0",
+    "aws-sdk": "^2.1523.0",
+    "axios": "^1.0.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
+    "csv-parser": "^3.2.0",
+    "docx2pdf-converter": "^1.1.0",
+    "docxtemplater": "^3.42.5",
+    "dotenv": "^16.5.0",
+    "firebase-admin": "^12.2.0",
+    "google-auth-library": "^9.14.1",
+    "html-pdf": "^3.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.14.3",
+    "nodemailer": "^6.9.7",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1",
+    "paypal-rest-sdk": "^1.8.1",
+    "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.17.2",
+    "pg": "^8.16.0",
+    "pizzip": "^3.2.0",
+    "postgres": "^3.4.7",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.3.0",
+    "twilio": "^5.0.4",
+    "typeorm": "^0.3.28",
+    "uuid": "^9.0.1",
+    "xlsx": "^0.18.5",
+    "@nestjs/schematics": "^10.0.1",
+    "@nestjs/swagger": "^7.1.15",
+    "@nestjs/testing": "^10.0.2",
+    "@nx/eslint": "17.1.3",
+    "@nx/eslint-plugin": "17.1.3",
+    "@nx/jest": "17.1.3",
+    "@nx/js": "17.1.3",
+    "@nx/nest": "17.1.3",
+    "@nx/node": "17.1.3",
+    "@nx/webpack": "17.1.3",
+    "@nx/workspace": "17.1.3",
+    "@swc-node/register": "~1.6.7",
+    "@swc/core": "~1.3.85",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^4.17.23",
+    "@types/html-pdf-node": "^1.0.2",
+    "@types/jest": "^29.4.0",
+    "@types/jquery": "^3.5.33",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^2.0.0",
+    "@types/node": "~18.7.1",
+    "@types/nodemailer": "^6.4.14",
+    "@types/pdfkit": "^0.17.4",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "~8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "jest": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "nx": "^17.1.3",
+    "prettier": "^2.6.2",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~5.2.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "libs/database/src/entities/escalation-rule.entity.ts",
+        "hash": "8419309984455684775"
+      },
+      {
+        "file": "libs/templates/Logo_Blue.png",
+        "hash": "12238323676570016501"
+      },
+      {
+        "file": "libs/interfaces/authenticated-request.interface.ts",
+        "hash": "9318226977140866206"
+      },
+      {
+        "file": "libs/interfaces/authentication/updatePhone.interface.ts",
+        "hash": "12734057850072989215"
+      },
+      {
+        "file": "temp_1773315234080.pdf",
+        "hash": "4315779678849906720"
+      },
+      {
+        "file": "libs/database/src/repositories/user.repository.ts",
+        "hash": "52997135051779124"
+      },
+      {
+        "file": "libs/database/src/repositories/proposal-item.repository.ts",
+        "hash": "17856603081076061418"
+      },
+      {
+        "file": "libs/dtos/sales/create-proposal-with-services.dto.ts",
+        "hash": "2687190865524075165"
+      },
+      {
+        "file": "libs/templates/Proposal/USA Certification Divison Proposal - Copy.docx",
+        "hash": "5424852143833992242"
+      },
+      {
+        "file": "libs/templates/auditor-report.service.ts",
+        "hash": "11723720415332650839"
+      },
+      {
+        "file": "libs/templates/Proposal/India GRC Proposal.pdf",
+        "hash": "1569034977902434106"
+      },
+      {
+        "file": "OPMS_User_Module_Management.postman_collection.json",
+        "hash": "14796139291288112159"
+      },
+      {
+        "file": "libs/templates/__MACOSX/Proposal/._USA GRC PROPOSAL.docx",
+        "hash": "16613887992325988880"
+      },
+      {
+        "file": "libs/interfaces/authentication/OtpVerification.interface.ts",
+        "hash": "3767308417044865041"
+      },
+      {
+        "file": "libs/dtos/authentication/user.dto.ts",
+        "hash": "264721382632669005"
+      },
+      {
+        "file": "libs/dtos/authentication/forgotPassword.dto.ts",
+        "hash": "4030542556944123407"
+      },
+      {
+        "file": "nx.json",
+        "hash": "97794255958484609"
+      },
+      {
+        "file": "libs/templates/__MACOSX/Proposal/._India GRC Proposal.docx",
+        "hash": "7552012875660538534"
+      },
+      {
+        "file": "libs/database/src/entities/session.entity.ts",
+        "hash": "8348186832676824606"
+      },
+      {
+        "file": "temp_1773315421804.pdf",
+        "hash": "2732615590159103773"
+      },
+      {
+        "file": "libs/templates/Documentation for OPMS.pdf",
+        "hash": "14858769082779693524"
+      },
+      {
+        "file": "libs/constants/notificationConstant.ts",
+        "hash": "5105630839336682257"
+      },
+      {
+        "file": "README.md",
+        "hash": "7979435694584088797"
+      },
+      {
+        "file": "libs/constants/autenticationConstants/notificationConstant.ts",
+        "hash": "10909794772942870511"
+      },
+      {
+        "file": "InterCert_OPMS_Test_Collection.json",
+        "hash": "45570047407507943"
+      },
+      {
+        "file": "libs/database/src/repositories/index.ts",
+        "hash": "14157702209015312668"
+      },
+      {
+        "file": "libs/templates/Proposal/USA GRC PROPOSAL.docx",
+        "hash": "7837727937970842908"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "16448050467312557263"
+      },
+      {
+        "file": "ngrok.exe",
+        "hash": "11149741818067598524"
+      },
+      {
+        "file": "libs/constants/autenticationConstants/messageConstants.ts",
+        "hash": "10454734999717439781"
+      },
+      {
+        "file": "libs/interfaces/authentication/user.interface.ts",
+        "hash": "3314950989695835380"
+      },
+      {
+        "file": "libs/interfaces/customAuth.interface.ts",
+        "hash": "15541521671697215533"
+      },
+      {
+        "file": "temp_1773315178340.docx",
+        "hash": "11984820698898042361"
+      },
+      {
+        "file": "libs/database/src/database.service.ts",
+        "hash": "11797231752229143149"
+      },
+      {
+        "file": "libs/database/src/entities/lead-contact.entity.ts",
+        "hash": "13181895292502526164"
+      },
+      {
+        "file": "libs/dtos/auditor/contractAgreement.dto.ts",
+        "hash": "10557236065292011107"
+      },
+      {
+        "file": "libs/utils/slotValidation.ts",
+        "hash": "3796334684997038853"
+      },
+      {
+        "file": "libs/templates/Proposal/USA Certification Divison Proposal.pdf",
+        "hash": "12221283999714593252"
+      },
+      {
+        "file": "libs/dtos/sales/create-proposal.dto.ts",
+        "hash": "17298743923514124194"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "libs/dtos/auditor/auditorRegistrationSteps.dto.ts",
+        "hash": "5711227305481791473"
+      },
+      {
+        "file": "libs/database/src/entities/team.entity.ts",
+        "hash": "11644638392009240759"
+      },
+      {
+        "file": "libs/database/src/entities/task-type-master.entity.ts",
+        "hash": "11752262073789036941"
+      },
+      {
+        "file": "libs/database/src/repositories/loginSession.repository.ts",
+        "hash": "2043302024980123444"
+      },
+      {
+        "file": "database-migrations/add-service-deliverables.sql",
+        "hash": "12800813350948305340"
+      },
+      {
+        "file": "libs/config/config.service.spec.ts",
+        "hash": "5067595339138905363"
+      },
+      {
+        "file": "libs/database/src/entities/work-request.entity.ts",
+        "hash": "11964922208761805230"
+      },
+      {
+        "file": "libs/jwt-service/jwt.service.ts",
+        "hash": "4877958141645305512"
+      },
+      {
+        "file": "libs/database/src/entities/menu.entity.ts",
+        "hash": "18161023714957217538"
+      },
+      {
+        "file": "apps/tsconfig.json",
+        "hash": "11839471648794871169"
+      },
+      {
+        "file": "libs/S3-Service/main.ts",
+        "hash": "11383341866412278351"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/mail.interface.ts",
+        "hash": "2086820701127673067"
+      },
+      {
+        "file": "libs/database/src/entities/audit-log.entity.ts",
+        "hash": "8510181373869378635"
+      },
+      {
+        "file": "libs/response-handler/response-handler.service.ts",
+        "hash": "8190126692949180239"
+      },
+      {
+        "file": "libs/interfaces/authentication/socialLogin.interface.ts",
+        "hash": "6874906783856463293"
+      },
+      {
+        "file": "libs/templates/Proposal/India Certification Divison Proposal.pdf",
+        "hash": "7244998754117372285"
+      },
+      {
+        "file": "libs/dtos/authentication/address.dto.ts",
+        "hash": "13822024528155869362"
+      },
+      {
+        "file": "libs/database/src/entities/service-master.entity.ts",
+        "hash": "15209905861075257536"
+      },
+      {
+        "file": "temp_1773315234080.docx",
+        "hash": "7422547398724774777"
+      },
+      {
+        "file": "libs/database/src/repositories/session.repository.ts",
+        "hash": "17473673880267777768"
+      },
+      {
+        "file": "libs/interfaces/authentication/permissionManager.interface.ts",
+        "hash": "2250879001377175841"
+      },
+      {
+        "file": "libs/socialAuth/google.ts",
+        "hash": "14122788089966456591"
+      },
+      {
+        "file": "libs/interfaces/authentication/address.interface.ts",
+        "hash": "4722135920286059022"
+      },
+      {
+        "file": "libs/dtos/sales/lead-enquiry.dto.ts",
+        "hash": "1375774191568288954"
+      },
+      {
+        "file": "libs/utils/dateTimeUtils.ts",
+        "hash": "1268686245854178187"
+      },
+      {
+        "file": "libs/database/src/database.module.ts",
+        "hash": "9465583304468863958"
+      },
+      {
+        "file": "libs/dtos/master_management/education-area.dto.ts",
+        "hash": "10533959596388636855"
+      },
+      {
+        "file": "libs/database/src/entities/service-deliverable.entity.ts",
+        "hash": "3692908564487884072"
+      },
+      {
+        "file": "libs/auth/src/index.ts",
+        "hash": "9775832858940456788"
+      },
+      {
+        "file": "ProjectFlowGraph.md",
+        "hash": "4253576177903164619"
+      },
+      {
+        "file": "libs/config/config.module.ts",
+        "hash": "11924472029599159519"
+      },
+      {
+        "file": "libs/database/src/entities/designation.entity.ts",
+        "hash": "1369381592947646534"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "4779028444827712450"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "1482810769789930301"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "8278665120952369726"
+      },
+      {
+        "file": "libs/templates/Proposal Sample Dynamic Data Highlight Part.pdf",
+        "hash": "65620057454793741"
+      },
+      {
+        "file": ".zencoder/chats/0200a5e4-c0aa-495b-b547-a4e253a489f7/requirements.md",
+        "hash": "8868481294504125560"
+      },
+      {
+        "file": "libs/dtos/sales/update-lead-service.dto.ts",
+        "hash": "15701982732702182248"
+      },
+      {
+        "file": "libs/dtos/sales/create-closure.dto.ts",
+        "hash": "17704962876959527223"
+      },
+      {
+        "file": "libs/constants/autenticationConstants/permissionManagerConstants.ts",
+        "hash": "17467487887220522242"
+      },
+      {
+        "file": "libs/dtos/sales/invoice.dto.ts",
+        "hash": "11207253381266797419"
+      },
+      {
+        "file": "temp_1773315178340.pdf",
+        "hash": "8214186750504260698"
+      },
+      {
+        "file": "libs/database/src/entities/status-master.entity.ts",
+        "hash": "9800988006696026625"
+      },
+      {
+        "file": "libs/database/tsconfig.lib.json",
+        "hash": "9090927532513061014"
+      },
+      {
+        "file": "libs/templates/__MACOSX/Proposal/._USA Certification Divison Proposal - Copy.docx",
+        "hash": "7552930816733090540"
+      },
+      {
+        "file": "libs/fonts/timesNewRoman.ttf",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/dtos/master_management/module_management.dto.ts",
+        "hash": "12033406942598807298"
+      },
+      {
+        "file": "scripts/inspect-pdf.ts",
+        "hash": "6656172662789593898"
+      },
+      {
+        "file": "libs/database/src/entities/document-type-master.entity.ts",
+        "hash": "17645627500880528819"
+      },
+      {
+        "file": "libs/utils/Application Overview.txt",
+        "hash": "4844668368152080565"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/apiResponse.interface.ts",
+        "hash": "8282285863716155986"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "12574420448619766820"
+      },
+      {
+        "file": "libs/auth/src/module-access.decorator.ts",
+        "hash": "764030069516631075"
+      },
+      {
+        "file": "libs/database/src/entities/document-classification.entity.ts",
+        "hash": "1239814997960117799"
+      },
+      {
+        "file": "libs/utils/basicUtils.ts",
+        "hash": "669721247424597038"
+      },
+      {
+        "file": "libs/interfaces/auditor/auditor.interface.ts",
+        "hash": "5710064779962485295"
+      },
+      {
+        "file": "libs/database/src/entities/department.entity.ts",
+        "hash": "15847149592999393164"
+      },
+      {
+        "file": "libs/S3-Service/s3File.service.ts",
+        "hash": "13859224172427050964"
+      },
+      {
+        "file": "libs/templates/Proposal/USA GRC PROPOSAL.pdf",
+        "hash": "7382565983492180577"
+      },
+      {
+        "file": "libs/database/src/entities/customerContact.entity.ts",
+        "hash": "16066960556427144314"
+      },
+      {
+        "file": "libs/dtos/master_management/lead.dto.ts",
+        "hash": "2250861340953224725"
+      },
+      {
+        "file": "libs/interfaces/authentication/admin.interface.ts",
+        "hash": "12812085673148102096"
+      },
+      {
+        "file": "libs/templates/Application Overview .pdf",
+        "hash": "9748611720717091735"
+      },
+      {
+        "file": "libs/database/src/repositories/leadService.repository.ts",
+        "hash": "9005811484329902734"
+      },
+      {
+        "file": "libs/database/src/entities/work-request-type.entity.ts",
+        "hash": "4824254684638989071"
+      },
+      {
+        "file": "libs/dtos/authentication/updateEmail.dto.ts",
+        "hash": "14207852611964411802"
+      },
+      {
+        "file": "libs/constants/commonConstants.ts",
+        "hash": "12071365281681680444"
+      },
+      {
+        "file": "libs/database/src/entities/lead-address.entity.ts",
+        "hash": "14891554193927228395"
+      },
+      {
+        "file": "scripts/extract-docx-tags.ts",
+        "hash": "6866595804512041327"
+      },
+      {
+        "file": "scripts/verify-access.ts",
+        "hash": "1041614271599291495"
+      },
+      {
+        "file": "libs/constants/moduleConstants.ts",
+        "hash": "10258161675702056862"
+      },
+      {
+        "file": "libs/dtos/master_management/user_management.dto.ts",
+        "hash": "15067181708186952007"
+      },
+      {
+        "file": "libs/interfaces/jwtPayload.interface.ts",
+        "hash": "7479913319967056558"
+      },
+      {
+        "file": "libs/templates/__MACOSX/Proposal/._India Certification Divison Proposal.docx",
+        "hash": "1585783029617592389"
+      },
+      {
+        "file": "libs/templates/Documentation for OPMS.txt",
+        "hash": "4785104438677138085"
+      },
+      {
+        "file": "libs/database/src/entities/proposal.entity.ts",
+        "hash": "6824068306141412175"
+      },
+      {
+        "file": "libs/templates/Proposal Sample.pdf",
+        "hash": "279659200235269778"
+      },
+      {
+        "file": "apps/tsconfig.spec.json",
+        "hash": "16208109009995934986"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "8095177817384792417"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12215885760128645437"
+      },
+      {
+        "file": "libs/templates/Rounds Health_Business Proposal_ISO 27001, SOC 2 Type II, VAPT_202601U0040.docx",
+        "hash": "13884151650782525775"
+      },
+      {
+        "file": "apps/.eslintrc.json",
+        "hash": "12940253260264597587"
+      },
+      {
+        "file": "libs/templates/Proposal Acceptance – Detailed Form Specification.txt",
+        "hash": "3324072673463770423"
+      },
+      {
+        "file": "libs/database/src/entities/lead-enquiry.entity.ts",
+        "hash": "553544080508375519"
+      },
+      {
+        "file": "libs/interfaces/authentication/loginSession.interface.ts",
+        "hash": "12849026017023651740"
+      },
+      {
+        "file": "libs/constants/permissionManagerConstants.ts",
+        "hash": "17467487887220522242"
+      },
+      {
+        "file": "libs/interfaces/authentication/updateEmail.interface.ts",
+        "hash": "7538782568287334936"
+      },
+      {
+        "file": "libs/database/src/entities/notification-rule.entity.ts",
+        "hash": "16893002630997968225"
+      },
+      {
+        "file": "libs/request-handler/request-handler.service.ts",
+        "hash": "14857316948414570993"
+      },
+      {
+        "file": "libs/config/config.service.ts",
+        "hash": "328235063950116570"
+      },
+      {
+        "file": "AUTHENTICATION_TEST_PLAN.md",
+        "hash": "5707486581885013774"
+      },
+      {
+        "file": "libs/dtos/auditor/auditorManagement.dto.ts",
+        "hash": "17941428952219629352"
+      },
+      {
+        "file": "libs/database/src/repositories/project.repository.ts",
+        "hash": "3890714086648181270"
+      },
+      {
+        "file": "libs/database/src/repositories/proposal-payment-term.repository.ts",
+        "hash": "14658230268251891135"
+      },
+      {
+        "file": "postman_collection.json",
+        "hash": "8407561151426288169"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "libs/database/src/entities/company.entity.ts",
+        "hash": "48825236338056079"
+      },
+      {
+        "file": "libs/middlewares/authMiddleware.ts",
+        "hash": "16762648186608282003"
+      },
+      {
+        "file": "libs/database/src/entities/Nationalities.ts",
+        "hash": "5943079440199577638"
+      },
+      {
+        "file": "libs/database/src/entities/priority-master.entity.ts",
+        "hash": "3345672224358172786"
+      },
+      {
+        "file": "libs/database/src/entities/Countries.ts",
+        "hash": "1820543420834960913"
+      },
+      {
+        "file": "libs/utils/bcryptUtil.ts",
+        "hash": "3554369731824035525"
+      },
+      {
+        "file": "libs/middlewares/middlewares.module.ts",
+        "hash": "4131325969276736757"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "1315153935781618895"
+      },
+      {
+        "file": "libs/templates/Proposal/India Certification Divison Proposal.docx",
+        "hash": "17052131108111043820"
+      },
+      {
+        "file": "libs/auth/src/permission-access.guard.ts",
+        "hash": "17024406398556138101"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "1345634428347139910"
+      },
+      {
+        "file": "libs/Documentation for OPMS.docx",
+        "hash": "12584693248018122077"
+      },
+      {
+        "file": "libs/database/src/repositories/team.repository.ts",
+        "hash": "15238400400706979786"
+      },
+      {
+        "file": "libs/database/src/entities/lead-followup.entity.ts",
+        "hash": "18084874650374339387"
+      },
+      {
+        "file": "lead_postman_collection.json",
+        "hash": "4407437438738404793"
+      },
+      {
+        "file": "libs/interfaces/authentication/forgotPassword.interface.ts",
+        "hash": "1904776769420424476"
+      },
+      {
+        "file": "package.json",
+        "hash": "7344665871636701999"
+      },
+      {
+        "file": "libs/templates/Sidebar Concept (Single Source of Truth).txt",
+        "hash": "4683610725975615899"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/s3.interface.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "nest-cli.json",
+        "hash": "13594093089327550008"
+      },
+      {
+        "file": "libs/database/src/entities/States.ts",
+        "hash": "8361586658090536561"
+      },
+      {
+        "file": ".zencoder/chats/0200a5e4-c0aa-495b-b547-a4e253a489f7/plan.md",
+        "hash": "17727840267538680396"
+      },
+      {
+        "file": ".github/instructions/nx.instructions.md",
+        "hash": "16269930696124473293"
+      },
+      {
+        "file": "libs/auth/src/module-access.guard.ts",
+        "hash": "9807045569253359250"
+      },
+      {
+        "file": "libs/database/src/entities/activity-type-master.entity.ts",
+        "hash": "10434762155877383420"
+      },
+      {
+        "file": "libs/database/src/repositories/world-data.repository.ts",
+        "hash": "561537486348282384"
+      },
+      {
+        "file": "libs/database/src/entities/Cities.ts",
+        "hash": "11392617519777382692"
+      },
+      {
+        "file": "libs/templates/Application Overview.txt",
+        "hash": "4844668368152080565"
+      },
+      {
+        "file": "libs/email-service/email.service.ts",
+        "hash": "768831689315057555"
+      },
+      {
+        "file": "libs/S3-Service/s3.module.ts",
+        "hash": "4246735809105929226"
+      },
+      {
+        "file": "libs/database/src/entities/approval-status.entity.ts",
+        "hash": "5524411590713437658"
+      },
+      {
+        "file": "libs/database/src/entities/branch.entity.ts",
+        "hash": "3022602819467866736"
+      },
+      {
+        "file": "libs/database/src/repositories/systemModule.repository.ts",
+        "hash": "5652180438322830424"
+      },
+      {
+        "file": "libs/dtos/auditor/createAuditor.dto.ts",
+        "hash": "1470609459397727006"
+      },
+      {
+        "file": "Auth_Flow_Test.postman_collection.json",
+        "hash": "3535704912360849707"
+      },
+      {
+        "file": "libs/database/src/index.ts",
+        "hash": "9477571577734800796"
+      },
+      {
+        "file": "apps/webpack.config.js",
+        "hash": "12194962942703638746"
+      },
+      {
+        "file": "libs/auth/src/permission-access.decorator.ts",
+        "hash": "17560374390083365592"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "4185368808439573122"
+      },
+      {
+        "file": "libs/dtos/authentication/updatePhone.dto.ts",
+        "hash": "7959799788315824545"
+      },
+      {
+        "file": "libs/templates/Proposal&Closure Flow.pdf",
+        "hash": "14869788477077776435"
+      },
+      {
+        "file": "libs/dtos/auditor/user.dto.ts",
+        "hash": "13389540121635168841"
+      },
+      {
+        "file": "libs/auth/src/jwt-auth.guard.ts",
+        "hash": "13876737617000737153"
+      },
+      {
+        "file": "libs/database/src/entities/permissionManager.entity.ts",
+        "hash": "3218281717852521182"
+      },
+      {
+        "file": "libs/templates/Proposal/India GRC Proposal.docx",
+        "hash": "16640904572683251705"
+      },
+      {
+        "file": "libs/database/src/repositories/permissionManager.repository.ts",
+        "hash": "9374601842876099733"
+      },
+      {
+        "file": ".zencoder/chats/0200a5e4-c0aa-495b-b547-a4e253a489f7/spec.md",
+        "hash": "5927823517124631210"
+      },
+      {
+        "file": "libs/database/src/entities/proposal-payment-term.entity.ts",
+        "hash": "13173287752674695320"
+      },
+      {
+        "file": "libs/database/src/entities/proposal-item.entity.ts",
+        "hash": "14118894172889159679"
+      },
+      {
+        "file": "libs/database/src/repositories/proposal.repository.ts",
+        "hash": "9518546649857182481"
+      },
+      {
+        "file": "apps/jest.config.ts",
+        "hash": "4056071990169995631"
+      },
+      {
+        "file": "libs/database/src/repositories/department.repository.ts",
+        "hash": "16533496279062587350"
+      },
+      {
+        "file": "libs/database/src/entities/customerAddress.entity.ts",
+        "hash": "11698401610488507666"
+      },
+      {
+        "file": "libs/database/src/entities/index.ts",
+        "hash": "12114011476676362361"
+      },
+      {
+        "file": "libs/templates/USA Certification Divison Proposal.pdf",
+        "hash": "12221283999714593252"
+      },
+      {
+        "file": "libs/database/src/entities/customer.entity.ts",
+        "hash": "250048462885160610"
+      },
+      {
+        "file": "libs/dtos/auditor/enhanced-auditor-evaluator.ts",
+        "hash": "12768745953186912176"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/sms.interface.ts",
+        "hash": "283378621626525619"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/custom.interface.ts",
+        "hash": "1118759408072324988"
+      },
+      {
+        "file": "libs/database/src/repositories/proposal-acceptance.repository.ts",
+        "hash": "14321676789435755311"
+      },
+      {
+        "file": "libs/config/config.interface.ts",
+        "hash": "6744769998795625074"
+      },
+      {
+        "file": "libs/templates/pdf-template.service.ts",
+        "hash": "7173592422636593736"
+      },
+      {
+        "file": "libs/dtos/master_management/team.dto.ts",
+        "hash": "2622661336738110783"
+      },
+      {
+        "file": "libs/response-handler/response-handler.module.ts",
+        "hash": "6879101461707077007"
+      },
+      {
+        "file": "libs/utils/fileValidation.ts",
+        "hash": "17799112386394908055"
+      },
+      {
+        "file": "libs/templates/All steps.txt",
+        "hash": "5209488326559487134"
+      },
+      {
+        "file": "libs/templates/Service Details.txt",
+        "hash": "11805694699365130171"
+      },
+      {
+        "file": "libs/database/src/entities/proposal-acceptance.entity.ts",
+        "hash": "246536657664546099"
+      },
+      {
+        "file": "libs/interfaces/authentication/customAuth.interface.ts",
+        "hash": "4947298143702982563"
+      },
+      {
+        "file": "scripts/tsconfig.json",
+        "hash": "2151379381567010027"
+      },
+      {
+        "file": "libs/database/src/entities/lead-service.entity.ts",
+        "hash": "12377144631616065300"
+      },
+      {
+        "file": "libs/database/src/entities/approval-level.entity.ts",
+        "hash": "11008541258438831645"
+      },
+      {
+        "file": "libs/Application Overview .docx",
+        "hash": "12343015172868931300"
+      },
+      {
+        "file": "libs/database/src/entities/user.entity.ts",
+        "hash": "17332127351045041670"
+      },
+      {
+        "file": "libs/database/src/entities/project.entity.ts",
+        "hash": "14184717529142861750"
+      },
+      {
+        "file": "libs/database/src/repositories/lead.repository.ts",
+        "hash": "1321714400749730551"
+      },
+      {
+        "file": "libs/dtos/auditor/updateAuditor.dto.ts",
+        "hash": "16694581063153141683"
+      },
+      {
+        "file": "libs/templates/Add Proposal – Form Specification.txt",
+        "hash": "6852803643349055768"
+      },
+      {
+        "file": "temp_1773315421804.docx",
+        "hash": "12085404372956088352"
+      },
+      {
+        "file": "libs/auth/src/auth.module.ts",
+        "hash": "13488292616365955051"
+      },
+      {
+        "file": "libs/database/src/entities/systemModule.entity.ts",
+        "hash": "18425859834513745041"
+      },
+      {
+        "file": "libs/templates/proposal-3.pdf",
+        "hash": "16529382716722233445"
+      },
+      {
+        "file": "libs/database/src/entities/routing-rule.entity.ts",
+        "hash": "726305440513101264"
+      },
+      {
+        "file": "libs/S3-Service/s3VideoUpload.service.ts",
+        "hash": "14297347201347971535"
+      },
+      {
+        "file": "libs/database/src/entities/lead.entity.ts",
+        "hash": "4550503985852109529"
+      },
+      {
+        "file": "libs/database/src/entities/loginSession.entity.ts",
+        "hash": "1389840152211501278"
+      },
+      {
+        "file": "libs/dtos/authentication/admin.dto.ts",
+        "hash": "5215757552124402064"
+      },
+      {
+        "file": "libs/dtos/master_management/department.dto.ts",
+        "hash": "11890268560559579442"
+      },
+      {
+        "file": "libs/interfaces/authentication/addMember.interface.ts",
+        "hash": "14001960719468657227"
+      },
+      {
+        "file": "libs/constants/autenticationConstants/userContants.ts",
+        "hash": "13727350271531740095"
+      },
+      {
+        "file": "libs/config/config.default.ts",
+        "hash": "8689322273464177397"
+      },
+      {
+        "file": "libs/utils/fileValidationOptions.ts",
+        "hash": "1870860141679192929"
+      },
+      {
+        "file": "libs/middlewares/authMiddleware.guard.ts",
+        "hash": "3078560070087637795"
+      },
+      {
+        "file": "libs/middlewares/customDecorator.ts",
+        "hash": "11695275543415809473"
+      },
+      {
+        "file": "libs/utils/fileUpload.ts",
+        "hash": "13124873517481648401"
+      },
+      {
+        "file": "libs/templates/USA GRC PROPOSAL.pdf",
+        "hash": "7382565983492180577"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12074999744193773679"
+      },
+      {
+        "file": "libs/database/src/entities/sla-rule.entity.ts",
+        "hash": "843104719870429758"
+      },
+      {
+        "file": "libs/response-handler/index.ts",
+        "hash": "7403452640897782149"
+      },
+      {
+        "file": "database-migrations/add-lead-followups.sql",
+        "hash": "1262346710399434182"
+      },
+      {
+        "file": "libs/interfaces/commonTypes/firebase.interface.ts",
+        "hash": "13833559208352670579"
+      },
+      {
+        "file": "libs/interfaces/authentication/jwtPayload.interface.ts",
+        "hash": "11488209429192251413"
+      },
+      {
+        "file": "libs/constants/salesConstants.ts",
+        "hash": "16430764777245205736"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "16462137918835934264"
+      },
+      {
+        "file": "libs/constants/serviceConstants.ts",
+        "hash": "11686276181954548713"
+      }
+    ],
+    "projectFileMap": {
+      "master-management": [
+        {
+          "file": "apps/master-management/.eslintrc.json",
+          "hash": "11902604076208507531"
+        },
+        {
+          "file": "apps/master-management/jest.config.ts",
+          "hash": "13213706373846387563"
+        },
+        {
+          "file": "apps/master-management/project.json",
+          "hash": "18400917332310260803"
+        },
+        {
+          "file": "apps/master-management/src/app/app.controller.spec.ts",
+          "hash": "5247604437443151788",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/app.controller.ts",
+          "hash": "15722802995050087237",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/app.module.ts",
+          "hash": "6999008489233135925",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../libs/database/src/database.module",
+            "npm:../../../../libs/config/config.module",
+            "npm:../../../../libs/response-handler/response-handler.module"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/app.service.spec.ts",
+          "hash": "18184030834515953129",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/app.service.ts",
+          "hash": "4765338543243338786",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/authentication/auth.controller.ts",
+          "hash": "15603748424877485832",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:express",
+            "npm:../../../../../libs/config/config.service",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/dtos/authentication/user.dto",
+            "npm:../../../../../libs/dtos/master_management/user_management.dto",
+            "npm:../../../../../libs/interfaces/authenticated-request.interface",
+            "npm:../../../../../libs/constants/autenticationConstants/userContants"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/authentication/auth.module.ts",
+          "hash": "14185151863640974629",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/passport",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/database/src/repositories/user.repository",
+            "npm:../../../../../libs/database/src/repositories/permissionManager.repository"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/authentication/auth.service.ts",
+          "hash": "864786382454897142",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/constants/commonConstants",
+            "npm:../../../../../libs/interfaces/jwtPayload.interface",
+            "npm:../../../../../libs/constants/autenticationConstants/userContants",
+            "npm:../../../../../libs/dtos/authentication/user.dto",
+            "npm:../../../../../libs/utils/bcryptUtil",
+            "npm:../../../../../libs/constants/autenticationConstants/messageConstants",
+            "npm:../../../../../libs/dtos/master_management/user_management.dto"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/authentication/services/defaultUser.service.ts",
+          "hash": "9453380051900534412",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../../libs/constants/autenticationConstants/userContants",
+            "npm:../../../../../../libs/database/src/repositories/user.repository",
+            "npm:../../../../../../libs/database/src/repositories/permissionManager.repository",
+            "npm:../../../../../../libs/interfaces/authentication/user.interface",
+            "npm:../../../../../../libs/utils/bcryptUtil"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/authentication/strategies/google.strategy.ts",
+          "hash": "1962934029617097096",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-google-oauth20",
+            "npm:../../../../../../libs/config/config.service"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/department/department.controller.ts",
+          "hash": "2954390352356368912",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/dtos/master_management/department.dto",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/department/department.module.ts",
+          "hash": "12570235636343035547",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/jwt-service/jwt.service"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/department/department.service.ts",
+          "hash": "6443269271614849931",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/dtos/master_management/department.dto"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/guards/jwt-auth.guard.ts",
+          "hash": "269580212689495599",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:jsonwebtoken",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/interfaces/authentication/jwtPayload.interface"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/lead/lead.controller.ts",
+          "hash": "10973932076056219569",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/platform-express",
+            "npm:express",
+            "npm:../../../../../libs/utils/fileUpload",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/dtos/master_management/lead.dto",
+            "npm:../../../../../libs/interfaces/authenticated-request.interface",
+            "npm:../../../../../libs/constants/autenticationConstants/userContants",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/constants/serviceConstants"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/lead/lead.module.ts",
+          "hash": "2463802813139996600",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/database/src/entities/customer.entity",
+            "npm:../../../../../libs/database/src/entities/customerAddress.entity",
+            "npm:../../../../../libs/database/src/entities/customerContact.entity",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/lead-contact.entity",
+            "npm:../../../../../libs/database/src/entities/lead-address.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/database/src/entities/user.entity",
+            "npm:../../../../../libs/database/src/entities/permissionManager.entity",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/database/src/entities/service-master.entity",
+            "npm:../../../../../libs/database/src/entities/service-deliverable.entity",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/S3-Service/s3.module",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/database/src/entities/department.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-item.entity"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/lead/lead.service.ts",
+          "hash": "12306847363745053045",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src/entities/customer.entity",
+            "npm:../../../../../libs/database/src/entities/customerAddress.entity",
+            "npm:../../../../../libs/database/src/entities/customerContact.entity",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/lead-contact.entity",
+            "npm:../../../../../libs/database/src/entities/lead-address.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/database/src/entities/lead-followup.entity",
+            "npm:../../../../../libs/database/src/entities/audit-log.entity",
+            "npm:../../../../../libs/database/src/entities/user.entity",
+            "npm:../../../../../libs/database/src/entities/service-master.entity",
+            "npm:../../../../../libs/database/src/entities/service-deliverable.entity",
+            "npm:../../../../../libs/database/src/entities/permissionManager.entity",
+            "npm:../../../../../libs/database/src/entities/department.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-item.entity",
+            "npm:../../../../../libs/S3-Service/s3File.service",
+            "npm:../../../../../libs/dtos/master_management/lead.dto",
+            "npm:../../../../../libs/constants/salesConstants",
+            "npm:../../../../../libs/constants/autenticationConstants/userContants",
+            "npm:../../../../../libs/constants/serviceConstants",
+            "npm:../../../../../libs/interfaces/commonTypes/custom.interface",
+            "npm:../../../../../libs/utils/basicUtils"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/module_management/module_management.controller.ts",
+          "hash": "3672210673544538180",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/dtos/master_management/module_management.dto",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/module_management/module_management.module.ts",
+          "hash": "18253161579382720714",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/jwt-service/jwt.service"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/module_management/module_management.service.ts",
+          "hash": "4237678414272509197",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/dtos/master_management/module_management.dto"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/team/team.controller.ts",
+          "hash": "18409689562495580594",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/dtos/master_management/team.dto",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/team/team.module.ts",
+          "hash": "15913874124652896946",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/S3-Service/s3.module"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/team/team.service.ts",
+          "hash": "6650231781339924645",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/dtos/master_management/team.dto"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/user_management/user-management.controller.ts",
+          "hash": "12161793816456885566",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/interfaces/authenticated-request.interface",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/dtos/master_management/user_management.dto"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/user_management/user-management.module.ts",
+          "hash": "66665535555573492",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/database/src/entities/systemModule.entity",
+            "npm:../../../../../libs/database/src/repositories/user.repository",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/S3-Service/s3.module",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/jwt-service/jwt.service"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/user_management/user-management.service.ts",
+          "hash": "5995609790773343176",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/database/src/repositories/user.repository",
+            "npm:../../../../../libs/dtos/master_management/user_management.dto",
+            "npm:../../../../../libs/constants/autenticationConstants/userContants",
+            "npm:../../../../../libs/constants/autenticationConstants/permissionManagerConstants",
+            "npm:../../../../../libs/interfaces/authentication/user.interface",
+            "npm:../../../../../libs/utils/bcryptUtil"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/world_data/world_data.controller.ts",
+          "hash": "11904512236595284070",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:express",
+            "npm:../../../../../libs/auth/src"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/world_data/world_data.module.ts",
+          "hash": "17786875973606575555",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/database/src",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/S3-Service/s3.module",
+            "npm:../../../../../libs/database/src/repositories/world-data.repository"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/app/world_data/world_data.services.ts",
+          "hash": "16066105914049572132",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/database/src/repositories/world-data.repository",
+            "npm:../../../../../libs/database/src/entities/Countries",
+            "npm:../../../../../libs/database/src/entities/States",
+            "npm:../../../../../libs/database/src/entities/Cities"
+          ]
+        },
+        {
+          "file": "apps/master-management/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/master-management/src/main.ts",
+          "hash": "17285516083098937934",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:../../../libs/config/config.service"
+          ]
+        },
+        {
+          "file": "apps/master-management/tsconfig.app.json",
+          "hash": "16136855697536785264"
+        },
+        {
+          "file": "apps/master-management/tsconfig.json",
+          "hash": "14517671628822477823"
+        },
+        {
+          "file": "apps/master-management/tsconfig.spec.json",
+          "hash": "12352985859481025120"
+        },
+        {
+          "file": "apps/master-management/webpack.config.js",
+          "hash": "12194962942703638746",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "sales": [
+        {
+          "file": "apps/sales/.eslintrc.json",
+          "hash": "11902604076208507531"
+        },
+        {
+          "file": "apps/sales/jest.config.ts",
+          "hash": "2690983606181512116"
+        },
+        {
+          "file": "apps/sales/project.json",
+          "hash": "13992371964433250235"
+        },
+        {
+          "file": "apps/sales/src/app/app.controller.spec.ts",
+          "hash": "5247604437443151788",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/app.controller.ts",
+          "hash": "15722802995050087237",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/app.module.ts",
+          "hash": "13960216499896559693",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../libs/database/src/database.module",
+            "npm:../../../../libs/config/config.module",
+            "npm:../../../../libs/response-handler/response-handler.module"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/app.service.spec.ts",
+          "hash": "18184030834515953129",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/app.service.ts",
+          "hash": "4765338543243338786",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/closure/closure.controller.ts",
+          "hash": "400699770701240071",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/dtos/sales/create-closure.dto",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/closure/closure.module.ts",
+          "hash": "505802875934636173",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/entities/proposal-acceptance.entity",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/closure/closure.service.ts",
+          "hash": "1391440264714924689",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:typeorm",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/entities/proposal-acceptance.entity",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/constants/salesConstants",
+            "npm:../../../../../libs/dtos/sales/create-closure.dto"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/dashboard/dashboard.controller.ts",
+          "hash": "7874036802181209650",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/dashboard/dashboard.module.ts",
+          "hash": "4141212341002800993",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-acceptance.entity",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/dashboard/dashboard.service.ts",
+          "hash": "7736807964281123845",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-acceptance.entity",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/constants/salesConstants"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/invoice/invoice.controller.ts",
+          "hash": "11545017676542150759",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/invoice/invoice.module.ts",
+          "hash": "18261062605470606126",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/invoice/invoice.service.ts",
+          "hash": "9288216959285300407",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/project/project.controller.ts",
+          "hash": "16147765612048335874",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/project/project.module.ts",
+          "hash": "2190134080751098497",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/database/src/entities/user.entity",
+            "npm:../../../../../libs/database/src/entities/team.entity",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/response-handler/response-handler.module"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/project/project.service.ts",
+          "hash": "1425394516053453384",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src/entities/project.entity",
+            "npm:../../../../../libs/database/src/entities/user.entity",
+            "npm:../../../../../libs/database/src/entities/team.entity"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/proposal/proposal-report.service.ts",
+          "hash": "5198859321035477937",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:pdfkit",
+            "npm:path",
+            "npm:fs",
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/proposal/proposal.controller.ts",
+          "hash": "12390182360961675399",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:../../../../../libs/dtos/sales/create-proposal.dto",
+            "npm:express",
+            "npm:../../../../../libs/response-handler/response-handler.service",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/database/src/entities/proposal.entity"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/proposal/proposal.module.ts",
+          "hash": "18022759592161806527",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-item.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-payment-term.entity",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/database/src/entities/customer.entity",
+            "npm:../../../../../libs/database/src/entities/customerAddress.entity",
+            "npm:../../../../../libs/database/src/entities/customerContact.entity",
+            "npm:../../../../../libs/database/src/entities/user.entity",
+            "npm:../../../../../libs/database/src/database.module",
+            "npm:../../../../../libs/config/config.module",
+            "npm:../../../../../libs/response-handler/response-handler.module",
+            "npm:../../../../../libs/jwt-service/jwt.service",
+            "npm:../../../../../libs/middlewares/authMiddleware",
+            "npm:../../../../../libs/middlewares/authMiddleware.guard",
+            "npm:../../../../../libs/templates/pdf-template.service"
+          ]
+        },
+        {
+          "file": "apps/sales/src/app/proposal/proposal.service.ts",
+          "hash": "4998282111662667133",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:../../../../../libs/database/src/entities/proposal.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-item.entity",
+            "npm:../../../../../libs/database/src/entities/proposal-payment-term.entity",
+            "npm:../../../../../libs/dtos/sales/create-proposal.dto",
+            "npm:../../../../../libs/database/src/entities/lead.entity",
+            "npm:../../../../../libs/database/src/entities/lead-service.entity",
+            "npm:../../../../../libs/templates/pdf-template.service",
+            "npm:path",
+            "npm:fs"
+          ]
+        },
+        {
+          "file": "apps/sales/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/sales/src/main.ts",
+          "hash": "2925778826364569344",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:../../../libs/config/config.service"
+          ]
+        },
+        {
+          "file": "apps/sales/tsconfig.app.json",
+          "hash": "16136855697536785264"
+        },
+        {
+          "file": "apps/sales/tsconfig.json",
+          "hash": "14517671628822477823"
+        },
+        {
+          "file": "apps/sales/tsconfig.spec.json",
+          "hash": "12352985859481025120"
+        },
+        {
+          "file": "apps/sales/webpack.config.js",
+          "hash": "12194962942703638746",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ]
+    }
+  }
+}

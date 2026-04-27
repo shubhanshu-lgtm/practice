@@ -1,0 +1,207 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (40f6a62bad7577d6)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:54940) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9f8dc33e531a46d4)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:51508) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3ec05699c33127ab)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:9404) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m174:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 172 |[39m     [36mtry[39m {
+   [90m 173 |[39m       [36mconst[39m user [33m=[39m req[33m.[39muser[33m;[39m
+  [31m[1m>[22m[39m[90m 174 |[39m       [36mif[39m ([33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(user[33m.[39muser_group)) {
+   [90m     |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 175 |[39m         [36mthrow[39m [36mnew[39m [33mError[39m([32m'Access denied. Only SUPER_ADMIN and ADMIN can create users.'[39m)[33m;[39m
+   [90m 176 |[39m       }
+   [90m 177 |[39m       [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m221:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 219 |[39m       console[33m.[39mlog([32m'Delete user request by:'[39m[33m,[39m userdata[33m.[39memail[33m,[39m [32m'User Group:'[39m[33m,[39m userdata[33m.[39muser_group)[33m;[39m
+   [90m 220 |[39m       
+  [31m[1m>[22m[39m[90m 221 |[39m       [36mif[39m ([33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(userdata[33m.[39muser_group)) {
+   [90m     |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 222 |[39m         [36mthrow[39m [36mnew[39m [33mForbiddenException[39m([32m'Access denied. Only SUPER_ADMIN and ADMIN can delete users.'[39m)[33m;[39m
+   [90m 223 |[39m       }
+   [90m 224 |[39m       [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m280:68[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 278 |[39m       [36mconst[39m { currentPage[33m,[39m limit[33m,[39m offset } [33m=[39m paginate(pagination[33m?[39m[33m.[39mpage[33m,[39m pagination[33m?[39m[33m.[39mpageSize)[33m;[39m
+   [90m 279 |[39m
+  [31m[1m>[22m[39m[90m 280 |[39m       [36mconst[39m isAdmin [33m=[39m actor [33m&&[39m [[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)[33m;[39m
+   [90m     |[39m                                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 281 |[39m       [36mconst[39m where[33m:[39m [33mFindOptionsWhere[39m[33m<[39m[33mLead[39m[33m>[39m [33m=[39m { isActive[33m:[39m [36mtrue[39m }[33m;[39m
+   [90m 282 |[39m       [36mif[39m ([33m![39misAdmin [33m&&[39m actor[33m?[39m[33m.[39mid) {
+   [90m 283 |[39m         where[33m.[39mcreatedBy [33m=[39m { id[33m:[39m actor[33m.[39mid }[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m508:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 506 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 507 |[39m       }
+  [31m[1m>[22m[39m[90m 508 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 509 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 510 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 511 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m525:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 523 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 524 |[39m       }
+  [31m[1m>[22m[39m[90m 525 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 526 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 527 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 528 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m553:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 551 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 552 |[39m       }
+  [31m[1m>[22m[39m[90m 553 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 554 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 555 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 556 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m673:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 671 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 672 |[39m       }
+  [31m[1m>[22m[39m[90m 673 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 674 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 675 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 676 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m768:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 766 |[39m       [36mlet[39m where[33m:[39m [33mFindOptionsWhere[39m[33m<[39m[33mLead[39m[33m>[39m [33m=[39m { isActive[33m:[39m [36mtrue[39m }[33m;[39m
+   [90m 767 |[39m       
+  [31m[1m>[22m[39m[90m 768 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 769 |[39m         where [33m=[39m { isActive[33m:[39m [36mtrue[39m[33m,[39m createdBy[33m:[39m { id[33m:[39m actor[33m.[39mid } }[33m;[39m
+   [90m 770 |[39m       }
+   [90m 771 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m820:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 818 |[39m         [33m.[39mwhere([32m'lead.isActive = :isActive'[39m[33m,[39m { isActive[33m:[39m [36mtrue[39m })[33m;[39m
+   [90m 819 |[39m
+  [31m[1m>[22m[39m[90m 820 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 821 |[39m         query[33m.[39mandWhere([32m'createdBy.id = :actorId'[39m[33m,[39m { actorId[33m:[39m actor[33m.[39mid })[33m;[39m
+   [90m 822 |[39m       }
+   [90m 823 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m870:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 868 |[39m       }
+   [90m 869 |[39m
+  [31m[1m>[22m[39m[90m 870 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 871 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 872 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 873 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m893:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 891 |[39m       }
+   [90m 892 |[39m
+  [31m[1m>[22m[39m[90m 893 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 894 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 895 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 896 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m972:57[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 970 |[39m       }
+   [90m 971 |[39m
+  [31m[1m>[22m[39m[90m 972 |[39m       [36mif[39m (actor [33m&&[39m [33m![39m[[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(actor[33m.[39muser_group)) {
+   [90m     |[39m                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 973 |[39m         [36mif[39m ([33m![39mlead[33m.[39mcreatedBy [33m||[39m lead[33m.[39mcreatedBy[33m.[39mid [33m!==[39m actor[33m.[39mid) {
+   [90m 974 |[39m           [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 975 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/auth/src/module-access.guard.ts:[32m[1m18:45[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 16 |[39m
+   [90m 17 |[39m     [36mconst[39m req [33m=[39m context[33m.[39mswitchToHttp()[33m.[39mgetRequest()[33m;[39m
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mif[39m ([[33mUSER_GROUP[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m][33m.[39mincludes(req[33m.[39muser_group)) [36mreturn[39m [36mtrue[39m[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m
+   [90m 20 |[39m     [36mconst[39m modules [33m=[39m req[33m.[39mmodules [33m||[39m [][33m;[39m
+   [90m 21 |[39m     [36mif[39m ([33m![39mmodules [33m||[39m modules[33m.[39mlength [33m===[39m [35m0[39m) {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/middlewares/authMiddleware.ts:[32m[1m241:48[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'ADMIN' does not exist on type 'typeof USER_GROUP'.
+  [0m [90m 239 |[39m         console[33m.[39mlog([32m"payload"[39m[33m,[39mreq[[32m'userPayload'[39m])
+   [90m 240 |[39m           [36mconst[39m payload[33m:[39m [33mJWTPayload[39m [33m=[39m req[[32m'userPayload'[39m][33m;[39m
+  [31m[1m>[22m[39m[90m 241 |[39m           [36mif[39m (payload[33m.[39muser_group [33m!=[39m [33mUSER_GROUP[39m[33m.[39m[33mADMIN[39m) {
+   [90m     |[39m                                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 242 |[39m             [36mthis[39m[33m.[39m[33mResponseHandler[39m[33m.[39msendErrorResponse(res[33m,[39m errorResponse)
+   [90m 243 |[39m           }
+   [90m 244 |[39m     next()[33m;[39m[0m
+
+webpack compiled with [1m[31m14 errors[39m[22m (9fa7972c154042e1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (c4e0371b209b7bb1)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29668) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (c4e0371b209b7bb1)
+[1m[31mDebugger listening on ws://localhost:9229/633350bb-4317-45e1-89c7-76723aa5d0e3[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/633350bb-4317-45e1-89c7-76723aa5d0e3[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (db84d96588074328)
+[1m[31mDebugger listening on ws://localhost:9229/1efb50c0-a457-4d52-a957-8d3610f289ae[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1efb50c0-a457-4d52-a957-8d3610f289ae[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:25828) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

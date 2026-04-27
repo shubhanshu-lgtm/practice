@@ -1,0 +1,23 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 505 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead-category.controller.ts:[32m[1m23:35[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 21 |[39m     [33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m
+   [90m 22 |[39m     [33m@[39m[33mBody[39m([36mnew[39m [33mValidationPipe[39m()) body[33m:[39m [33mAddCategoryDto[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 23 |[39m     [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m
+   [90m    |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 24 |[39m   ) {
+   [90m 25 |[39m     [36mtry[39m {
+   [90m 26 |[39m       [36mconst[39m result [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39maddCategory(body[33m,[39m file)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m318:61[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 316 |[39m   }
+   [90m 317 |[39m
+  [31m[1m>[22m[39m[90m 318 |[39m   [36masync[39m addCategory(payload[33m:[39m [33mAddCategoryDto[39m[33m,[39m file[33m?[39m[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m     |[39m                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 319 |[39m     [36mtry[39m {
+   [90m 320 |[39m       [36mconst[39m category [33m=[39m [36mthis[39m[33m.[39mserviceCategoryRepository[33m.[39mcreate({
+   [90m 321 |[39m         [33m...[39mpayload[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (2552244f0bbce642)

@@ -1,0 +1,1674 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 489 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (bcebe712054bf566)
+[1m[31mDebugger listening on ws://localhost:9229/7479120d-bb0e-4d43-aaf2-909d3449e12f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/7479120d-bb0e-4d43-aaf2-909d3449e12f[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:24792) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:24 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:27 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:30 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:33 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:36 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:37 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:40 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:46 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:49 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (9)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 24792  - [39m[31m19/02/2026, 10:06:49 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mEntity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 489 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e6cfb28dff7820ab)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:9036) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:05 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:08 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:11 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:14 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:17 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:20 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (6)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:23 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (7)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:26 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (8)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:29 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (9)...[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9036  - [39m[31m19/02/2026, 10:07:29 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mEntity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[31m[39m[22m
+[1m[31mTypeORMError: Entity metadata for ServiceMaster#deliverables was not found. Check if you specified a correct entity object and if it's connected in the connection options.[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1128:23[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.computeInverseProperties (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:1118:34)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:160:18[39m[22m
+[1m[31m    at Array.forEach (<anonymous>)[39m[22m
+[1m[31m    at EntityMetadataBuilder.build (D:\INTERCERT_IC_ORG_OPMS_BKND\src\metadata-builder\EntityMetadataBuilder.ts:159:25)[39m[22m
+[1m[31m    at ConnectionMetadataBuilder.buildEntityMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\connection\ConnectionMetadataBuilder.ts:106:11)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at DataSource.buildMetadatas (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:733:13)[39m[22m
+[1m[31m    at DataSource.initialize (D:\INTERCERT_IC_ORG_OPMS_BKND\src\data-source\DataSource.ts:264:13)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 489 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9a1a699393270169)
+[1m[31mDebugger listening on ws://localhost:9229/e451b26f-186d-488f-9a6b-0735dab66c63[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/e451b26f-186d-488f-9a6b-0735dab66c63[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:47592) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:06 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Table 'service_deliverable' already exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 47592  - [39m[31m19/02/2026, 10:16:10 am [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the TokenValidationGuard (?). Please make sure that the argument TokenValidationMiddleware at index [0] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If TokenValidationMiddleware is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If TokenValidationMiddleware is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing TokenValidationMiddleware */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the TokenValidationGuard (?). Please make sure that the argument TokenValidationMiddleware at index [0] is available in the TeamModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TeamModule a valid NestJS module?[39m[22m
+[1m[31m- If TokenValidationMiddleware is a provider, is it part of the current TeamModule?[39m[22m
+[1m[31m- If TokenValidationMiddleware is exported from a separate @Module, is that module imported within TeamModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing TokenValidationMiddleware */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadInjectable (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:94:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:80:13[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 490 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (64bfcbfefbb23716)

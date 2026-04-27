@@ -1,0 +1,145 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 386 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m11:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/constants/autenticationConstants/userContants"' has no exported member 'USER_DEPARTMENTS'.
+  [0m [90m  9 |[39m [36mimport[39m { [33mCreateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 10 |[39m [36mimport[39m { [33mAuthenticatedRequest[39m[33m,[39m [33mGoogleUserRequest[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authenticated-request.interface'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { [33mUSER_DEPARTMENTS[39m[33m,[39m [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 12 |[39m [36mimport[39m { [33mJWTPayload[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/jwtPayload.interface'[39m[33m;[39m
+   [90m 13 |[39m
+   [90m 14 |[39m [33m@[39m[33mController[39m([32m'auth'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m66:49[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'findOneByEmail' does not exist on type 'AuthService'.
+  [0m [90m 64 |[39m
+   [90m 65 |[39m       [90m// 2️⃣ Check if user exists in DB or auto-create[39m
+  [31m[1m>[22m[39m[90m 66 |[39m       [36mlet[39m existingUser [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mauthService[33m.[39mfindOneByEmail(googleUser[33m.[39memail)[33m;[39m
+   [90m    |[39m                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 67 |[39m       
+   [90m 68 |[39m       [36mif[39m ([33m![39mexistingUser) {
+   [90m 69 |[39m         console[33m.[39mlog([32m'User not found in database, auto-creating for intercert.com domain:'[39m[33m,[39m googleUser[33m.[39memail)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m75:11[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ name: any; email: any; password: string; role: any; isActive: boolean; provider: string; }' is not assignable to parameter of type 'CreateUserDto'.
+  Object literal may only specify known properties, and 'isActive' does not exist in type 'CreateUserDto'.
+  [0m [90m 73 |[39m           password[33m:[39m [32m'GOOGLE_AUTH_USER'[39m[33m,[39m [90m// Placeholder[39m
+   [90m 74 |[39m           role[33m:[39m [33mUSER_DEPARTMENTS[39m[33m.[39m[33mSUPER_ADMIN[39m[33m,[39m [90m// Default role[39m
+  [31m[1m>[22m[39m[90m 75 |[39m           isActive[33m:[39m [36mtrue[39m[33m,[39m
+   [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 76 |[39m           provider[33m:[39m [32m'google'[39m
+   [90m 77 |[39m         }[33m,[39m { email[33m:[39m [32m'SYSTEM-AUTO-GOOGLE'[39m })[33m;[39m
+   [90m 78 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m83:9[22m[39m[1m[39m[22m
+[90mTS2322: [39mType '{ userId: any; email: any; role: any; }' is not assignable to type 'JWTPayload'.
+  Object literal may only specify known properties, and 'userId' does not exist in type 'JWTPayload'.
+  [0m [90m 81 |[39m       [90m// 3️⃣ Generate JWT for your app[39m
+   [90m 82 |[39m       [36mconst[39m payload[33m:[39m [33mJWTPayload[39m [33m=[39m {
+  [31m[1m>[22m[39m[90m 83 |[39m         userId[33m:[39m [36mthis[39m[33m.[39mconvertUUIDToNumber(existingUser[33m.[39muser_id)[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 84 |[39m         email[33m:[39m existingUser[33m.[39memail[33m,[39m
+   [90m 85 |[39m         role[33m:[39m existingUser[33m.[39mrole[33m,[39m
+   [90m 86 |[39m       }[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m83:22[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'convertUUIDToNumber' does not exist on type 'AuthController'.
+  [0m [90m 81 |[39m       [90m// 3️⃣ Generate JWT for your app[39m
+   [90m 82 |[39m       [36mconst[39m payload[33m:[39m [33mJWTPayload[39m [33m=[39m {
+  [31m[1m>[22m[39m[90m 83 |[39m         userId[33m:[39m [36mthis[39m[33m.[39mconvertUUIDToNumber(existingUser[33m.[39muser_id)[33m,[39m
+   [90m    |[39m                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 84 |[39m         email[33m:[39m existingUser[33m.[39memail[33m,[39m
+   [90m 85 |[39m         role[33m:[39m existingUser[33m.[39mrole[33m,[39m
+   [90m 86 |[39m       }[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m88:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'jwtService' does not exist on type 'AuthController'.
+  [0m [90m 86 |[39m       }[33m;[39m
+   [90m 87 |[39m
+  [31m[1m>[22m[39m[90m 88 |[39m       [36mconst[39m jwtToken [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mjwtService[33m.[39mgenerateJWTToken(payload)[33m;[39m
+   [90m    |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 89 |[39m       console[33m.[39mlog([32m"jwtToken   >>>>>>>  jwtToken"[39m[33m,[39mjwtToken)[33m;[39m
+   [90m 90 |[39m       [90m// 4️⃣ Optionally, save session in DB[39m
+   [90m 91 |[39m       [36mawait[39m [36mthis[39m[33m.[39msessionRepository[33m.[39mcreateOrUpdateSession([0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m91:18[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'sessionRepository' does not exist on type 'AuthController'.
+  [0m [90m 89 |[39m       console[33m.[39mlog([32m"jwtToken   >>>>>>>  jwtToken"[39m[33m,[39mjwtToken)[33m;[39m
+   [90m 90 |[39m       [90m// 4️⃣ Optionally, save session in DB[39m
+  [31m[1m>[22m[39m[90m 91 |[39m       [36mawait[39m [36mthis[39m[33m.[39msessionRepository[33m.[39mcreateOrUpdateSession(
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 92 |[39m                     existingUser[33m.[39muser_id[33m,[39m
+   [90m 93 |[39m                     existingUser[33m.[39memail[33m,[39m
+   [90m 94 |[39m                     jwtToken[33m,[39m[0m
+
+webpack compiled with [1m[31m7 errors[39m[22m (396381b67eddc24c)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 385 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5aa5765fdd8bf0d7)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:2436) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 386 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (78ad8ca4cfcc4a14)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:43332) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 385 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (31babc12b3784257)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:23840) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 386 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/authentication/auth.controller.ts:[32m[1m11:10[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"../../../../../libs/constants/autenticationConstants/userContants"' has no exported member 'USER_DEPARTMENTS'.
+  [0m [90m  9 |[39m [36mimport[39m { [33mCreateUserDto[39m } [36mfrom[39m [32m'../../../../../libs/dtos/master_management/user_management.dto'[39m[33m;[39m
+   [90m 10 |[39m [36mimport[39m { [33mAuthenticatedRequest[39m[33m,[39m [33mGoogleUserRequest[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authenticated-request.interface'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { [33mUSER_DEPARTMENTS[39m[33m,[39m [33mUSER_GROUP[39m } [36mfrom[39m [32m'../../../../../libs/constants/autenticationConstants/userContants'[39m[33m;[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 12 |[39m [36mimport[39m { [33mJWTPayload[39m } [36mfrom[39m [32m'../../../../../libs/interfaces/authentication/jwtPayload.interface'[39m[33m;[39m
+   [90m 13 |[39m
+   [90m 14 |[39m [33m@[39m[33mController[39m([32m'auth'[39m)[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (3c03d9efc438ab3d)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 386 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (68ebc06865df352b)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:27368) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 385 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f730d5ae31747614)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:22308) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

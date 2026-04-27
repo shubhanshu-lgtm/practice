@@ -1,0 +1,385 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 423 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m95:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m  93 |[39m     [36mif[39m (dto[33m.[39maddresses [33m&&[39m dto[33m.[39maddresses[33m.[39mlength [33m>[39m [35m0[39m) {
+   [90m  94 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m  95 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m           leadId[33m:[39m [33mNumber[39m(savedLead[33m.[39mid)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m       )[33m;[39m
+   [90m 100 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 101 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m159:43[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ updatedById: number; companyName: string; leadSource: string; businessActivities: string; headcount: string; leadStatus: string; notes: string; contacts: CreateLeadContactDto[]; addresses: CreateLeadAddressDto[]; }' is not assignable to parameter of type '_QueryDeepPartialEntity<LeadEnquiry>'.
+  Types of property 'addresses' are incompatible.
+    Type 'CreateLeadAddressDto[]' is not assignable to type '(() => string) | _QueryDeepPartialEntity<LeadAddress>[]'.
+      Type 'CreateLeadAddressDto[]' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>[]'.
+        Type 'CreateLeadAddressDto' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>'.
+          Types of property 'addressType' are incompatible.
+            Type 'string' is not assignable to type '(() => string) | _QueryDeepPartialEntity<ADDRESS_TYPE>'.
+  [0m [90m 157 |[39m [90m   */[39m
+   [90m 158 |[39m   [36masync[39m updateLead(id[33m:[39m string[33m,[39m dto[33m:[39m [33mUpdateLeadEnquiryDto[39m[33m,[39m updatedById[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLeadEnquiry[39m[33m>[39m {  
+  [31m[1m>[22m[39m[90m 159 |[39m     [36mawait[39m [36mthis[39m[33m.[39mleadEnquiryRepo[33m.[39mupdate(id[33m,[39m {
+   [90m     |[39m                                           [31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 160 |[39m       [33m...[39mdto[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 161 |[39m       updatedById[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 162 |[39m     })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 163 |[39m
+   [90m 164 |[39m     [90m// Update contacts if provided[39m
+   [90m 165 |[39m     [36mif[39m (dto[33m.[39mcontacts [33m&&[39m dto[33m.[39mcontacts[33m.[39mlength [33m>[39m [35m0[39m) {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m180:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m 178 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39m[36mdelete[39m({ leadId[33m:[39m [33mNumber[39m(id) })[33m;[39m
+   [90m 179 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m 180 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 181 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 182 |[39m           leadId[33m:[39m [33mNumber[39m(id)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 183 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 184 |[39m       )[33m;[39m
+   [90m 185 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 186 |[39m     }[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (f05a35c96e690c91)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 423 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m95:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m  93 |[39m     [36mif[39m (dto[33m.[39maddresses [33m&&[39m dto[33m.[39maddresses[33m.[39mlength [33m>[39m [35m0[39m) {
+   [90m  94 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m  95 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m           leadId[33m:[39m [33mNumber[39m(savedLead[33m.[39mid)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m       )[33m;[39m
+   [90m 100 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 101 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m159:43[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ updatedById: number; companyName: string; leadSource: string; businessActivities: string; headcount: string; leadStatus: string; notes: string; contacts: CreateLeadContactDto[]; addresses: CreateLeadAddressDto[]; }' is not assignable to parameter of type '_QueryDeepPartialEntity<LeadEnquiry>'.
+  Types of property 'addresses' are incompatible.
+    Type 'CreateLeadAddressDto[]' is not assignable to type '(() => string) | _QueryDeepPartialEntity<LeadAddress>[]'.
+      Type 'CreateLeadAddressDto[]' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>[]'.
+        Type 'CreateLeadAddressDto' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>'.
+          Types of property 'addressType' are incompatible.
+            Type 'string' is not assignable to type '(() => string) | _QueryDeepPartialEntity<ADDRESS_TYPE>'.
+  [0m [90m 157 |[39m [90m   */[39m
+   [90m 158 |[39m   [36masync[39m updateLead(id[33m:[39m string[33m,[39m dto[33m:[39m [33mUpdateLeadEnquiryDto[39m[33m,[39m updatedById[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLeadEnquiry[39m[33m>[39m {  
+  [31m[1m>[22m[39m[90m 159 |[39m     [36mawait[39m [36mthis[39m[33m.[39mleadEnquiryRepo[33m.[39mupdate(id[33m,[39m {
+   [90m     |[39m                                           [31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 160 |[39m       [33m...[39mdto[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 161 |[39m       updatedById[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 162 |[39m     })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 163 |[39m
+   [90m 164 |[39m     [90m// Update contacts if provided[39m
+   [90m 165 |[39m     [36mif[39m (dto[33m.[39mcontacts [33m&&[39m dto[33m.[39mcontacts[33m.[39mlength [33m>[39m [35m0[39m) {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m180:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m 178 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39m[36mdelete[39m({ leadId[33m:[39m [33mNumber[39m(id) })[33m;[39m
+   [90m 179 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m 180 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 181 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 182 |[39m           leadId[33m:[39m [33mNumber[39m(id)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 183 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 184 |[39m       )[33m;[39m
+   [90m 185 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 186 |[39m     }[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (0cacbd71f69c16f0)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m161:43[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ updatedById: number; companyName: string; leadSource: string; businessActivities: string; headcount: string; leadStatus: string; notes: string; contacts: CreateLeadContactDto[]; addresses: CreateLeadAddressDto[]; }' is not assignable to parameter of type '_QueryDeepPartialEntity<LeadEnquiry>'.
+  Types of property 'addresses' are incompatible.
+    Type 'CreateLeadAddressDto[]' is not assignable to type '(() => string) | _QueryDeepPartialEntity<LeadAddress>[]'.
+      Type 'CreateLeadAddressDto[]' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>[]'.
+        Type 'CreateLeadAddressDto' is not assignable to type '_QueryDeepPartialEntity<LeadAddress>'.
+          Types of property 'addressType' are incompatible.
+            Type 'string' is not assignable to type '(() => string) | _QueryDeepPartialEntity<ADDRESS_TYPE>'.
+  [0m [90m 159 |[39m [90m   */[39m
+   [90m 160 |[39m   [36masync[39m updateLead(id[33m:[39m string[33m,[39m dto[33m:[39m [33mUpdateLeadEnquiryDto[39m[33m,[39m updatedById[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mLeadEnquiry[39m[33m>[39m {  
+  [31m[1m>[22m[39m[90m 161 |[39m     [36mawait[39m [36mthis[39m[33m.[39mleadEnquiryRepo[33m.[39mupdate(id[33m,[39m {
+   [90m     |[39m                                           [31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 162 |[39m       [33m...[39mdto[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 163 |[39m       updatedById[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 164 |[39m     })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 165 |[39m
+   [90m 166 |[39m     [90m// Update contacts if provided[39m
+   [90m 167 |[39m     [36mif[39m (dto[33m.[39mcontacts [33m&&[39m dto[33m.[39mcontacts[33m.[39mlength [33m>[39m [35m0[39m) {[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m182:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m 180 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39m[36mdelete[39m({ leadId[33m:[39m [33mNumber[39m(id) })[33m;[39m
+   [90m 181 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m 182 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 183 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 184 |[39m           leadId[33m:[39m [33mNumber[39m(id)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 185 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 186 |[39m       )[33m;[39m
+   [90m 187 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 188 |[39m     }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (519792e0a5ae5768)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/lead.repository.ts:[32m[1m183:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<LeadAddress>[]): LeadAddress[]', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<LeadAddress>[]'.
+  Overload 2 of 3, '(entityLike: DeepPartial<LeadAddress>): LeadAddress', gave the following error.
+    Argument of type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to parameter of type 'DeepPartial<LeadAddress>'.
+      Type '{ leadId: number; addressLine1: string; addressLine2: string; city: string; state: string; country: string; postalCode: string; addressType: string; }' is not assignable to type '{ id?: number; lead?: DeepPartial<Lead>; leadId?: number; addressLine1?: string; addressLine2?: string; city?: string; state?: string; country?: string; postalCode?: string; addressType?: DeepPartial<...>; isPrimary?: DeepPartial<...>; createdAt?: DeepPartial<...>; updatedAt?: DeepPartial<...>; }'.
+        Types of property 'addressType' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<ADDRESS_TYPE>'.
+  [0m [90m 181 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39m[36mdelete[39m({ leadId[33m:[39m [33mNumber[39m(id) })[33m;[39m
+   [90m 182 |[39m       [36mconst[39m addresses [33m=[39m dto[33m.[39maddresses[33m.[39mmap((address) [33m=>[39m
+  [31m[1m>[22m[39m[90m 183 |[39m         [36mthis[39m[33m.[39mleadAddressRepo[33m.[39mcreate({
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 184 |[39m           [33m...[39maddress[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 185 |[39m           leadId[33m:[39m [33mNumber[39m(id)[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m 186 |[39m         })[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 187 |[39m       )[33m;[39m
+   [90m 188 |[39m       [36mawait[39m [36mthis[39m[33m.[39mleadAddressRepo[33m.[39msave(addresses)[33m;[39m
+   [90m 189 |[39m     }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (ea80b2382eb2f35c)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (21763c31b0169823)
+[1m[31mDebugger listening on ws://localhost:9229/e4a41744-32f4-4f87-8170-59fe474245f3[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/e4a41744-32f4-4f87-8170-59fe474245f3[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:29800) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 29800  - [39m[31m16/02/2026, 12:57:43 am [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: Can't DROP 'FK_60f49e5b103f2676e2a71974820'; check that column/key exists[39m[22m
+[1m[31m    at Query.onResult (D:\INTERCERT_IC_ORG_OPMS_BKND\src\driver\mysql\MysqlQueryRunner.ts:248:33)[39m[22m
+[1m[31m    at Query.execute (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\commands\command.js:36:14)[39m[22m
+[1m[31m    at PoolConnection.handlePacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:475:34)[39m[22m
+[1m[31m    at PacketParser.onPacket (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:93:12)[39m[22m
+[1m[31m    at PacketParser.executeStart (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\packet_parser.js:75:16)[39m[22m
+[1m[31m    at Socket.<anonymous> (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\mysql2\lib\base\connection.js:100:25)[39m[22m
+[1m[31m    at Socket.emit (node:events:508:28)[39m[22m
+[1m[31m    at Socket.emit (node:domain:489:12)[39m[22m
+[1m[31m    at addChunk (node:internal/streams/readable:559:12)[39m[22m
+[1m[31m    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ccab5ad74d5ae0ed)
+[1m[31mDebugger listening on ws://localhost:9229/3ed5b713-c82a-402d-bd24-d9b4c327b265[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3ed5b713-c82a-402d-bd24-d9b4c327b265[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:26196) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m340:34[22m[39m[1m[39m[22m
+[90mTS2367: [39mThis comparison appears to be unintentional because the types 'USER_GROUP' and '"undefined"' have no overlap.
+  [0m [90m 338 |[39m       }
+   [90m 339 |[39m       
+  [31m[1m>[22m[39m[90m 340 |[39m       [36mif[39m (payload[33m?[39m[33m.[39muser_group [33m&&[39m payload[33m.[39muser_group [33m!==[39m [32m'undefined'[39m [33m&&[39m payload[33m.[39muser_group[33m.[39mtrim() [33m!==[39m [32m''[39m) {
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 341 |[39m         queryBuilder[33m.[39mandWhere([32m'permission.user_group = :user_group'[39m[33m,[39m { user_group[33m:[39m payload[33m.[39muser_group })[33m;[39m
+   [90m 342 |[39m       }
+   [90m 343 |[39m       [0m
+
+webpack compiled with [1m[31m1 error[39m[22m (cd8588fa27b5e625)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9c612dd78800d1e5)
+[1m[31mDebugger listening on ws://localhost:9229/c870de0b-7f33-406e-8206-b0c832644913[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/c870de0b-7f33-406e-8206-b0c832644913[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:24036) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (2fd00b83f09bbc72)
+[1m[31mDebugger listening on ws://localhost:9229/2496f482-bf36-4b9c-902a-aea4fd5081c2[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/2496f482-bf36-4b9c-902a-aea4fd5081c2[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:28436) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 424 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d82292f99cc04f57)
+[1m[31mDebugger listening on ws://localhost:9229/72ce9389-8974-4d14-8429-ddaaebd88712[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/72ce9389-8974-4d14-8429-ddaaebd88712[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:24248) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m

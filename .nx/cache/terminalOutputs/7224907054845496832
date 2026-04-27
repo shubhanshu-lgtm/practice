@@ -1,0 +1,166 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts[39m[22m
+[1m../../libs/database/src/database.module.ts[39m[22m [1m[32m242:16-29[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts(242,17)[39m[22m
+[1m[31m      TS1005: ',' expected.[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts[39m[22m
+[1m../../libs/database/src/database.module.ts[39m[22m [1m[32m243:8-9[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts(243,9)[39m[22m
+[1m[31m      TS1005: ',' expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (356c31945d9edbcb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts[39m[22m
+[1m../../libs/database/src/database.module.ts[39m[22m [1m[32m242:16-29[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts(242,17)[39m[22m
+[1m[31m      TS1005: ',' expected.[39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts[39m[22m
+[1m../../libs/database/src/database.module.ts[39m[22m [1m[32m243:8-9[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\libs\database\src\database.module.ts(243,9)[39m[22m
+[1m[31m      TS1005: ',' expected.[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m (356c31945d9edbcb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9e2cb01c1e4ecda1)
+[1m[31mDebugger listening on ws://localhost:9229/01e721ba-c04f-4bd2-a887-22ea07c0bce6[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/01e721ba-c04f-4bd2-a887-22ea07c0bce6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 45912  - [39m[31m06/02/2026, 4:35:54 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (9e2cb01c1e4ecda1)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 6176  - [39m[31m06/02/2026, 4:37:58 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (34983de5342cb816)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 30028  - [39m[31m06/02/2026, 4:38:11 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProjectService (?, UserRepository). Please make sure that the argument "ProjectRepository" at index [0] is available in the ProposalModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is ProposalModule a valid NestJS module?[39m[22m
+[1m[31m- If "ProjectRepository" is a provider, is it part of the current ProposalModule?[39m[22m
+[1m[31m- If "ProjectRepository" is exported from a separate @Module, is that module imported within ProposalModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing "ProjectRepository" */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 248 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (8b987c7daa458cc8)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 20232  - [39m[31m06/02/2026, 4:38:59 pm [31m  ERROR[39m[31m [38;5;3m[NestApplication] [39m[31m[31mError: listen EADDRINUSE: address already in use :::8086[39m[31m[38;5;3m +3ms[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: listen EADDRINUSE: address already in use :::8086[39m[22m
+[1m[31m    at Server.setupListenHandle [as _listen2] (node:net:1940:16)[39m[22m
+[1m[31m    at listenInCluster (node:net:1997:12)[39m[22m
+[1m[31m    at Server.listen (node:net:2102:7)[39m[22m
+[1m[31m    at ExpressAdapter.listen (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\platform-express\adapters\express-adapter.js:95:32)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\nest-application.js:183:30[39m[22m
+[1m[31m    at new Promise (<anonymous>)[39m[22m
+[1m[31m    at NestApplication.listen (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\nest-application.js:173:16)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at bootstrap (D:\INTERCERT_IC_ORG_OPMS_BKND\dist\apps\sales\webpack:\src\main.ts:16:5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+

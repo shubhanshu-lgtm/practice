@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run master-management:build:production",
+    "startTime": "2026-04-21T09:54:53.374Z",
+    "endTime": "2026-04-21T09:55:21.189Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "master-management:build:production",
+      "target": "build",
+      "projectName": "master-management",
+      "hash": "12675549027371847727",
+      "startTime": "2026-04-21T09:54:53.409Z",
+      "endTime": "2026-04-21T09:55:21.187Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

@@ -1,0 +1,1179 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1dc62a2dbcb1e59c)
+[1m[31mDebugger listening on ws://localhost:9229/a65fd4f8-ac8e-406e-ac3f-ad57a46e779b[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a65fd4f8-ac8e-406e-ac3f-ad57a46e779b[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:43476) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; page: number; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'page' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         page[33m:[39m result[33m.[39mpage[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (6925e949a765f526)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; page: number; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'page' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         page[33m:[39m result[33m.[39mpage[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (6925e949a765f526)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (3650b9a9b69d2fcf)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (29a93a615ee2fe2e)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (b001ffaa9addc616)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (b541554fa86c2ed1)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (b541554fa86c2ed1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (22189093f3f21bde)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (59e63af1b2266ad1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (cf0a20ab2127d818)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 561 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (2e64af5ab517f0ab)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 568 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (7a93be399ac57111)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 568 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (dc8f1442a6927e56)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 575 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m604:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; page: number; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'page' does not exist in type 'ApiOK'.
+  [0m [90m 602 |[39m         message[33m:[39m [32m'Categories fetched successfully'[39m[33m,[39m
+   [90m 603 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 604 |[39m         page[33m:[39m result[33m.[39mpage[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 605 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 606 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 607 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (4d0ef07293bee79a)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 575 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m605:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 603 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+   [90m 604 |[39m         [90m//pag: result.pageSize,[39m
+  [31m[1m>[22m[39m[90m 605 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 606 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 607 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 608 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m605:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 603 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+   [90m 604 |[39m         [90m//pag: result.pageSize,[39m
+  [31m[1m>[22m[39m[90m 605 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 606 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 607 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 608 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (596cd33fbb483799)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 568 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (07f6410835ece994)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 567 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m59:23[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 57 |[39m     [33m@[39m[33mInjectRepository[39m([33mServiceDeliverable[39m)
+   [90m 58 |[39m     [36mprivate[39m readonly deliverableRepository[33m:[39m [33mRepository[39m[33m<[39m[33mServiceDeliverable[39m[33m>[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 59 |[39m     [33m@[39m[33mInjectRepository[39m([33mCategory[39m)
+   [90m    |[39m                       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 60 |[39m     [36mprivate[39m readonly categoryRepository[33m:[39m [33mRepository[39m[33m<[39m[33mCategory[39m[33m>[39m[33m,[39m
+   [90m 61 |[39m   ) {}
+   [90m 62 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m60:53[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 58 |[39m     [36mprivate[39m readonly deliverableRepository[33m:[39m [33mRepository[39m[33m<[39m[33mServiceDeliverable[39m[33m>[39m[33m,[39m
+   [90m 59 |[39m     [33m@[39m[33mInjectRepository[39m([33mCategory[39m)
+  [31m[1m>[22m[39m[90m 60 |[39m     [36mprivate[39m readonly categoryRepository[33m:[39m [33mRepository[39m[33m<[39m[33mCategory[39m[33m>[39m[33m,[39m
+   [90m    |[39m                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 61 |[39m   ) {}
+   [90m 62 |[39m
+   [90m 63 |[39m   [36mprivate[39m buildServiceTree(services[33m:[39m [33mServiceMaster[39m[]) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1280:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreateCategoryDto'.
+  [0m [90m 1278 |[39m   }
+   [90m 1279 |[39m
+  [31m[1m>[22m[39m[90m 1280 |[39m   [36masync[39m createCategory(payload[33m:[39m [33mCreateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1281 |[39m     [36mtry[39m {
+   [90m 1282 |[39m       [36mconst[39m existing [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1283 |[39m         where[33m:[39m { name[33m:[39m payload[33m.[39mname[33m,[39m parentId[33m:[39m payload[33m.[39mparentId [33m?[39m[33m?[39m [33mIsNull[39m() }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1280:61[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1278 |[39m   }
+   [90m 1279 |[39m
+  [31m[1m>[22m[39m[90m 1280 |[39m   [36masync[39m createCategory(payload[33m:[39m [33mCreateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1281 |[39m     [36mtry[39m {
+   [90m 1282 |[39m       [36mconst[39m existing [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1283 |[39m         where[33m:[39m { name[33m:[39m payload[33m.[39mname[33m,[39m parentId[33m:[39m payload[33m.[39mparentId [33m?[39m[33m?[39m [33mIsNull[39m() }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1290:18[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1288 |[39m
+   [90m 1289 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1290 |[39m       [36mlet[39m type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+   [90m      |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1291 |[39m       [36mlet[39m parent[33m:[39m [33mCategory[39m [33m=[39m [36mnull[39m[33m;[39m
+   [90m 1292 |[39m
+   [90m 1293 |[39m       [36mif[39m (payload[33m.[39mparentId) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1291:19[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1289 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+   [90m 1290 |[39m       [36mlet[39m type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1291 |[39m       [36mlet[39m parent[33m:[39m [33mCategory[39m [33m=[39m [36mnull[39m[33m;[39m
+   [90m      |[39m                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1292 |[39m
+   [90m 1293 |[39m       [36mif[39m (payload[33m.[39mparentId) {
+   [90m 1294 |[39m         parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1299:16[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1297 |[39m         }
+   [90m 1298 |[39m         level [33m=[39m parent[33m.[39mlevel [33m+[39m [35m1[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1299 |[39m         type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mSUB_CATEGORY[39m[33m;[39m
+   [90m      |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1300 |[39m       }
+   [90m 1301 |[39m
+   [90m 1302 |[39m       [36mconst[39m category [33m=[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mcreate({[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1319:31[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'GetCategoriesFilterDto'. Did you mean 'GetServicesFilterDto'?
+  [0m [90m 1317 |[39m   }
+   [90m 1318 |[39m
+  [31m[1m>[22m[39m[90m 1319 |[39m   [36masync[39m getCategories(filter[33m:[39m [33mGetCategoriesFilterDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mIPaginationObject[39m[33m>[39m {
+   [90m      |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1320 |[39m     [36mtry[39m {
+   [90m 1321 |[39m       [36mconst[39m { currentPage[33m,[39m limit[33m,[39m offset } [33m=[39m paginate(filter[33m?[39m[33m.[39mpage[33m,[39m filter[33m?[39m[33m.[39mpageSize)[33m;[39m
+   [90m 1322 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1361:46[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1359 |[39m   }
+   [90m 1360 |[39m
+  [31m[1m>[22m[39m[90m 1361 |[39m   [36masync[39m getCategoryById(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1362 |[39m     [36mtry[39m {
+   [90m 1363 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1364 |[39m         where[33m:[39m { id }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1376:36[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1374 |[39m   }
+   [90m 1375 |[39m
+  [31m[1m>[22m[39m[90m 1376 |[39m   [36masync[39m getCategoryTree()[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[][33m>[39m {
+   [90m      |[39m                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1377 |[39m     [36mtry[39m {
+   [90m 1378 |[39m       [36mconst[39m all [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfind({
+   [90m 1379 |[39m         where[33m:[39m { isActive[33m:[39m [36mtrue[39m }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1389:41[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1387 |[39m   }
+   [90m 1388 |[39m
+  [31m[1m>[22m[39m[90m 1389 |[39m   [36mprivate[39m buildCategoryTree(categories[33m:[39m [33mCategory[39m[])[33m:[39m any[] {
+   [90m      |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1390 |[39m     [36mconst[39m map [33m=[39m [36mnew[39m [33mMap[39m[33m<[39m[33mnumber[39m[33m,[39m any[33m>[39m()[33m;[39m
+   [90m 1391 |[39m     [36mfor[39m ([36mconst[39m c [36mof[39m categories) {
+   [90m 1392 |[39m       map[33m.[39m[36mset[39m(c[33m.[39mid[33m,[39m { [33m...[39mc[33m,[39m children[33m:[39m [] })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1405:45[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'UpdateCategoryDto'.
+  [0m [90m 1403 |[39m   }
+   [90m 1404 |[39m
+  [31m[1m>[22m[39m[90m 1405 |[39m   [36masync[39m updateCategory(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1406 |[39m     [36mtry[39m {
+   [90m 1407 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m 1408 |[39m       [36mif[39m ([33m![39mcategory) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1405:73[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1403 |[39m   }
+   [90m 1404 |[39m
+  [31m[1m>[22m[39m[90m 1405 |[39m   [36masync[39m updateCategory(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1406 |[39m     [36mtry[39m {
+   [90m 1407 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m 1408 |[39m       [36mif[39m ([33m![39mcategory) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1417:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1415 |[39m           category[33m.[39mparent [33m=[39m [36mnull[39m[33m;[39m
+   [90m 1416 |[39m           category[33m.[39mlevel [33m=[39m [35m0[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1417 |[39m           category[33m.[39mtype [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+   [90m      |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1418 |[39m         } [36melse[39m {
+   [90m 1419 |[39m           [36mconst[39m parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m
+   [90m 1420 |[39m           [36mif[39m ([33m![39mparent) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1426:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1424 |[39m           category[33m.[39mparent [33m=[39m parent[33m;[39m
+   [90m 1425 |[39m           category[33m.[39mlevel [33m=[39m parent[33m.[39mlevel [33m+[39m [35m1[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1426 |[39m           category[33m.[39mtype [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mSUB_CATEGORY[39m[33m;[39m
+   [90m      |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1427 |[39m         }
+   [90m 1428 |[39m         [36mdelete[39m (payload [36mas[39m any)[33m.[39mparentId[33m;[39m
+   [90m 1429 |[39m       }[0m
+
+webpack compiled with [1m[31m17 errors[39m[22m (8b55c776f8367dca)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 567 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1278:33[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CreateCategoryDto'.
+  [0m [90m 1276 |[39m   }
+   [90m 1277 |[39m
+  [31m[1m>[22m[39m[90m 1278 |[39m   [36masync[39m createCategory(payload[33m:[39m [33mCreateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1279 |[39m     [36mtry[39m {
+   [90m 1280 |[39m       [36mconst[39m existing [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1281 |[39m         where[33m:[39m { name[33m:[39m payload[33m.[39mname[33m,[39m parentId[33m:[39m payload[33m.[39mparentId [33m?[39m[33m?[39m [33mIsNull[39m() }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1278:61[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1276 |[39m   }
+   [90m 1277 |[39m
+  [31m[1m>[22m[39m[90m 1278 |[39m   [36masync[39m createCategory(payload[33m:[39m [33mCreateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1279 |[39m     [36mtry[39m {
+   [90m 1280 |[39m       [36mconst[39m existing [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1281 |[39m         where[33m:[39m { name[33m:[39m payload[33m.[39mname[33m,[39m parentId[33m:[39m payload[33m.[39mparentId [33m?[39m[33m?[39m [33mIsNull[39m() }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1280:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1278 |[39m   [36masync[39m createCategory(payload[33m:[39m [33mCreateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m 1279 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 1280 |[39m       [36mconst[39m existing [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m      |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1281 |[39m         where[33m:[39m { name[33m:[39m payload[33m.[39mname[33m,[39m parentId[33m:[39m payload[33m.[39mparentId [33m?[39m[33m?[39m [33mIsNull[39m() }[33m,[39m
+   [90m 1282 |[39m       })[33m;[39m
+   [90m 1283 |[39m       [36mif[39m (existing) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1288:18[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1286 |[39m
+   [90m 1287 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1288 |[39m       [36mlet[39m type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+   [90m      |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1289 |[39m       [36mlet[39m parent[33m:[39m [33mCategory[39m [33m=[39m [36mnull[39m[33m;[39m
+   [90m 1290 |[39m
+   [90m 1291 |[39m       [36mif[39m (payload[33m.[39mparentId) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1289:19[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1287 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+   [90m 1288 |[39m       [36mlet[39m type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1289 |[39m       [36mlet[39m parent[33m:[39m [33mCategory[39m [33m=[39m [36mnull[39m[33m;[39m
+   [90m      |[39m                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1290 |[39m
+   [90m 1291 |[39m       [36mif[39m (payload[33m.[39mparentId) {
+   [90m 1292 |[39m         parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1292:29[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1290 |[39m
+   [90m 1291 |[39m       [36mif[39m (payload[33m.[39mparentId) {
+  [31m[1m>[22m[39m[90m 1292 |[39m         parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m
+   [90m      |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1293 |[39m         [36mif[39m ([33m![39mparent) {
+   [90m 1294 |[39m           [36mthrow[39m [36mnew[39m [33mBadRequestException[39m([32m`Parent category with ID ${payload.parentId} not found`[39m)[33m;[39m
+   [90m 1295 |[39m         }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1297:16[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1295 |[39m         }
+   [90m 1296 |[39m         level [33m=[39m parent[33m.[39mlevel [33m+[39m [35m1[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1297 |[39m         type [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mSUB_CATEGORY[39m[33m;[39m
+   [90m      |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1298 |[39m       }
+   [90m 1299 |[39m
+   [90m 1300 |[39m       [36mconst[39m category [33m=[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mcreate({[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1300:29[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1298 |[39m       }
+   [90m 1299 |[39m
+  [31m[1m>[22m[39m[90m 1300 |[39m       [36mconst[39m category [33m=[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mcreate({
+   [90m      |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1301 |[39m         [33m...[39mpayload[33m,[39m
+   [90m 1302 |[39m         parent[33m,[39m
+   [90m 1303 |[39m         level[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1307:32[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1305 |[39m       })[33m;[39m
+   [90m 1306 |[39m
+  [31m[1m>[22m[39m[90m 1307 |[39m       [36mconst[39m saved [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m
+   [90m      |[39m                                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1308 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1309 |[39m         where[33m:[39m { id[33m:[39m saved[33m.[39mid }[33m,[39m
+   [90m 1310 |[39m         relations[33m:[39m [[32m'parent'[39m[33m,[39m [32m'children'[39m][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1308:25[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1306 |[39m
+   [90m 1307 |[39m       [36mconst[39m saved [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m
+  [31m[1m>[22m[39m[90m 1308 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m      |[39m                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1309 |[39m         where[33m:[39m { id[33m:[39m saved[33m.[39mid }[33m,[39m
+   [90m 1310 |[39m         relations[33m:[39m [[32m'parent'[39m[33m,[39m [32m'children'[39m][33m,[39m
+   [90m 1311 |[39m       })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1317:31[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'GetCategoriesFilterDto'. Did you mean 'GetServicesFilterDto'?
+  [0m [90m 1315 |[39m   }
+   [90m 1316 |[39m
+  [31m[1m>[22m[39m[90m 1317 |[39m   [36masync[39m getCategories(filter[33m:[39m [33mGetCategoriesFilterDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mIPaginationObject[39m[33m>[39m {
+   [90m      |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1318 |[39m     [36mtry[39m {
+   [90m 1319 |[39m       [36mconst[39m { currentPage[33m,[39m limit[33m,[39m offset } [33m=[39m paginate(filter[33m?[39m[33m.[39mpage[33m,[39m filter[33m?[39m[33m.[39mpageSize)[33m;[39m
+   [90m 1320 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1321:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1319 |[39m       [36mconst[39m { currentPage[33m,[39m limit[33m,[39m offset } [33m=[39m paginate(filter[33m?[39m[33m.[39mpage[33m,[39m filter[33m?[39m[33m.[39mpageSize)[33m;[39m
+   [90m 1320 |[39m
+  [31m[1m>[22m[39m[90m 1321 |[39m       [36mconst[39m query [33m=[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mcreateQueryBuilder([32m'c'[39m)
+   [90m      |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1322 |[39m         [33m.[39mleftJoinAndSelect([32m'c.parent'[39m[33m,[39m [32m'parent'[39m)
+   [90m 1323 |[39m         [33m.[39mleftJoinAndSelect([32m'c.children'[39m[33m,[39m [32m'children'[39m)
+   [90m 1324 |[39m         [33m.[39mwhere([32m'c.isActive = :isActive'[39m[33m,[39m { isActive[33m:[39m [36mtrue[39m })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1359:46[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1357 |[39m   }
+   [90m 1358 |[39m
+  [31m[1m>[22m[39m[90m 1359 |[39m   [36masync[39m getCategoryById(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1360 |[39m     [36mtry[39m {
+   [90m 1361 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1362 |[39m         where[33m:[39m { id }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1361:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1359 |[39m   [36masync[39m getCategoryById(id[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m 1360 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 1361 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m      |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1362 |[39m         where[33m:[39m { id }[33m,[39m
+   [90m 1363 |[39m         relations[33m:[39m [[32m'parent'[39m[33m,[39m [32m'children'[39m][33m,[39m
+   [90m 1364 |[39m       })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1374:36[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1372 |[39m   }
+   [90m 1373 |[39m
+  [31m[1m>[22m[39m[90m 1374 |[39m   [36masync[39m getCategoryTree()[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[][33m>[39m {
+   [90m      |[39m                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1375 |[39m     [36mtry[39m {
+   [90m 1376 |[39m       [36mconst[39m all [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfind({
+   [90m 1377 |[39m         where[33m:[39m { isActive[33m:[39m [36mtrue[39m }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1376:30[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1374 |[39m   [36masync[39m getCategoryTree()[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[][33m>[39m {
+   [90m 1375 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 1376 |[39m       [36mconst[39m all [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfind({
+   [90m      |[39m                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1377 |[39m         where[33m:[39m { isActive[33m:[39m [36mtrue[39m }[33m,[39m
+   [90m 1378 |[39m         relations[33m:[39m [[32m'parent'[39m][33m,[39m
+   [90m 1379 |[39m         order[33m:[39m { sortOrder[33m:[39m [32m'ASC'[39m[33m,[39m name[33m:[39m [32m'ASC'[39m }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1387:41[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1385 |[39m   }
+   [90m 1386 |[39m
+  [31m[1m>[22m[39m[90m 1387 |[39m   [36mprivate[39m buildCategoryTree(categories[33m:[39m [33mCategory[39m[])[33m:[39m any[] {
+   [90m      |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1388 |[39m     [36mconst[39m map [33m=[39m [36mnew[39m [33mMap[39m[33m<[39m[33mnumber[39m[33m,[39m any[33m>[39m()[33m;[39m
+   [90m 1389 |[39m     [36mfor[39m ([36mconst[39m c [36mof[39m categories) {
+   [90m 1390 |[39m       map[33m.[39m[36mset[39m(c[33m.[39mid[33m,[39m { [33m...[39mc[33m,[39m children[33m:[39m [] })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1403:45[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'UpdateCategoryDto'.
+  [0m [90m 1401 |[39m   }
+   [90m 1402 |[39m
+  [31m[1m>[22m[39m[90m 1403 |[39m   [36masync[39m updateCategory(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1404 |[39m     [36mtry[39m {
+   [90m 1405 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m 1406 |[39m       [36mif[39m ([33m![39mcategory) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1403:73[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 1401 |[39m   }
+   [90m 1402 |[39m
+  [31m[1m>[22m[39m[90m 1403 |[39m   [36masync[39m updateCategory(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m      |[39m                                                                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1404 |[39m     [36mtry[39m {
+   [90m 1405 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m 1406 |[39m       [36mif[39m ([33m![39mcategory) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1405:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1403 |[39m   [36masync[39m updateCategory(id[33m:[39m number[33m,[39m payload[33m:[39m [33mUpdateCategoryDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mCategory[39m[33m>[39m {
+   [90m 1404 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 1405 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id } })[33m;[39m
+   [90m      |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1406 |[39m       [36mif[39m ([33m![39mcategory) {
+   [90m 1407 |[39m         [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Category not found'[39m)[33m;[39m
+   [90m 1408 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1415:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1413 |[39m           category[33m.[39mparent [33m=[39m [36mnull[39m[33m;[39m
+   [90m 1414 |[39m           category[33m.[39mlevel [33m=[39m [35m0[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1415 |[39m           category[33m.[39mtype [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+   [90m      |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1416 |[39m         } [36melse[39m {
+   [90m 1417 |[39m           [36mconst[39m parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m
+   [90m 1418 |[39m           [36mif[39m ([33m![39mparent) {[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1417:37[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1415 |[39m           category[33m.[39mtype [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mCATEGORY[39m[33m;[39m
+   [90m 1416 |[39m         } [36melse[39m {
+  [31m[1m>[22m[39m[90m 1417 |[39m           [36mconst[39m parent [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m payload[33m.[39mparentId } })[33m;[39m
+   [90m      |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1418 |[39m           [36mif[39m ([33m![39mparent) {
+   [90m 1419 |[39m             [36mthrow[39m [36mnew[39m [33mBadRequestException[39m([32m`Parent category with ID ${payload.parentId} not found`[39m)[33m;[39m
+   [90m 1420 |[39m           }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1424:27[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 1422 |[39m           category[33m.[39mparent [33m=[39m parent[33m;[39m
+   [90m 1423 |[39m           category[33m.[39mlevel [33m=[39m parent[33m.[39mlevel [33m+[39m [35m1[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1424 |[39m           category[33m.[39mtype [33m=[39m [33mCATEGORY_TYPE[39m[33m.[39m[33mSUB_CATEGORY[39m[33m;[39m
+   [90m      |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1425 |[39m         }
+   [90m 1426 |[39m         [36mdelete[39m (payload [36mas[39m any)[33m.[39mparentId[33m;[39m
+   [90m 1427 |[39m       }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1430:18[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1428 |[39m
+   [90m 1429 |[39m       [33mObject[39m[33m.[39massign(category[33m,[39m payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 1430 |[39m       [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m
+   [90m      |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1431 |[39m
+   [90m 1432 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m 1433 |[39m         where[33m:[39m { id }[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1432:25[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1430 |[39m       [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m
+   [90m 1431 |[39m
+  [31m[1m>[22m[39m[90m 1432 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m      |[39m                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1433 |[39m         where[33m:[39m { id }[33m,[39m
+   [90m 1434 |[39m         relations[33m:[39m [[32m'parent'[39m[33m,[39m [32m'children'[39m][33m,[39m
+   [90m 1435 |[39m       })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1443:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1441 |[39m   [36masync[39m deleteCategory(id[33m:[39m number[33m,[39m hard [33m=[39m [36mfalse[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {
+   [90m 1442 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 1443 |[39m       [36mconst[39m category [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mfindOne({
+   [90m      |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1444 |[39m         where[33m:[39m { id }[33m,[39m
+   [90m 1445 |[39m         relations[33m:[39m [[32m'children'[39m][33m,[39m
+   [90m 1446 |[39m       })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1454:20[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1452 |[39m       }
+   [90m 1453 |[39m       [36mif[39m (hard) {
+  [31m[1m>[22m[39m[90m 1454 |[39m         [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39mremove(category)[33m;[39m
+   [90m      |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1455 |[39m       } [36melse[39m {
+   [90m 1456 |[39m         category[33m.[39misActive [33m=[39m [36mfalse[39m[33m;[39m
+   [90m 1457 |[39m         [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m1457:20[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'categoryRepository' does not exist on type 'LeadService'.
+  [0m [90m 1455 |[39m       } [36melse[39m {
+   [90m 1456 |[39m         category[33m.[39misActive [33m=[39m [36mfalse[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 1457 |[39m         [36mawait[39m [36mthis[39m[33m.[39mcategoryRepository[33m.[39msave(category)[33m;[39m
+   [90m      |[39m                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 1458 |[39m       }
+   [90m 1459 |[39m     } [36mcatch[39m (error) {
+   [90m 1460 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+webpack compiled with [1m[31m30 errors[39m[22m (bc349884a189caf6)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (bb698e23f6b72490)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (bb698e23f6b72490)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/dtos/master_management/lead.dto.ts:[32m[1m732:11[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 730 |[39m
+   [90m 731 |[39m   [33m@[39m[33mIsOptional[39m()
+  [31m[1m>[22m[39m[90m 732 |[39m   [33m@[39m[33mIsEnum[39m([33mCATEGORY_TYPE[39m)
+   [90m     |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 733 |[39m   type[33m?[39m[33m:[39m [33mCATEGORY_TYPE[39m[33m;[39m
+   [90m 734 |[39m
+   [90m 735 |[39m   [33m@[39m[33mType[39m(() [33m=>[39m [33mNumber[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/dtos/master_management/lead.dto.ts:[32m[1m733:10[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 731 |[39m   [33m@[39m[33mIsOptional[39m()
+   [90m 732 |[39m   [33m@[39m[33mIsEnum[39m([33mCATEGORY_TYPE[39m)
+  [31m[1m>[22m[39m[90m 733 |[39m   type[33m?[39m[33m:[39m [33mCATEGORY_TYPE[39m[33m;[39m
+   [90m     |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 734 |[39m
+   [90m 735 |[39m   [33m@[39m[33mType[39m(() [33m=>[39m [33mNumber[39m)
+   [90m 736 |[39m   [33m@[39m[33mIsOptional[39m()[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (63ff7d68c3ce51dd)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 560 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/dtos/master_management/lead.dto.ts:[32m[1m732:11[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 730 |[39m
+   [90m 731 |[39m   [33m@[39m[33mIsOptional[39m()
+  [31m[1m>[22m[39m[90m 732 |[39m   [33m@[39m[33mIsEnum[39m([33mCATEGORY_TYPE[39m)
+   [90m     |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 733 |[39m   type[33m?[39m[33m:[39m [33mCATEGORY_TYPE[39m[33m;[39m
+   [90m 734 |[39m
+   [90m 735 |[39m   [33m@[39m[33mType[39m(() [33m=>[39m [33mNumber[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/dtos/master_management/lead.dto.ts:[32m[1m733:10[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'CATEGORY_TYPE'.
+  [0m [90m 731 |[39m   [33m@[39m[33mIsOptional[39m()
+   [90m 732 |[39m   [33m@[39m[33mIsEnum[39m([33mCATEGORY_TYPE[39m)
+  [31m[1m>[22m[39m[90m 733 |[39m   type[33m?[39m[33m:[39m [33mCATEGORY_TYPE[39m[33m;[39m
+   [90m     |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 734 |[39m
+   [90m 735 |[39m   [33m@[39m[33mType[39m(() [33m=>[39m [33mNumber[39m)
+   [90m 736 |[39m   [33m@[39m[33mIsOptional[39m()[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (63ff7d68c3ce51dd)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (915f6f08dc7c11de)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.module.ts:[32m[1m29:200[22m[39m[1m[39m[22m
+[90mTS2304: [39mCannot find name 'Category'.
+  [0m [90m 27 |[39m     [33mResponseHandlerModule[39m[33m,[39m
+   [90m 28 |[39m     [33mConfigModule[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 29 |[39m     [33mTypeOrmModule[39m[33m.[39mforFeature([[33mLead[39m[33m,[39m [33mLeadContact[39m[33m,[39m [33mLeadAddress[39m[33m,[39m [33mCustomer[39m[33m,[39m [33mCustomerAddress[39m[33m,[39m [33mCustomerContact[39m[33m,[39m [33mUser[39m[33m,[39m [33mLoginSession[39m[33m,[39m [33mServiceMaster[39m[33m,[39m [33mServiceDeliverable[39m[33m,[39m [33mLeadServiceEntity[39m[33m,[39m [33mPermissionManager[39m[33m,[39m [33mCategory[39m])[33m,[39m
+   [90m    |[39m                                                                                                                                                                                                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 30 |[39m   ][33m,[39m
+   [90m 31 |[39m   controllers[33m:[39m [[33mLeadController[39m][33m,[39m
+   [90m 32 |[39m   providers[33m:[39m [[33mLeadService[39m[33m,[39m [33mLeadServiceEntity[39m[33m,[39m [33mLeadServiceRepository[39m[33m,[39m [33mJwtService[39m[33m,[39m [33mTokenValidationMiddleware[39m[33m,[39m checkIfAdmin[33m,[39m [33mTokenValidationGuard[39m[33m,[39m [33mCheckIfAdminGuard[39m][33m,[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (7d95cf1e4fa8dd7f)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 556 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (2db767700f5d4980)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (adfa95b4de485ae8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 553 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:9[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type '{ message: string; data: any[]; pageSize: any; limit: number; totalDocs: number; totalPages: number; hasNextPage: boolean; hasPrevPage: boolean; recordsTotal: number; recordsFiltered: number; draw: number; }' is not assignable to parameter of type 'ApiOK'.
+  Object literal may only specify known properties, and 'pageSize' does not exist in type 'ApiOK'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m413:26[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'pageSize' does not exist on type 'IPaginationObject'.
+  [0m [90m 411 |[39m         message[33m:[39m [32m'Assigned services fetched successfully'[39m[33m,[39m
+   [90m 412 |[39m         data[33m:[39m result[33m.[39mdocs[33m,[39m
+  [31m[1m>[22m[39m[90m 413 |[39m         pageSize[33m:[39m result[33m.[39mpageSize[33m,[39m
+   [90m     |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 414 |[39m         limit[33m:[39m result[33m.[39mlimit[33m,[39m
+   [90m 415 |[39m         totalDocs[33m:[39m result[33m.[39mtotalDocs[33m,[39m
+   [90m 416 |[39m         totalPages[33m:[39m result[33m.[39mtotalPages[33m,[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (0f3a74f79002c76a)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

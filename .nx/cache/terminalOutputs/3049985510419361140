@@ -1,0 +1,13 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 545 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/dashboard/dashboard.service.ts:[32m[1m40:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'ProposalItem'. Did you mean 'Proposal'?
+  [0m [90m 38 |[39m     [36mconst[39m serviceListItems [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadServiceRepo[33m.[39mcreateQueryBuilder([32m'ls'[39m)
+   [90m 39 |[39m       [33m.[39minnerJoin([32m'ls.lead'[39m[33m,[39m [32m'lead'[39m)
+  [31m[1m>[22m[39m[90m 40 |[39m       [33m.[39mleftJoin([33mProposalItem[39m[33m,[39m [32m'pi'[39m[33m,[39m [32m'pi.leadServiceId = ls.id'[39m)
+   [90m    |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 41 |[39m       [33m.[39mleftJoin([33mProposal[39m[33m,[39m [32m'p'[39m[33m,[39m [32m'p.id = pi.proposalId AND p.status != :droppedProposalStatus'[39m[33m,[39m { droppedProposalStatus[33m:[39m [33mPROPOSAL_STATUS[39m[33m.[39m[33mDROPPED[39m })
+   [90m 42 |[39m       [33m.[39mwhere([32m'lead.isActive = :isActive'[39m[33m,[39m { isActive[33m:[39m [36mtrue[39m })
+   [90m 43 |[39m       [33m.[39mandWhere([32m'ls.status != :droppedStatus'[39m[33m,[39m { droppedStatus[33m:[39m [33mSERVICE_STATUS[39m[33m.[39m[33mDROPPED[39m })[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (356b7e27795473e3)

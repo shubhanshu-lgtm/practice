@@ -1,0 +1,389 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (19d3bcbe427b9330)
+[1m[31mDebugger listening on ws://localhost:9229/8a8d04c3-57fe-4c15-ae73-6301c9b89792[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8a8d04c3-57fe-4c15-ae73-6301c9b89792[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:36920) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7e2554abb48df487)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (7e2554abb48df487)
+[1m[31mDebugger listening on ws://localhost:9229/1a6d8b10-54b2-4fc0-a6af-34cb42517782[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1a6d8b10-54b2-4fc0-a6af-34cb42517782[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:1784) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (46a35de8caadc86d)
+[1m[31mDebugger listening on ws://localhost:9229/92f31d03-fa1a-4dc0-955c-ece714ded6b6[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/92f31d03-fa1a-4dc0-955c-ece714ded6b6[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:10652) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (93be4ef90bae720f)
+[1m[31mDebugger listening on ws://localhost:9229/789f8b9b-7699-49bb-b17f-c58cef7584d0[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/789f8b9b-7699-49bb-b17f-c58cef7584d0[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:34552) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 429 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5da83bbbabf3637d)
+[1m[31mDebugger listening on ws://localhost:9229/da1b6234-8101-4cec-ba9c-3a9cc214105d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/da1b6234-8101-4cec-ba9c-3a9cc214105d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:13676) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 429 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (0a193bc0db25b748)
+[1m[31mDebugger listening on ws://localhost:9229/d6bff3a4-25ff-4508-9dac-5909c1b97a3b[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/d6bff3a4-25ff-4508-9dac-5909c1b97a3b[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:20572) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 434 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (b4dfefba269db693)
+[1m[31mDebugger listening on ws://localhost:9229/aaa21e99-b5d7-49d5-9c1f-88baac738da7[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/aaa21e99-b5d7-49d5-9c1f-88baac738da7[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:37884) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 438 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m342:53[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 3, '(entityLikeArray: DeepPartial<ServiceMaster>[]): ServiceMaster[]', gave the following error.
+    Argument of type 'CreateServiceDto' is not assignable to parameter of type 'DeepPartial<ServiceMaster>[]'.
+      Type 'CreateServiceDto' is missing the following properties from type 'DeepPartial<ServiceMaster>[]': length, pop, push, concat, and 29 more.
+  Overload 2 of 3, '(entityLike: DeepPartial<ServiceMaster>): ServiceMaster', gave the following error.
+    Argument of type 'CreateServiceDto' is not assignable to parameter of type 'DeepPartial<ServiceMaster>'.
+      Type 'CreateServiceDto' is not assignable to type '{ id?: number; name?: string; code?: string; description?: string; isActive?: DeepPartial<boolean>; department?: DeepPartial<Department>; departmentId?: number; ... 10 more ...; sortOrder?: number; }'.
+        Types of property 'category' are incompatible.
+          Type 'string' is not assignable to type 'DeepPartial<SERVICE_CATEGORY>'.
+  [0m [90m 340 |[39m   [36masync[39m createService(payload[33m:[39m [33mCreateServiceDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[33m>[39m {
+   [90m 341 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 342 |[39m       [36mconst[39m service [33m=[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mcreate(payload)[33m;[39m
+   [90m     |[39m                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 343 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39msave(service)[33m;[39m
+   [90m 344 |[39m     } [36mcatch[39m (error) {
+   [90m 345 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m343:7[22m[39m[1m[39m[22m
+[90mTS2740: [39mType 'ServiceMaster[]' is missing the following properties from type 'ServiceMaster': id, name, code, description, and 14 more.
+  [0m [90m 341 |[39m     [36mtry[39m {
+   [90m 342 |[39m       [36mconst[39m service [33m=[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39mcreate(payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 343 |[39m       [36mreturn[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39msave(service)[33m;[39m
+   [90m     |[39m       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 344 |[39m     } [36mcatch[39m (error) {
+   [90m 345 |[39m       [36mthrow[39m [36mnew[39m [33mBadRequestException[39m(error[33m.[39mmessage)[33m;[39m
+   [90m 346 |[39m     }[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (aee8c9404604dce1)
+[1m[31mDebugger listening on ws://localhost:9229/fd3a2f23-5f09-478a-ade3-a8b473f911a4[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/fd3a2f23-5f09-478a-ade3-a8b473f911a4[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:34200) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 439 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (a8983fba131807e5)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 444 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (feabfffca7e740fa)
+[1m[31mDebugger listening on ws://localhost:9229/6de866a3-b731-4bd1-8118-990f808c24b8[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/6de866a3-b731-4bd1-8118-990f808c24b8[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:33072) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 444 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ec7ee5af4f135d27)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 447 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (438468c0c3f3b193)
+[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:12836) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 447 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (438468c0c3f3b193)
+[1m[31mDebugger listening on ws://localhost:9229/3f3cfd83-f6e4-4d06-92c6-0007c1ae5ab5[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/3f3cfd83-f6e4-4d06-92c6-0007c1ae5ab5[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:3052) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 447 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\lead\lead.service.ts[39m[22m
+[1m./src/app/lead/lead.service.ts[39m[22m [1m[32m487:38-39[39m[22m
+[90m[tsl] [39m[1m[31mERROR[39m[22m[1m[31m in [39m[22m[1m[36mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\lead\lead.service.ts(487,39)[39m[22m
+[1m[31m      TS1110: Type expected.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (43fca9842732b146)
+[1m[31mDebugger listening on ws://localhost:9229/2ccf8bff-15e2-4136-a2b2-f70d3b19f3ce[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/2ccf8bff-15e2-4136-a2b2-f70d3b19f3ce[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:17588) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 447 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (25b9b6b1ba96afb2)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 448 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ce738fdfe0e91a94)
+[1m[31mDebugger listening on ws://localhost:9229/cffbc7a3-f104-49ab-aa01-cf0c1ec7d299[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/cffbc7a3-f104-49ab-aa01-cf0c1ec7d299[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:25232) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 448 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (418aff20cf472506)
+[1m[31mDebugger listening on ws://localhost:9229/8f48d6c9-7e21-4c4e-b766-15f763439dea[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/8f48d6c9-7e21-4c4e-b766-15f763439dea[39m[22m
+[1m[31m[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 448 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (4ef6a5a5a7b0f19e)
+[1m[31mDebugger listening on ws://localhost:9229/87743188-3346-476d-a0bb-d1e8d06aff02[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/87743188-3346-476d-a0bb-d1e8d06aff02[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:37484) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 448 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (b98855e8460d793e)
+[1m[31mDebugger listening on ws://localhost:9229/a5a3b394-9642-44f4-860f-e6e8f1c89f0c[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/a5a3b394-9642-44f4-860f-e6e8f1c89f0c[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:33984) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 449 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m28:110[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 26 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+   [90m 27 |[39m   [33m@[39m[33mUseInterceptors[39m([33mFileInterceptor[39m([32m'service_logo'[39m[33m,[39m { fileFilter[33m:[39m imageFileFilter }))
+  [31m[1m>[22m[39m[90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m    |[39m                                                                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [36mtry[39m {
+   [90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m30:69[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 2.
+  [0m [90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m 29 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m    |[39m                                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m
+   [90m 32 |[39m     } [36mcatch[39m (error) {
+   [90m 33 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (d72a8afdd0644d4e)
+[1m[31mDebugger listening on ws://localhost:9229/1a3710f2-8b88-4eec-b4d6-53736aaaa07d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1a3710f2-8b88-4eec-b4d6-53736aaaa07d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:32760) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 449 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m28:110[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 26 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+   [90m 27 |[39m   [33m@[39m[33mUseInterceptors[39m([33mFileInterceptor[39m([32m'service_logo'[39m[33m,[39m { fileFilter[33m:[39m imageFileFilter }))
+  [31m[1m>[22m[39m[90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m    |[39m                                                                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [36mtry[39m {
+   [90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m30:69[22m[39m[1m[39m[22m
+[90mTS2554: [39mExpected 1 arguments, but got 2.
+  [0m [90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m 29 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m    |[39m                                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m
+   [90m 32 |[39m     } [36mcatch[39m (error) {
+   [90m 33 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (2554148a26595a05)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 450 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m28:110[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 26 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+   [90m 27 |[39m   [33m@[39m[33mUseInterceptors[39m([33mFileInterceptor[39m([32m'service_logo'[39m[33m,[39m { fileFilter[33m:[39m imageFileFilter }))
+  [31m[1m>[22m[39m[90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m    |[39m                                                                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [36mtry[39m {
+   [90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m467:65[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 465 |[39m   }
+   [90m 466 |[39m
+  [31m[1m>[22m[39m[90m 467 |[39m   [36masync[39m createService(payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m file[33m?[39m[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[33m>[39m {
+   [90m     |[39m                                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 468 |[39m     [36mtry[39m {
+   [90m 469 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+   [90m 470 |[39m       [36mlet[39m parent[33m:[39m [33mServiceMaster[39m [33m=[39m [36mnull[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m499:34[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'logo' does not exist on type 'CreateServiceDto'.
+  [0m [90m 497 |[39m         type[33m:[39m payload[33m.[39mtype [36mas[39m any[33m,[39m
+   [90m 498 |[39m         accessLevel[33m:[39m payload[33m.[39maccessLevel [36mas[39m any[33m,[39m
+  [31m[1m>[22m[39m[90m 499 |[39m         logo[33m:[39m logoUrl [33m||[39m payload[33m.[39mlogo[33m,[39m
+   [90m     |[39m                                  [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 500 |[39m       })[33m;[39m
+   [90m 501 |[39m
+   [90m 502 |[39m       [36mconst[39m savedService [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mserviceRepository[33m.[39msave(service)[33m;[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (6f085c4f7e2d8ed4)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 450 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m28:110[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 26 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+   [90m 27 |[39m   [33m@[39m[33mUseInterceptors[39m([33mFileInterceptor[39m([32m'service_logo'[39m[33m,[39m { fileFilter[33m:[39m imageFileFilter }))
+  [31m[1m>[22m[39m[90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m    |[39m                                                                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [36mtry[39m {
+   [90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m467:65[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 465 |[39m   }
+   [90m 466 |[39m
+  [31m[1m>[22m[39m[90m 467 |[39m   [36masync[39m createService(payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m file[33m?[39m[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[33m>[39m {
+   [90m     |[39m                                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 468 |[39m     [36mtry[39m {
+   [90m 469 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+   [90m 470 |[39m       [36mlet[39m parent[33m:[39m [33mServiceMaster[39m [33m=[39m [36mnull[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (60f20ca4b84b88d3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 450 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m28:110[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 26 |[39m   [33m@[39m[33mPermissionAccess[39m([33mSYSTEM_MODULE_CODES[39m[33m.[39m[33mSALES_MANAGEMENT[39m[33m,[39m [33mPERMISSIONS[39m[33m.[39m[33mADD[39m)
+   [90m 27 |[39m   [33m@[39m[33mUseInterceptors[39m([33mFileInterceptor[39m([32m'service_logo'[39m[33m,[39m { fileFilter[33m:[39m imageFileFilter }))
+  [31m[1m>[22m[39m[90m 28 |[39m   [36masync[39m createService([33m@[39m[33mRes[39m() res[33m:[39m [33mResponse[39m[33m,[39m [33m@[39m[33mBody[39m() payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m [33m@[39m[33mUploadedFile[39m() file[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m) {
+   [90m    |[39m                                                                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 29 |[39m     [36mtry[39m {
+   [90m 30 |[39m       [36mconst[39m service [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mcreateService(payload[33m,[39m file)[33m;[39m
+   [90m 31 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m { message[33m:[39m [32m'Service created successfully'[39m[33m,[39m data[33m:[39m service })[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.service.ts:[32m[1m467:65[22m[39m[1m[39m[22m
+[90mTS2694: [39mNamespace 'global.Express' has no exported member 'Multer'.
+  [0m [90m 465 |[39m   }
+   [90m 466 |[39m
+  [31m[1m>[22m[39m[90m 467 |[39m   [36masync[39m createService(payload[33m:[39m [33mCreateServiceDto[39m[33m,[39m file[33m?[39m[33m:[39m [33mExpress[39m[33m.[39m[33mMulter[39m[33m.[39m[33mFile[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mServiceMaster[39m[33m>[39m {
+   [90m     |[39m                                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 468 |[39m     [36mtry[39m {
+   [90m 469 |[39m       [36mlet[39m level [33m=[39m [35m0[39m[33m;[39m
+   [90m 470 |[39m       [36mlet[39m parent[33m:[39m [33mServiceMaster[39m [33m=[39m [36mnull[39m[33m;[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (27a5331d58541719)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 428 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (65f7a49a4b3434cb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m

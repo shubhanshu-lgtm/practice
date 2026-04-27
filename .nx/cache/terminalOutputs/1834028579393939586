@@ -1,0 +1,12 @@
+
+Linting "master-management"...
+[0m[0m
+[0m[4mD:\INTERCERT_IC_ORG_OPMS_BKND\apps\master-management\src\app\lead\lead.service.ts[24m[0m
+[0m  [2m206:20[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m234:35[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m252:20[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[31m[1m✖ 3 problems (3 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+Lint errors found in the listed files.
+

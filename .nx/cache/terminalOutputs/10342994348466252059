@@ -1,0 +1,44 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 450 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/app/lead/lead.controller.ts[39m[22m [1m[32m123:18[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: Identifier 'lead' has already been declared (123:18)
+File was processed with these loaders:
+ * ../../node_modules/ts-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|         try {
+|             const lead = await this.leadService.updateLead(id, payload);
+>             const lead = await this.leadService.updateLead(id, payload);
+|         }
+|         catch ([1m[31merror[39m[22m[1m) {[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m149:13[22m[39m[1m[39m[22m
+[90mTS2451: [39mCannot redeclare block-scoped variable 'lead'.
+  [0m [90m 147 |[39m   ) {
+   [90m 148 |[39m     [36mtry[39m {
+  [31m[1m>[22m[39m[90m 149 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateLead(id[33m,[39m payload)[33m;[39m
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 150 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateLead(id[33m,[39m payload)[33m;[39m
+   [90m 151 |[39m     } [36mcatch[39m (error) {
+   [90m 152 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m150:13[22m[39m[1m[39m[22m
+[90mTS2451: [39mCannot redeclare block-scoped variable 'lead'.
+  [0m [90m 148 |[39m     [36mtry[39m {
+   [90m 149 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateLead(id[33m,[39m payload)[33m;[39m
+  [31m[1m>[22m[39m[90m 150 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateLead(id[33m,[39m payload)[33m;[39m
+   [90m     |[39m             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 151 |[39m     } [36mcatch[39m (error) {
+   [90m 152 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m 153 |[39m     }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m152:53[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'res'. Did you mean 'Res'?
+  [0m [90m 150 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mupdateLead(id[33m,[39m payload)[33m;[39m
+   [90m 151 |[39m     } [36mcatch[39m (error) {
+  [31m[1m>[22m[39m[90m 152 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m
+   [90m     |[39m                                                     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 153 |[39m     }
+   [90m 154 |[39m   }
+   [90m 155 |[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (e45f8d3e7a40dc2b)

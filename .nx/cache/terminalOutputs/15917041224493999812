@@ -1,0 +1,1497 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m89:27[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Project>, plainObject?: DeepPartial<Project>): Project', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Project>, plainObjects?: DeepPartial<Project>[]): Project[]', gave the following error.
+    Argument of type '{ projectCode: string; name: string; department: Department; departmentId: number; lead: Lead; proposal: Proposal; startDate: Date; status: PROJECT_STATUS; }' is not assignable to parameter of type 'DeepPartial<Project>[]'.
+      Object literal may only specify known properties, and 'projectCode' does not exist in type 'DeepPartial<Project>[]'.
+  [0m [90m  87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m  88 |[39m           
+  [31m[1m>[22m[39m[90m  89 |[39m           [36mconst[39m project [33m=[39m manager[33m.[39mcreate([33mProject[39m[33m,[39m {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  90 |[39m             projectCode[33m:[39m projectCode[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  91 |[39m             name[33m:[39m [32m`${service.name} Project - ${lead.enquiryReference || lead.id}`[39m[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  92 |[39m             department[33m:[39m department[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  93 |[39m             departmentId[33m:[39m department[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  94 |[39m             lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  95 |[39m             proposal[33m:[39m proposal[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m             startDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m             status[33m:[39m [33mPROJECT_STATUS[39m[33m.[39m[33mPENDING[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m           })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m
+   [90m 100 |[39m           [36mconst[39m savedProject [33m=[39m [36mawait[39m manager[33m.[39msave([33mProject[39m[33m,[39m project)[33m;[39m
+   [90m 101 |[39m           createdProjects[33m.[39mpush(savedProject)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (428d54874ac1ced7)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m89:27[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Project>, plainObject?: DeepPartial<Project>): Project', gave the following error.
+    Type 'number' is not assignable to type 'string'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Project>, plainObjects?: DeepPartial<Project>[]): Project[]', gave the following error.
+    Argument of type '{ projectCode: string; name: string; department: Department; departmentId: number; lead: Lead; proposal: Proposal; startDate: Date; status: PROJECT_STATUS; }' is not assignable to parameter of type 'DeepPartial<Project>[]'.
+      Object literal may only specify known properties, and 'projectCode' does not exist in type 'DeepPartial<Project>[]'.
+  [0m [90m  87 |[39m           [36mconst[39m projectCode [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mgenerateProjectCode(manager)[33m;[39m
+   [90m  88 |[39m           
+  [31m[1m>[22m[39m[90m  89 |[39m           [36mconst[39m project [33m=[39m manager[33m.[39mcreate([33mProject[39m[33m,[39m {
+   [90m     |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  90 |[39m             projectCode[33m:[39m projectCode[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  91 |[39m             name[33m:[39m [32m`${service.name} Project - ${lead.enquiryReference || lead.id}`[39m[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  92 |[39m             department[33m:[39m department[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  93 |[39m             departmentId[33m:[39m department[33m.[39mid[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  94 |[39m             lead[33m:[39m lead[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  95 |[39m             proposal[33m:[39m proposal[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  96 |[39m             startDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  97 |[39m             status[33m:[39m [33mPROJECT_STATUS[39m[33m.[39m[33mPENDING[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+  [31m[1m>[22m[39m[90m  98 |[39m           })[33m;[39m
+   [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  99 |[39m
+   [90m 100 |[39m           [36mconst[39m savedProject [33m=[39m [36mawait[39m manager[33m.[39msave([33mProject[39m[33m,[39m project)[33m;[39m
+   [90m 101 |[39m           createdProjects[33m.[39mpush(savedProject)[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (70d8b688c5d63ccf)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (1c673951a2a18ee3)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m7 errors[39m[22m (107a412fe11151a9)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 48 |[39m       [90m// Create Acceptance[39m
+   [90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m         leadId[33m:[39m [33mNumber[39m(proposal[33m.[39mleadId)[33m,[39m
+   [90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+webpack compiled with [1m[31m8 errors[39m[22m (53c36ca5f01f4221)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 48 |[39m       [90m// Create Acceptance[39m
+   [90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m         leadId[33m:[39m [33mNumber[39m(proposal[33m.[39mleadId)[33m,[39m
+   [90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (fafee08a03ede2cb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 48 |[39m       [90m// Create Acceptance[39m
+   [90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m         leadId[33m:[39m [33mNumber[39m(proposal[33m.[39mleadId)[33m,[39m
+   [90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (90765c9587a47833)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 48 |[39m       [90m// Create Acceptance[39m
+   [90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m         leadId[33m:[39m [33mNumber[39m(proposal[33m.[39mleadId)[33m,[39m
+   [90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (fd8122c8cf969cb6)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+  [0m [90m 48 |[39m       [90m// Create Acceptance[39m
+   [90m 49 |[39m       [36mconst[39m acceptance [33m=[39m manager[33m.[39mcreate([33mProposalAcceptance[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 50 |[39m         proposalId[33m:[39m dto[33m.[39mproposalId[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m         leadId[33m:[39m [33mNumber[39m(proposal[33m.[39mleadId)[33m,[39m
+   [90m 52 |[39m         awardDate[33m:[39m dto[33m.[39mawardDate[33m,[39m
+   [90m 53 |[39m         poNumber[33m:[39m dto[33m.[39mpoNumber[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.service.ts:[32m[1m115:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 113 |[39m   [36masync[39m getLead(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mLead[39m[33m>[39m {
+   [90m 114 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 115 |[39m       where[33m:[39m { id[33m:[39m id }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 116 |[39m       relations[33m:[39m [[32m'customer'[39m[33m,[39m [32m'leadServices'[39m[33m,[39m [32m'leadServices.service'[39m[33m,[39m [32m'proposals'[39m]
+   [90m 117 |[39m     })[33m;[39m
+   [90m 118 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (ef62dfa595b655af)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m50:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObject?: DeepPartial<ProposalAcceptance>): ProposalAcceptance', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<ProposalAcceptance>, plainObjects?: DeepPartial<ProposalAcceptance>[]): ProposalAcceptance[]', gave the following error.
+    Argument of type '{ proposalId: string; leadId: number; awardDate: Date; poNumber: string; poFileUrl: string; billingNameSameAsCustomer: boolean; billToCompanyName: string; billToAddress: { addressLine1: string; ... 4 more ...; postalCode?: string; }; gstNumber: string; billingEmailIds: string[]; billingContactPerson: { ...; }; raise...' is not assignable to parameter of type 'DeepPartial<ProposalAcceptance>[]'.
+      Object literal may only specify known properties, and 'proposalId' does not exist in type 'DeepPartial<ProposalAcceptance>[]'.
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m9 errors[39m[22m (44484c502cc0bf27)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m dto[33m.[39mleadId[33m.[39mtoString()[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m8 errors[39m[22m (adeb48d017847180)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m22:59[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 20 |[39m   [36masync[39m createProposal(dto[33m:[39m [33mCreateProposalDto[39m)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+  [31m[1m>[22m[39m[90m 22 |[39m       [36mconst[39m lead [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mLead[39m[33m,[39m { where[33m:[39m { id[33m:[39m [33mNumber[39m(dto[33m.[39mleadId) } })[33m;[39m
+   [90m    |[39m                                                           [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 23 |[39m       [36mif[39m ([33m![39mlead) [36mthrow[39m [36mnew[39m [33mNotFoundException[39m([32m'Lead not found'[39m)[33m;[39m
+   [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m26:62[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 24 |[39m
+   [90m 25 |[39m       [90m// Generate Reference[39m
+  [31m[1m>[22m[39m[90m 26 |[39m       [36mconst[39m count [33m=[39m [36mawait[39m manager[33m.[39mcount([33mProposal[39m[33m,[39m { where[33m:[39m { leadId[33m:[39m [33mNumber[39m(dto[33m.[39mleadId) } })[33m;[39m
+   [90m    |[39m                                                              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 27 |[39m       [36mconst[39m seq [33m=[39m [33mString[39m(count [33m+[39m [35m1[39m)[33m.[39mpadStart([35m2[39m[33m,[39m [32m'0'[39m)[33m;[39m
+   [90m 28 |[39m       [36mconst[39m reference [33m=[39m [32m`PROP/${lead.enquiryId}/${seq}`[39m[33m;[39m
+   [90m 29 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m31:9[22m[39m[1m[39m[22m
+[90mTS2769: [39mNo overload matches this call.
+  Overload 1 of 2, '(entityClass: EntityTarget<Proposal>, plainObject?: DeepPartial<Proposal>): Proposal', gave the following error.
+    Type 'string' is not assignable to type 'number'.
+  Overload 2 of 2, '(entityClass: EntityTarget<Proposal>, plainObjects?: DeepPartial<Proposal>[]): Proposal[]', gave the following error.
+    Argument of type '{ leadId: string; proposalReference: string; proposalDate: Date; validUntil: Date; submittedBy: string; subject: string; introduction: string; termsAndConditions: string; status: PROPOSAL_STATUS; }' is not assignable to parameter of type 'DeepPartial<Proposal>[]'.
+      Object literal may only specify known properties, and 'leadId' does not exist in type 'DeepPartial<Proposal>[]'.
+  [0m [90m 29 |[39m
+   [90m 30 |[39m       [36mconst[39m proposal [33m=[39m manager[33m.[39mcreate([33mProposal[39m[33m,[39m {
+  [31m[1m>[22m[39m[90m 31 |[39m         leadId[33m:[39m [33mNumber[39m(dto[33m.[39mleadId)[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 32 |[39m         proposalReference[33m:[39m reference[33m,[39m
+   [90m 33 |[39m         proposalDate[33m:[39m dto[33m.[39mproposalDate[33m,[39m
+   [90m 34 |[39m         validUntil[33m:[39m dto[33m.[39mvalidUntil[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m94:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 92 |[39m   [36masync[39m getProposal(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[33m>[39m {
+   [90m 93 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfindOne({
+  [31m[1m>[22m[39m[90m 94 |[39m       where[33m:[39m { id }[33m,[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 95 |[39m       relations[33m:[39m [[32m'items'[39m[33m,[39m [32m'items.paymentTerms'[39m[33m,[39m [32m'lead'[39m[33m,[39m [32m'items.leadService'[39m[33m,[39m [32m'items.leadService.service'[39m]
+   [90m 96 |[39m     })[33m;[39m
+   [90m 97 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m8 errors[39m[22m (fff0d0c660f06633)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal(id)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.service.ts:[32m[1m101:16[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m  99 |[39m   [36masync[39m getProposalsByLead(leadId[33m:[39m number)[33m:[39m [33mPromise[39m[33m<[39m[33mProposal[39m[][33m>[39m {
+   [90m 100 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalRepo[33m.[39mfind({
+  [31m[1m>[22m[39m[90m 101 |[39m       where[33m:[39m { leadId }[33m,[39m
+   [90m     |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 102 |[39m       order[33m:[39m { createdAt[33m:[39m [32m'DESC'[39m }
+   [90m 103 |[39m     })[33m;[39m
+   [90m 104 |[39m   }[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (8609e337af8f2b75)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal(id)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m21:52[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)
+   [90m 20 |[39m   findByLead([33m@[39m[33mParam[39m([32m'leadId'[39m) leadId[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposalsByLead(leadId)[33m;[39m
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 22 |[39m   }
+   [90m 23 |[39m }
+   [90m 24 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/repositories/proposal-item.repository.ts:[32m[1m24:41[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 22 |[39m
+   [90m 23 |[39m   [36masync[39m findOne(id[33m:[39m string)[33m:[39m [33mPromise[39m[33m<[39m[33mProposalItem[39m[33m>[39m {
+  [31m[1m>[22m[39m[90m 24 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mrepo[33m.[39mfindOne({ where[33m:[39m { id[33m:[39m [33mNumber[39m(id)[33m.[39mtoString() } })[33m;[39m
+   [90m    |[39m                                         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 25 |[39m   }
+   [90m 26 |[39m
+   [90m 27 |[39m   [36masync[39m update(id[33m:[39m string[33m,[39m item[33m:[39m [33mPartial[39m[33m<[39m[33mProposalItem[39m[33m>[39m)[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (c913df93b4957714)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal(id)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m21:52[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)
+   [90m 20 |[39m   findByLead([33m@[39m[33mParam[39m([32m'leadId'[39m) leadId[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposalsByLead(leadId)[33m;[39m
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 22 |[39m   }
+   [90m 23 |[39m }
+   [90m 24 |[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (d12588abc585acd8)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/closure/closure.service.ts:[32m[1m32:18[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'string' is not assignable to type 'number | FindOperator<number>'.
+  [0m [90m 30 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mdataSource[33m.[39mtransaction([36masync[39m (manager) [33m=>[39m {
+   [90m 31 |[39m       [36mconst[39m proposal [33m=[39m [36mawait[39m manager[33m.[39mfindOne([33mProposal[39m[33m,[39m { 
+  [31m[1m>[22m[39m[90m 32 |[39m         where[33m:[39m { id[33m:[39m dto[33m.[39mproposalId }[33m,[39m 
+   [90m    |[39m                  [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 33 |[39m         relations[33m:[39m [
+   [90m 34 |[39m           [32m'lead'[39m[33m,[39m 
+   [90m 35 |[39m           [32m'items'[39m[33m,[39m [0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead(id)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal(id)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m21:52[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)
+   [90m 20 |[39m   findByLead([33m@[39m[33mParam[39m([32m'leadId'[39m) leadId[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposalsByLead(leadId)[33m;[39m
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 22 |[39m   }
+   [90m 23 |[39m }
+   [90m 24 |[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (d12588abc585acd8)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/lead/lead.controller.ts:[32m[1m18:37[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 16 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 17 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetLead([33m+[39mid)[33m;[39m
+   [90m    |[39m                                     [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m   }
+   [90m 20 |[39m
+   [90m 21 |[39m   [33m@[39m[33mPatch[39m([32m'service/:id'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal(id)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m21:52[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)
+   [90m 20 |[39m   findByLead([33m@[39m[33mParam[39m([32m'leadId'[39m) leadId[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposalsByLead(leadId)[33m;[39m
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 22 |[39m   }
+   [90m 23 |[39m }
+   [90m 24 |[39m[0m
+
+webpack compiled with [1m[31m3 errors[39m[22m (2fd45392d7074e96)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m16:45[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 14 |[39m   [33m@[39m[33mGet[39m([32m':id'[39m)
+   [90m 15 |[39m   findOne([33m@[39m[33mParam[39m([32m'id'[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 16 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposal([33m+[39mid)[33m;[39m
+   [90m    |[39m                                             [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 17 |[39m   }
+   [90m 18 |[39m
+   [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)[0m
+
+[1m[31mERROR[39m[22m in [1m./apps/sales/src/app/proposal/proposal.controller.ts:[32m[1m21:52[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 19 |[39m   [33m@[39m[33mGet[39m([32m'lead/:leadId'[39m)
+   [90m 20 |[39m   findByLead([33m@[39m[33mParam[39m([32m'leadId'[39m) leadId[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 21 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mproposalService[33m.[39mgetProposalsByLead([33m+[39mleadId)[33m;[39m
+   [90m    |[39m                                                    [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 22 |[39m   }
+   [90m 23 |[39m }
+   [90m 24 |[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (3426346c9802243d)
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d31b7ce5164cdca1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 202 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'SessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m65:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m
+   [90m 68 |[39m [33m@[39m[33mModule[39m({})[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (cfd33be419cbb2eb)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 242 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'SessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m65:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 63 |[39m     [33mSessionRepository[39m[33m,[39m
+   [90m 64 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 65 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 66 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 67 |[39m
+   [90m 68 |[39m [33m@[39m[33mModule[39m({})[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (626aac2dea72327a)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 242 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m54:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'UserRepository'.
+  [0m [90m 52 |[39m
+   [90m 53 |[39m [36mimport[39m {
+  [31m[1m>[22m[39m[90m 54 |[39m     [33mUserRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m     [33mDepartmentRepository[39m[33m,[39m
+   [90m 56 |[39m     [33mTeamRepository[39m[33m,[39m
+   [90m 57 |[39m     [33mSystemModuleRepository[39m[33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m
+   [90m 67 |[39m [33m@[39m[33mModule[39m({})[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m5 errors[39m[22m (e3b21992fb305333)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 242 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m63:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'LoginSessionRepository'.
+  [0m [90m 61 |[39m     [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m64:5[22m[39m[1m[39m[22m
+[90mTS2305: [39mModule '"./repositories"' has no exported member 'PermissionManagerRepository'.
+  [0m [90m 62 |[39m     [33mProjectRepository[39m[33m,[39m
+   [90m 63 |[39m     [33mLoginSessionRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 64 |[39m     [33mPermissionManagerRepository[39m
+   [90m    |[39m     [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m } [36mfrom[39m [32m'./repositories'[39m[33m;[39m
+   [90m 66 |[39m
+   [90m 67 |[39m [33m@[39m[33mModule[39m({})[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m4 errors[39m[22m (0b2eb16dd5107b48)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 242 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m216:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 214 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 215 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 216 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 217 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 218 |[39m                 [33mPermissionManagerRepository[39m
+   [90m 219 |[39m             ][33m,[39m[0m
+
+[1m[31mERROR[39m[22m in [1m./libs/database/src/database.module.ts:[32m[1m230:17[22m[39m[1m[39m[22m
+[90mTS2552: [39mCannot find name 'SessionRepository'. Did you mean 'LoginSessionRepository'?
+  [0m [90m 228 |[39m                 [33mProposalAcceptanceRepository[39m[33m,[39m
+   [90m 229 |[39m                 [33mProjectRepository[39m[33m,[39m
+  [31m[1m>[22m[39m[90m 230 |[39m                 [33mSessionRepository[39m[33m,[39m
+   [90m     |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 231 |[39m                 [33mLoginSessionRepository[39m[33m,[39m
+   [90m 232 |[39m                 [33mPermissionManagerRepository[39m[33m,[39m
+   [90m 233 |[39m                 [33mTypeOrmModule[39m [90m// Export TypeOrmModule for access to @InjectRepository[39m[0m
+
+webpack compiled with [1m[31m2 errors[39m[22m (7031069b4fc2d327)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 242 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1a0cf1b3a5359170)
+[1m[31mDebugger listening on ws://localhost:9229/006a3b7e-cd4a-4496-a258-045f7b1cf3f2[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/006a3b7e-cd4a-4496-a258-045f7b1cf3f2[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28720  - [39m[31m06/02/2026, 3:18:30 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the ProposalPaymentTermRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the ProposalPaymentTermRepository (?). Please make sure that the argument DataSource at index [0] is available in the TypeOrmModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is TypeOrmModule a valid NestJS module?[39m[22m
+[1m[31m- If DataSource is a provider, is it part of the current TypeOrmModule?[39m[22m
+[1m[31m- If DataSource is exported from a separate @Module, is that module imported within TypeOrmModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing DataSource */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 5)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+

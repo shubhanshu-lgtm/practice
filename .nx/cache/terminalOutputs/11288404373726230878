@@ -1,0 +1,90 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 552 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/master-management/src/app/lead/lead.controller.ts:[32m[1m50:60[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'ServiceMaster[]' is not assignable to parameter of type 'ApiOK'.
+  Property 'message' is missing in type 'ServiceMaster[]' but required in type 'ApiOK'.
+  [0m [90m 48 |[39m     [36mtry[39m {
+   [90m 49 |[39m       [36mconst[39m result [33m=[39m [36mawait[39m [36mthis[39m[33m.[39mleadService[33m.[39mgetCategoryAllList(name)[33m;[39m
+  [31m[1m>[22m[39m[90m 50 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendSuccessResponse(res[33m,[39m result)[33m;[39m
+   [90m    |[39m                                                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 51 |[39m     } [36mcatch[39m (error) {
+   [90m 52 |[39m       console[33m.[39mlog([32m'Internal Server Error'[39m[33m,[39m error)[33m;[39m
+   [90m 53 |[39m       [36mreturn[39m [36mthis[39m[33m.[39mresponseHandler[33m.[39msendErrorResponse(res[33m,[39m error)[33m;[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (d3a142464af1b1f1)
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 552 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (28c573dfdb6caeeb)
+[1m[31mDebugger listening on ws://localhost:9229/06606472-fea6-4994-8761-06b88f2274f1[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/06606472-fea6-4994-8761-06b88f2274f1[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 9972  - [39m[31m25/02/2026, 4:06:02 pm [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31m[31mNest can't resolve dependencies of the LeadService (LeadRepository, LeadContactRepository, LeadAddressRepository, CustomerRepository, CustomerAddressRepository, CustomerContactRepository, UserRepository, ServiceMasterRepository, LeadServiceRepository, LeadFollowUpRepository, AuditLogRepository, PermissionManagerRepository, ServiceDeliverableRepository, ?). Please make sure that the argument S3FileService at index [13] is available in the LeadModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is LeadModule a valid NestJS module?[39m[22m
+[1m[31m- If S3FileService is a provider, is it part of the current LeadModule?[39m[22m
+[1m[31m- If S3FileService is exported from a separate @Module, is that module imported within LeadModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing S3FileService */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: Nest can't resolve dependencies of the LeadService (LeadRepository, LeadContactRepository, LeadAddressRepository, CustomerRepository, CustomerAddressRepository, CustomerContactRepository, UserRepository, ServiceMasterRepository, LeadServiceRepository, LeadFollowUpRepository, AuditLogRepository, PermissionManagerRepository, ServiceDeliverableRepository, ?). Please make sure that the argument S3FileService at index [13] is available in the LeadModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is LeadModule a valid NestJS module?[39m[22m
+[1m[31m- If S3FileService is a provider, is it part of the current LeadModule?[39m[22m
+[1m[31m- If S3FileService is exported from a separate @Module, is that module imported within LeadModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing S3FileService */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:262:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m[22m
+[1m[31m    at Injector.resolveComponentInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:215:33)[39m[22m
+[1m[31m    at resolveParam (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:129:38)[39m[22m
+[1m[31m    at async Promise.all (index 13)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:144:27)[39m[22m
+[1m[31m    at Injector.loadInstance (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:70:13)[39m[22m
+[1m[31m    at Injector.loadProvider (D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\injector.js:98:9)[39m[22m
+[1m[31m    at D:\INTERCERT_IC_ORG_OPMS_BKND\node_modules\@nestjs\core\injector\instance-loader.js:56:13[39m[22m
+[1m[31m    at async Promise.all (index 3)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 552 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (fa4e710e07d1d30e)
+[1m[31mDebugger listening on ws://localhost:9229/97ee914c-50e9-4485-86c9-1579cd7dbba9[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/97ee914c-50e9-4485-86c9-1579cd7dbba9[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:15824) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 552 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (ea838e9abce2d00b)
+[1m[31mDebugger listening on ws://localhost:9229/19628d2f-5ffe-4833-b256-a21deb0d5729[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/19628d2f-5ffe-4833-b256-a21deb0d5729[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m(node:19536) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.[39m[22m
+[1m[31m SDK releases are limited to address critical bug fixes and security issues only.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPlease migrate your code to use AWS SDK for JavaScript (v3).[39m[22m
+[1m[31mFor more information, check the blog post at https://a.co/cUPnyil[39m[22m
+[1m[31m(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
+[1m[31mError Response:  {"statusCode":401,"message":"NOT_AUTHORIZED","extraError":"","name":""}[39m[22m
+[1m[31m[39m[22m
